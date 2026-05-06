@@ -27,6 +27,19 @@ public class CardEncyclopediaEditor : Editor
             script.Generate(_selectedIndex);
         }
 
+        if (GUILayout.Button("選択カード削除"))
+        {
+        #if UNITY_EDITOR
+            if (!EditorUtility.DisplayDialog("確認", "削除する？", "はい", "いいえ"))
+            {
+                return;
+            }
+        #endif
+
+            Undo.RegisterFullObjectHierarchyUndo(script.gameObject, "Remove Cards");
+            script.Clear(_selectedIndex);
+        }
+
         GUILayout.Space(10);
 
         if (GUILayout.Button("全カード生成"))

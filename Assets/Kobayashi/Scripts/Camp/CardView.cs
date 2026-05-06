@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CardView : MonoBehaviour
 {
+    public int ID { get; private set; }
+
     [Header("-----参照-----")]
     [SerializeField, Tooltip("名前")] private TextMeshProUGUI _name;
     [SerializeField, Tooltip("コスト")] private TextMeshProUGUI _cost;
@@ -12,6 +14,7 @@ public class CardView : MonoBehaviour
 
     public void SetCardData(CardData data)
     {
+        ID = data.CardID;
         _name.text = data.Name;
         _cost.text = data.Cost.ToString();
         _durability.text = data.MaxTimes.ToString();
