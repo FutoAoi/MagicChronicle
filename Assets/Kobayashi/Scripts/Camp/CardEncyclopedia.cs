@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardEncyclopedia : MonoBehaviour
 {
@@ -8,10 +9,15 @@ public class CardEncyclopedia : MonoBehaviour
 
     [Header("-----参照-----")]
     [SerializeField, Tooltip("カードデータベース")] private CardDataBase _cardDatas;
-    [SerializeField, Tooltip("デカ表示カード")] private GameObject _bigCard;
-    [SerializeField, Tooltip("説明欄")] private TextMeshProUGUI _description;
     [SerializeField, Tooltip("カードプレハブ")] private GameObject _prefab;
     [SerializeField, Tooltip("生成場所")] private Transform _parent;
+
+    [Header("-----情報更新先-----")]
+    [SerializeField, Tooltip("名前")] private TextMeshProUGUI _name;
+    [SerializeField, Tooltip("コスト")] private TextMeshProUGUI _cost;
+    [SerializeField, Tooltip("耐久値")] private TextMeshProUGUI _times;
+    [SerializeField, Tooltip("イメージ")] private Image _image;
+    [SerializeField, Tooltip("説明欄")] private TextMeshProUGUI _description;
 
     [SerializeField] private bool _usePool = true;
 
@@ -36,6 +42,18 @@ public class CardEncyclopedia : MonoBehaviour
         }
     #endif
     }
+
+    public void UpdateBigCard(int id)
+    {
+        CardData data = _cardDatas.GetCardData(id);
+
+        _name.text = data.Name;
+        _cost.text = data.Cost.ToString();
+        _times.text = data.MaxTimes.ToString();
+        _description.text = data.Description;
+        _image.sprite = data.Sprite;
+    }
+
     /// <summary>
     /// 指定カードの生成
     /// </summary>

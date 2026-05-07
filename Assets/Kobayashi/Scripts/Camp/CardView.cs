@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardView : MonoBehaviour
+public class CardView : MonoBehaviour, IPointerEnterHandler
 {
-    public int ID { get; private set; }
+    public int ID => _id;
 
     [Header("-----éQè∆-----")]
     [SerializeField, Tooltip("ñºëO")] private TextMeshProUGUI _name;
@@ -12,12 +13,22 @@ public class CardView : MonoBehaviour
     [SerializeField, Tooltip("ëœãvíl")] private TextMeshProUGUI _durability;
     [SerializeField, Tooltip("ë}äG")] private Image _img;
 
+    [SerializeField] private int _id;
+    private CardEncyclopedia _encyclopedia;
     public void SetCardData(CardData data)
     {
-        ID = data.CardID;
+        _id = data.CardID;
         _name.text = data.Name;
         _cost.text = data.Cost.ToString();
         _durability.text = data.MaxTimes.ToString();
         _img.sprite = data.Sprite;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_encyclopedia == null)
+            _encyclopedia = GetComponentInParent<CardEncyclopedia>();
+
+        _encyclopedia.UpdateBigCard(ID);
     }
 }
