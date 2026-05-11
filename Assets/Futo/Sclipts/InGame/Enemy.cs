@@ -16,25 +16,13 @@ public class Enemy : CharacterBase
     [SerializeField, Tooltip("特殊攻撃ターンの表示")] private TextMeshProUGUI _specialTMP;
     [SerializeField, Tooltip("エネミーの攻撃力")] private int _enemyAP;
     [SerializeField, Tooltip("エネミーの攻撃までのターン数")] private int _enemyAT;
-
-    [Header("HPアニメーション設定")]
-    [SerializeField, Tooltip("背景イメージ")] private GameObject _backGround;
-    [SerializeField, Tooltip("メインバー")] private Image _mainBar;
-    [SerializeField, Tooltip("ゴーストバー")] private Image _ghostBar;
-    [SerializeField, Tooltip("メインバーが減るスピード")] private float _mainSpeed = 0.2f;
-    [SerializeField, Tooltip("ゴーストバーが動くまでの時間")] private float _ghostDelay = 0.5f;
-    [SerializeField, Tooltip("ゴーストバーが動くスピード")] private float _ghostSpeed = 0.5f;
-    [SerializeField, Tooltip("エネミーのHPテキスト")] private TMP_Text _enemyHpText;
+    [SerializeField] private HpBarContller _hpBarContller;
 
     private EnemyData _enemy;
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
-    private bool _isDead = false;
     private RectTransform _rect;
     private int _currentSAT;
-    private float _ghostHp;
-    private float _hpRatio;
-    private Tween _ghostTween;
 
     /// <summary>
     /// エネミーにステータスをセット
@@ -58,18 +46,16 @@ public class Enemy : CharacterBase
         _rect = GetComponent<RectTransform>();
         _enemyImage.sprite = _enemy.Sprite;
         _attackTurnTMP.text = _enemyAT.ToString();
-        _hpRatio = (float)CurrentHP / MaxHP;
-        _mainBar.fillAmount = _hpRatio;
-        _ghostBar.fillAmount = _hpRatio;
-        _enemyHpText.text = $"{CurrentHP}/{MaxHP}";
         if (enemyID == 0)
         {
             _enemyImage.color = new Color(1f,1f,1f,0f);
             _attackTurnTMP.text = null;
             _specialTMP.text = null;
-            _enemyHpText.text = null;
-            _isDead = true;
-            _backGround.SetActive(false);
+            IsDead = true;
+        }
+        else
+        {
+           _hpBarContller.ShowUI(CurrentHP, MaxHP);
         }
         Debug.Log("Enemy" + $"{CurrentHP}");
     }
@@ -80,15 +66,8 @@ public class Enemy : CharacterBase
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
-        _hpRatio = (float)CurrentHP / MaxHP;
         DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
-        _enemyHpText.text = $"{CurrentHP}/{MaxHP}";
-        _mainBar.DOFillAmount(_hpRatio, _mainSpeed);
-        if(_ghostTween != null && _ghostTween.IsActive())
-        {
-            _ghostTween.Kill();
-        }
-        _ghostTween = _ghostBar.DOFillAmount(_hpRatio, _ghostSpeed).SetDelay(_ghostDelay);
+        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
 
     /// <summary>
@@ -97,7 +76,7 @@ public class Enemy : CharacterBase
     /// <param name="reductionTurn"></param>
     public void ContractionAttackTurn(int reductionTurn)
     {
-        if (_isDead)return;
+        if (IsDead)return;
         _enemyAT -= reductionTurn;
         _attackTurnTMP.text = _enemyAT.ToString();
         if (_enemy.IsSpecialAttack)
@@ -124,7 +103,7 @@ public class Enemy : CharacterBase
     /// <returns></returns>
     public IEnumerator BuffCast()
     {
-        if (_enemy.CanBuff && !_isDead)
+        if (_enemy.CanBuff && !IsDead)
         {
             foreach (IBuff buff in _enemy.Buffs)
             {
@@ -140,7 +119,7 @@ public class Enemy : CharacterBase
     /// <returns></returns>
     public IEnumerator SpecialAttack()
     {
-        if (_enemy.CanBoardInterference && !_isDead)
+        if (_enemy.CanBoardInterference && !IsDead)
         {
             StageData stageData = _gameManager.StageManager.Stage;
 
@@ -187,7 +166,7 @@ public class Enemy : CharacterBase
     {
         _isAttackTurn = false;
         _isSpecialAttack = false;
-        if(_isDead)return ;
+        if(IsDead)return ;
         _attackTurnTMP.text = _enemyAT.ToString();
         if(_enemy.IsSpecialAttack)
             _specialTMP.text = _currentSAT.ToString();
@@ -202,8 +181,6 @@ public class Enemy : CharacterBase
         yield return null;
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
-        _enemyHpText.text = null;
-        _backGround.SetActive(false);
         _enemyImage.DOFade(0f,0.1f);
 
         _gameManager.Player.GetMoney(_enemy.RandomReword());
@@ -211,7 +188,11 @@ public class Enemy : CharacterBase
 
     public override void Dead()
     {
-        _isDead = true;
-        _mainBar.DOFillAmount(0f, _mainSpeed).OnComplete(() => StartCoroutine(DeadIEnumerator()));
+        _hpBarContller.HideUI();
+        _attackTurnTMP.text = null;
+        _specialTMP.text = null;
+        _enemyImage.DOFade(0f, 1f);
+
+        _gameManager.Player.GetMoney(_enemy.RandomReword());
     }
 }

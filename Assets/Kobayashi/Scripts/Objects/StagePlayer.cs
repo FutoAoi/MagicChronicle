@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class StagePlayer : CharacterBase
@@ -6,22 +5,29 @@ public class StagePlayer : CharacterBase
     public int MaxCost => _maxCost;
     public int CurrentCost => _currentCost;
     public int Money => _money;
-    private int _money = 0;
 
     [SerializeField] private int _maxCost = 8;
+    [SerializeField] private HpBarContller _hpBarContller;
+    private int _money = 0;
     private int _currentCost;
+    private RectTransform _rect;
 
     protected override void Start()
     {
         base.Start();
 
         _gameManager.Player = this;
+        SetStatus(10, 10);
+        _rect = GetComponent<RectTransform>();
+        _hpBarContller.ShowUI(CurrentHP, MaxHP);
         Debug.Log("Player" + $"{CurrentHP}");
     }
 
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
+        DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
+        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
 
     /// <summary>
@@ -32,6 +38,7 @@ public class StagePlayer : CharacterBase
     {
         _maxCost += plus;
     }
+
     /// <summary>
     /// コストの初期化
     /// </summary>
@@ -39,6 +46,7 @@ public class StagePlayer : CharacterBase
     {
         _currentCost = _maxCost;
     }
+
     /// <summary>
     /// コスト消費できるかどうか
     /// </summary>
@@ -48,6 +56,7 @@ public class StagePlayer : CharacterBase
     {
         return _currentCost >= cost;
     }
+
     /// <summary>
     /// コストの更新
     /// </summary>
@@ -64,6 +73,7 @@ public class StagePlayer : CharacterBase
             _currentCost += cost;
         }
     }
+
     /// <summary>
     /// お金を支払う
     /// </summary>
@@ -78,6 +88,7 @@ public class StagePlayer : CharacterBase
         }
         _money -= pay;
     }
+
     /// <summary>
     /// お金を手に入れる
     /// </summary>

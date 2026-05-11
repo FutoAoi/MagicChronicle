@@ -43,7 +43,10 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         _generateMapData = MapGenerator.GenerateMap(_mapData);
         _fadeManager = FadeManager.Instance;
-        Player.SetStatus(10, 10);
+        if(Player != null )
+        {
+            Player.SetStatus(10, 10);
+        }
     }
 
     private void Awake()
