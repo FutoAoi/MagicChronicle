@@ -161,6 +161,10 @@ public class GameManager : MonoBehaviour
             await SceneManager.LoadSceneAsync($"{sceneType}");
             _currentScene = sceneType;
             _fadeManager.FadePanel(true);
+            if(sceneType == SceneType.TitleScene)
+            {
+                InitializeBool();
+            }
         });
     }
 
