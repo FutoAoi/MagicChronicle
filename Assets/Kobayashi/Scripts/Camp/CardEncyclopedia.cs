@@ -23,24 +23,28 @@ public class CardEncyclopedia : MonoBehaviour
 
     private List<CardData> _currentList = new();
     private List<CardView> _pool = new();
-    private int _poolSize;
 
     private void Awake()
     {
-        _poolSize = _cardDatas.Cards.Count;
-        for (int i = 0; i < _poolSize; i++)
-        {
-            GameObject obj = Instantiate(_prefab, _parent);
-            obj.SetActive(false);
-            _pool.Add(obj.GetComponent<CardView>());
-        }
+        InitializePool();
+    }
+    /// <summary>
+    /// Hierarchy上のCardViewをPool化
+    /// </summary>
+    private void InitializePool()
+    {
+        _pool.Clear();
 
-    #if UNITY_EDITOR
-        if (!Application.isPlaying)
+        for (int i = 0; i < _parent.childCount; i++)
         {
-            _usePool = false;
+            CardView view = _parent.GetChild(i).GetComponent<CardView>();
+
+            if (view != null)
+            {
+                //view.gameObject.SetActive(false);
+                _pool.Add(view);
+            }
         }
-    #endif
     }
 
     public void UpdateBigCard(int id)
@@ -58,25 +62,25 @@ public class CardEncyclopedia : MonoBehaviour
     /// 指定カードの生成
     /// </summary>
     /// <param name="index">データベース内の順番から指定</param>
-    public void Generate(int index)
+    public void Generate(CardData data)
     {
-        _currentList.Add(_cardDatas.Cards[index]);
-        Redraw();
+        // 重複追加防止
+        if (_currentList.Contains(data)) return;
+
+        GameObject obj = Instantiate(_prefab, _parent);
+        obj.GetComponent<CardView>().SetCardData(data);
+        _currentList.Add(data);
     }
     /// <summary>
     /// 指定のカードの削除
     /// </summary>
     /// <param name="index">データベース内の順番から指定</param>
-    public void Clear(int index)
+    public void Clear(CardData data)
     {
-        int id = _cardDatas.Cards[index].CardID;
-
-        foreach (CardView view in _pool)
+        if (_currentList.Contains(data))
         {
-            if (view != null && view.ID == id)
-            {
-                view.gameObject.SetActive(false);
-            }
+            DestroyImmediate(_parent.GetChild(_currentList.IndexOf(data)).gameObject);
+            _currentList.Remove(data);
         }
     }
     /// <summary>
@@ -84,60 +88,44 @@ public class CardEncyclopedia : MonoBehaviour
     /// </summary>
     public void GenerateAll()
     {
-        _currentList = new List<CardData>(_cardDatas.Cards);
-        Redraw();
+        ClearAll();
+        for(int i = 0; i < _cardDatas.Cards.Count; i++)
+        {
+            Generate(_cardDatas.Cards[i]);
+        }
     }
     /// <summary>
     /// カードをすべて削除
     /// </summary>
     public void ClearAll()
     {
-    #if UNITY_EDITOR
-        if (!_usePool)
+        for(int i = _currentList.Count - 1; i >= 0; i--)
         {
-            for (int i = _parent.childCount - 1; i >= 0; i--)
-            {
-                DestroyImmediate(_parent.GetChild(i).gameObject);
-            }
-            return;
+            Clear(_currentList[i]);
         }
-    #endif
-
-        foreach (var view in _pool)
-        {
-            if (view != null)
-            {
-                view.gameObject.SetActive(false);
-            }
-        }
+        _currentList.Clear();
     }
 
-    public void RefreshAll()
+    public CardData GetCardData(int index)
     {
-        _currentList = new List<CardData>(_cardDatas.Cards);
-        Redraw();
+        return _cardDatas.Cards[index];
     }
 
-    private void RedrawRuntime()
+    /// <summary>
+    /// 再描画処理
+    /// </summary>
+    private void Redraw()
     {
-        // 壊れた参照除去
-        _pool.RemoveAll(v => v == null);
-
-        // 足りない分生成
-        while (_pool.Count < _currentList.Count)
-        {
-            GameObject obj = Instantiate(_prefab, _parent);
-            obj.SetActive(false);
-            _pool.Add(obj.GetComponent<CardView>());
-        }
-
-        // 更新
         for (int i = 0; i < _pool.Count; i++)
         {
             if (i < _currentList.Count)
             {
                 _pool[i].gameObject.SetActive(true);
+
                 _pool[i].SetCardData(_currentList[i]);
+
+                // 並び順更新
+                _pool[i].transform.SetSiblingIndex(i);
             }
             else
             {
@@ -145,49 +133,34 @@ public class CardEncyclopedia : MonoBehaviour
             }
         }
     }
-    private void RedrawEditor()
-    {
-        // 全削除
-        for (int i = _parent.childCount - 1; i >= 0; i--)
-        {
-            DestroyImmediate(_parent.GetChild(i).gameObject);
-        }
-
-        // 生成
-        for (int i = 0; i < _currentList.Count; i++)
-        {
-            GameObject obj = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(_prefab);
-            obj.transform.SetParent(_parent, false);
-
-            obj.GetComponent<CardView>().SetCardData(_currentList[i]);
-        }
-    }
-    /// <summary>
-    /// 再描画処理
-    /// </summary>
-    private void Redraw()
-    {
-    #if UNITY_EDITOR
-        if (!_usePool)
-        {
-            RedrawEditor();
-            return;
-        }
-    #endif
-
-        RedrawRuntime();
-    }
     public void FilterByCost(int cost)
     {
-        _currentList = _cardDatas.Cards.FindAll(c => c.Cost == cost);
+        _currentList.Clear();
+
+        foreach (CardData card in _cardDatas.Cards)
+        {
+            if (card.Cost == cost)
+            {
+                _currentList.Add(card);
+            }
+        }
+
         Redraw();
     }
 
     public void FilterByName(string text)
     {
-        _currentList = _cardDatas.Cards.FindAll(c =>
-            c.Name.ToLower().Contains(text.ToLower())
-        );
+        _currentList.Clear();
+
+        text = text.ToLower();
+
+        foreach (CardData card in _cardDatas.Cards)
+        {
+            if (card.Name.ToLower().Contains(text))
+            {
+                _currentList.Add(card);
+            }
+        }
 
         Redraw();
     }
