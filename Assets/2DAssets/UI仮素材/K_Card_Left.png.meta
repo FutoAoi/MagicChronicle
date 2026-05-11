@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 17e195eba4d113242828d788e39c7430
+guid: 055313ab1767a2a40879625def148b2f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1285805364908484086
-    second: IMG_9379_0
+      213: 980672637456409083
+    second: K_Card_Left_0
+  - first:
+      213: -889820001713184685
+    second: K_Card_Left_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_9379_0
+      name: K_Card_Left_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 20
-        width: 258
-        height: 258
+        x: 4
+        y: 434
+        width: 90
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f569a9ba2918d110800000000000000
-      internalID: 1285805364908484086
+      spriteID: bf1e884619c0c9d00800000000000000
+      internalID: 980672637456409083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: K_Card_Left_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 99
+        width: 801
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35029d34c69b6a3f0800000000000000
+      internalID: -889820001713184685
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_9379_0: 1285805364908484086
+      K_Card_Left_0: 980672637456409083
+      K_Card_Left_1: -889820001713184685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

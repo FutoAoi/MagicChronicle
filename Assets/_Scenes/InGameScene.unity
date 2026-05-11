@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 562307298181425329, guid: 7fc0f5d9ca72a83428a9ab1156881abe, type: 3}
+  m_Sprite: {fileID: -5434460701321000746, guid: cac863d1dfe6ff54b80c0fec53507dee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 551759326}
   - component: {fileID: 551759325}
   m_Layer: 5
-  m_Name: '[PNL]EnemyArea'
+  m_Name: '[PNL]ChracterArea'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

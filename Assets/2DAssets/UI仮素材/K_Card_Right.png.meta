@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 3c377ca8f35e3834293fa9a72ff5effc
+guid: 2f5e10d5528da124e88444a757f8f063
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3390651397970547553
-    second: 7c7e49c21895cc9e_0
+      213: 7635631149677068612
+    second: K_Card_Right_0
+  - first:
+      213: 9086063429243526989
+    second: K_Card_Right_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 7c7e49c21895cc9e_0
+      name: K_Card_Right_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1103
+        x: 113
+        y: 99
+        width: 801
+        height: 767
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16357356b730e0f20800000000000000
-      internalID: 3390651397970547553
+      spriteID: 441c868431637f960800000000000000
+      internalID: 7635631149677068612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: K_Card_Right_1
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 434
+        width: 90
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f5ab28c8e281e70800000000000000
+      internalID: 9086063429243526989
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      7c7e49c21895cc9e_0: 3390651397970547553
+      K_Card_Right_0: 7635631149677068612
+      K_Card_Right_1: 9086063429243526989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
