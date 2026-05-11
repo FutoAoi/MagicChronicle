@@ -40,7 +40,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     public bool _isFinishCutIn = false;
 
     private GameManager _gameManager;
-    private StagePlayer _stagePlayer;
+    [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;
     private RewardManager _rewardManager;
     private DescriptionPanel _description;
@@ -66,7 +66,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _text = _enemyAttackPanel.GetComponentInChildren<TextMeshProUGUI>();
         _panelimg = _enemyAttackPanel.GetComponent<Image>();
         _panelRectTr = _enemyAttackPanel.GetComponent<RectTransform>();
-        _stagePlayer = _gameManager.Player;
+        //_stagePlayer = _gameManager.Player;
         _defaultColor = _panelimg.color;
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
@@ -200,6 +200,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void SetupCostText()
     {
+        if (_stagePlayer == null) Debug.Log("playerinai");
         _currentNumber = _stagePlayer.MaxCost;
         _costText.text = _stagePlayer.MaxCost.ToString();
         _maxCostText.text = _stagePlayer.MaxCost.ToString();

@@ -69,8 +69,8 @@ public class StageManager : MonoBehaviour
 
         for (int i = 0; i < _stage.Height; i++)
         {
-            _enemy = Instantiate(_enemySlot, Vector3.zero, Quaternion.identity, _enemyParent);
-            _enemyList.Add(_enemy.GetComponent<Enemy>());
+            //_enemy = Instantiate(_enemySlot, Vector3.zero, Quaternion.identity, _enemyParent);
+            //_enemyList.Add(_enemy.GetComponent<Enemy>());
 
             _button = Instantiate(_attackPointButton, Vector3.zero, Quaternion.identity, _serectPanel.transform);
             AttackPointSelectButton attackButton = _button.GetComponent<AttackPointSelectButton>();

@@ -162,16 +162,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2711431319949609011}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8826331207823016317}
+  m_Father: {fileID: 1021266846593026903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: -0.23000813}
   m_SizeDelta: {x: 102.2, y: 26.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8144870352862104812
@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 6151127739712220230}
   - component: {fileID: 4944544609988709223}
   - component: {fileID: -2842366870865149502}
+  - component: {fileID: 1985735508438076980}
   m_Layer: 5
   m_Name: '[IMG]Enemy'
   m_TagString: Untagged
@@ -310,7 +311,6 @@ RectTransform:
   - {fileID: 3648499854907669247}
   - {fileID: 806710586721202528}
   - {fileID: 1021266846593026903}
-  - {fileID: 9056295267812894156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -368,19 +368,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894a0c1dd83cc554881c873834ff5c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  IsDead: 0
   _enemyImage: {fileID: 4944544609988709223}
   _attackTurnTMP: {fileID: 1027000069510636074}
   _specialTMP: {fileID: 6544005495104867096}
-  _enemyHP: 0
   _enemyAP: 0
   _enemyAT: 0
+  _hpBarContller: {fileID: 1985735508438076980}
+--- !u!114 &1985735508438076980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407070511455606843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462e5584093f2f84b9b3ec65fd9e966d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HpBarContllor
+  _mainSpeed: 0.2
+  _ghostDelay: 0.5
+  _ghostSpeed: 0.5
   _backGround: {fileID: 6055351409889236335}
   _mainBar: {fileID: 4698657521373751458}
   _ghostBar: {fileID: 8941360860518361021}
-  _mainSpeed: 0.1
-  _ghostDelay: 1
-  _ghostSpeed: 0.5
-  _enemyHpText: {fileID: 3868871279252298001}
+  _hpText: {fileID: 3868871279252298001}
 --- !u!1 &6055351409889236335
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1021266846593026903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -413,11 +426,12 @@ RectTransform:
   m_Children:
   - {fileID: 7903021368572587565}
   - {fileID: 3008291623034687507}
+  - {fileID: 9056295267812894156}
   m_Father: {fileID: 8826331207823016317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 8.23}
+  m_AnchoredPosition: {x: 0, y: 8.230011}
   m_SizeDelta: {x: 100, y: 5}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3414900659787051552

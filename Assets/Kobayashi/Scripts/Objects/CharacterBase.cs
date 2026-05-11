@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class CharacterBase : MonoBehaviour, IBuffable
 {
     #region •Ï”éŒ¾
-    public bool IsDead {  get; private set; }
+    public bool IsDead;
     public int MaxHP => _maxHP;
     public int CurrentHP => _currentHP;
 
@@ -49,7 +49,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         if (IsDead) return;
         _currentHP -= damage;
-        if (_currentHP < 0)
+        if (_currentHP <= 0)
         {
             _currentHP = 0;
             IsDead = true;
