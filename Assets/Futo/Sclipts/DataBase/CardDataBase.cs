@@ -8,6 +8,8 @@ public class CardDataBase : ScriptableObject
     [Header("カードデータベース")]
     [SerializeField,Tooltip("カードリスト")] private List<CardData> _cards = new();
 
+    public List<CardData> Cards { get { return _cards; } }
+
     private Dictionary<int, CardData> _cardDictionary;
     
     void Initialize()

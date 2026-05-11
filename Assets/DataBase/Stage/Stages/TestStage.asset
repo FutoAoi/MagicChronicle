@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0cc7a83c410e4b8303eba8316be0a, type: 3}
+  m_Name: TestStage
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  _stageID: 0
+  _background: {fileID: -3805512923511866318, guid: be52e74f5fa67984283a8ee9f335170f, type: 3}
+  _width: 5
+  _height: 5
+  _enemies:
+  - _enemyID: 999
+    _enemyPosition: 2

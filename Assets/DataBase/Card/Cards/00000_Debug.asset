@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
+  m_Name: 00000_Debug
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  _cardID: 0
+  _rarity: 0
+  _type: 0
+  _sprite: {fileID: 0}
+  _name: Test
+  _description: aaa
+  _cost: 1
+  _maxTimes: 1
+  _isGhost: 1
+  _isDestruction: 0
+  _canEvolution: 0
+  _evolutionID: 0
+  _moveEffect:
+    rid: 7767192668209938497
+  _effect:
+  - rid: 7767192668209938498
+  references:
+    version: 2
+    RefIds:
+    - rid: 7767192668209938497
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 2
+    - rid: 7767192668209938498
+      type: {class: EffectCardDraw, ns: , asm: Assembly-CSharp}
+      data:
+        _drawNumber: 3

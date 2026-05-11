@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public CardDataBase CardDataBase => _cardDataBase;
+    public BuffDataBase BuffDataBase => _buffDataBase;
     public StageDataBase StageDataBase => _stageDataBase;
     public EnemyDataBase EnemyDataBase => _enemyDataBase;
     public GenerateMapData GenerateMapData => _generateMapData;
 
     [Header("データベース")]
     [SerializeField, Tooltip("カード")] private CardDataBase _cardDataBase;
+    [SerializeField, Tooltip("バフ")] private BuffDataBase _buffDataBase;
     [SerializeField, Tooltip("ステージ")] private StageDataBase _stageDataBase;
     [SerializeField, Tooltip("エネミー")] private EnemyDataBase _enemyDataBase;
     [SerializeField, Tooltip("マップデータ")] private MapData _mapData;
@@ -20,16 +22,17 @@ public class GameManager : MonoBehaviour
     [Header("ID")]
     [SerializeField, Tooltip("ステージID")] public int StageID = 1;
 
-    public PlayerStatus PlayerStatus { get; private set; }
     public BattlePhase CurrentPhase;
     public bool Reset = false, IsEnemyAction = false;
-    public Player Player;
+    public StagePlayer Player;
 
     [NonSerialized] public UIManagerBase CurrentUIManager;
     [NonSerialized] public AttackManager AttackManager;
     [NonSerialized] public StageManager StageManager;
 
+    private IBattleUI _uiManagerButtle;
     private AttackManager _attackManager;
+    private FadeManager _fadeManager;
     private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,
         _isBattleUIManager;
 
@@ -39,6 +42,11 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         _generateMapData = MapGenerator.GenerateMap(_mapData);
+        _fadeManager = FadeManager.Instance;
+        if(Player != null )
+        {
+            Player.SetStatus(10, 10);
+        }
     }
 
     private void Awake()
@@ -50,7 +58,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        PlayerStatus = new PlayerStatus();
         CurrentPhase = BattlePhase.BuildStage;
     }
 
@@ -69,6 +76,10 @@ public class GameManager : MonoBehaviour
                         {
                             StageManager.CreateStage(StageID);
                             CurrentPhase = BattlePhase.Draw;
+                            if(CurrentUIManager.TryGetComponent<IBattleUI>(out var Battle))
+                            {
+                                _uiManagerButtle = Battle;
+                            }
                             _isReward = false;
                         }
                         break;
@@ -76,16 +87,20 @@ public class GameManager : MonoBehaviour
                         if (!_isDraw)
                         {
                             DeckManager.Instance.ShuffleDeck();
-                            StartCoroutine((CurrentUIManager as IBattleUI)?.DrawCard());
-                            PlayerStatus.SetCost();
+                            StartCoroutine(_uiManagerButtle.DrawCard());
+                            Player.SetCost();
                             _isDraw = true;
                         }
                         if (!_isOrganize)
                         {
-                            (CurrentUIManager as IBattleUI)?.HandOrganize();
+                            _uiManagerButtle.HandOrganize();
                             _isOrganize = true;
                         }
-                        if (_isDraw && _isOrganize) CurrentPhase = BattlePhase.Set;
+                        if (_isDraw && _isOrganize)
+                        {
+                            CurrentPhase = BattlePhase.Set;
+                            _uiManagerButtle.ChangeDrawCount();
+                        }
                         break;
                     case BattlePhase.Set:
 
@@ -96,7 +111,7 @@ public class GameManager : MonoBehaviour
                             _attackManager = FindAnyObjectByType<AttackManager>();
                             _attackManager.SwichTurn(true);
                             _attackManager.AttackTurn(true);
-                            (CurrentUIManager as IBattleUI)?.ClearCard();
+                            _uiManagerButtle.ClearCard();
                             _isAction = true;
                         }
                         if (IsEnemyAction)
@@ -117,7 +132,7 @@ public class GameManager : MonoBehaviour
                     case BattlePhase.Reward:
                         if (!_isReward)
                         {
-                            (CurrentUIManager as IBattleUI)?.DisplayReward();
+                            _uiManagerButtle.DisplayReward();
                             _isReward = true;
                         }
                         InitializeBool();
@@ -140,8 +155,17 @@ public class GameManager : MonoBehaviour
 
     public void SceneChange(SceneType sceneType)
     {
-        SceneManager.LoadScene($"{sceneType}");
-        _currentScene = sceneType;
+        if (_fadeManager == null) _fadeManager = FadeManager.Instance;
+        _fadeManager.FadePanel(false, async () =>
+        {
+            await SceneManager.LoadSceneAsync($"{sceneType}");
+            _currentScene = sceneType;
+            _fadeManager.FadePanel(true);
+            if(sceneType == SceneType.TitleScene)
+            {
+                InitializeBool();
+            }
+        });
     }
 
     private void InitializeBool()

@@ -90,7 +90,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileBoardPrefab: {fileID: 7769815699675693115, guid: 6ed34bb43a259d747b9c8609f3c8f72f, type: 3}
   _tileSprites:
-  - {fileID: -2731482651555690124, guid: f328b83e7956a2047b0d9f9d5370a3c4, type: 3}
-  - {fileID: -5499855019732150937, guid: deb14df38a454b94f8662df4f844376d, type: 3}
-  - {fileID: -4219729029190396201, guid: 7c96c74241a245d45b51e47e3d33b54e, type: 3}
-  - {fileID: 3936456661443358929, guid: 587ff55d2571e3e41bf0187058d2972a, type: 3}
+  - {fileID: 2491605280719466173, guid: 0b6949ffbfc75034eba6864337ddf7b2, type: 3}
+  - {fileID: 6914287752625601546, guid: bb91f786afe67fa4bb879415a96a1ea5, type: 3}
+  - {fileID: -8342696951940668329, guid: adad2f645329e9d48a58420d044e81df, type: 3}
+  - {fileID: 5885764433889751652, guid: 394c218753594074ba67468a20656843, type: 3}
+  - {fileID: -8645835677812769639, guid: 1178eb536e4023744a5d139ee7c2fa67, type: 3}
+  IsLastTimeCard: 0

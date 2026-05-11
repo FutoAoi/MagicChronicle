@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 /// <summary>
 /// インゲームのバトル時のUIManager
@@ -19,34 +20,37 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("手札の数")] private int _handRange = 5;
     [SerializeField, Tooltip("ドロー間隔")] private float _distance = 0.1f;
     [SerializeField, Tooltip("数字が増える演出時間")] private float _valueDuration = 0.2f;
+    [SerializeField, Tooltip("タイルの発行色")] public Color GrowColor = Color.orange;
+    [SerializeField, Tooltip("タイルの暗色")] public Color SelectColor = Color.gray7;
 
     [Header("コンポーネント設定")]
     [SerializeField, Tooltip("場所")] private RectTransform _playerHandTr;
     [SerializeField, Tooltip("手札の場所")] public Transform HandArea;
     [SerializeField, Tooltip("カードの基盤")] public GameObject CardPrefab;
     [SerializeField, Tooltip("ドラッグ時の場所")] public RectTransform DragLayer;
-    [SerializeField, Tooltip("効果説明パネル")] public RectTransform DescriptionArea;
     [SerializeField, Tooltip("カットインパネル")] private GameObject _enemyAttackPanel;
     [SerializeField, Tooltip("リザルトパネル")] private GameObject _resultPanel;
     [SerializeField, Tooltip("攻撃場所選択パネル")] private GameObject _attackPosPanel;
     [SerializeField, Tooltip("フェード用のパネル")] private Image _fadePanel;
-    [SerializeField, Tooltip("消費コストテキスト")] private TextMeshProUGUI _costText;
-    [SerializeField, Tooltip("最大コストテキスト")] private TextMeshProUGUI _maxCostText;
     [SerializeField, Tooltip("デッキ確認用パネル")] private GameObject _deckPanel;
     [SerializeField, Tooltip("ゲームオーバー用パネル")] private GameObject _gameoverPanel;
+    [SerializeField, Tooltip("説明パネル")] public GameObject _descriptionPanel;
+    [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
+    [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
 
     public bool _isFinishCutIn = false;
 
     private GameManager _gameManager;
-    private PlayerStatus _status;
+    [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;
     private RewardManager _rewardManager;
+    private DescriptionPanel _description;
     private GameObject _card;
-    private TextMeshProUGUI _text;
-    private Image _panelimg;
+    private TextMeshProUGUI _text,_descriptionText;
+    private Image _panelimg,_descptionImage;
     private RectTransform _panelRectTr;
     private Color _defaultColor;
-    private int _currentNumber;
+    private int _currentNumber,_deltaDrawCount = 0;
     public override void InitUI()
     {
         _deckManager = DeckManager.Instance;
@@ -63,16 +67,17 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _text = _enemyAttackPanel.GetComponentInChildren<TextMeshProUGUI>();
         _panelimg = _enemyAttackPanel.GetComponent<Image>();
         _panelRectTr = _enemyAttackPanel.GetComponent<RectTransform>();
-        _status = _gameManager.PlayerStatus;
         _defaultColor = _panelimg.color;
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
         _attackPosPanel.gameObject.SetActive(true);
         _deckPanel.gameObject.SetActive(false);
+        _descriptionPanel.gameObject.SetActive(false);
+        UpdateMaxCostImage(_stagePlayer.MaxCost);
     }
     public IEnumerator DrawCard()
     {
-        for (int i = 0; i < _handRange; i++)
+        for (int i = 0; i < _handRange + _deltaDrawCount; i++)
         {
             CreateCard();
             yield return new WaitForSeconds(_distance);
@@ -133,7 +138,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         _card = Instantiate(CardPrefab, _playerHandTr);
         Card card = _card.GetComponent<Card>();
-        card.SetCard(_deckManager.DrawCard(), DescriptionArea,true);
+        card.SetCard(_deckManager.DrawCard(),true);
         DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
     }
@@ -196,9 +201,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void SetupCostText()
     {
-        _currentNumber = _status.MaxCost;
-        _costText.text = _status.MaxCost.ToString();
-        _maxCostText.text = _status.MaxCost.ToString();
+        if (_stagePlayer == null) Debug.Log("playerinai");
+        _currentNumber = _stagePlayer.MaxCost;
     }
     /// <summary>
     /// コストテキストの更新
@@ -210,7 +214,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             x =>
             {
                 _currentNumber = x;
-                _costText.text = _currentNumber.ToString();
+                UpdateCostImage(x);
             },
             targetValue,
             _valueDuration
@@ -234,5 +238,56 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             {
                 _fadePanel.gameObject.SetActive(false);
             });
+    }
+    public void UpdateDescriptionPanel(int id, bool isClear)
+    {
+        if (!_descriptionPanel.activeSelf) return;
+
+        if (_description == null)
+            _description = _descriptionPanel.GetComponent<DescriptionPanel>();
+
+        _description.UpdateText(_gameManager.CardDataBase.GetCardData(id),isClear);
+    }
+
+    public void DisplayDescriptionPanel(bool isDisplay)
+    {
+        _descriptionPanel.SetActive(isDisplay);
+    }
+    /// <summary>
+    /// ドロー数を増減させる
+    /// </summary>
+    /// <param name="delta">変化量</param>
+    public void ChangeDrawCount(int delta = 0)
+    {
+        _deltaDrawCount += delta;
+    }
+
+    public void UpdateCostImage(int value)
+    {
+        foreach(Image cost in _costImages)
+        {
+            cost.gameObject.SetActive(false);
+        }
+        for(int i =0; i < value; i++)
+        {
+            _costImages[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void UpdateMaxCostImage(int value)
+    {
+        foreach (Image cost in _costBackGround)
+        {
+            cost.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < value; i++)
+        {
+            _costBackGround[i].gameObject.SetActive(true);
+        }
+    }
+
+    public override void UpdateCostUI()
+    {
+        UpdateCostImage(_stagePlayer.CurrentCost);
     }
 }

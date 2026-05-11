@@ -36,8 +36,9 @@ public enum CardRarity : byte
 /// </summary>
 public enum EnemyAttackType : byte
 {
+    Buff,
     Normal,
-    Penetrating,
+    BoardInterface,
 }
 /// <summary>
 /// ÉVÅ[ÉìÇÃñºëO
@@ -65,9 +66,9 @@ public enum CardType : byte
  public enum InGameDeckType : byte
 {
     Deck,
-    Hand,
     Discard,
-    Remove
+    Remove,
+    Hand
 }
 
 public enum PlayerType
@@ -75,4 +76,22 @@ public enum PlayerType
     Combo,
     Berserker,
     Technical
+}
+
+public enum BuffType : byte
+{
+    Poizon,
+    Strength,
+    Weaken,
+    Tired,
+    Regeneration,
+    Counter,
+    Combo,
+    Berserker,
+    Technical,
+    CostMinus,
+    CostPlus,
+    CardPlus,
+    Rapid,
+    End
 }

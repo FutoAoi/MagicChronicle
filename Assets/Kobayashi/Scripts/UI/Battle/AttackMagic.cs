@@ -4,9 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 攻撃する時に出てくる魔法
+/// </summary>
 public class AttackMagic : MonoBehaviour
 {
+    #region 変数宣言
     public int AttackPower = 1;
     public bool IsAttack { get; private set; } = false;
 
@@ -18,8 +21,7 @@ public class AttackMagic : MonoBehaviour
 
     private GameManager _gameManager;
     private AttackManager _attackManager;
-    private Player _player;
-    private PlayerStatus _playerStatus;
+    private StagePlayer _player;
     private Enemy _attackedEnemy;
     private Action _onDisable;
     private TileSlot _tileSlot;
@@ -29,8 +31,11 @@ public class AttackMagic : MonoBehaviour
     private Color _startColor;
     private Vector2Int _currentSlot, _speedInt;
     private Vector2 _outPos, _goalPos;
-    private bool _finish, _firstAttack, _isAttack,_isSelfHarm;
+    private bool _finish, _firstAttack, _isAttack,_isSelfHarm,_isAccelerate = false;
     private int _width, _height;
+
+    #endregion
+    #region ライフサイクル
     private void Awake()
     {
         _gameManager = GameManager.Instance;
@@ -40,12 +45,17 @@ public class AttackMagic : MonoBehaviour
         _height = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Height;
         _finish = false;
         _firstAttack = true;
+        _isAccelerate = false;
     }
+    #endregion
+    #region 初期化処理
     public void Initialize(Action onDisable)
     {
         _onDisable = onDisable;
         AttackPower = 1;
     }
+    #endregion
+    #region 基本挙動
     /// <summary>
     /// 魔法を壊す
     /// </summary>
@@ -122,35 +132,19 @@ public class AttackMagic : MonoBehaviour
                 .SetEase(Ease.Linear);
             yield return new WaitForSeconds(interval * 0.5f);
 
-            _slotImg = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<Image>();
-            _startColor = _slotImg.color;
-            _slotImg.DOColor(_glowingColor, interval * 0.1f)
-                .SetEase(Ease.Linear);
+            _tileSlot = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<TileSlot>();
+            _tileSlot.TileColorChangeAnimation(interval * 0.1f,true);
 
             yield return new WaitForSeconds(interval * 0.2f);
 
             //効果の呼び出し
-            _tileSlot = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<TileSlot>();
-
             if (!_tileSlot.IsOccupied)
             {
-                Debug.Log("何もなかった,,,");
+                //Slotに何も無いとき
             }
             else
             {
-                foreach(IEffect Effects in _gameManager.CardDataBase.GetCardData(_tileSlot.ID).Effect)
-                {
-                    if (_gameManager.CardDataBase.GetCardData(_tileSlot.ID).IsGhost)
-                    {
-
-                    }
-                    else
-                    {
-                        Effects.OnExcute(this);
-                    }
-                }
-                
-                _tileSlot.DecreaseTimes(1);
+                ActivateMagic(_tileSlot);
             }
 
             //スロット内部の現在地移動
@@ -171,6 +165,13 @@ public class AttackMagic : MonoBehaviour
             }
 
             _currentSlot += _speedInt;
+            //加速処理
+            if (_isAccelerate)
+            {
+                _currentSlot += _speedInt;
+                _isAccelerate = false;
+            }
+
             if (isPlayer)
             {
                 if (_currentSlot.y >= _width)//プレイヤー攻撃成功時
@@ -212,12 +213,10 @@ public class AttackMagic : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(interval * 0.3f);
-            _slotImg.DOColor(_startColor, interval * 0.1f)
-                .SetEase(Ease.Linear);
+            _tileSlot.TileColorChangeAnimation(interval * 0.1f,false);
         }
 
         _player = _gameManager.Player;
-        _playerStatus = _gameManager.PlayerStatus;
 
         if (_isAttack)
         {
@@ -232,7 +231,7 @@ public class AttackMagic : MonoBehaviour
             {
                 _attackRectTr.DOMove(_player.transform.position, interval)
                     .SetEase(Ease.Linear);
-                _playerStatus.Damaged(AttackPower);
+                _player.Damaged(AttackPower);
             } 
         }
         else
@@ -249,13 +248,12 @@ public class AttackMagic : MonoBehaviour
         {
             if (isPlayer)
             {
-                _playerStatus.Damaged(AttackPower);
+                _player.Damaged(AttackPower);
             }
             else
             {
                 _attackedEnemy = _stageManager.EnemyList[_currentSlot.x];
                 _attackedEnemy.Damaged(AttackPower);
-                Debug.Log("自傷");
             }
         }
 
@@ -279,6 +277,34 @@ public class AttackMagic : MonoBehaviour
         DestroyMagic(isPlayer);
     }
     /// <summary>
+    /// 魔法陣の効果発動
+    /// </summary>
+    /// <param name="slot"></param>
+    private void ActivateMagic(TileSlot slot,int decreaseCount = 1,bool _isDecreaseEffect = false)
+    {
+        CardData cardData = _gameManager.CardDataBase.GetCardData(slot.ID);
+        if(cardData.MoveEffect != null)
+        {
+            cardData.MoveEffect.OnExcute(this);
+        }
+        foreach (IEffect Effects in cardData.Effect)
+        {
+            if (cardData.IsGhost)
+            {
+
+            }
+            else
+            {
+                if (_isDecreaseEffect) continue;
+                Effects.OnExcute(this);
+            }
+        }
+
+        slot.DecreaseTimes(decreaseCount);
+    }
+    #endregion
+    #region エフェクト
+    /// <summary>
     /// 方向転換
     /// </summary>
     /// <param name="vector"></param>
@@ -286,9 +312,49 @@ public class AttackMagic : MonoBehaviour
     {
         _currentVector = vector;
     }
-
+    /// <summary>
+    /// 弾を分割する
+    /// </summary>
+    /// <param name="vector">進行方向</param>
+    /// <param name="start">生成座標</param>
+    /// <param name="rect">生成場所</param>
     public void Split(MagicVector vector,Vector2Int start,RectTransform rect)
     {
         StartCoroutine(Attack(start,vector,rect,_attackManager.Interval));
     }
+    /// <summary>
+    /// 次のマスを飛ばす
+    /// </summary>
+    public void Acceleration()
+    {
+        _isAccelerate = true;
+    }
+    /// <summary>
+    /// 周囲のマスの耐久値を変化させる
+    /// </summary>
+    /// <param name="delta">変化量</param>
+    public void ChangeAroundDurability(int delta)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                if (i == 1 && j == 1) continue;
+
+                int indexX = _currentSlot.x - 1 + i;
+                int indexY = _currentSlot.y - 1 + j;
+                if (indexX < 0 || indexY < 0 || indexX > _height - 1 || indexY >= _width) return;
+                if (_stageManager
+                    .SlotList[_currentSlot.x - 1 + i][_currentSlot.y - 1 + j]
+                    .TryGetComponent<TileSlot>(out var slot))
+                {
+                    if (slot.IsOccupied)
+                    {
+                        ActivateMagic(slot, -delta,true);
+                    }
+                }
+            }
+        }
+    }
+    #endregion
 }

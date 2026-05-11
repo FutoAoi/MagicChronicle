@@ -15,7 +15,12 @@ public class CardData : ScriptableObject
     [SerializeField, Tooltip("Å‘å‰ñ”")] private int _maxTimes;
     [SerializeField, Tooltip("—ìw")] private bool _isGhost = false;
     [SerializeField, Tooltip("”jŠü")] private bool _isDestruction = false;
+    [SerializeField, Tooltip("i‰»‚Å‚«‚é‚©‚Ìƒtƒ‰ƒO")] private bool _canEvolution;
+    [ShowIf("_canEvolution"),SerializeField, Tooltip("i‰»æ‚ÌID")] private int _evolutionID;
 
+    [Header("ˆÚ“®Œø‰Ê")]
+    [SerializeReference, SubclassSelector] private IEffect _moveEffect;
+    [Header("Œø‰Ê")]
     [SerializeReference, SubclassSelector] private IEffect[] _effect;
 
     public int CardID => _cardID;
@@ -23,10 +28,13 @@ public class CardData : ScriptableObject
     public string Name => _name;
     public string Description => _description;
     public int Cost => _cost;
+    public IEffect MoveEffect => _moveEffect;
     public IEffect[] Effect => _effect;
     public int MaxTimes => _maxTimes;
     public CardRarity Rarity => _rarity;
     public CardType Type => _type;
     public bool IsGhost => _isGhost;
     public bool IsDestruction => _isDestruction;
+    public bool CanEvolution => _canEvolution;
+    public int EvolutionID => _evolutionID;
 }

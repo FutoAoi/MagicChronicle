@@ -13,4 +13,5 @@ public abstract class UIManagerBase : MonoBehaviour
     /// ‰Šú‰»
     /// </summary>
     public abstract void InitUI();
+    public abstract void UpdateCostUI();
 }

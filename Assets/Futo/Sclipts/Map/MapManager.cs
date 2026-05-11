@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] GenerateMapData _mapData;
     [SerializeField] RoomIconData _roomIconData;
+    [SerializeField] EventPanelController _eventPanelController;
 
     private void Start()
     {
@@ -60,5 +62,21 @@ public class MapManager : MonoBehaviour
         Debug.Log($"ˆÚ“®æ Floor:{MapData.CurrentFloorIndex} Room:{nextRoomIndex}");
 
         GameManager.Instance.SceneChange(SceneType.InGameScene);
+    }
+
+    public void OpenEventPanel(int nextRoomIndex, int eventID)
+    {
+        if (!CanMoveTo(nextRoomIndex))
+        {
+            Debug.LogWarning("ˆÚ“®‚Å‚«‚È‚¢•”‰®‚Å‚·");
+            return;
+        }
+
+        CurrentRoom.IsCleared = true;
+
+        _eventPanelController.SetupEvent(eventID);
+
+        MapData.CurrentFloorIndex++;
+        MapData.CurrentRoomIndex = nextRoomIndex;
     }
 }

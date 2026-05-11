@@ -15,3 +15,7 @@ MonoBehaviour:
   _roomIconEntries:
   - _roomType: 1
     _roomIcon: {fileID: 8827883825961715135, guid: cbe0ee50df842fa41a546231f05d6579, type: 3}
+  - _roomType: 2
+    _roomIcon: {fileID: -807467473637081842, guid: 6c869c0bf1beef04c9a45381b60abe88, type: 3}
+  - _roomType: 4
+    _roomIcon: {fileID: 7921184317453744328, guid: b39a289a29fb37b448197722a3a25294, type: 3}

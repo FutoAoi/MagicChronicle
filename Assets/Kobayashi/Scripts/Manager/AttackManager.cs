@@ -25,6 +25,7 @@ public class AttackManager : MonoBehaviour
     private AttackMagic _magic;
     private int _height, _width;
     private bool _isFinishEnemyAttack = false,_isVictory = false;
+    private bool _isFinishEnemyBuff = false, _isFinishSpecialAttack = false;
     private Vector2Int _enemyPos;
     private RectTransform _enemyRectTr;
 
@@ -75,6 +76,21 @@ public class AttackManager : MonoBehaviour
             _isFinishEnemyAttack = true;
         }
     }
+    /// <summary>
+    /// 特殊攻撃終了フラグ
+    /// </summary>
+    /// <param name="isBuff">バフ付与かどうか</param>
+    public void FinishEnemySpecialAttack(bool isBuff)
+    {
+        if (isBuff)
+        {
+            _isFinishEnemyBuff = true;
+        }
+        else
+        {
+            _isFinishSpecialAttack = true;
+        }
+    }
 
     private bool CheckAttackFinish()
     {
@@ -106,20 +122,49 @@ public class AttackManager : MonoBehaviour
             yield return new WaitUntil(() => _uiManager._isFinishCutIn);
             _uiManager._isFinishCutIn = false;
             int count = 0;
+
+            //バフ
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
                 enemy.ContractionAttackTurn(1);
+                if (enemy.IsSpecialAttack)
+                {
+                    StartCoroutine(enemy.BuffCast());
+
+                    yield return new WaitUntil(() => _isFinishEnemyBuff);
+                    _isFinishEnemyBuff = false;
+                }   
+            }
+
+            //通常攻撃
+            foreach (Enemy enemy in _stageManager.EnemyList)
+            {
                 if (enemy.IsAttackTurn)
                 {
                     _enemyPos = new Vector2Int(count, _width - 1);
                     _enemyRectTr = enemy.GetComponent<RectTransform>();
                     AttackTurn(false);
                     yield return new WaitUntil(() => _isFinishEnemyAttack);
-                    enemy.FinishAttack();
                     _isFinishEnemyAttack = false;
+                    if(!enemy.IsSpecialAttack)
+                        enemy.FinishAttack();
                 }
                 count++;
             }
+
+            //盤面干渉
+            foreach (Enemy enemy in _stageManager.EnemyList)
+            {
+                if (enemy.IsSpecialAttack)
+                {
+                    StartCoroutine(enemy.SpecialAttack());
+
+                    yield return new WaitUntil(() => _isFinishSpecialAttack);
+                    _isFinishSpecialAttack = false;
+                    enemy.FinishAttack();
+                }
+            }
+
             if (CheckEnemy())
             {
                 _gameManager.CurrentPhase = BattlePhase.Reward;

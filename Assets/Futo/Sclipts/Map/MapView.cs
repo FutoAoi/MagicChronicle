@@ -81,7 +81,7 @@ public class MapView : MonoBehaviour
             }
         }
 
-        _circle.transform.localPosition = _roomViews[GameManager.Instance.GenerateMapData.CurrentFloorIndex][GameManager.Instance.GenerateMapData.CurrentRoomIndex].transform.localPosition;
+        UpdataPlayerPosition();
     }
 
     /// <summary>
@@ -130,5 +130,10 @@ public class MapView : MonoBehaviour
         _y = _offsetY + floorIndex * _ySpacing;
 
         return new Vector3(_x, _y, 0f);
+    }
+
+    public void UpdataPlayerPosition()
+    {
+        _circle.transform.localPosition = _roomViews[GameManager.Instance.GenerateMapData.CurrentFloorIndex][GameManager.Instance.GenerateMapData.CurrentRoomIndex].transform.localPosition;
     }
 }

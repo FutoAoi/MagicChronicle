@@ -4,7 +4,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class AttackPointSelectButton : MonoBehaviour
 {
-    [Header("数値設定")]
+    [Header("-----参照-----")]
+    [SerializeField] private Sprite _dark;
+    [SerializeField] private Sprite _light;
+
+    [Header("-----数値設定-----")]
     [SerializeField, Tooltip("非選択時透明度")] private float _alpha = 0.7f;
     [SerializeField, Tooltip("演出時間")] private float _duration = 0.4f;
     [SerializeField, Tooltip("選択時倍率")] private float _selectMag = 1.3f;
@@ -33,6 +37,7 @@ public class AttackPointSelectButton : MonoBehaviour
         _button = GetComponent<Button>();
         _button.onClick.AddListener(RegisterAttackPosition);
         IsSelect = false;
+        _img.sprite = _dark;
         _img.color = new Color(1f, 1f, 1f, _alpha);
     }
 
@@ -51,7 +56,9 @@ public class AttackPointSelectButton : MonoBehaviour
         _attackPointManager.ChangeButtonState(AttackNumber);
 
         //演出
-        _rt.DOScale(Vector2.one * _selectMag,_duration * 0.5f);
+        _rt.DOScale(Vector2.one * _selectMag,_duration * 0.5f)
+            .SetEase(Ease.OutSine);
+        _img.sprite = _light;
         _img.DOColor(Color.white, _duration * 0.5f);
     }
 
@@ -62,7 +69,9 @@ public class AttackPointSelectButton : MonoBehaviour
     {
         IsSelect = false;
 
-        _rt.DOScale(Vector2.one, _duration);
+        _rt.DOScale(Vector2.one, _duration)
+            .SetEase(Ease.OutSine);
+        _img.sprite = _dark;
         _img.DOColor(new Color(1f,1f,1f,_alpha),_duration);
     }
 }

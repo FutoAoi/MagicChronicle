@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
+  m_Name: 1403_DrawCard++
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  _cardID: 1403
+  _rarity: 3
+  _type: 0
+  _sprite: {fileID: 1727333087660148702, guid: cdb135115c14c4444bd223298ebcff8b, type: 3}
+  _name: "\u30AB\u30FC\u30C9\u30C9\u30ED\u30FC++"
+  _description: "\u6B21\u306E\u30BF\u30FC\u30F3+3\u679A\u30C9\u30ED\u30FC\u3059\u308B"
+  _cost: 1
+  _maxTimes: 3
+  _isGhost: 1
+  _isDestruction: 0
+  _canEvolution: 0
+  _evolutionID: 0
+  _effect:
+  - rid: 7767192443970125890
+  references:
+    version: 2
+    RefIds:
+    - rid: 7767192443970125890
+      type: {class: EffectCardDraw, ns: , asm: Assembly-CSharp}
+      data:
+        _drawNumber: 3

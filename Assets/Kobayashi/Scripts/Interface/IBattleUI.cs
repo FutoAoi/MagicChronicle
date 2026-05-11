@@ -8,6 +8,10 @@ public interface IBattleUI
     /// </summary>
     IEnumerator DrawCard();
     /// <summary>
+    /// ドロー数を増減させる
+    /// </summary>
+    void ChangeDrawCount(int delta = 0);
+    /// <summary>
     /// 手札を並べる
     /// </summary>
     void HandOrganize();
@@ -33,4 +37,14 @@ public interface IBattleUI
     /// デッキをリセット
     /// </summary>
     void ResetDeck();
+    /// <summary>
+    /// 説明パネルを更新
+    /// </summary>
+    /// <param name="data"></param>
+    void UpdateDescriptionPanel(int id,bool isClear);
+    /// <summary>
+    /// 説明パネル表示
+    /// </summary>
+    /// <param name="isDisplay"></param>
+    void DisplayDescriptionPanel(bool isDisplay);
 }

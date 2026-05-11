@@ -11,11 +11,13 @@ public class DeckPanelManager : MonoBehaviour
 
     [Header("参照")]
     [SerializeField, Tooltip("生成するカード")] private GameObject _cardPrefab;
-    [SerializeField, Tooltip("効果パネル場所")] private RectTransform _textEffectParent;
+    [SerializeField] private DeckTabButton[] _tabButton;
 
     private DeckManager _deckManager;
     private GameManager _gameManager;
     private UIManager_Battle _uiManager;
+    private CardType _cardType;
+    private RectTransform[] _deckTabs;
 
     private Dictionary<int, List<GameObject>> _deckDict = new();
     private Dictionary<int, List<GameObject>> _discardDict = new();
@@ -37,6 +39,11 @@ public class DeckPanelManager : MonoBehaviour
 
         _deckManager = DeckManager.Instance;
 
+        _deckTabs = new RectTransform[3];
+        _deckTabs[0] = _deckArea;
+        _deckTabs[1] = _discardArea;
+        _deckTabs[2] = _removeArea;
+
         for (int i = 0; i < _deckManager.DeckMain.Count; i++)
         {
             int id = _deckManager.DeckMain[i];
@@ -48,6 +55,8 @@ public class DeckPanelManager : MonoBehaviour
                 InstantiateCard(InGameDeckType.Remove, id);
             }
         }
+
+        ChangeDeckTab(InGameDeckType.Deck);
     }
     private void OnEnable()
     {
@@ -138,14 +147,26 @@ public class DeckPanelManager : MonoBehaviour
 
         GameObject card = Instantiate(_cardPrefab);
         card.transform.SetParent(rect,false);
-        Debug.Log("a");
         if (card.TryGetComponent(out Card cardData))
         {
             cardData.CardID = id;
-            cardData.SetCard(id, _textEffectParent, false);
+            cardData.SetCard(id, false);
         }
 
         dict[id].Add(card);
         card.SetActive(false);
+    }
+    /// <summary>
+    /// 指定のタブに切り替える
+    /// </summary>
+    /// <param name="type">切り替え先のタブ</param>
+    public void ChangeDeckTab(InGameDeckType type)
+    {
+        for(byte i = 0; i < _deckTabs.Length; i++)
+        {
+            bool isChose = (byte)type == i;
+            _deckTabs[i].gameObject.SetActive(isChose);
+            _tabButton[i].ChangeColor(isChose);
+        }
     }
 }

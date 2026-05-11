@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841466d708f25044e9924998fbd238fc, type: 3}
+  m_Name: Choice_Debug2
+  m_EditorClassIdentifier: Assembly-CSharp::EventChoice
+  _choiceText: "100\u30B4\u30FC\u30EB\u30C9\u3092\u6255\u3044\u30C7\u30C3\u30AD\u3092\u4E00\u679A\u6392\u9664\u3059\u308B"
+  _resultText: "\u6392\u9664\u3057\u305F"
+  _eventEffects:
+  - rid: 2977463296770965570
+  references:
+    version: 2
+    RefIds:
+    - rid: 2977463296770965570
+      type: {class: EventDebug, ns: , asm: Assembly-CSharp}
+      data:
+        text: "100\u30B4\u30FC\u30EB\u30C9\u3092\u6255\u3044\u30C7\u30C3\u30AD\u3092\u4E00\u679A\u6392\u9664\u3059\u308B"

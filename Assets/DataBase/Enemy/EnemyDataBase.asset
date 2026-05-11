@@ -15,3 +15,4 @@ MonoBehaviour:
   _enemys:
   - {fileID: 11400000, guid: f5fa29d3e935f5440922e678f83ca5f8, type: 2}
   - {fileID: 11400000, guid: 4420f336e9e5d094abd33aec6b0b3ef8, type: 2}
+  - {fileID: 11400000, guid: 0a754f4974d716b4ebbef40eb5b3e9f8, type: 2}
