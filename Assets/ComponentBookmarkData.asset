@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ComponentBookmarkData
   m_EditorClassIdentifier: ComponentBookmark.Runtime:ComponentBookmark:ComponentBookmarkDataAsset
-  bookmarks: []
+  bookmarks:
+  - bookmarkId: 98f68a6d-0e9c-48db-9354-56f1b637ee36
+    displayName: '[MG]GameManager - GameManager'
+    categoryName: General
+    groupName: Default
+    note: 
+    colorTag: 0
+    globalObjectId: GlobalObjectId_V1-2-c8b9d79a31ed0d241a5c694ebe6d09db-330289938-0
+    componentTypeName: GameManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    gameObjectName: '[MG]GameManager'
+    scenePath: Assets/Scenes/InGameScene.unity
   categories:
   - categoryName: General
     isExpanded: 1

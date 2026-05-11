@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 /// <summary>
 /// インゲームのバトル時のUIManager
@@ -31,11 +32,11 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("リザルトパネル")] private GameObject _resultPanel;
     [SerializeField, Tooltip("攻撃場所選択パネル")] private GameObject _attackPosPanel;
     [SerializeField, Tooltip("フェード用のパネル")] private Image _fadePanel;
-    [SerializeField, Tooltip("消費コストテキスト")] private TextMeshProUGUI _costText;
-    [SerializeField, Tooltip("最大コストテキスト")] private TextMeshProUGUI _maxCostText;
     [SerializeField, Tooltip("デッキ確認用パネル")] private GameObject _deckPanel;
     [SerializeField, Tooltip("ゲームオーバー用パネル")] private GameObject _gameoverPanel;
     [SerializeField, Tooltip("説明パネル")] public GameObject _descriptionPanel;
+    [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
+    [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
 
     public bool _isFinishCutIn = false;
 
@@ -66,13 +67,13 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _text = _enemyAttackPanel.GetComponentInChildren<TextMeshProUGUI>();
         _panelimg = _enemyAttackPanel.GetComponent<Image>();
         _panelRectTr = _enemyAttackPanel.GetComponent<RectTransform>();
-        //_stagePlayer = _gameManager.Player;
         _defaultColor = _panelimg.color;
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
         _attackPosPanel.gameObject.SetActive(true);
         _deckPanel.gameObject.SetActive(false);
         _descriptionPanel.gameObject.SetActive(false);
+        UpdateMaxCostImage(_gameManager.Player.MaxCost);
     }
     public IEnumerator DrawCard()
     {
@@ -202,8 +203,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         if (_stagePlayer == null) Debug.Log("playerinai");
         _currentNumber = _stagePlayer.MaxCost;
-        _costText.text = _stagePlayer.MaxCost.ToString();
-        _maxCostText.text = _stagePlayer.MaxCost.ToString();
     }
     /// <summary>
     /// コストテキストの更新
@@ -215,7 +214,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             x =>
             {
                 _currentNumber = x;
-                _costText.text = _currentNumber.ToString();
+                UpdateCostImage(x);
             },
             targetValue,
             _valueDuration
@@ -261,5 +260,29 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     public void ChangeDrawCount(int delta = 0)
     {
         _deltaDrawCount += delta;
+    }
+
+    public void UpdateCostImage(int value)
+    {
+        foreach(Image cost in _costImages)
+        {
+            cost.gameObject.SetActive(false);
+        }
+        for(int i =0; i < value; i++)
+        {
+            _costImages[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void UpdateMaxCostImage(int value)
+    {
+        foreach (Image cost in _costBackGround)
+        {
+            cost.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < value; i++)
+        {
+            _costBackGround[i].gameObject.SetActive(true);
+        }
     }
 }
