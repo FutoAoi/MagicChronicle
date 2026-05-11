@@ -323,7 +323,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 761826946}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.52797693
+  m_Size: 0.5279802
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4753959750254769153, guid: e955812e403d81f468e606dc7962827c, type: 3}
+  m_Sprite: {fileID: 7560464374655081226, guid: 5bc6542959130374ca54e3c01951dc72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4743504061861994634, guid: 03a6b68cff93df347922e10dbd549375, type: 3}
+  m_Sprite: {fileID: -7648478078518936750, guid: 1af61715cda5b264e96b86c24f324541, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
