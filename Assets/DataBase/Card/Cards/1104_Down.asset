@@ -15,7 +15,7 @@ MonoBehaviour:
   _cardID: 1104
   _rarity: 0
   _type: 0
-  _sprite: {fileID: -2094629856210381461, guid: 9f124002399aeea41948df51d7cc4de9, type: 3}
+  _sprite: {fileID: 21300000, guid: de292f6a3894f1047ace3b2227ed626e, type: 3}
   _name: "\u65B9\u5411\u8EE2\u63DB(\u4E0B)"
   _description: "\u9B54\u6CD5\u5F3E\u306E\u9032\u884C\u65B9\u5411\u3092\u4E0B\u5411\u304D\u306B\u5909\u66F4\u3059\u308B"
   _cost: 1
@@ -24,11 +24,15 @@ MonoBehaviour:
   _isDestruction: 0
   _canEvolution: 1
   _evolutionID: 1105
+  _moveEffect:
+    rid: -2
   _effect:
   - rid: 2977463319095410754
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2977463319095410754
       type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
       data:
