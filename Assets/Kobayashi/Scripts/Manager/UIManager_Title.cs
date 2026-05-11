@@ -7,4 +7,9 @@ public class UIManager_Title : UIManagerBase
     {
         throw new System.NotImplementedException();
     }
+
+    public override void UpdateCostUI()
+    {
+        throw new System.NotImplementedException();
+    }
 }

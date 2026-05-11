@@ -25,4 +25,9 @@ public class UIManager_Camp : UIManagerBase
             obj.SetActive(show);
         }
     }
+
+    public override void UpdateCostUI()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -73,7 +73,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _attackPosPanel.gameObject.SetActive(true);
         _deckPanel.gameObject.SetActive(false);
         _descriptionPanel.gameObject.SetActive(false);
-        UpdateMaxCostImage(_gameManager.Player.MaxCost);
+        UpdateMaxCostImage(_stagePlayer.MaxCost);
     }
     public IEnumerator DrawCard()
     {
@@ -284,5 +284,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         {
             _costBackGround[i].gameObject.SetActive(true);
         }
+    }
+
+    public override void UpdateCostUI()
+    {
+        UpdateCostImage(_stagePlayer.CurrentCost);
     }
 }
