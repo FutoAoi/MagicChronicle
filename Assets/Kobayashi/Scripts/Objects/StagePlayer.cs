@@ -45,6 +45,7 @@ public class StagePlayer : CharacterBase
     public void SetCost()
     {
         _currentCost = _maxCost;
+        _gameManager.CurrentUIManager.UpdateCostUI();
     }
 
     /// <summary>
