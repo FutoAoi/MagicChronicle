@@ -21,10 +21,11 @@ public class CardEncyclopediaEditor : Editor
         }
         GUILayout.Space(10);
         _selectedIndex = EditorGUILayout.Popup("カード選択", _selectedIndex, names);
+        CardData data = script.GetCardData(_selectedIndex);
 
         if (GUILayout.Button("選択カード生成"))
         {
-            script.Generate(_selectedIndex);
+            script.Generate(data);
         }
 
         if (GUILayout.Button("選択カード削除"))
@@ -37,7 +38,7 @@ public class CardEncyclopediaEditor : Editor
         #endif
 
             Undo.RegisterFullObjectHierarchyUndo(script.gameObject, "Remove Cards");
-            script.Clear(_selectedIndex);
+            script.Clear(data);
         }
 
         GUILayout.Space(10);

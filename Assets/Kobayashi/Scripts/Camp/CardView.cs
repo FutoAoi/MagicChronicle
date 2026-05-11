@@ -13,6 +13,9 @@ public class CardView : MonoBehaviour, IPointerEnterHandler
     [SerializeField, Tooltip("耐久値")] private TextMeshProUGUI _durability;
     [SerializeField, Tooltip("挿絵")] private Image _img;
 
+    [Header("-----設定-----")]
+    [SerializeField, Tooltip("リワードカード？")] private bool _isRewardCard = false;
+
     [SerializeField] private int _id;
     private CardEncyclopedia _encyclopedia;
     public void SetCardData(CardData data)
@@ -26,6 +29,12 @@ public class CardView : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (_isRewardCard)
+        {
+
+            return;
+        }
+
         if (_encyclopedia == null)
             _encyclopedia = GetComponentInParent<CardEncyclopedia>();
 
