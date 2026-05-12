@@ -65,6 +65,9 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public void AddBuff(BuffType type, int time)
     {
         _buffs[type] = (byte)Mathf.Clamp(_buffs[type] + time,0,255);
+
+        //自身のバフ表示をするようにする（ここに依存が丸いかも）
+        _gameManager.BuffDataBase.GetBuffData(type);
     }
 
     public void DecreaseAll(byte amount = 1)
