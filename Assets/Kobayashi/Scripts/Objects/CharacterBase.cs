@@ -66,10 +66,12 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         _buffs[type] = (byte)Mathf.Clamp(_buffs[type] + time,0,255);
 
-        //自身のバフ表示をするようにする（ここに依存が丸いかも）
-        _gameManager.BuffDataBase.GetBuffData(type);
+        //buffUIMAnagerをBaseで取得するようにしてここでfalse化処理を書く
+        if(_buffs[type] <= 0) return;
+        UpdateBuffImage(_gameManager.BuffDataBase.GetBuffData(type), _buffs[type]);
     }
 
+    public abstract void UpdateBuffImage(BuffData buff,byte count);
     public void DecreaseAll(byte amount = 1)
     {
         _buffs.DecreaseAll(_gameManager.BuffDataBase,amount);

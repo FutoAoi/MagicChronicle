@@ -123,10 +123,14 @@ public class GameManager : MonoBehaviour
                         if (Reset)
                         {
                             InitializeBool();
-                            CurrentPhase = BattlePhase.Draw;
+                            CurrentPhase = BattlePhase.End;
                         }
                         break;
                     case BattlePhase.Direction:
+
+                        break;
+                    case BattlePhase.End:
+                        //ƒoƒtŒ¸‚ç‚µ‚½ŒãDraw‚Ö
 
                         break;
                     case BattlePhase.Reward:

@@ -5,7 +5,7 @@ public class BuffData : ScriptableObject
 {
     [Header("-----Šî–{î•ñ-----")]
     [SerializeField] private BuffType _type;
-    [SerializeField] private Image _image;
+    [SerializeField] private Sprite _icon;
     [SerializeField] private string _name;
     [TextArea(3, 10)]
     [SerializeField] private string _description;
@@ -13,7 +13,7 @@ public class BuffData : ScriptableObject
     [SerializeReference, SubclassSelector] private IBuff[] _effect;
 
     public BuffType Type => _type;
-    public Image Image => _image;
+    public Sprite Icon => _icon;
     public string Name => _name;
     public string Description => _description;
     public bool IsDecreaseTurn => _isDecreaseTurn;

@@ -7,6 +7,7 @@ public enum BattlePhase: byte
     Set,
     Action,
     Direction,
+    End,
     Reward,
     BuildStage
 }

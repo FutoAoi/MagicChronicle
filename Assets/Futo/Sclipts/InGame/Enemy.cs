@@ -65,6 +65,7 @@ public class Enemy : CharacterBase
     /// <param name="damage"></param>
     public override void Damaged(int damage)
     {
+        if (IsDead) return;
         base.Damaged(damage);
         DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
@@ -95,6 +96,11 @@ public class Enemy : CharacterBase
             _isAttackTurn = true;
             _enemyAT = _enemy.EnemyAT;
         }
+    }
+
+    public override void UpdateBuffImage(BuffData buff,byte count)
+    {
+        
     }
 
     /// <summary>
