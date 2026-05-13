@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf22f2a5ebf76b54e8732f057d90d103, type: 3}
-  m_Name: PoinzonBuff
+  m_Name: Technical
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
-  _type: 3
-  _icon: {fileID: 21300000, guid: d469c26137963a742b295925e9affa0f, type: 3}
-  _name: "\u6BD2"
+  _type: 2
+  _icon: {fileID: 21300000, guid: 8d1e0b2f498c9734a995cb5a900df0d0, type: 3}
+  _name: "\u30C6\u30AF\u30CB\u30AB\u30EB"
   _description: 
-  _isDecreaseTurn: 1
+  _isDecreaseTurn: 0
   _effect: []
   references:
     version: 2

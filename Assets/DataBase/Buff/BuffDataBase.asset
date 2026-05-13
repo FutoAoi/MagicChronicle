@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e0995c1d631414ea7db202d90dc890, type: 3}
   m_Name: BuffDataBase
   m_EditorClassIdentifier: Assembly-CSharp::BuffDataBase
-  _buffDatas: []
+  _buffDatas:
+  - {fileID: 11400000, guid: a47452fa406945948974533fce3f6f83, type: 2}
+  - {fileID: 11400000, guid: 86d412a4860bdf3438a982067a2638d9, type: 2}
+  - {fileID: 11400000, guid: 903d3b05b2086f74582ba07849811069, type: 2}
+  - {fileID: 11400000, guid: a82cb7e90c1377a4f871f2ffed65df95, type: 2}
+  - {fileID: 11400000, guid: 123a89125ce353b4f8d0c05bbd05b88c, type: 2}
+  - {fileID: 11400000, guid: 14a70ac7d1a30ce4bbbd10aa6ed7d047, type: 2}
+  - {fileID: 11400000, guid: 42ef4795c38926f4287c2dacf6e9eeb3, type: 2}
+  - {fileID: 11400000, guid: a5aca8380c2bcfc488cd34dcb330000a, type: 2}
+  - {fileID: 11400000, guid: 31d1986cc3d1b2143a16ed21434a79b7, type: 2}
