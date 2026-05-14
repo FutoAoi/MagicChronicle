@@ -39,7 +39,11 @@ public class Room : MonoBehaviour, IPointerClickHandler
         {
             if(_roomType == RoomType.Event)
             {
-                _mapManager.OpenEventPanel(_roomIndex, _stageID);
+                FadeManager.Instance.FadePanel(false, () =>
+                {
+                    _mapManager.OpenEventPanel(_roomIndex, _stageID);
+                    FadeManager.Instance.FadePanel(true);
+                });
             }
             else
             {
