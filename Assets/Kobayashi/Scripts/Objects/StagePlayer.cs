@@ -61,8 +61,8 @@ public class StagePlayer : CharacterBase
     /// <summary>
     /// コストの更新
     /// </summary>
-    /// <param name="cost"></param>
-    /// <param name="isConsume"></param>
+    /// <param name="cost">変化量</param>
+    /// <param name="isConsume">減らす？</param>
     public void ChangeCost(int cost, bool isConsume)
     {
         if (isConsume)
@@ -101,6 +101,6 @@ public class StagePlayer : CharacterBase
 
     public override void Dead()
     {
-        GameManager.Instance.CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
+        _gameManager.CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
     }
 }

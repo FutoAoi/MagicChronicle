@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public StageDataBase StageDataBase => _stageDataBase;
     public EnemyDataBase EnemyDataBase => _enemyDataBase;
     public GenerateMapData GenerateMapData => _generateMapData;
+    public PlayerType PlayerType => _playerType;
 
     [Header("データベース")]
     [SerializeField, Tooltip("カード")] private CardDataBase _cardDataBase;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     private IBattleUI _uiManagerButtle;
     private AttackManager _attackManager;
     private FadeManager _fadeManager;
+    private PlayerType _playerType = PlayerType.Combo;
     private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,
         _isBattleUIManager;
 
@@ -189,5 +191,14 @@ public class GameManager : MonoBehaviour
         _isOrganize = false;
         _isAction = false;
         DecreaseBuff = false;
+    }
+
+    /// <summary>
+    /// プレイヤーのキャラクターを変更
+    /// </summary>
+    /// <param name="useType"></param>
+    public void ChangePlayerType(PlayerType useType)
+    {
+        _playerType = useType;
     }
 }

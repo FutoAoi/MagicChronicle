@@ -66,7 +66,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     #region ƒoƒt
     public void AddBuff(BuffType type, int time)
     {
-        _buffs[type] = (byte)Mathf.Clamp(_buffs[type] + time,0,255);
+        _buffs[type] = Mathf.Clamp(_buffs[type] + time,0,255);
 
         if(_buffs[type] <= 0)
         {
@@ -76,7 +76,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
         UpdateBuffImage(_gameManager.BuffDataBase.GetBuffData(type), _buffs[type]);
     }
 
-    public virtual void UpdateBuffImage(BuffData buff,byte count)
+    public virtual void UpdateBuffImage(BuffData buff,int count)
     {
         _buffUIManager.DisplayBuff(buff.Type, count);
     }

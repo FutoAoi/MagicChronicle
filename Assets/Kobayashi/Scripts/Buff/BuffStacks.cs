@@ -4,11 +4,11 @@ using UnityEngine;
 /// </summary>
 public struct BuffStacks
 {
-    private byte[] _counts;
+    private int[] _counts;
 
-    public BuffStacks(int size) => _counts = new byte[size];
+    public BuffStacks(int size) => _counts = new int[size];
 
-    public byte this[BuffType type]
+    public int this[BuffType type]
     {
         get => _counts[(int)type];
         set => _counts[(int)type] = value;
@@ -31,7 +31,7 @@ public struct BuffStacks
 
             if (!buffDataBase.GetBuffData((BuffType)i).IsDecreaseTurn) continue;
 
-            _counts[i] = (byte)Mathf.Max(0, _counts[i] - amount);
+            _counts[i] = Mathf.Max(0, _counts[i] - amount);
         }
     }
 }
