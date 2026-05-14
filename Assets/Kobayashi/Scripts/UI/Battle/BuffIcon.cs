@@ -13,7 +13,7 @@ public class BuffIcon : MonoBehaviour
         _icon.sprite = data.Icon;
     }
 
-    public void UpdateTurn(byte turn)
+    public void UpdateTurn(int turn)
     {
         _turn.text = turn.ToString();
     }

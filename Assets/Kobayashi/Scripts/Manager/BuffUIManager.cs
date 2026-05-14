@@ -27,7 +27,7 @@ public class BuffUIManager : MonoBehaviour
             icon.SetActive(false);
         }
     }
-    public void DisplayBuff(BuffType type,byte turn)
+    public void DisplayBuff(BuffType type,int turn)
     {
         if(_iconDictionary.TryGetValue(type, out BuffIcon icon))
         {
@@ -36,7 +36,7 @@ public class BuffUIManager : MonoBehaviour
         }
     }
 
-    public void SetTurn(BuffType type,byte turn)
+    public void SetTurn(BuffType type,int turn)
     {
         if (_iconDictionary.TryGetValue(type, out BuffIcon icon))
         {
