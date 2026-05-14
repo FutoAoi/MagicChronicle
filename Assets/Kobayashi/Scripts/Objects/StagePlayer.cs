@@ -11,14 +11,12 @@ public class StagePlayer : CharacterBase
     private int _money = 0;
     private int _currentCost;
     private RectTransform _rect;
-    private BuffUIManager _buffUIManager;
 
     protected override void Start()
     {
         base.Start();
 
         _gameManager.Player = this;
-        _buffUIManager = GetComponent<BuffUIManager>();
         SetStatus(10, 10);
         _rect = GetComponent<RectTransform>();
         _hpBarContller.ShowUI(CurrentHP, MaxHP);
@@ -75,11 +73,6 @@ public class StagePlayer : CharacterBase
         {
             _currentCost += cost;
         }
-    }
-
-    public override void UpdateBuffImage(BuffData buff,byte count)
-    {
-        _buffUIManager.DisplayBuff(buff.Type,count);
     }
 
     /// <summary>

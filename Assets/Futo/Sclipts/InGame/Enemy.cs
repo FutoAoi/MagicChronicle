@@ -98,11 +98,6 @@ public class Enemy : CharacterBase
         }
     }
 
-    public override void UpdateBuffImage(BuffData buff,byte count)
-    {
-        
-    }
-
     /// <summary>
     /// ƒoƒt•t—^
     /// </summary>

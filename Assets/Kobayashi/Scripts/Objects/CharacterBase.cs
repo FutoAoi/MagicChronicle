@@ -11,11 +11,13 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     private int _currentHP;
     private BuffStacks _buffs = new BuffStacks((int)BuffType.End);
     protected GameManager _gameManager;
+    protected BuffUIManager _buffUIManager;
     #endregion
     #region ライフサイクル
     protected virtual void Start()
     {
         _gameManager = GameManager.Instance;
+        _buffUIManager = GetComponent<BuffUIManager>();
     }
     #endregion
     #region 基本処理
@@ -66,12 +68,18 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         _buffs[type] = (byte)Mathf.Clamp(_buffs[type] + time,0,255);
 
-        //buffUIMAnagerをBaseで取得するようにしてここでfalse化処理を書く
-        if(_buffs[type] <= 0) return;
+        if(_buffs[type] <= 0)
+        {
+            _buffUIManager.FalseIcon(type);
+            return;
+        }
         UpdateBuffImage(_gameManager.BuffDataBase.GetBuffData(type), _buffs[type]);
     }
 
-    public abstract void UpdateBuffImage(BuffData buff,byte count);
+    public virtual void UpdateBuffImage(BuffData buff,byte count)
+    {
+        _buffUIManager.DisplayBuff(buff.Type, count);
+    }
     public void DecreaseAll(byte amount = 1)
     {
         _buffs.DecreaseAll(_gameManager.BuffDataBase,amount);
