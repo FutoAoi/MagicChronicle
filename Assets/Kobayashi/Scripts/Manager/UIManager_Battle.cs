@@ -10,20 +10,20 @@ using UnityEngine.UI;
 /// </summary>
 public class UIManager_Battle : UIManagerBase, IBattleUI
 {
-    [Header("カード")]
+    [Header("-----カード-----")]
     [Tooltip("山札")] public List<int> DeckCard = new List<int>();
     [Tooltip("手札")] public List<GameObject> HandCard = new List<GameObject>();
     [Tooltip("捨て札")] public List<int> DiscardCard = new List<int>();
     [Tooltip("除外札")] public List<int> RemoveCard = new List<int>();
 
-    [Header("数値設定")]
+    [Header("-----数値設定-----")]
     [SerializeField, Tooltip("手札の数")] private int _handRange = 5;
     [SerializeField, Tooltip("ドロー間隔")] private float _distance = 0.1f;
     [SerializeField, Tooltip("数字が増える演出時間")] private float _valueDuration = 0.2f;
     [SerializeField, Tooltip("タイルの発行色")] public Color GrowColor = Color.orange;
     [SerializeField, Tooltip("タイルの暗色")] public Color SelectColor = Color.gray7;
 
-    [Header("コンポーネント設定")]
+    [Header("-----コンポーネント設定-----")]
     [SerializeField, Tooltip("場所")] private RectTransform _playerHandTr;
     [SerializeField, Tooltip("手札の場所")] public Transform HandArea;
     [SerializeField, Tooltip("カードの基盤")] public GameObject CardPrefab;

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("ステージID")] public int StageID = 1;
 
     public BattlePhase CurrentPhase;
-    public bool Reset = false, IsEnemyAction = false;
+    public bool Reset = false, IsEnemyAction = false,DecreaseBuff = false;
     public StagePlayer Player;
 
     [NonSerialized] public UIManagerBase CurrentUIManager;
@@ -122,12 +122,26 @@ public class GameManager : MonoBehaviour
                         }
                         if (Reset)
                         {
-                            InitializeBool();
-                            CurrentPhase = BattlePhase.Draw;
+                            Reset = false;
+                            CurrentPhase = BattlePhase.End;
                         }
                         break;
                     case BattlePhase.Direction:
 
+                        break;
+                    case BattlePhase.End:
+                        //バフ減らした後Drawへ
+                        if (!DecreaseBuff)
+                        {
+                            Player.DecreaseAll();
+                            foreach (Enemy enemy in StageManager.EnemyList)
+                            {
+                                enemy.DecreaseAll();
+                            }
+                            DecreaseBuff = true;
+                        }
+                        InitializeBool();
+                        CurrentPhase = BattlePhase.Draw;
                         break;
                     case BattlePhase.Reward:
                         if (!_isReward)
@@ -174,5 +188,6 @@ public class GameManager : MonoBehaviour
         _isDraw = false;
         _isOrganize = false;
         _isAction = false;
+        DecreaseBuff = false;
     }
 }
