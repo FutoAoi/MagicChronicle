@@ -9,15 +9,21 @@ public class BuffUIManager : MonoBehaviour
 
     private Dictionary<BuffType, BuffIcon> _iconDictionary;
     private GameManager _gameManager;
+    private bool _isSetting = false;
 
     //private List<GameObject> _buffIcons = new List<GameObject>();
 
     private void Start()
     {
+        if (!_isSetting)
+            Init();
+    }
+    private void Init()
+    {
         _gameManager = GameManager.Instance;
         List<BuffData> buffDatas = _gameManager.BuffDataBase.BuffDatas;
         _iconDictionary = new Dictionary<BuffType, BuffIcon>();
-        for(byte i = 0; i < buffDatas.Count; i++)
+        for (byte i = 0; i < buffDatas.Count; i++)
         {
             GameObject icon = Instantiate(_buffIconPrefab, _iconParent);
             //_buffIcons.Add(icon);
@@ -26,9 +32,11 @@ public class BuffUIManager : MonoBehaviour
             buffIcon.SetIconData(buffDatas[i]);
             icon.SetActive(false);
         }
+        _isSetting = true;
     }
     public void DisplayBuff(BuffType type,int turn)
     {
+        if(!_isSetting) Init();
         if(_iconDictionary.TryGetValue(type, out BuffIcon icon))
         {
             icon.gameObject.SetActive(true);
@@ -48,6 +56,7 @@ public class BuffUIManager : MonoBehaviour
 
     public void FalseIcon(BuffType type)
     {
+        if (!_isSetting) Init();
         if (_iconDictionary.TryGetValue(type, out BuffIcon icon))
         {
             if (icon.gameObject.activeSelf)

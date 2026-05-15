@@ -66,9 +66,9 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     #region ƒoƒt
     public void AddBuff(BuffType type, int time)
     {
-        _buffs[type] = Mathf.Clamp(_buffs[type] + time,0,255);
+        _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
 
-        if(_buffs[type] <= 0)
+        if (_buffs[type] <= 0)
         {
             _buffUIManager.FalseIcon(type);
             return;
