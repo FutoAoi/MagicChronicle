@@ -6,5 +6,5 @@ public interface IBuff
     /// バフ実行
     /// </summary>
     /// <param name="character">バフ適応先</param>
-    public void Excute(CharacterBase character);
+    public void Excute(CharacterBase character = null,AttackMagic magic = null);
 }

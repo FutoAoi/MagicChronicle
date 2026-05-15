@@ -201,4 +201,13 @@ public class GameManager : MonoBehaviour
     {
         _playerType = useType;
     }
+    /// <summary>
+    /// プレイヤーのキャラによって特定バフを付与する
+    /// </summary>
+    /// <param name="playerType">プレイヤーのタイプ</param>
+    /// <returns>タイプ毎の特殊バフ</returns>
+    public BuffData GivePlayerBuffData()
+    {
+        return _buffDataBase.GetBuffData((BuffType)_playerType);
+    }
 }

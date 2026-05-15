@@ -31,7 +31,8 @@ public class AttackMagic : MonoBehaviour
     private Color _startColor;
     private Vector2Int _currentSlot, _speedInt;
     private Vector2 _outPos, _goalPos;
-    private bool _finish, _firstAttack, _isAttack,_isSelfHarm,_isAccelerate = false;
+    private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
+        _combo = false;
     private int _width, _height;
 
     #endregion
@@ -53,6 +54,7 @@ public class AttackMagic : MonoBehaviour
     {
         _onDisable = onDisable;
         AttackPower = 1;
+        _combo = false;
     }
     #endregion
     #region 基本挙動
@@ -71,6 +73,15 @@ public class AttackMagic : MonoBehaviour
         IsAttack = true;
         _currentSlot = startPos;//初期ポジ
         bool isPlayer = _attackManager.IsPlayerTurn;
+
+        //プレイヤーのタイプを確認
+        if (isPlayer)
+        {
+            if(_gameManager.PlayerType == PlayerType.Combo)
+                _combo = true;
+        }
+
+        //移動ループ処理
         while (!_finish)
         {
             //魔法の移動
@@ -136,6 +147,12 @@ public class AttackMagic : MonoBehaviour
             _tileSlot.TileColorChangeAnimation(interval * 0.1f,true);
 
             yield return new WaitForSeconds(interval * 0.2f);
+
+            //コンボ処理
+            if (_combo)
+            {
+                AttackPower++;
+            }
 
             //効果の呼び出し
             if (!_tileSlot.IsOccupied)
