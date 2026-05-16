@@ -14,10 +14,9 @@ public class Enemy : CharacterBase
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
     [SerializeField, Tooltip("攻撃ターンの表示")] private TextMeshProUGUI _attackTurnTMP;
     [SerializeField, Tooltip("特殊攻撃ターンの表示")] private TextMeshProUGUI _specialTMP;
-    [SerializeField, Tooltip("エネミーの攻撃力")] private int _enemyAP;
+
     [SerializeField, Tooltip("エネミーの攻撃までのターン数")] private int _enemyAT;
     [SerializeField] private HpBarContller _hpBarContller;
-
     private EnemyData _enemy;
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
@@ -32,7 +31,7 @@ public class Enemy : CharacterBase
     {
         _enemy = GameManager.Instance.EnemyDataBase.GetEnemyData(enemyID);
         SetStatus(_enemy.EnemyHP, _enemy.EnemyHP);
-        _enemyAP = _enemy.EnemyAP;
+        _attackPower = _enemy.EnemyAP;
         _enemyAT = _enemy.EnemyAT;
         if (_enemy.IsSpecialAttack)
         {

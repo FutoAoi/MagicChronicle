@@ -6,6 +6,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public bool IsDead;
     public int MaxHP => _maxHP;
     public int CurrentHP => _currentHP;
+    [SerializeField, Tooltip("UŒ‚—Í")] protected int _attackPower;
 
     private int _maxHP;
     private int _currentHP;
@@ -85,6 +86,15 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
         _buffs.DecreaseAll(_gameManager.BuffDataBase,amount);
     }
     public bool HasBuff(BuffType type) => _buffs.Has(type);
+
+    /// <summary>
+    /// UŒ‚—Í•Ï‰»
+    /// </summary>
+    /// <param name="delta">•Ï‰»—Ê</param>
+    public void AddPower(int delta)
+    {
+        _attackPower = Mathf.Max(1, _attackPower + delta);
+    }
 
     #endregion
     #region HPŠÖŒW
