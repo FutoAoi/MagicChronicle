@@ -19,3 +19,5 @@ MonoBehaviour:
   _enemies:
   - _enemyID: 999
     _enemyPosition: 2
+  - _enemyID: 999
+    _enemyPosition: 4
