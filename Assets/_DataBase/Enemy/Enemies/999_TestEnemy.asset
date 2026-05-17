@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _enemyID: 999
   _sprite: {fileID: -6393953091253504009, guid: 3114f275a66737b4693f866287f6c5fa, type: 3}
-  _enemyHP: 10
+  _enemyHP: 25
   _enemyAP: 1
   _enemyAttackTime: 1
   _enemyAT: 1
@@ -23,6 +23,6 @@ MonoBehaviour:
   _canBoardInterference: 1
   _effectTime: 1
   _cardEffects:
-  - {fileID: 11400000, guid: 88876d63aa5d45a4d8243e8fff6654f5, type: 2}
+  - {fileID: 11400000, guid: 2b870ef1b83e8434581850d1112291c9, type: 2}
   _canBuff: 0
   _rewardAmount: 0000000000000000
