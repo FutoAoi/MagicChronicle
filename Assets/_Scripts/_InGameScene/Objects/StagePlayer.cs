@@ -17,7 +17,7 @@ public class StagePlayer : CharacterBase
         base.Start();
 
         _gameManager.Player = this;
-        SetStatus(10, 10);
+        SetStatus(100, 100);
         _rect = GetComponent<RectTransform>();
         _hpBarContller.ShowUI(CurrentHP, MaxHP);
         Debug.Log("Player" + $"{CurrentHP}");

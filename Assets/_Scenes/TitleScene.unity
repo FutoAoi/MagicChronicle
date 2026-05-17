@@ -414,10 +414,11 @@ MonoBehaviour:
     Floors: []
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
-  StageID: 1
+  StageID: 0
   CurrentPhase: 5
   Reset: 0
   IsEnemyAction: 0
+  DecreaseBuff: 0
   Player: {fileID: 0}
   _currentScene: 0
 --- !u!4 &217468534
@@ -1158,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fced1b6f10f35444d9016e150032d063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetector
-  _sceneType: 3
+  _sceneType: 1
 --- !u!1 &1083891951
 GameObject:
   m_ObjectHideFlags: 0
