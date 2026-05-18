@@ -10,6 +10,7 @@ public class BuffData : ScriptableObject
     [TextArea(3, 10)]
     [SerializeField] private string _description;
     [SerializeField] private bool _isDecreaseTurn;
+    [SerializeField] private bool _isDisplayCount = true;
     [SerializeReference, SubclassSelector] private IBuff[] _effect;
 
     public BuffType Type => _type;
@@ -17,6 +18,7 @@ public class BuffData : ScriptableObject
     public string Name => _name;
     public string Description => _description;
     public bool IsDecreaseTurn => _isDecreaseTurn;
+    public bool IsDisplayCount => _isDisplayCount;
     public IBuff[] Effect => _effect;
 
 }

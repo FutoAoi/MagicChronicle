@@ -17,6 +17,7 @@ MonoBehaviour:
   _name: "\u5F31\u4F53"
   _description: 
   _isDecreaseTurn: 1
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2

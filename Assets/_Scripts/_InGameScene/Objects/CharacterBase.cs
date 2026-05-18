@@ -65,9 +65,14 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     #endregion
 
     #region ƒoƒt
-    public void AddBuff(BuffType type, int time)
+    public void AddBuff(BuffType type, int time = 1000)
     {
-        _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
+        if(time == 1000)
+        {
+            _buffs[type] = 1;
+        }
+        else
+            _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
 
         if (_buffs[type] <= 0)
         {

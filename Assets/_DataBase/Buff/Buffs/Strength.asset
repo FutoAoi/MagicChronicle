@@ -17,6 +17,7 @@ MonoBehaviour:
   _name: "\u529B"
   _description: 
   _isDecreaseTurn: 0
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2
