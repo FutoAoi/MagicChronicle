@@ -17,6 +17,7 @@ MonoBehaviour:
   _name: "\u75B2\u52B4"
   _description: 
   _isDecreaseTurn: 1
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2

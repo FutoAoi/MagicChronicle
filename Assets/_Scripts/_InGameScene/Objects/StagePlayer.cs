@@ -21,7 +21,7 @@ public class StagePlayer : CharacterBase
         _rect = GetComponent<RectTransform>();
         _hpBarContller.ShowUI(CurrentHP, MaxHP);
         Debug.Log("Player" + $"{CurrentHP}");
-        AddBuff(_gameManager.GivePlayerBuffData().Type,0);
+        AddBuff(_gameManager.GivePlayerBuffData().Type);
     }
 
     public override void Damaged(int damage)

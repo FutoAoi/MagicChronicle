@@ -17,6 +17,7 @@ MonoBehaviour:
   _name: "\u30EA\u30B8\u30A7\u30CD"
   _description: 
   _isDecreaseTurn: 0
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2
