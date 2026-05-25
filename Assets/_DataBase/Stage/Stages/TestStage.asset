@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestStage
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   _stageID: 0
-  _background: {fileID: -3805512923511866318, guid: be52e74f5fa67984283a8ee9f335170f, type: 3}
+  _background: {fileID: -7326293783057710154, guid: 090f0e9f281eee147849a181cc93b139, type: 3}
   _width: 5
   _height: 5
   _enemies:
