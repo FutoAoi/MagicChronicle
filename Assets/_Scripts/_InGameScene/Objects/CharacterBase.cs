@@ -92,7 +92,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     }
     public bool HasBuff(BuffType type) => _buffs.Has(type);
 
-    public int ReturnBuffCount(BuffType type)
+    public int GetBuffCount(BuffType type)
     {
         return _buffs.Stack(type);
     }

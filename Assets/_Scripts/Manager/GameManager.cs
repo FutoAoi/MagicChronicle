@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private IBattleUI _uiManagerButtle;
     private AttackManager _attackManager;
+    private DeckManager _deckManager;
     private FadeManager _fadeManager;
     private PlayerType _playerType = PlayerType.Combo;
     private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,
@@ -78,7 +79,8 @@ public class GameManager : MonoBehaviour
                         {
                             StageManager.CreateStage(StageID);
                             CurrentPhase = BattlePhase.Draw;
-                            if(CurrentUIManager.TryGetComponent<IBattleUI>(out var Battle))
+                            _deckManager = DeckManager.Instance;
+                            if (CurrentUIManager.TryGetComponent<IBattleUI>(out var Battle))
                             {
                                 _uiManagerButtle = Battle;
                             }
@@ -88,7 +90,13 @@ public class GameManager : MonoBehaviour
                     case BattlePhase.Draw:
                         if (!_isDraw)
                         {
-                            DeckManager.Instance.ShuffleDeck();
+                            //ドローバフの確認
+                            if (Player.HasBuff(BuffType.CardPlus))
+                            {
+                                _uiManagerButtle.ChangeDrawCount(Player.GetBuffCount(BuffType.CardPlus));
+                            }
+
+                            _deckManager.ShuffleDeck();
                             StartCoroutine(_uiManagerButtle.DrawCard());
                             Player.SetCost();
                             _isDraw = true;

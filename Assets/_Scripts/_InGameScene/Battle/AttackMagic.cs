@@ -86,7 +86,7 @@ public class AttackMagic : MonoBehaviour
         {
             if (_gameManager.Player.HasBuff(BuffType.Strength))
             {
-                AttackPower += _gameManager.Player.ReturnBuffCount(BuffType.Strength);
+                AttackPower += _gameManager.Player.GetBuffCount(BuffType.Strength);
             }
         }
         else
@@ -94,7 +94,7 @@ public class AttackMagic : MonoBehaviour
             if (_gameManager.StageManager.EnemyList[startPos.x].HasBuff(BuffType.Strength))
             {
                 AttackPower += _gameManager.StageManager.EnemyList[startPos.x]
-                    .ReturnBuffCount(BuffType.Strength);
+                    .GetBuffCount(BuffType.Strength);
             }
         }
 
