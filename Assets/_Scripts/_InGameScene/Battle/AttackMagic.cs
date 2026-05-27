@@ -81,6 +81,23 @@ public class AttackMagic : MonoBehaviour
                 _combo = true;
         }
 
+        //筋力バフ適応
+        if (isPlayer)
+        {
+            if (_gameManager.Player.HasBuff(BuffType.Strength))
+            {
+                AttackPower += _gameManager.Player.ReturnBuffCount(BuffType.Strength);
+            }
+        }
+        else
+        {
+            if (_gameManager.StageManager.EnemyList[startPos.x].HasBuff(BuffType.Strength))
+            {
+                AttackPower += _gameManager.StageManager.EnemyList[startPos.x]
+                    .ReturnBuffCount(BuffType.Strength);
+            }
+        }
+
         //移動ループ処理
         while (!_finish)
         {
@@ -144,7 +161,7 @@ public class AttackMagic : MonoBehaviour
             yield return new WaitForSeconds(interval * 0.5f);
 
             _tileSlot = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<TileSlot>();
-            _tileSlot.TileColorChangeAnimation(interval * 0.1f,true);
+            _tileSlot.TileColorChangeAnimation(interval * 0.1f, true);
 
             yield return new WaitForSeconds(interval * 0.2f);
 
@@ -211,7 +228,7 @@ public class AttackMagic : MonoBehaviour
             }
             else
             {
-                if(_currentSlot.y < 0)//エネミー攻撃成功時
+                if (_currentSlot.y < 0)//エネミー攻撃成功時
                 {
                     _finish = true;
                     _isAttack = true;
@@ -230,7 +247,7 @@ public class AttackMagic : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(interval * 0.3f);
-            _tileSlot.TileColorChangeAnimation(interval * 0.1f,false);
+            _tileSlot.TileColorChangeAnimation(interval * 0.1f, false);
         }
 
         _player = _gameManager.Player;
