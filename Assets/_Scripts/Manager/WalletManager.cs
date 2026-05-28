@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public class WalletManager : MonoBehaviour
     public WalletPanel CurrentWalletPanel;
     public int CurrentMoney => _currentMoney;
     public int CurrentJem => _currentJem;
-    [SerializeField] private float _duration = 0.5f;
+    [Header("-----数値設定-----")]
+    [SerializeField, Header("増加演出時間")] private float _duration = 0.7f;
+    [SerializeField, Header("移動待機時間")] private float _waitSec = 0.4f;
 
     private int _currentMoney;
     private int _currentJem;
@@ -32,7 +35,7 @@ public class WalletManager : MonoBehaviour
     {
         if (_currentMoney + delta >= 0)
         {
-            WalletChangeAnimation(WalletType.Money, _currentMoney + delta);
+            StartCoroutine(WalletChangeAnimation(WalletType.Money, _currentMoney + delta));
         }
         else
         {
@@ -48,7 +51,7 @@ public class WalletManager : MonoBehaviour
     {
         if (_currentJem + delta >= 0)
         {
-            WalletChangeAnimation(WalletType.Jem, _currentJem + delta);
+            StartCoroutine(WalletChangeAnimation(WalletType.Jem, _currentJem + delta));
         }
         else
         {
@@ -56,8 +59,9 @@ public class WalletManager : MonoBehaviour
         }
     }
 
-    private void WalletChangeAnimation(WalletType type,int targetValue)
+    private IEnumerator WalletChangeAnimation(WalletType type,int targetValue)
     {
+        //更新先テキストの取得
         int value = type switch
         {
             WalletType.Money => _currentMoney,
@@ -66,6 +70,12 @@ public class WalletManager : MonoBehaviour
         };
         TextMeshProUGUI _walletText = CurrentWalletPanel.GetWalletText(type);
 
+        //パネル移動演出
+        CurrentWalletPanel.PanelMoveAnimation(true);
+        yield return new WaitUntil(() => CurrentWalletPanel.IsFinishAnim);
+
+        //テキスト更新演出
+        bool isfinish = false;
         DOTween.To(() => value,
             x =>
             {
@@ -74,6 +84,16 @@ public class WalletManager : MonoBehaviour
             },
             targetValue,
             _duration
-        );
+        )
+        .OnComplete(() =>
+        {
+            isfinish = true;
+        });
+
+        yield return new WaitUntil(() => isfinish);
+        yield return new WaitForSeconds(_waitSec);
+
+        //パネル移動演出
+        CurrentWalletPanel.PanelMoveAnimation(false);
     }
 }
