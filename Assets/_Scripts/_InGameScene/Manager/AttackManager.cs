@@ -185,7 +185,6 @@ public class AttackManager : MonoBehaviour
         }
         return true;
     }
-
     public void SwichTurn(bool isPlayer)
     {
         _isPlayerTurn = isPlayer;

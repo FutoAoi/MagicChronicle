@@ -20,12 +20,18 @@ public struct BuffStacks
     /// <returns></returns>
     public bool Has(BuffType type) => _counts[(int)type] > 0;
     /// <summary>
+    /// 指定のバフのスタック数を返す
+    /// </summary>
+    /// <param name="type">バフの指定</param>
+    /// <returns></returns>
+    public int Stack(BuffType type) => _counts[(int)type];
+    /// <summary>
     /// 全てのバフターンを減らす
     /// </summary>
     /// <param name="amount">減る量</param>
-    public void DecreaseAll(BuffDataBase buffDataBase,byte amount = 1)
+    public void DecreaseAll(BuffDataBase buffDataBase,int amount = 1)
     {
-        for(byte i = 0; i < _counts.Length; i++)
+        for(int i = 0; i < _counts.Length; i++)
         {
             if (_counts[i] == 0) continue;
 
