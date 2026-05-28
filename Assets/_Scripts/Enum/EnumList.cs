@@ -26,7 +26,6 @@ public enum MagicVector : byte
 /// </summary>
 public enum CardRarity : byte
 {
-    Uncommon,
     Common,
     Rare,
     Epic,
@@ -95,4 +94,10 @@ public enum BuffType : byte
     CardPlus,
     Rapid,
     End
+}
+
+public enum WalletType : byte
+{
+    Money,
+    Jem
 }
