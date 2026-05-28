@@ -51,7 +51,10 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public virtual void Damaged(int damage)
     {
         if (IsDead) return;
-        _currentHP -= damage;
+
+        float mag = _buffs.Has(BuffType.Weaken)? 1.0f : 1.5f;
+
+        _currentHP -= (int)(damage*mag);
         if (_currentHP <= 0)
         {
             _currentHP = 0;
