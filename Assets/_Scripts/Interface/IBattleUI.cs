@@ -12,6 +12,10 @@ public interface IBattleUI
     /// </summary>
     void ChangeDrawCount(int delta = 0);
     /// <summary>
+    /// ドロー数のバフをリセットする
+    /// </summary>
+    void ResetDrawCount();
+    /// <summary>
     /// 手札を並べる
     /// </summary>
     void HandOrganize();
