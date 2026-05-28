@@ -9,6 +9,7 @@ public class Enemy : CharacterBase
 {
     public bool IsAttackTurn => _isAttackTurn;
     public bool IsSpecialAttack => _isSpecialAttack;
+    public int EnemyID => _enemyID;
 
     [Header("エネミー詳細")]
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
@@ -17,6 +18,7 @@ public class Enemy : CharacterBase
 
     [SerializeField, Tooltip("エネミーの攻撃までのターン数")] private int _enemyAT;
     [SerializeField] private HpBarContller _hpBarContller;
+    private int _enemyID;
     private EnemyData _enemy;
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
@@ -29,6 +31,7 @@ public class Enemy : CharacterBase
     /// <param name="enemyID"></param>
     public void SetEnemyStatus(int enemyID)
     {
+        _enemyID = enemyID;
         _enemy = GameManager.Instance.EnemyDataBase.GetEnemyData(enemyID);
         SetStatus(_enemy.EnemyHP, _enemy.EnemyHP);
         _attackPower = _enemy.EnemyAP;
