@@ -36,8 +36,7 @@ public class GameManager : MonoBehaviour
     private DeckManager _deckManager;
     private FadeManager _fadeManager;
     private PlayerType _playerType = PlayerType.Combo;
-    private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,
-        _isBattleUIManager;
+    private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,_isBattleUIManager;
 
     [SerializeField]private SceneType _currentScene;
 
@@ -46,10 +45,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         _generateMapData = MapGenerator.GenerateMap(_mapData);
         _fadeManager = FadeManager.Instance;
-        if(Player != null )
-        {
-            Player.SetStatus(10, 10);
-        }
     }
 
     private void Awake()
