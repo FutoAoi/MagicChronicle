@@ -13,15 +13,15 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("コスト表示")]private TextMeshProUGUI _costText;
 
     [Header("数値設定")]
-    [SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
-    [SerializeField, Tooltip("非表示アニメーション時間")] private float _hideSpeed = 0.1f;
+    //[SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
+    //[SerializeField, Tooltip("非表示アニメーション時間")] private float _hideSpeed = 0.1f;
 
     public int CardID;
 
     private IBattleUI _battleUI;
     private CardDataBase _cardDataBase;
     private int _cardCost;
-    private bool _ignorePointer = false,_isGhostCircle;
+    //private bool _ignorePointer = false,_isGhostCircle;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         _nameText.text = data.Name;
         _cardCost = data.Cost;
         _costText.text = _cardCost.ToString();
-        _isGhostCircle = data.IsGhost;
+        //_isGhostCircle = data.IsGhost;
 
         if(GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
         {
@@ -71,12 +71,12 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     /// <param name="time"></param>
     public void IgnorePointerFor(float time)
     {
-        _ignorePointer = true;
+        //_ignorePointer = true;
         Invoke(nameof(EnablePointer), time);
     }
 
     private void EnablePointer()
     {
-        _ignorePointer = false;
+        //_ignorePointer = false;
     }
 }

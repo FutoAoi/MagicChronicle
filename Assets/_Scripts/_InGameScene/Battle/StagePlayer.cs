@@ -38,6 +38,7 @@ public class StagePlayer : CharacterBase
     public void IncreaseMaxCost(int plus)
     {
         _maxCost += plus;
+        _gameManager.CurrentUIManager.UpdateCostUI();
     }
 
     /// <summary>

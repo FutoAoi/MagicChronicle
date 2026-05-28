@@ -19,7 +19,7 @@ public class CardEncyclopedia : MonoBehaviour
     [SerializeField, Tooltip("ÉCÉÅÅ[ÉW")] private Image _image;
     [SerializeField, Tooltip("ê‡ñæóì")] private TextMeshProUGUI _description;
 
-    [SerializeField] private bool _usePool = true;
+    //[SerializeField] private bool _usePool = true;
 
     private List<CardData> _currentList = new();
     private List<CardView> _pool = new();

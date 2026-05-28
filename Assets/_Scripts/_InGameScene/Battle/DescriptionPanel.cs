@@ -11,15 +11,15 @@ public class DescriptionPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _durability;
     [SerializeField] private TextMeshProUGUI _description;
 
-    [Header("-----アニメーション設定-----")]
-    [SerializeField] private float _duration = 0.1f;
+    //[Header("-----アニメーション設定-----")]
+    //[SerializeField] private float _duration = 0.1f;
 
-    private bool _isTween;
-    private Image _img;
+    //private bool _isTween;
+    //private Image _img;
 
     private void Start()
     {
-        _img = GetComponent<Image>();
+        //_img = GetComponent<Image>();
     }
     /// <summary>
     /// 説明パネルの魔法陣情報を更新
