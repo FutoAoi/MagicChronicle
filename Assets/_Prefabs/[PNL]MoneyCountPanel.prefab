@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 4349471782901847078}
   - component: {fileID: 7869465922831178474}
   - component: {fileID: 6416459111982246578}
+  - component: {fileID: 659053674040543175}
   m_Layer: 5
   m_Name: '[PNL]MoneyCountPanel'
   m_TagString: Untagged
@@ -503,3 +504,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &659053674040543175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104843232402483284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fe766a0589cb040a81833ef0c07160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalletPanel
+  _moneyText: {fileID: 1406084934786375270}
+  _jemText: {fileID: 5828080547973498623}
