@@ -37,6 +37,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("説明パネル")] public GameObject _descriptionPanel;
     [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
+    [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
+    [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
 
     public bool _isFinishCutIn = false;
 
@@ -295,4 +297,37 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         UpdateCostImage(_stagePlayer.CurrentCost);
     }
+
+    /// <summary>
+    /// デッキカウントの表示更新
+    /// </summary>
+    /// <param name="start">始めの枚数</param>
+    /// <param name="target">終わりの枚数</param>
+    /// <param name="deckType">どこを更新するか</param>
+    public void UpdateDeckCount(int start,int target,InGameDeckType deckType)
+    {
+        TextMeshProUGUI text = deckType switch
+        {
+            InGameDeckType.Deck => _deckCountText,
+            InGameDeckType.Discard => _discardConutText,
+            _ => null
+        };
+
+        int currentIndex = deckType switch
+        {
+            InGameDeckType.Deck => DeckCard.Count,
+            InGameDeckType.Discard => DiscardCard.Count,
+            _ => 0
+        };
+
+        DOTween.To(() => currentIndex,
+            x =>
+            {
+                currentIndex = x;
+                text.text = currentIndex.ToString();
+            },
+            target,
+            _valueDuration
+            );
+    } 
 }

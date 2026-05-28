@@ -4273,6 +4273,8 @@ MonoBehaviour:
   - {fileID: 522801415}
   - {fileID: 959739850}
   - {fileID: 374469914}
+  _deckCountText: {fileID: 922467363}
+  _discardConutText: {fileID: 1864157328}
   _isFinishCutIn: 0
   _stagePlayer: {fileID: 460636253}
 --- !u!114 &1154090790
@@ -4958,9 +4960,9 @@ RectTransform:
   - {fileID: 2107358227}
   - {fileID: 1741719824}
   - {fileID: 65825076}
-  - {fileID: 1435232784}
   - {fileID: 1908586315}
   - {fileID: 1241243117}
+  - {fileID: 1435232784}
   - {fileID: 1688558823}
   - {fileID: 505951956}
   m_Father: {fileID: 0}
