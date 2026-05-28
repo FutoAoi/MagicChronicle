@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
                     case BattlePhase.Draw:
                         if (!_isDraw)
                         {
+                            _uiManagerButtle.ResetDrawCount();
+
                             //ドローバフの確認
                             if (Player.HasBuff(BuffType.CardPlus))
                             {

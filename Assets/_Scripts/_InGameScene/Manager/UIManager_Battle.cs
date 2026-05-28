@@ -262,6 +262,11 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _deltaDrawCount += delta;
     }
 
+    public void ResetDrawCount()
+    {
+        _deltaDrawCount = 0;
+    }
+
     public void UpdateCostImage(int value)
     {
         foreach(Image cost in _costImages)
