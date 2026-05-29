@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 /// <summary>
 /// インゲームのバトル時のUIManager
@@ -76,15 +75,23 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _deckPanel.gameObject.SetActive(false);
         _descriptionPanel.gameObject.SetActive(false);
         UpdateMaxCostImage(_stagePlayer.MaxCost);
+        UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
+        UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
     }
     public IEnumerator DrawCard()
     {
+        int deckCount = DeckCard.Count;
+        int discardCount = DiscardCard.Count;
         for (int i = 0; i < _handRange + _deltaDrawCount; i++)
         {
             CreateCard();
             yield return new WaitForSeconds(_distance);
         }
         SetupCostText();
+
+
+        UpdateDeckCount(deckCount,DeckCard.Count,InGameDeckType.Deck);
+        UpdateDeckCount(discardCount, DiscardCard.Count, InGameDeckType.Discard);
     }
 
     public void HandOrganize()
@@ -313,21 +320,17 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             _ => null
         };
 
-        int currentIndex = deckType switch
-        {
-            InGameDeckType.Deck => DeckCard.Count,
-            InGameDeckType.Discard => DiscardCard.Count,
-            _ => 0
-        };
+        if (text == null) return;
 
-        DOTween.To(() => currentIndex,
+        DOTween.To(() => start,
             x =>
             {
-                currentIndex = x;
-                text.text = currentIndex.ToString();
+                start = x;
+                text.text = start.ToString();
             },
             target,
             _valueDuration
-            );
+            )
+            .SetEase(Ease.OutQuad);
     } 
 }
