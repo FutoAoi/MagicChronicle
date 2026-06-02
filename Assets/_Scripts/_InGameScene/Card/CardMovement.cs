@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -5,13 +6,25 @@ using UnityEngine.UI;
 public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public int ID;
+
+    [Header("-----参照-----")]
+    [SerializeField, Header("移動中のカード")] private GameObject _moveCardView;
+    [SerializeField, Header("名前")] private TextMeshProUGUI _nameT;
+    [SerializeField, Header("コスト")] private TextMeshProUGUI _costT;
+    [SerializeField, Header("耐久値")] private TextMeshProUGUI _timeT;
+    [SerializeField,Header("イラスト")] private Image _illustImg;
+    [SerializeField, Header("置かれる魔法陣")] private GameObject _magicCircleView;
+
+    [Header("-----数値調整-----")]
+    [SerializeField, Header("ホールド時のローカル座標")] private Vector2 _offset = new Vector2(0,250);
+
     private GameManager _gameManager;
     private StagePlayer _player;
     private GameObject _dropTarget,_cardPrefab,_newCard;
     private Transform _trOriginalParent,_trHandArea;
     private Canvas _canvas;
     private CanvasGroup _canvasGroup;
-    private RectTransform _rectTransform;
+    private RectTransform _rt;
     private TileSlot _tileSlot;
     private Card _card;
     private UIManager_Battle _uiManager;
@@ -23,7 +36,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _gameManager = GameManager.Instance;
         _player = _gameManager.Player;
         _uiManager = FindAnyObjectByType<UIManager_Battle>();
-        _rectTransform = GetComponent<RectTransform>();
+        _rt = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
         _canvasGroup = GetComponent<CanvasGroup>();
         if(_canvasGroup == null)
@@ -32,6 +45,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         _trHandArea = _uiManager.HandArea;
         _cardPrefab = _uiManager.CardPrefab;
+        UpdateCardObject(false);
     }
     /// <summary>
     /// タイルが置かれた
@@ -44,33 +58,64 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
+
         _trOriginalParent = transform.parent;
-        TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
-        if(tileSlot != null && tileSlot.IsLastTimeCard)return;
+
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        //前回置かれた魔法陣か確認
+        if (IsBeforeOccupied()) return;
+
         transform.SetParent(_uiManager.DragLayer.transform);
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.alpha = 0.6f;
+
+        //手札カードだったらIDを保持
         _card = GetComponent<Card>();
         if(_card != null) ID = _card.CardID;
+
         _cost = _gameManager.CardDataBase.GetCardData(ID).Cost;
+
+        //盤面カードだったら処理
         if(_isBoardCard && _trOriginalParent.GetComponent<TileSlot>() != null && 
             _player.CurrentCost < _player.MaxCost)
         {
+            //コスト変化
             _player.ChangeCost(_cost, false);
             _uiManager.UpdateCostText(_player.CurrentCost);
             _refundedCostOnDrag = true;
-}
+
+            //見た目変化
+            UpdateCardObject(true);
+
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
-        TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
-        if (tileSlot != null && tileSlot.IsLastTimeCard) return;
-        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        //前回置かれた魔法陣か確認
+        if (IsBeforeOccupied()) return;
+
+        //_rt.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+
+        RectTransform canvasRect = _canvas.GetComponent<RectTransform>();
+
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect,
+            eventData.position,
+            eventData.pressEventCamera,
+            out Vector2 localPoint))
+        {
+            _rt.anchoredPosition = localPoint + _offset;
+        }
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
         TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
         if (tileSlot != null && tileSlot.IsLastTimeCard) return;
         _canvasGroup.alpha = 1f;
@@ -83,6 +128,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (_tileSlot.IsOccupied || !_player.ConsumeCost(_cost))
             {
                 ReturnToOriginalSlot();
+                UpdateCardObject(false);
                 return;
             }
             //盤面上から動かされてたらスロットを空に
@@ -111,12 +157,13 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         else
         {
             ReturnToOriginalSlot();
+            UpdateCardObject(false);
         }
     }
     private void ReturnToOriginalSlot()
     {
         transform.SetParent(_trOriginalParent);
-        _rectTransform.anchoredPosition = Vector2.zero;
+        _rt.anchoredPosition = Vector2.zero;
         if (_refundedCostOnDrag)
         {
             _player.ChangeCost(_cost, true);
@@ -162,5 +209,29 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         RectTransform rt = _newCard.GetComponent<RectTransform>();
         rt.anchoredPosition = Vector2.zero;
         _uiManager.HandCard.Add(_newCard);
+    }
+
+    private bool IsBeforeOccupied()
+    {
+        TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
+        return tileSlot != null && tileSlot.IsLastTimeCard;
+    }
+
+    private void UpdateCardObject(bool isViewCard)
+    {
+        if (_magicCircleView != null) _magicCircleView.SetActive(!isViewCard);
+        if (_moveCardView != null)
+        {
+            _moveCardView.SetActive(isViewCard);
+
+            if (!_moveCardView.activeSelf) return;
+
+            CardData data = _gameManager.CardDataBase.GetCardData(ID);
+
+            _nameT.text = data.Name;
+            _costT.text = data.Cost.ToString();
+            _timeT.text = data.MaxTimes.ToString();
+            _illustImg.sprite = data.Sprite;
+        }
     }
 }
