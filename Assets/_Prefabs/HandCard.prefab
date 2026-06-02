@@ -164,7 +164,7 @@ RectTransform:
   m_GameObject: {fileID: 2955667559099184659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
+  m_LocalScale: {x: 1.035, y: 1.035, z: 1.035}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6843373413862777055}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6848686836697407871, guid: 9d27ce53149b3ca48a1aeba2d7db2ae5, type: 3}
+  m_Sprite: {fileID: -8286454221034216391, guid: ccb1954dcb7d4be41a61349fa079b1ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8286454221034216391, guid: ccb1954dcb7d4be41a61349fa079b1ee, type: 3}
+  m_Sprite: {fileID: 7079319435341582325, guid: b71e642a320724f4a897fd011a95bdba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -653,7 +653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -39.8972, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 130.56, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5000710869051630650
@@ -689,6 +689,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileMovement
   ID: 0
+  _moveCardView: {fileID: 0}
+  _nameT: {fileID: 0}
+  _costT: {fileID: 0}
+  _timeT: {fileID: 0}
+  _illustImg: {fileID: 0}
+  _magicCircleView: {fileID: 0}
+  _offset: {x: 0, y: 150}
 --- !u!114 &7876013493723205252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,8 +712,6 @@ MonoBehaviour:
   _cardImage: {fileID: 6266377362408366595}
   _nameText: {fileID: 7386219055268811521}
   _costText: {fileID: 6095012120660692815}
-  _duration: 0.2
-  _hideSpeed: 0.05
   CardID: 0
 --- !u!114 &-6448778627565062429
 MonoBehaviour:

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 /// <summary>
 /// インゲームのバトル時のUIManager
@@ -37,6 +36,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("説明パネル")] public GameObject _descriptionPanel;
     [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
+    [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
+    [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
 
     public bool _isFinishCutIn = false;
 
@@ -74,15 +75,23 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _deckPanel.gameObject.SetActive(false);
         _descriptionPanel.gameObject.SetActive(false);
         UpdateMaxCostImage(_stagePlayer.MaxCost);
+        UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
+        UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
     }
     public IEnumerator DrawCard()
     {
+        int deckCount = DeckCard.Count;
+        int discardCount = DiscardCard.Count;
         for (int i = 0; i < _handRange + _deltaDrawCount; i++)
         {
             CreateCard();
             yield return new WaitForSeconds(_distance);
         }
         SetupCostText();
+
+
+        UpdateDeckCount(deckCount,DeckCard.Count,InGameDeckType.Deck);
+        UpdateDeckCount(discardCount, DiscardCard.Count, InGameDeckType.Discard);
     }
 
     public void HandOrganize()
@@ -295,4 +304,33 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         UpdateCostImage(_stagePlayer.CurrentCost);
     }
+
+    /// <summary>
+    /// デッキカウントの表示更新
+    /// </summary>
+    /// <param name="start">始めの枚数</param>
+    /// <param name="target">終わりの枚数</param>
+    /// <param name="deckType">どこを更新するか</param>
+    public void UpdateDeckCount(int start,int target,InGameDeckType deckType)
+    {
+        TextMeshProUGUI text = deckType switch
+        {
+            InGameDeckType.Deck => _deckCountText,
+            InGameDeckType.Discard => _discardConutText,
+            _ => null
+        };
+
+        if (text == null) return;
+
+        DOTween.To(() => start,
+            x =>
+            {
+                start = x;
+                text.text = start.ToString();
+            },
+            target,
+            _valueDuration
+            )
+            .SetEase(Ease.OutQuad);
+    } 
 }

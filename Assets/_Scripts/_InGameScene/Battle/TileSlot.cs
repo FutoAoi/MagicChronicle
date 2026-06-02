@@ -44,7 +44,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(IsOccupied)return;
         ID = id;
         _newCard = Instantiate(_tileBoardPrefab,transform);
-        _newCard.GetComponent<Image>().sprite = _gameManager.CardDataBase.GetCardData(id).Sprite;
+        _newCard.GetComponentInChildren<Image>().sprite = _gameManager.CardDataBase.GetCardData(id).Sprite;
         _newCard.GetComponentInChildren<TextMeshProUGUI>().text = _gameManager.CardDataBase.GetCardData(id).MaxTimes.ToString();
         _tileMovement = _newCard.GetComponent<CardMovement>();
         _tileMovement.ID = id;
