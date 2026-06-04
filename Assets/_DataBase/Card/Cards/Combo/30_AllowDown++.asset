@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
+  m_Name: 30_AllowDown++
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  _cardID: 30
+  _rarity: 2
+  _type: 1
+  _sprite: {fileID: 21300000, guid: de292f6a3894f1047ace3b2227ed626e, type: 3}
+  _name: "\u77E2\u5370\u4E0B++"
+  _description: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002"
+  _cost: 1
+  _maxTimes: 8
+  _isGhost: 0
+  _isDestruction: 0
+  _canEvolution: 0
+  _evolutionID: 0
+  _moveEffect:
+    rid: 5748720707591208961
+  _effect: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5748720707591208961
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 1
