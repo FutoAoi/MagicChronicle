@@ -3419,6 +3419,7 @@ GameObject:
   - component: {fileID: 975691466}
   - component: {fileID: 975691465}
   - component: {fileID: 975691464}
+  - component: {fileID: 975691467}
   m_Layer: 0
   m_Name: '[MG]GameManager'
   m_TagString: Untagged
@@ -3482,6 +3483,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975691467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975691463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913a2616820b5a84d9aa68126b14d4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalletManager
+  CurrentWalletPanel: {fileID: 1241243118}
+  _duration: 0.7
+  _waitSec: 0.4
 --- !u!1 &999624247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4776,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4349471782901847078, guid: b8506eba6addc6544b0138c8c5dd02ad, type: 3}
   m_PrefabInstance: {fileID: 4135970164457851166}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1241243118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 659053674040543175, guid: b8506eba6addc6544b0138c8c5dd02ad, type: 3}
+  m_PrefabInstance: {fileID: 4135970164457851166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fe766a0589cb040a81833ef0c07160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalletPanel
 --- !u!1 &1254527066
 GameObject:
   m_ObjectHideFlags: 0

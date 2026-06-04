@@ -142,7 +142,7 @@ public class Enemy : CharacterBase
             }
 
             //‹óSlotƒŠƒXƒg‚Ì’†‚©‚ç’Š‘I
-            foreach (CardData card in _enemy.CardEffects)
+            foreach (int cardID in _enemy.CardEffectID)
             {
                 if (emptyTiles.Count == 0)
                 {
@@ -151,7 +151,7 @@ public class Enemy : CharacterBase
                 }
 
                 int index = Random.Range(0, emptyTiles.Count);
-                emptyTiles[index].PlaceCard(card.CardID);
+                emptyTiles[index].PlaceCard(cardID);
                 emptyTiles[index].IsLastTimeCard = true;
                 emptyTiles.RemoveAt(index);
 
