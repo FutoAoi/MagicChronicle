@@ -13,7 +13,7 @@ public class EnemyData : ScriptableObject
     public int EnemySAT => _enemySAT;
     public bool CanBoardInterference => _canBoardInterference;
     public int EffectTime => _effectTime;
-    public CardData[] CardEffects => _cardEffects;
+    public int[] CardEffectID => _cardEffectID;
     public bool CanBuff => _canBuff;
     public IBuff[] Buffs => _buffs;
     public int[] RewardAmount => _rewardAmount;
@@ -33,7 +33,7 @@ public class EnemyData : ScriptableObject
     [Header("-----盤面干渉-----"),ShowIf("_isSpecialAttack")]
     [SerializeField, Tooltip("エネミーの盤面鑑賞攻撃フラグ")] private bool _canBoardInterference;
     [SerializeField, ShowIf("_canBoardInterference"), Tooltip("盤面干渉の数")] private int _effectTime;
-    [SerializeField, ShowIf("_canBoardInterference"), Tooltip("設置魔法陣")] private CardData[] _cardEffects;
+    [SerializeField, ShowIf("_canBoardInterference"), Tooltip("設置魔法陣")] private int[] _cardEffectID;
 
     [Header("-----バフ-----"), ShowIf("_isSpecialAttack")]
     [SerializeField, Tooltip("エネミーのバフ攻撃フラグ")] private bool _canBuff;
