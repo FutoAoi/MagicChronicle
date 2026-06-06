@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32841dacb377bd46a106b7c271fcd1c, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: Assembly-CSharp::SoundDataBaseSo
+  _soundMap:
+  - _key: InGame
+    _value: 0.22
+    _type: 0
+    _isLoop: 1
+    _playOnAwake: 1
+    _clip: {fileID: 8300000, guid: f13d2dacab0c39e47b88dada0c363a0d, type: 3}
+  - _key: MagicMove
+    _value: 0.13
+    _type: 1
+    _isLoop: 0
+    _playOnAwake: 1
+    _clip: {fileID: 8300000, guid: 7d7b8728415e9c148bcd6f6913b03eb5, type: 3}
+  - _key: Buff
+    _value: 0.08
+    _type: 1
+    _isLoop: 0
+    _playOnAwake: 1
+    _clip: {fileID: 8300000, guid: cf3221d659ed84f41b3123b4b7926bfd, type: 3}
+  - _key: Debuff
+    _value: 0.358
+    _type: 1
+    _isLoop: 0
+    _playOnAwake: 1
+    _clip: {fileID: 8300000, guid: a636fbdc422a4ea4188c3d47a6ed0264, type: 3}
+  - _key: Shoot
+    _value: 0.358
+    _type: 1
+    _isLoop: 0
+    _playOnAwake: 1
+    _clip: {fileID: 8300000, guid: c893f21e7b7e1a8458e2b81bf533a20c, type: 3}
