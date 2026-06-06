@@ -47,7 +47,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     private RewardManager _rewardManager;
     private DescriptionPanel _description;
     private GameObject _card;
-    private TextMeshProUGUI _text,_descriptionText;
     private Image _panelimg,_descptionImage;
     private RectTransform _panelRectTr;
     private Color _defaultColor;
@@ -65,15 +64,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         HandCard.Clear();
         DiscardCard.Clear();
         RemoveCard.Clear();
-        _text = _enemyAttackPanel.GetComponentInChildren<TextMeshProUGUI>();
-        _panelimg = _enemyAttackPanel.GetComponent<Image>();
-        _panelRectTr = _enemyAttackPanel.GetComponent<RectTransform>();
-        _defaultColor = _panelimg.color;
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
-        _attackPosPanel.gameObject.SetActive(true);
-        _deckPanel.gameObject.SetActive(false);
-        _descriptionPanel.gameObject.SetActive(false);
         UpdateMaxCostImage(_stagePlayer.MaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
@@ -157,29 +149,9 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// <param name="duration"></param>
     public void CutInAnimation(float duration)
     {
+        _isFinishCutIn = false;
         _enemyAttackPanel.SetActive(true);
-        _panelRectTr.anchoredPosition = Vector2.right * 1500f;
-        _defaultColor = _panelimg.color;
-        _panelimg.color = new Color(_defaultColor.r, _defaultColor.g, _defaultColor.b, 0f);
-        _panelRectTr.transform.localScale = Vector3.one;
-        _text.alpha = 0f;
-        _text.transform.localScale = Vector3.one * 0.8f;
-
-        Sequence seq = DOTween.Sequence();
-        seq.Append(_panelimg.DOFade(1f, duration * 0.12f)).SetEase(Ease.OutQuad);
-        seq.Join(_panelRectTr.DOAnchorPos(Vector2.zero, duration * 0.38f).SetEase(Ease.OutExpo));
-        seq.Join(_text.DOFade(1f, duration * 0.25f).SetEase(Ease.OutQuad));
-        seq.Join(_text.transform.DOScale(1.25f, duration * 0.25f).SetEase(Ease.OutBack));
-        seq.AppendInterval(duration * 0.05f);
-        seq.Append(_text.transform.DOScale(1f, duration * 0.1f).SetEase(Ease.OutQuad));
-        seq.Append(_panelRectTr.DOAnchorPos(Vector2.left * 2500f, duration * 0.2f).SetEase(Ease.InQuad));
-        seq.Join(_panelimg.DOFade(0f, duration * 0.15f));
-        seq.Join(_text.DOFade(0f, duration * 0.15f));
-        seq.OnComplete(() =>
-        {
-            _isFinishCutIn = true;
-            _enemyAttackPanel.SetActive(false);
-        });
+        _enemyAttackPanel.GetComponent<CutInPanel>().CutInAnimation(duration);
     }
     /// <summary>
     /// ïÒèVâÊñ ÇÃï\é¶
