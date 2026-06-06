@@ -1,139 +1,109 @@
-using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.Audio;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
+using UnityEngine;
+
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
-    [Header("データベース")]
-    [SerializeField, Tooltip("オーディオデータベース")] AudioDataBase _database;
 
-    [Header("AudioMixer")]
-    [SerializeField, Tooltip("ミキサー")] AudioMixer _mixer;
+    [SerializeField]
+    private SoundDataBaseSo _soundDataBase;
 
-    [Header("BGM Sources (クロスフェード用に2つ)")]
-    [SerializeField, Tooltip("フェード用A")] AudioSource _bgmSourceA;
-    [SerializeField, Tooltip("フェード用B")] AudioSource _bgmSourceB;
+    [SerializeField]
+    private AudioSource _bgmSource;
 
-    [Header("SE Pool")]
-    [SerializeField, Tooltip("SEのプールのプレハブ")] AudioSource _seSourcePrefab;
+    [SerializeField]
+    private Transform _seRoot;
 
-    private IObjectPool<AudioSource> _sePool;
-    private AudioSource _activeBgm;
-    private Coroutine _fadeCoroutine;
+    [SerializeField]
+    private int _sePoolSize = 10;
 
-    private const string KEY_MASTER = "vol_master";
-    private const string KEY_BGM = "vol_bgm";
-    private const string KEY_SE = "vol_se";
+    private readonly Queue<AudioSource> _seAudioSourcePools = new Queue<AudioSource>();
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        InitPool();
-        LoadVolumeSettings();
     }
 
-    public void PlaySE(string id)
+    private void Start()
     {
-        var data = _database.Get(id);
-        if (data == null) return;
-
-        var src = _sePool.Get();
-        src.clip = data.GetClip();
-        src.volume = data.Volume;
-        src.outputAudioMixerGroup = data.MixerGroup;
-        src.spatialBlend = 0f;
-
-        src.Play();
-        StartCoroutine(ReleaseWhenDone(src));
-    }
-
-    IEnumerator ReleaseWhenDone(AudioSource src)
-    {
-        yield return new WaitForSeconds(src.clip.length);
-        _sePool.Release(src);
-    }
-
-    public void PlayBGM(string id, float fadeTime = 1.0f)
-    {
-        var data = _database.Get(id);
-        if (data == null) return;
-
-        if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
-        _fadeCoroutine = StartCoroutine(CrossFadeBGM(data, fadeTime));
-    }
-
-    IEnumerator CrossFadeBGM(AudioData data, float dur)
-    {
-        var next = (_activeBgm == _bgmSourceA) ? _bgmSourceB : _bgmSourceA;
-        next.clip = data.GetClip();
-        next.volume = 0f;
-        next.loop = true;
-        next.Play();
-
-        float t = 0f;
-        float prevVol = _activeBgm != null ? _activeBgm.volume : 0f;
-
-        while (t < dur)
+        if (_seRoot == null)
         {
-            t += Time.deltaTime;
-            float r = t / dur;
-            next.volume = r * data.Volume;
-            if (_activeBgm != null) _activeBgm.volume = (1f - r) * prevVol;
-            yield return null;
+            _seRoot = transform;
         }
 
-        _activeBgm?.Stop();
-        _activeBgm = next;
-    }
-
-    public void StopBGM(float fadeTime = 0.5f)
-        => StartCoroutine(FadeOut(_activeBgm, fadeTime));
-
-    IEnumerator FadeOut(AudioSource src, float dur)
-    {
-        if (src == null) yield break;
-        float startVol = src.volume;
-        for (float t = 0f; t < dur; t += Time.deltaTime)
+        for (int i = 0; i < _sePoolSize; i++)
         {
-            src.volume = Mathf.Lerp(startVol, 0f, t / dur);
-            yield return null;
+            var instance = new GameObject("SeAudioSource_" + i, typeof(AudioSource));
+            instance.transform.SetParent(_seRoot);
+            instance.gameObject.SetActive(false);
+            _seAudioSourcePools.Enqueue(instance.GetComponent<AudioSource>());
         }
-        src.Stop();
+
     }
 
-    public void SetVolume(string group, float normalizedVol)
+    public void PlayBGM(string key)
     {
-        float db = normalizedVol > 0.0001f
-            ? Mathf.Log10(normalizedVol) * 20f
-            : -80f;
-        _mixer.SetFloat(group, db);
-        PlayerPrefs.SetFloat("vol_" + group, normalizedVol);
-        PlayerPrefs.Save();
+        StopBGM();
+        var soundData = _soundDataBase.GetSoundData(key);
+
+        if (soundData == null)
+        {
+            Debug.LogWarning("Sound Data not found: " + key);
+            return;
+        }
+
+        _bgmSource.PrepareAudioSource(soundData);
+
+        _bgmSource.Play();
     }
 
-    void LoadVolumeSettings()
+    public void StopBGM()
     {
-        SetVolume("Master", PlayerPrefs.GetFloat(KEY_MASTER, 1f));
-        SetVolume("BGM", PlayerPrefs.GetFloat(KEY_BGM, 0.8f));
-        SetVolume("SE", PlayerPrefs.GetFloat(KEY_SE, 1f));
+        if (_bgmSource.isPlaying)
+        {
+            _bgmSource.Stop();
+        }
     }
 
-    void InitPool()
+    public void PlaySe(string key)
     {
-        _sePool = new ObjectPool<AudioSource>(
-            createFunc: () => Instantiate(_seSourcePrefab, transform),
-            actionOnGet: s => s.gameObject.SetActive(true),
-            actionOnRelease: s => s.gameObject.SetActive(false),
-            defaultCapacity: 10, maxSize: 30
-        );
+        var soundData = _soundDataBase.GetSoundData(key);
+        if (soundData == null)
+        {
+            Debug.LogWarning("Sound Data not found: " + key);
+            return;
+        }
+
+        AudioSource seAudioSource = default;
+        if (_seAudioSourcePools.TryDequeue(out AudioSource source))
+        {
+            seAudioSource = source;
+        }
+        else
+        {
+            seAudioSource = new GameObject("seAudioSource_" + "NewInstance", typeof(AudioSource)).GetComponent<AudioSource>();
+        }
+
+        seAudioSource.PrepareAudioSource(soundData);
+        seAudioSource.gameObject.SetActive(true);
+        seAudioSource.Play();
+
+        StartCoroutine(ReturnToPoolAfterPlaying(seAudioSource));
+    }
+
+    private IEnumerator ReturnToPoolAfterPlaying(AudioSource source)
+    {
+        yield return new WaitWhile(() => source.isPlaying);
+        source.gameObject.SetActive(false);
+        _seAudioSourcePools.Enqueue(source);
     }
 }

@@ -68,14 +68,19 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     #endregion
 
     #region ƒoƒt
-    public void AddBuff(BuffType type, int time = 1000)
+    public void AddBuff(BuffType type, int time = 1)
     {
-        if(time == 1000)
+        _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
+
+        //•Ï‚¦‚é—\’è
+        if(GameManager.Instance.BuffDataBase.GetBuffData(type).IsDecreaseTurn == true)
         {
-            _buffs[type] = 1;
+            AudioManager.Instance.PlaySe("Debuff");
         }
         else
-            _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
+        {
+            AudioManager.Instance.PlaySe("Buff");
+        }
 
         if (_buffs[type] <= 0)
         {

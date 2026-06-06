@@ -101,6 +101,8 @@ public class AttackMagic : MonoBehaviour
         //移動ループ処理
         while (!_finish)
         {
+            //Audioいるよー
+            AudioManager.Instance.PlaySe("MagicMove");
             //魔法の移動
             if (_firstAttack)
             {

@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
                     case BattlePhase.Action:
                         if (!_isAction)
                         {
+                            //ÉJÉGÉãÇÊÅ[
+                            AudioManager.Instance.PlaySe("Shoot");
                             _attackManager = FindAnyObjectByType<AttackManager>();
                             _attackManager.SwichTurn(true);
                             _attackManager.AttackTurn(true);
