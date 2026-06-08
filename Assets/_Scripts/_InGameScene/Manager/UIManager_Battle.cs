@@ -38,6 +38,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
     [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
+    [SerializeField, Tooltip("パーティクル用親オブジェクト")] public RectTransform ParticleParent;
 
     public bool _isFinishCutIn = false;
 

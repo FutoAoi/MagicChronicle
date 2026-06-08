@@ -22,7 +22,6 @@ MonoBehaviour:
   _enemySAT: 1
   _canBoardInterference: 1
   _effectTime: 1
-  _cardEffects:
-  - {fileID: 11400000, guid: 2b870ef1b83e8434581850d1112291c9, type: 2}
+  _cardEffectID: 
   _canBuff: 0
-  _rewardAmount: 0000000000000000
+  _rewardAmount: 64000000e8030000
