@@ -15,6 +15,7 @@ public class Enemy : CharacterBase
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
     [SerializeField, Tooltip("攻撃ターンの表示")] private TextMeshProUGUI _attackTurnTMP;
     [SerializeField, Tooltip("特殊攻撃ターンの表示")] private TextMeshProUGUI _specialTMP;
+    [SerializeField, Tooltip("お金演出プレハブ")] private GameObject _moneyParticle;
 
     [SerializeField, Tooltip("エネミーの攻撃までのターン数")] private int _enemyAT;
     [SerializeField] private HpBarContller _hpBarContller;
@@ -196,6 +197,14 @@ public class Enemy : CharacterBase
         _specialTMP.text = null;
         _enemyImage.DOFade(0f, 1f);
 
-        _gameManager.Player.GetMoney(_enemy.RandomReword());
+        int money = _enemy.RandomReword();
+        _gameManager.Player.GetMoney(money);
+        WalletManager.Instance.ChangePlayerMoney(money);
+        GameObject particle = Instantiate(_moneyParticle, _rect.position, Quaternion.identity);
+        if(GameManager.Instance.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
+        {
+            particle.transform.SetParent(manager.ParticleParent,false);
+            particle.GetComponent<RectTransform>().position = _rect.position;
+        }
     }
 }

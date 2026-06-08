@@ -910,7 +910,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &301651111
 RectTransform:
@@ -2053,6 +2053,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1293538817}
     m_Modifications:
+    - target: {fileID: 208393175743569889, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281274742193057900, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5848880014162843667, guid: 8e1e79d39a3036c4995e7984fa0cdd0e, type: 3}
+    - target: {fileID: 1688937759904177879, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6943147605366372219, guid: 7c74b911051bd31459cf7b614a4734a7, type: 3}
+    - target: {fileID: 1846106991587923313, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1434779733409912027, guid: 52e34c94a570aee46a278a840516fd2d, type: 3}
+    - target: {fileID: 4260890217924266241, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7835546642934861600, guid: 29e5f19d0404aca4a9e890e05233a3c4, type: 3}
+    - target: {fileID: 4260890217924266241, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5271152038707005775, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
       propertyPath: m_Name
       value: CutInPanel
@@ -3505,6 +3529,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828442919}
   m_CullTransparentMesh: 1
+--- !u!1 &845816631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845816632}
+  m_Layer: 5
+  m_Name: '[OBJ]ParticleParent'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &845816632
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845816631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1293538817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &922467361
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,6 +4644,7 @@ MonoBehaviour:
   - {fileID: 374469914}
   _deckCountText: {fileID: 922467363}
   _discardConutText: {fileID: 1864157328}
+  ParticleParent: {fileID: 845816632}
   _isFinishCutIn: 0
   _stagePlayer: {fileID: 460636253}
 --- !u!114 &1154090790
@@ -5281,6 +5341,7 @@ RectTransform:
   - {fileID: 2107358227}
   - {fileID: 1741719824}
   - {fileID: 65825076}
+  - {fileID: 845816632}
   - {fileID: 1908586315}
   - {fileID: 1241243117}
   - {fileID: 1435232784}
