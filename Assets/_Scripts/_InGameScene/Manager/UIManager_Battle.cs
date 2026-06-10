@@ -147,6 +147,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         card.SetCard(_deckManager.DrawCard(),true);
         DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
+        HandCardColorChange();
     }
     /// <summary>
     /// “GUŒ‚‚ÌƒJƒbƒgƒCƒ“
@@ -205,6 +206,9 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             targetValue,
             _valueDuration
         );
+
+        //èD‚Ì–¾‚é‚³•Ï‚¦‚é
+        HandCardColorChange();
     }
 
     public void DisplayGameOverPanel()
@@ -310,4 +314,15 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             )
             .SetEase(Ease.OutQuad);
     } 
+
+    private void HandCardColorChange()
+    {
+        foreach (GameObject obj in HandCard)
+        {
+            Card card = obj.GetComponent<Card>();
+            obj.GetComponent<CardHoverAnimation>()
+                .ColorAnimation(_gameManager.Player.CurrentCost
+                >= _gameManager.CardDataBase.GetCardData(card.CardID).Cost);
+        }
+    }
 }
