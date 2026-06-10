@@ -11,6 +11,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("挿絵")] private Image _cardImage;
     [SerializeField, Tooltip("カード名")] private TextMeshProUGUI _nameText;
     [SerializeField, Tooltip("コスト表示")]private TextMeshProUGUI _costText;
+    [SerializeField, Tooltip("耐久値表示")] private TextMeshProUGUI _timeText;
 
     [Header("数値設定")]
     //[SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
@@ -20,7 +21,6 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     private IBattleUI _battleUI;
     private CardDataBase _cardDataBase;
-    private int _cardCost;
     //private bool _ignorePointer = false,_isGhostCircle;
 
     private void Start()
@@ -34,11 +34,11 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         CardData data = _cardDataBase.GetCardData(CardID);
         _cardImage.sprite = data.Sprite;
         _nameText.text = data.Name;
-        _cardCost = data.Cost;
-        _costText.text = _cardCost.ToString();
+        _costText.text = data.Cost.ToString();
+        _timeText.text = data.MaxTimes.ToString();
         //_isGhostCircle = data.IsGhost;
 
-        if(GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
+        if (GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
         {
             _battleUI = battleUI;
         }
