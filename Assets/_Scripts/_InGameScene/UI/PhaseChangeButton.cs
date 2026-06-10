@@ -15,20 +15,29 @@ public class PhaseChangeButton : MonoBehaviour
     private Button _button;
     private GameManager _gamemanager;
     private GameObject _animPanel;
-
+    private RectTransform _rt;
 
     private void Start()
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(PushButton);
         _gamemanager = GameManager.Instance;
+        _rt = GetComponent<RectTransform>();
     }
     private void PushButton()
     {
         if (_gamemanager.CurrentPhase != BattlePhase.Set) return;
 
         _gamemanager.CurrentPhase = BattlePhase.Direction;
-        _cutIn.gameObject.SetActive(true);
-        _cutIn.CutInAnimation(_duration);
+
+        Vector3 scale = _rt.localScale;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(_rt.DOScale(scale * 0.95f,0.05f));
+        seq.Append(_rt.DOScale(scale * 1.0f, 0.02f));
+        seq.OnComplete(() =>
+        {
+            _cutIn.gameObject.SetActive(true);
+            _cutIn.CutInAnimation(_duration);
+        });
     }
 }

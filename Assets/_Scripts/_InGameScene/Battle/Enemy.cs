@@ -176,20 +176,6 @@ public class Enemy : CharacterBase
             _specialTMP.text = _currentSAT.ToString();
     }
 
-    /// <summary>
-    /// éÄñSÉRÉãÅ[É`Éì
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator DeadIEnumerator()
-    {
-        yield return null;
-        _attackTurnTMP.text = null;
-        _specialTMP.text = null;
-        _enemyImage.DOFade(0f,0.1f);
-
-        _gameManager.Player.GetMoney(_enemy.RandomReword());
-    }
-
     public override void Dead()
     {
         _hpBarContller.HideUI();
@@ -198,13 +184,11 @@ public class Enemy : CharacterBase
         _enemyImage.DOFade(0f, 1f);
 
         int money = _enemy.RandomReword();
-        _gameManager.Player.GetMoney(money);
         WalletManager.Instance.ChangePlayerMoney(money);
-        GameObject particle = Instantiate(_moneyParticle, _rect.position, Quaternion.identity);
-        if(GameManager.Instance.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
+
+        if(_gameManager.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
         {
-            particle.transform.SetParent(manager.ParticleParent,false);
-            particle.GetComponent<RectTransform>().position = _rect.position;
+            _gameManager.EffectManager.ApplyEffect(ParticleType.Money,manager.ParticleParent,_rect);
         }
     }
 }

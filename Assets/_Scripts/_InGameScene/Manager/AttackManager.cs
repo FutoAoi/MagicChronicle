@@ -14,6 +14,7 @@ public class AttackManager : MonoBehaviour
     [Header("数値設定")]
     [SerializeField, Tooltip("タイル間の移動時間")] private float _interval = 2.0f;
     [SerializeField, Tooltip("敵の攻撃時カットインアニメーション時間")] private float _duration = 3f;
+    [SerializeField, Tooltip("連続攻撃の間隔")] private float _rapidInterval = 1.0f;
 
     public int AttackStartPos;
     private bool _isPlayerTurn = true;
@@ -43,20 +44,30 @@ public class AttackManager : MonoBehaviour
     /// 攻撃指示
     /// </summary>
     /// <param name="isPlayer"></param>
-    public void AttackTurn(bool isPlayer)
+    public IEnumerator AttackTurn(bool isPlayer)
     {
         Debug.Log("攻撃開始！！！");
         _magic = _magicPool.GetAttackMagic();
         _magic.gameObject.SetActive(true);
         if (isPlayer)
-        {
-            StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
-                MagicVector.Right, _playerPos, _interval));
+        {            
+            for(int i = 0; i < 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid); i++)
+            {
+                StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
+                    MagicVector.Right, _playerPos, _interval));
+
+                yield return new WaitForSeconds(_rapidInterval);
+            }
         }
         else
         {
-            StartCoroutine(_magic.Attack(_enemyPos, 
-                MagicVector.Left, _enemyRectTr, _interval));
+            for(int i = 0; i < 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid); i++)
+            {
+                StartCoroutine(_magic.Attack(_enemyPos,
+                    MagicVector.Left, _enemyRectTr, _interval));
+
+                yield return new WaitForSeconds(_rapidInterval);
+            }
         }
     }
     /// <summary>
@@ -145,7 +156,7 @@ public class AttackManager : MonoBehaviour
                     AudioManager.Instance.PlaySe("Shoot");
                     _enemyPos = new Vector2Int(count, _width - 1);
                     _enemyRectTr = enemy.GetComponent<RectTransform>();
-                    AttackTurn(false);
+                    StartCoroutine(AttackTurn(false));
                     yield return new WaitUntil(() => _isFinishEnemyAttack);
                     _isFinishEnemyAttack = false;
                     if(!enemy.IsSpecialAttack)
