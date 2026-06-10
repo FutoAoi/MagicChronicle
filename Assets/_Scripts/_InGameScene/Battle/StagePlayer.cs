@@ -4,13 +4,12 @@ public class StagePlayer : CharacterBase
 {
     public int MaxCost => _maxCost;
     public int CurrentCost => _currentCost;
-    public int Money => _money;
 
     [SerializeField] private int _maxCost = 8;
     [SerializeField] private HpBarContller _hpBarContller;
-    private int _money = 0;
     private int _currentCost;
     private RectTransform _rect;
+    private PlayerStatus _status;
 
     protected override void Start()
     {
@@ -19,6 +18,8 @@ public class StagePlayer : CharacterBase
         _gameManager.Player = this;
         _rect = GetComponent<RectTransform>();
     }
+
+
 
     public override void Damaged(int damage)
     {
@@ -31,9 +32,9 @@ public class StagePlayer : CharacterBase
     /// コスト上限値の上昇
     /// </summary>
     /// <param name="plus"></param>
-    public void IncreaseMaxCost(int plus)
+    public void ChangeMaxCost()
     {
-        _maxCost += plus;
+        _maxCost = _status.PlayerMaxCost + GetBuffCount(BuffType.CostPlus) - GetBuffCount(BuffType.CostMinus);
         _gameManager.CurrentUIManager.UpdateCostUI();
     }
 
@@ -73,30 +74,6 @@ public class StagePlayer : CharacterBase
         }
     }
 
-    /// <summary>
-    /// お金を支払う
-    /// </summary>
-    /// <param name="pay"></param>
-    public void PayMoney(int pay)
-    {
-
-        if (_money - pay <= 0)
-        {
-            Debug.Log("お金が足りないよ！！！");
-            return;
-        }
-        _money -= pay;
-    }
-
-    /// <summary>
-    /// お金を手に入れる
-    /// </summary>
-    /// <param name="plus"></param>
-    public void GetMoney(int plus)
-    {
-        _money += plus;
-    }
-
     public override void Dead()
     {
         _gameManager.CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
@@ -104,9 +81,11 @@ public class StagePlayer : CharacterBase
 
     public void StagePlayerInit(PlayerStatus nowPlayerStatus)
     {
-        SetStatus(nowPlayerStatus.PlayerMaxHp, nowPlayerStatus.PlayerCurrentHp);
+        _status = nowPlayerStatus;
+        SetStatus(_status.PlayerMaxHp, _status.PlayerCurrentHp);
         _hpBarContller.ShowUI(CurrentHP, MaxHP);
-        foreach (var buff in nowPlayerStatus.DefaultBuffs)
+        _maxCost = _status.PlayerMaxCost;
+        foreach (var buff in _status.DefaultBuffs)
         {
             AddBuff(buff);
         }
