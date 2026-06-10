@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public EnemyDataBase EnemyDataBase => _enemyDataBase;
     public GenerateMapData GenerateMapData => _generateMapData;
     public PlayerType PlayerType => _playerType;
+    public PlayerStatus PlayerStatus => _playerStatus;
 
     [Header("データベース")]
     [SerializeField, Tooltip("カード")] private CardDataBase _cardDataBase;
@@ -18,13 +19,14 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("ステージ")] private StageDataBase _stageDataBase;
     [SerializeField, Tooltip("エネミー")] private EnemyDataBase _enemyDataBase;
     [SerializeField, Tooltip("マップデータ")] private MapData _mapData;
+    [SerializeField, Tooltip("プレイヤーデータ")] private PlayerDataBase _playerDataBase;
     [SerializeField, Tooltip("生成マップデータ")] private GenerateMapData _generateMapData;
 
     [Header("ID")]
-    [SerializeField, Tooltip("ステージID")] public int StageID = 1;
+    [SerializeField, Tooltip("今のステージID")] public int StageID = 1;
 
     public BattlePhase CurrentPhase;
-    public bool Reset = false, IsEnemyAction = false,DecreaseBuff = false;
+    public bool Reset = false, IsEnemyAction = false, DecreaseBuff = false;
     public StagePlayer Player;
 
     [NonSerialized] public UIManagerBase CurrentUIManager;
@@ -36,9 +38,10 @@ public class GameManager : MonoBehaviour
     private DeckManager _deckManager;
     private FadeManager _fadeManager;
     private PlayerType _playerType = PlayerType.Combo;
-    private bool _isOrganize = false,_isDraw = false,_isAction = false,_isReward = false,_isBattleUIManager;
+    private PlayerStatus _playerStatus = null;
+    private bool _isOrganize = false, _isDraw = false, _isAction = false, _isReward = false, _isBattleUIManager;
 
-    [SerializeField]private SceneType _currentScene;
+    [SerializeField] private SceneType _currentScene;
 
     private void Start()
     {
@@ -56,119 +59,134 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        CurrentPhase = BattlePhase.BuildStage;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        switch (_currentScene)
+
+        if(_currentScene == SceneType.InGameScene)
         {
-            case SceneType.TitleScene:
-                break;
-            case SceneType.InGameScene:
-                switch (CurrentPhase)
-                {
-                    case BattlePhase.BuildStage:
-                        if (StageManager != null)
-                        {
-                            StageManager.CreateStage(StageID);
-                            CurrentPhase = BattlePhase.Draw;
-                            _deckManager = DeckManager.Instance;
-                            if (CurrentUIManager.TryGetComponent<IBattleUI>(out var Battle))
-                            {
-                                _uiManagerButtle = Battle;
-                            }
-                            _isReward = false;
-                        }
-                        break;
-                    case BattlePhase.Draw:
-                        if (!_isDraw)
-                        {
-                            _uiManagerButtle.ResetDrawCount();
-
-                            //ドローバフの確認
-                            if (Player.HasBuff(BuffType.CardPlus))
-                            {
-                                _uiManagerButtle.ChangeDrawCount(Player.GetBuffCount(BuffType.CardPlus));
-                            }
-
-                            _deckManager.ShuffleDeck();
-                            StartCoroutine(_uiManagerButtle.DrawCard());
-                            Player.SetCost();
-                            _isDraw = true;
-                        }
-                        if (!_isOrganize)
-                        {
-                            _uiManagerButtle.HandOrganize();
-                            _isOrganize = true;
-                        }
-                        if (_isDraw && _isOrganize)
-                        {
-                            CurrentPhase = BattlePhase.Set;
-                            _uiManagerButtle.ChangeDrawCount();
-                        }
-                        break;
-                    case BattlePhase.Set:
-
-                        break;
-                    case BattlePhase.Action:
-                        if (!_isAction)
-                        {
-                            //カエルよー
-                            AudioManager.Instance.PlaySe("Shoot");
-                            _attackManager = FindAnyObjectByType<AttackManager>();
-                            _attackManager.SwichTurn(true);
-                            _attackManager.AttackTurn(true);
-                            _uiManagerButtle.ClearCard();
-                            _isAction = true;
-                        }
-                        if (IsEnemyAction)
-                        {
-                            _attackManager.SwichTurn(false);
-                            StartCoroutine(_attackManager.EnemyTurn());
-                            IsEnemyAction = false;
-                        }
-                        if (Reset)
-                        {
-                            Reset = false;
-                            CurrentPhase = BattlePhase.End;
-                        }
-                        break;
-                    case BattlePhase.Direction:
-
-                        break;
-                    case BattlePhase.End:
-                        //バフ減らした後Drawへ
-                        if (!DecreaseBuff)
-                        {
-                            Player.DecreaseAll();
-                            foreach (Enemy enemy in StageManager.EnemyList)
-                            {
-                                enemy.DecreaseAll();
-                            }
-                            DecreaseBuff = true;
-                        }
-                        InitializeBool();
-                        CurrentPhase = BattlePhase.Draw;
-                        break;
-                    case BattlePhase.Reward:
-                        if (!_isReward)
-                        {
-                            _uiManagerButtle.DisplayReward();
-                            _isReward = true;
-                        }
-                        InitializeBool();
-                        break;
-                }
-                break;
-            case SceneType.StageSerectScene:
-                break;
-            case SceneType.CampScene: 
-                
-                break;
+            Debug.Log(_playerStatus);
+            CurrentPhase = BattlePhase.BuildStage;
         }
     }
+
+    void Update()
+    {
+        if (_currentScene != SceneType.InGameScene) return;
+
+        switch (CurrentPhase)
+        {
+            case BattlePhase.BuildStage: UpdateBuildStage(); break;
+            case BattlePhase.Draw: UpdateDraw(); break;
+            case BattlePhase.Set: break;
+            case BattlePhase.Action: UpdateAction(); break;
+            case BattlePhase.Direction: break;
+            case BattlePhase.End: UpdateEnd(); break;
+            case BattlePhase.Reward: UpdateReward(); break;
+        }
+    }
+
+    /// <summary>
+    /// ステージ生成フェーズ
+    /// </summary>
+    void UpdateBuildStage()
+    {
+        if (StageManager == null) return;
+
+        TrySetPlayerStatus(true);
+        Player.StagePlayerInit(_playerStatus);
+        StageManager.CreateStage(StageID);
+        _deckManager = DeckManager.Instance;
+        _isReward = false;
+
+        if (CurrentUIManager.TryGetComponent<IBattleUI>(out var battle))
+            _uiManagerButtle = battle;
+
+        CurrentPhase = BattlePhase.Draw;
+    }
+
+    /// <summary>
+    /// ドローフェーズ
+    /// </summary>
+    void UpdateDraw()
+    {
+        if (!_isDraw)
+        {
+            _uiManagerButtle.ResetDrawCount();
+
+            //ドローバフの確認
+            if (Player.HasBuff(BuffType.CardPlus))
+                _uiManagerButtle.ChangeDrawCount(Player.GetBuffCount(BuffType.CardPlus));
+
+            _deckManager.ShuffleDeck();
+            StartCoroutine(_uiManagerButtle.DrawCard());
+            Player.SetCost();
+            _isDraw = true;
+        }
+
+        if (!_isOrganize)
+        {
+            _uiManagerButtle.HandOrganize();
+            _isOrganize = true;
+        }
+
+        if (_isDraw && _isOrganize)
+        {
+            _uiManagerButtle.ChangeDrawCount();
+            CurrentPhase = BattlePhase.Set;
+        }
+    }
+
+    void UpdateAction()
+    {
+        if (!_isAction)
+        {
+            //カエルよー
+            AudioManager.Instance.PlaySe("Shoot");
+            _attackManager = FindAnyObjectByType<AttackManager>();
+            _attackManager.SwichTurn(true);
+            _attackManager.AttackTurn(true);
+            _uiManagerButtle.ClearCard();
+            _isAction = true;
+        }
+
+        if (IsEnemyAction)
+        {
+            _attackManager.SwichTurn(false);
+            StartCoroutine(_attackManager.EnemyTurn());
+            IsEnemyAction = false;
+        }
+
+        if (Reset)
+        {
+            Reset = false;
+            CurrentPhase = BattlePhase.End;
+        }
+    }
+
+    void UpdateEnd()
+    {
+        if (!DecreaseBuff)
+        {
+            Player.DecreaseAll();
+            foreach (var enemy in StageManager.EnemyList)
+                enemy.DecreaseAll();
+            DecreaseBuff = true;
+        }
+
+        InitializeBool();
+        CurrentPhase = BattlePhase.Draw;
+    }
+
+    void UpdateReward()
+    {
+        if (!_isReward)
+        {
+            _uiManagerButtle.DisplayReward();
+            _isReward = true;
+            InitializeBool();
+            _playerStatus.SetCurrentHp(Player.CurrentHP);
+        }
+    }
+
 
     public void RegisterUIManager(UIManagerBase ui)
     {
@@ -184,9 +202,10 @@ public class GameManager : MonoBehaviour
             await SceneManager.LoadSceneAsync($"{sceneType}");
             _currentScene = sceneType;
             _fadeManager.FadePanel(true);
-            if(sceneType == SceneType.TitleScene)
+            if (sceneType == SceneType.TitleScene)
             {
                 InitializeBool();
+                TrySetPlayerStatus(false);
             }
         });
     }
@@ -198,6 +217,20 @@ public class GameManager : MonoBehaviour
         _isOrganize = false;
         _isAction = false;
         DecreaseBuff = false;
+    }
+
+    private void TrySetPlayerStatus(bool isSet)
+    {
+        if(isSet)
+        {
+            if (_playerStatus != null) return;
+            PlayerData playerData = _playerDataBase.GetPlayerData(_playerType);
+            _playerStatus = new PlayerStatus(_playerType, playerData.PlayerMaxHp, playerData.PlayerMaxCost);
+        }
+        else
+        {
+            _playerStatus = null;
+        }
     }
 
     /// <summary>

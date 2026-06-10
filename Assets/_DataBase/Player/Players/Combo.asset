@@ -16,6 +16,7 @@ MonoBehaviour:
   _playerName: "\u30A2\u30BA\u30EA\u30A2"
   _playerType: 0
   _playerMaxHp: 50
+  _playerMaxCost: 8
   _playerSprite: {fileID: 0}
   _isPlayable: 1
   _playerDescription: "\u8AAC\u660E"

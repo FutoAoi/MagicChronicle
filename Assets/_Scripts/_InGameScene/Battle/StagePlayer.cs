@@ -17,11 +17,7 @@ public class StagePlayer : CharacterBase
         base.Start();
 
         _gameManager.Player = this;
-        SetStatus(100, 100);
         _rect = GetComponent<RectTransform>();
-        _hpBarContller.ShowUI(CurrentHP, MaxHP);
-        Debug.Log("Player" + $"{CurrentHP}");
-        AddBuff(_gameManager.GivePlayerBuffData().Type);
     }
 
     public override void Damaged(int damage)
@@ -104,5 +100,15 @@ public class StagePlayer : CharacterBase
     public override void Dead()
     {
         _gameManager.CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
+    }
+
+    public void StagePlayerInit(PlayerStatus nowPlayerStatus)
+    {
+        SetStatus(nowPlayerStatus.PlayerMaxHp, nowPlayerStatus.PlayerCurrentHp);
+        _hpBarContller.ShowUI(CurrentHP, MaxHP);
+        foreach (var buff in nowPlayerStatus.DefaultBuffs)
+        {
+            AddBuff(buff);
+        }
     }
 }

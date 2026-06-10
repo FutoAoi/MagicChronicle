@@ -3830,6 +3830,7 @@ MonoBehaviour:
     Floors: []
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
+  _playerDataBase: {fileID: 11400000, guid: 4705550788ba4d9409033d536aeffd3b, type: 2}
   StageID: 0
   CurrentPhase: 6
   Reset: 0
