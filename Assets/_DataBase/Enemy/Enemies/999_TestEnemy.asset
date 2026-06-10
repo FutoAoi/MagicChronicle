@@ -22,6 +22,6 @@ MonoBehaviour:
   _enemySAT: 1
   _canBoardInterference: 1
   _effectTime: 1
-  _cardEffectID: 
+  _cardEffectID: c8000000
   _canBuff: 0
   _rewardAmount: 64000000e8030000
