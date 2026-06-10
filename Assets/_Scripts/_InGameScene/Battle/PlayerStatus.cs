@@ -2,35 +2,35 @@ using System.Collections.Generic;
 
 public class PlayerStatus
 {
-    private PlayerType _playerType;
-    private int PlayerMaxHp { get; set; }
-    private int CurrentHp { get; set; }
-    private int MaxCost { get; set; }
-    private List<BuffType> _defaultBuffs = new List<BuffType>();
+    public PlayerType PlayerNowType {  get; private set; }
+    public int PlayerMaxHp { get; private set; }
+    public int PlayerCurrentHp { get; private set; }
+    public int PlayerMaxCost { get; private set; }
+    public List<BuffType> DefaultBuffs { get; private set; } = new List<BuffType>();
 
-    PlayerStatus(PlayerType playerType, int maxHp, int maxCost)
+    public PlayerStatus(PlayerType playerType, int maxHp, int maxCost)
     {
-        _playerType = playerType;
+        PlayerNowType = playerType;
         PlayerMaxHp = maxHp;
-        CurrentHp = PlayerMaxHp;
-        MaxCost = maxCost;
+        PlayerCurrentHp = PlayerMaxHp;
+        PlayerMaxCost = maxCost;
 
-        switch (_playerType)
+        switch (PlayerNowType)
         {
             case PlayerType.Combo:
-                _defaultBuffs.Add(BuffType.Combo);
+                DefaultBuffs.Add(BuffType.Combo);
                 break;
             case PlayerType.Berserker:
-                _defaultBuffs.Add(BuffType.Berserker);
+                DefaultBuffs.Add(BuffType.Berserker);
                 break;
             case PlayerType.Technical:
-                _defaultBuffs.Add(BuffType.Technical);
+                DefaultBuffs.Add(BuffType.Technical);
                 break;
         }
     }
 
-    public void SetCurrentHp(int value) => CurrentHp = value;
+    public void SetCurrentHp(int value) => PlayerCurrentHp = value;
     public void AddMaxHp(int value) => PlayerMaxHp += value;
-    public void AddMaxCost(int value) => MaxCost += value;
-    public void AddDefaultBuff(BuffType addBuffType) => _defaultBuffs.Add(addBuffType);
+    public void AddMaxCost(int value) => PlayerMaxCost += value;
+    public void AddDefaultBuff(BuffType addBuffType) => DefaultBuffs.Add(addBuffType);
 }

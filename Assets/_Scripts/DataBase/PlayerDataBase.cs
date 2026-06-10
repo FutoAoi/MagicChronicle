@@ -7,21 +7,21 @@ public class PlayerDataBase : ScriptableObject
     [Header("プレイヤーデータベース")]
     [SerializeField, Tooltip("プレイヤーリスト")] private List<PlayerData> _players = new();
 
-    private Dictionary<int, PlayerData> _playerDictionary;
+    private Dictionary<PlayerType, PlayerData> _playerDictionary;
 
     /// <summary>
     /// Dicrionaryに登録
     /// </summary>
     private void Initialized()
     {
-        if(_playerDictionary != null)
+        if(_playerDictionary == null)
         {
             _playerDictionary = new();
             foreach(var player in _players)
             {
-                if (!_playerDictionary.ContainsKey(player.PlayerID))
+                if (!_playerDictionary.ContainsKey(player.PlayerType))
                 {
-                    _playerDictionary.Add(player.PlayerID, player);
+                    _playerDictionary.Add(player.PlayerType, player);
                 }
                 else
                 {
@@ -36,14 +36,14 @@ public class PlayerDataBase : ScriptableObject
     /// </summary>
     /// <param name="ID"></param>
     /// <returns></returns>
-    public PlayerData GetPlayerData(int ID)
+    public PlayerData GetPlayerData(PlayerType playerType)
     {
         Initialized();
-        if(_playerDictionary.TryGetValue(ID, out PlayerData playerData))
+        if(_playerDictionary.TryGetValue(playerType, out PlayerData playerData))
         {
             return playerData;
         }
-        Debug.LogWarning($"ID{ID}の敵が見つかりません");
+        Debug.LogWarning($"プレイヤータイプ{playerType}の敵が見つかりません");
         return null;
     }
 }

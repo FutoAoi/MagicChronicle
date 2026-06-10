@@ -6878,7 +6878,6 @@ MonoBehaviour:
   _times: {fileID: 15082891}
   _image: {fileID: 7427191015641947004}
   _description: {fileID: 29159996}
-  _usePool: 0
 --- !u!1 &349794918
 GameObject:
   m_ObjectHideFlags: 0
@@ -26645,11 +26644,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f501b0c1977b94b9bb03d792faf271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardDataBase: {fileID: 11400000, guid: edb29b53a956469489571dd51ad2206e, type: 2}
+  _cardDataBase: {fileID: 11400000, guid: 32cb160a793339341a1ce7e2a7d379be, type: 2}
   _buffDataBase: {fileID: 11400000, guid: d7505e2156f97bc45825e7c5a58c379b, type: 2}
   _stageDataBase: {fileID: 11400000, guid: de974fe0ee6462e4da49dfcc42f365db, type: 2}
   _enemyDataBase: {fileID: 11400000, guid: b7a9ebc6f60867944aeb35fa0b7d2dab, type: 2}
   _mapData: {fileID: 11400000, guid: 0326f7ba0d57d4d44a5b55472f0473c0, type: 2}
+  _playerDataBase: {fileID: 11400000, guid: 4705550788ba4d9409033d536aeffd3b, type: 2}
   _generateMapData:
     Floors: []
     CurrentFloorIndex: 0
@@ -26658,6 +26658,7 @@ MonoBehaviour:
   CurrentPhase: 5
   Reset: 0
   IsEnemyAction: 0
+  DecreaseBuff: 0
   Player: {fileID: 0}
   _currentScene: 3
 --- !u!4 &1598039103
