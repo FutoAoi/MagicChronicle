@@ -101,3 +101,9 @@ public enum WalletType : byte
     Money,
     Jem
 }
+
+public enum ParticleType : byte
+{
+    Money,
+    PowerUp,
+}

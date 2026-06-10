@@ -3826,11 +3826,11 @@ MonoBehaviour:
   _stageDataBase: {fileID: 11400000, guid: de974fe0ee6462e4da49dfcc42f365db, type: 2}
   _enemyDataBase: {fileID: 11400000, guid: b7a9ebc6f60867944aeb35fa0b7d2dab, type: 2}
   _mapData: {fileID: 11400000, guid: 0326f7ba0d57d4d44a5b55472f0473c0, type: 2}
+  _playerDataBase: {fileID: 11400000, guid: 4705550788ba4d9409033d536aeffd3b, type: 2}
   _generateMapData:
     Floors: []
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
-  _playerDataBase: {fileID: 11400000, guid: 4705550788ba4d9409033d536aeffd3b, type: 2}
   StageID: 0
   CurrentPhase: 6
   Reset: 0
@@ -4567,6 +4567,7 @@ GameObject:
   - component: {fileID: 1154090789}
   - component: {fileID: 1154090790}
   - component: {fileID: 1154090791}
+  - component: {fileID: 1154090792}
   m_Layer: 0
   m_Name: '[MG]UIManager'
   m_TagString: Untagged
@@ -4665,6 +4666,7 @@ MonoBehaviour:
   _playerPos: {fileID: 460636252}
   _interval: 0.2
   _duration: 3
+  _rapidInterval: 1
   AttackStartPos: 0
 --- !u!114 &1154090791
 MonoBehaviour:
@@ -4680,6 +4682,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicObjectPool
   _attackMagicPrefab: {fileID: 556352063450104007, guid: a07cb267220800247aa77eb95f2159f0, type: 3}
   _rectTransform: {fileID: 1293538817}
+--- !u!114 &1154090792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154090787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e567334adb1b14680ad8c678370466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectManager
+  _effectList:
+  - _particleType: 0
+    _particlePrefab: {fileID: 7761543508517687421, guid: 20c276735de6e9142a522b0c990a1c65, type: 3}
 --- !u!1 &1159417357
 GameObject:
   m_ObjectHideFlags: 0

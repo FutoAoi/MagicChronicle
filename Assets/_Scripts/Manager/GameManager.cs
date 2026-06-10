@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [NonSerialized] public UIManagerBase CurrentUIManager;
     [NonSerialized] public AttackManager AttackManager;
     [NonSerialized] public StageManager StageManager;
+    [NonSerialized] public EffectManager EffectManager;
 
     private IBattleUI _uiManagerButtle;
     private AttackManager _attackManager;
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlaySe("Shoot");
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
-            _attackManager.AttackTurn(true);
+            StartCoroutine(_attackManager.AttackTurn(true));
             _uiManagerButtle.ClearCard();
             _isAction = true;
         }
