@@ -106,4 +106,5 @@ public enum ParticleType : byte
 {
     Money,
     PowerUp,
+    Firefly,
 }

@@ -71,6 +71,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
     }
+    private void Start()
+    {
+        _gameManager.EffectManager.ApplyEffect(ParticleType.Firefly, ParticleParent);
+    }
     public IEnumerator DrawCard()
     {
         int deckCount = DeckCard.Count;
