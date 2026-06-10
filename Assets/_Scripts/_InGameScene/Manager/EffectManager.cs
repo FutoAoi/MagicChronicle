@@ -7,8 +7,8 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private List<EffectData> _effectList;
     private Dictionary<ParticleType, EffectData> _dictionary = new();
     private GameManager _gameManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
         _gameManager = GameManager.Instance;
         _gameManager.EffectManager = this;
@@ -22,7 +22,14 @@ public class EffectManager : MonoBehaviour
     public void ApplyEffect(ParticleType type,Transform parent,RectTransform pos = null)
     {
         EffectData effectData = _dictionary[type];
-        GameObject effect = Instantiate(effectData.ParticlePrefab, pos.position,Quaternion.identity);
+        if(effectData == null)
+        {
+            Debug.LogError("エフェクトが登録されてないよ！！");
+            return;
+        }
+
+        Vector3 startPos = pos != null? pos.position : Vector3.zero;
+        GameObject effect = Instantiate(effectData.ParticlePrefab, startPos,Quaternion.identity);
         effect.transform.SetParent(parent,false);
 
         if(pos != null && effect.TryGetComponent<RectTransform>(out var rt))

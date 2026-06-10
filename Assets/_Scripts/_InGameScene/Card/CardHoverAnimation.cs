@@ -25,7 +25,7 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     {
         _rect = transform.Find("View").GetComponent<RectTransform>();
         _defaultScale = _rect.localScale;
-        _img.color = new Color(0f, 0f, 0f, _bloom);
+        _img.color = new Color(0f, 0f, 0f, 0f);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -35,9 +35,6 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
         _rectTween?.Kill();
         _rectTween = _rect.DOAnchorPos(new Vector2(0, _upper), _duration)
             .SetEase(Ease.OutQuad);
-        _colorTween?.Kill();
-        _colorTween = _img.DOFade(0f, _duration)
-            .SetEase(Ease.OutBack);
         _highLightImg.gameObject.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -48,9 +45,14 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
         _rectTween?.Kill();
         _rectTween = _rect.DOAnchorPos(Vector2.zero, _duration)
             .SetEase(Ease.OutQuad);
-        _colorTween?.Kill();
-        _colorTween = _img.DOFade(_bloom, _duration)
-            .SetEase(Ease.OutBack);
         _highLightImg.gameObject.SetActive(false);
+    }
+
+    public void ColorAnimation(bool canSelect)
+    {
+        float bloom = canSelect ? 0f : _bloom;
+        _colorTween?.Kill();
+        _colorTween = _img.DOFade(bloom, _duration)
+            .SetEase(Ease.OutBack);
     }
 }

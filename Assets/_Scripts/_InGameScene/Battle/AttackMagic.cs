@@ -322,8 +322,8 @@ public class AttackMagic : MonoBehaviour
         CardData cardData = _gameManager.CardDataBase.GetCardData(slot.ID);
         if(cardData.MoveEffect != null)
         {
-            if (isChangeDurability) return;
-            cardData.MoveEffect.OnExcute(this);
+            if (!isChangeDurability)
+                cardData.MoveEffect.OnExcute(this);
         }
         foreach (IEffect Effects in cardData.Effect)
         {

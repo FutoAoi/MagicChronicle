@@ -4697,6 +4697,8 @@ MonoBehaviour:
   _effectList:
   - _particleType: 0
     _particlePrefab: {fileID: 7761543508517687421, guid: 20c276735de6e9142a522b0c990a1c65, type: 3}
+  - _particleType: 2
+    _particlePrefab: {fileID: 8648298190534469447, guid: 8a2567871d37d244289a915db6e54628, type: 3}
 --- !u!1 &1159417357
 GameObject:
   m_ObjectHideFlags: 0
