@@ -317,11 +317,12 @@ public class AttackMagic : MonoBehaviour
     /// ñÇñ@êwÇÃå¯â î≠ìÆ
     /// </summary>
     /// <param name="slot"></param>
-    private void ActivateMagic(TileSlot slot,int decreaseCount = 1,bool _isDecreaseEffect = false)
+    private void ActivateMagic(TileSlot slot,int decreaseCount = 1,bool isDecreaseEffect = false,bool isChangeDurability = false)
     {
         CardData cardData = _gameManager.CardDataBase.GetCardData(slot.ID);
         if(cardData.MoveEffect != null)
         {
+            if (isChangeDurability) return;
             cardData.MoveEffect.OnExcute(this);
         }
         foreach (IEffect Effects in cardData.Effect)
@@ -332,7 +333,7 @@ public class AttackMagic : MonoBehaviour
             }
             else
             {
-                if (_isDecreaseEffect) continue;
+                if (isDecreaseEffect) continue;
                 Effects.OnExcute(this);
             }
         }
@@ -387,7 +388,7 @@ public class AttackMagic : MonoBehaviour
                 {
                     if (slot.IsOccupied)
                     {
-                        ActivateMagic(slot, -delta,true);
+                        ActivateMagic(slot, -delta,true,true);
                     }
                 }
             }
