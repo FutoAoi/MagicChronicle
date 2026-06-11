@@ -3,11 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Datas/Card")]
 public class CardData : ScriptableObject
 {
-    [Header("カード詳細")]
+    [Header("-----カード詳細-----")]
     [SerializeField, Tooltip("カードID")] private int _cardID;
     [SerializeField, Tooltip("カードのレアリティ")] private CardRarity _rarity;
     [SerializeField, Tooltip("カードのタイプ")] private CardType _type;
-    [SerializeField, Tooltip("カードの見た目")] private Sprite _sprite;
+    [SerializeField, Tooltip("カードの見た目")] private Sprite _cardSprite;
+    [SerializeField, Tooltip("魔法陣の見た目")] private Sprite _magicSprite;
     [SerializeField, Tooltip("カードの名前")] private string _name;
     [TextArea(3, 10)]
     [SerializeField, Tooltip("カードの説明")] private string _description;
@@ -18,16 +19,19 @@ public class CardData : ScriptableObject
     [SerializeField, Tooltip("進化できるかのフラグ")] private bool _canEvolution;
     [ShowIf("_canEvolution"),SerializeField, Tooltip("進化先のID")] private int _evolutionID;
 
-    [Header("移動効果")]
+    [Header("-----移動効果-----")]
+    [SerializeField] private MagicVector[] _displayArrowVector;
     [SerializeReference, SubclassSelector] private IEffect _moveEffect;
-    [Header("効果")]
+    [Header("-----効果-----")]
     [SerializeReference, SubclassSelector] private IEffect[] _effect;
 
     public int CardID => _cardID;
-    public Sprite Sprite => _sprite;
+    public Sprite CardSprite => _cardSprite;
+    public Sprite MagicSprite => _magicSprite;
     public string Name => _name;
     public string Description => _description;
     public int Cost => _cost;
+    public MagicVector[] DisplayArrowVector => _displayArrowVector;
     public IEffect MoveEffect => _moveEffect;
     public IEffect[] Effect => _effect;
     public int MaxTimes => _maxTimes;

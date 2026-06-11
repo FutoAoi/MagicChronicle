@@ -32,7 +32,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         _cardDataBase = GameManager.Instance.CardDataBase;
         CardID = id;
         CardData data = _cardDataBase.GetCardData(CardID);
-        _cardImage.sprite = data.Sprite;
+        _cardImage.sprite = data.CardSprite;
         _nameText.text = data.Name;
         _costText.text = data.Cost.ToString();
         _timeText.text = data.MaxTimes.ToString();

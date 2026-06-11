@@ -14,6 +14,12 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField, Header("耐久値")] private TextMeshProUGUI _timeT;
     [SerializeField,Header("イラスト")] private Image _illustImg;
     [SerializeField, Header("置かれる魔法陣")] private GameObject _magicCircleView;
+    [SerializeField, Header("魔法陣の画像")] private Image _magicCircleImage;
+    [SerializeField, Header("魔法陣のコスト")] private TextMeshProUGUI _magicTimeText;
+    [SerializeField, Header("上印")] private Image _upArrowImage;
+    [SerializeField, Header("右印")] private Image _rightArrowImage;
+    [SerializeField,Header("左印")] private Image _leftArrowImage;
+    [SerializeField, Header("下印")] private Image _downArrowImage;
 
     [Header("-----数値調整-----")]
     [SerializeField, Header("ホールド時のローカル座標")] private Vector2 _offset = new Vector2(0,250);
@@ -231,7 +237,30 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             _nameT.text = data.Name;
             _costT.text = data.Cost.ToString();
             _timeT.text = data.MaxTimes.ToString();
-            _illustImg.sprite = data.Sprite;
+            _illustImg.sprite = data.CardSprite;
         }
+    }
+
+    public void SetSlotMagicImage(CardData data)
+    {
+        _magicCircleImage.sprite = data.MagicSprite;
+        _magicTimeText.text = data.MaxTimes.ToString();
+
+        foreach(MagicVector vector in data.DisplayArrowVector)
+        {
+            GetArrowImage(vector).gameObject.SetActive(true);
+        }
+    }
+
+    private Image GetArrowImage(MagicVector vector)
+    {
+        return vector switch
+        {
+            MagicVector.UP => _upArrowImage,
+            MagicVector.Right => _rightArrowImage,
+            MagicVector.Left => _leftArrowImage,
+            MagicVector.Down => _downArrowImage,
+            _ => null
+        };
     }
 }
