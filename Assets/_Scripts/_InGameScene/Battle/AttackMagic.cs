@@ -33,7 +33,7 @@ public class AttackMagic : MonoBehaviour
     private Vector2 _outPos, _goalPos;
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
         _combo = false;
-    private int _width, _height;
+    private int _width, _height,_comboStack;
 
     #endregion
     #region ライフサイクル
@@ -73,29 +73,33 @@ public class AttackMagic : MonoBehaviour
         IsAttack = true;
         _currentSlot = startPos;//初期ポジ
         bool isPlayer = _attackManager.IsPlayerTurn;
+        _player = _gameManager.Player;
 
-        //プレイヤーのタイプを確認
         if (isPlayer)
         {
-            if(_gameManager.PlayerType == PlayerType.Combo)
-                _combo = true;
-        }
-
-        //筋力バフ適応
-        if (isPlayer)
-        {
-            if (_gameManager.Player.HasBuff(BuffType.Strength))
+            //プレイヤーのタイプを確認
+            if (_gameManager.PlayerType == PlayerType.Combo)
             {
-                AttackPower += _gameManager.Player.GetBuffCount(BuffType.Strength);
+                _combo = true;
+                _comboStack = _player.GetBuffCount(BuffType.Combo);
+            }
+
+            //筋力バフ適応
+            if (_player.HasBuff(BuffType.Strength))
+            {
+                AttackPower += _player.GetBuffCount(BuffType.Strength);
             }
         }
         else
         {
-            if (!_gameManager.StageManager.EnemyList[startPos.x].IsDead 
-                && _gameManager.StageManager.EnemyList[startPos.x].HasBuff(BuffType.Strength))
+            if (startPos.x < _stageManager.EnemyList.Count)
             {
-                AttackPower += _gameManager.StageManager.EnemyList[startPos.x]
-                    .GetBuffCount(BuffType.Strength);
+                Enemy enemy = _gameManager.StageManager.EnemyList[startPos.x];
+
+                if (enemy != null && !enemy.IsDead && enemy.HasBuff(BuffType.Strength))
+                {
+                    AttackPower += enemy.GetBuffCount(BuffType.Strength);
+                }
             }
         }
 
@@ -171,7 +175,7 @@ public class AttackMagic : MonoBehaviour
             //コンボ処理
             if (_combo)
             {
-                AttackPower++;
+                AttackPower += _comboStack;
             }
 
             //効果の呼び出し
@@ -252,8 +256,6 @@ public class AttackMagic : MonoBehaviour
             yield return new WaitForSeconds(interval * 0.3f);
             _tileSlot.TileColorChangeAnimation(interval * 0.1f, false);
         }
-
-        _player = _gameManager.Player;
 
         if (_isAttack)
         {
