@@ -72,14 +72,13 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
 
-        //•Ï‚¦‚é—\’è
         if(GameManager.Instance.BuffDataBase.GetBuffData(type).IsDecreaseTurn == true)
         {
-            AudioManager.Instance.PlaySe("Debuff");
+            CriAudioManager.Instance.PlaySe("SE_Debuff");
         }
         else
         {
-            AudioManager.Instance.PlaySe("Buff");
+            CriAudioManager.Instance.PlaySe("SE_Buff");
         }
 
         if (_buffs[type] <= 0)

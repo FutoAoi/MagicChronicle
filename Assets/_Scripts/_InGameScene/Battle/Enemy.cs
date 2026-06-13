@@ -70,6 +70,7 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
+        CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
         DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }

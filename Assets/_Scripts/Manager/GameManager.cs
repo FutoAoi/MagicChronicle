@@ -140,8 +140,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isAction)
         {
-            //ÉJÉGÉãÇÊÅ[
-            AudioManager.Instance.PlaySe("Shoot");
+            CriAudioManager.Instance.PlaySe("SE_MagicShot");
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
             StartCoroutine(_attackManager.AttackTurn(true));
