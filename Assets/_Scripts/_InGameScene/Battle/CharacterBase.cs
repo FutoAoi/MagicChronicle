@@ -82,8 +82,9 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public void AddBuff(BuffType type, int time = 1)
     {
         _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
+        BuffData buff = _gameManager.BuffDataBase.GetBuffData(type);
 
-        if(GameManager.Instance.BuffDataBase.GetBuffData(type).IsDecreaseTurn == true)
+        if(buff.IsDecreaseTurn == true)
         {
             CriAudioManager.Instance.PlaySe("SE_Debuff");
         }
@@ -97,7 +98,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
             _buffUIManager.FalseIcon(type);
             return;
         }
-        UpdateBuffImage(_gameManager.BuffDataBase.GetBuffData(type), _buffs[type]);
+        UpdateBuffImage(buff, _buffs[type]);
     }
 
     public virtual void UpdateBuffImage(BuffData buff,int count)
