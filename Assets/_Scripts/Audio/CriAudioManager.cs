@@ -81,6 +81,49 @@ public class CriAudioManager : MonoBehaviour
         ReleaseCri();
     }
 
+    private void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene,
+                               UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        // CriAtomが新シーンで再生成されるのを1フレーム待ってからACBを再取得
+        StartCoroutine(ReloadAcbAfterSceneLoad());
+    }
+
+    private IEnumerator ReloadAcbAfterSceneLoad()
+    {
+        yield return null; // CriAtomの初期化を待つ
+
+        // すでにCueSheetが登録済みなら再登録しない
+        if (CriAtom.GetAcb("BGM") == null)
+        {
+            CriAtom.AddCueSheet("BGM", "BGM.acb", "BGM.awb", null);
+        }
+        if (CriAtom.GetAcb("SE") == null)
+        {
+            CriAtom.AddCueSheet("SE", "SE.acb", null, null);
+        }
+
+        _bgmAcb = CriAtom.GetAcb("BGM");
+        _seAcb = CriAtom.GetAcb("SE");
+
+        Debug.Log($"[CriAudioManager] シーン再ロード後 BGM={_bgmAcb != null} SE={_seAcb != null}");
+
+        // シーン遷移前に再生していたBGMを復元
+        if (!string.IsNullOrEmpty(_currentBgmCueName))
+        {
+            PlayBgm(_currentBgmCueName);
+        }
+    }
+
     // ─── 初期化 / 解放 ──────────────────────────────────────────────
     private void InitializeCri()
     {
