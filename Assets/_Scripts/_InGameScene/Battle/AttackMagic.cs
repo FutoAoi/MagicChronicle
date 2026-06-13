@@ -103,7 +103,7 @@ public class AttackMagic : MonoBehaviour
         while (!_finish)
         {
             //Audio‚¢‚é‚æ[
-            AudioManager.Instance.PlaySe("MagicMove");
+            CriAudioManager.Instance.PlaySe("SE_MagicMove");
             //–‚–@‚ÌˆÚ“®
             if (_firstAttack)
             {

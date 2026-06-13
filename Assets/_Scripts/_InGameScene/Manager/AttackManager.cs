@@ -154,8 +154,6 @@ public class AttackManager : MonoBehaviour
             {
                 if (enemy.IsAttackTurn)
                 {
-                    //ÉJÉGÉãÅ]
-                    AudioManager.Instance.PlaySe("Shoot");
                     _enemyPos = new Vector2Int(count, _width - 1);
                     _enemyRectTr = enemy.GetComponent<RectTransform>();
                     StartCoroutine(AttackTurn(false));

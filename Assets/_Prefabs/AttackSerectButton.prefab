@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2746382579690555834}
   - component: {fileID: 4783658628122604052}
   - component: {fileID: 2975230810493858594}
+  - component: {fileID: 8478701486844316418}
   m_Layer: 5
   m_Name: AttackSerectButton
   m_TagString: Untagged
@@ -140,3 +141,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8478701486844316418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760919499865584810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c710d68ec1fe0684ab4128bf042c6bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonCRISound

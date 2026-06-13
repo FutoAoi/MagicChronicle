@@ -24,6 +24,7 @@ public class StagePlayer : CharacterBase
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
+        CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
         DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
