@@ -24,7 +24,7 @@ public class CardView : MonoBehaviour, IPointerEnterHandler
         _name.text = data.Name;
         _cost.text = data.Cost.ToString();
         _durability.text = data.MaxTimes.ToString();
-        _img.sprite = data.Sprite;
+        _img.sprite = data.CardSprite;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -13,7 +13,8 @@ public class CardDataEditor : Editor
     private SerializedProperty _cardID;
     private SerializedProperty _rarity;
     private SerializedProperty _type;
-    private SerializedProperty _sprite;
+    private SerializedProperty _cardSprite;
+    private SerializedProperty _magicSprite;
     private SerializedProperty _name;
     private SerializedProperty _description;
     private SerializedProperty _cost;
@@ -22,6 +23,7 @@ public class CardDataEditor : Editor
     private SerializedProperty _isDestruction;
     private SerializedProperty _canEvolution;
     private SerializedProperty _evolutionID;
+    private SerializedProperty _displayArrowVector;
     private SerializedProperty _moveEffect;
     private SerializedProperty _effect;
 
@@ -36,7 +38,8 @@ public class CardDataEditor : Editor
         _cardID = serializedObject.FindProperty("_cardID");
         _rarity = serializedObject.FindProperty("_rarity");
         _type = serializedObject.FindProperty("_type");
-        _sprite = serializedObject.FindProperty("_sprite");
+        _cardSprite = serializedObject.FindProperty("_cardSprite");
+        _magicSprite = serializedObject.FindProperty("_magicSprite");
         _name = serializedObject.FindProperty("_name");
         _description = serializedObject.FindProperty("_description");
         _cost = serializedObject.FindProperty("_cost");
@@ -45,6 +48,7 @@ public class CardDataEditor : Editor
         _isDestruction = serializedObject.FindProperty("_isDestruction");
         _canEvolution = serializedObject.FindProperty("_canEvolution");
         _evolutionID = serializedObject.FindProperty("_evolutionID");
+        _displayArrowVector = serializedObject.FindProperty("_displayArrowVector");
         _moveEffect = serializedObject.FindProperty("_moveEffect");
         _effect = serializedObject.FindProperty("_effect");
 
@@ -83,7 +87,8 @@ public class CardDataEditor : Editor
         EditorGUILayout.PropertyField(_cardID);
         EditorGUILayout.PropertyField(_rarity);
         EditorGUILayout.PropertyField(_type);
-        EditorGUILayout.PropertyField(_sprite);
+        EditorGUILayout.PropertyField(_cardSprite);
+        EditorGUILayout.PropertyField(_magicSprite);
         EditorGUILayout.PropertyField(_name);
         EditorGUILayout.PropertyField(_description);
         EditorGUILayout.PropertyField(_cost);
@@ -131,6 +136,7 @@ public class CardDataEditor : Editor
 
         EditorGUILayout.Space(4);
         EditorGUILayout.LabelField("効果", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(_displayArrowVector);
         EditorGUILayout.PropertyField(_moveEffect);
         EditorGUILayout.PropertyField(_effect);
 

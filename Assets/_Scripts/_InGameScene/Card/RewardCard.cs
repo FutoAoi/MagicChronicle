@@ -59,7 +59,7 @@ public class RewardCard : MonoBehaviour, IPointerDownHandler
         _data = GameManager.Instance.CardDataBase.GetCardData(ID);
         _cardID = ID;
         _rarity = _data.Rarity;
-        _image.sprite = _data.Sprite;
+        _image.sprite = _data.CardSprite;
         _name.text = _data.Name;
         _description.text = _data.Description;
         _cost.text = $"{_data.Cost}";

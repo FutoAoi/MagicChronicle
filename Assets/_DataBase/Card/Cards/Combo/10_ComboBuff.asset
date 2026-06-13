@@ -15,7 +15,8 @@ MonoBehaviour:
   _cardID: 10
   _rarity: 1
   _type: 1
-  _sprite: {fileID: 21300000, guid: 055313ab1767a2a40879625def148b2f, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 637ec472b8f98b84c89b62154ac9fc31, type: 3}
+  _magicSprite: {fileID: -6911713531835379244, guid: 0478ccdd028390047ab88dd87ac2ed56, type: 3}
   _name: "\u30B3\u30F3\u30DC"
   _description: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u30B3\u30F3\u30DC+1"
   _cost: 3
@@ -24,6 +25,7 @@ MonoBehaviour:
   _isDestruction: 0
   _canEvolution: 1
   _evolutionID: 0
+  _displayArrowVector: 03
   _moveEffect:
     rid: 8909412632268111942
   _effect:
@@ -39,3 +41,5 @@ MonoBehaviour:
       type: {class: EffectAddBuff, ns: , asm: Assembly-CSharp}
       data:
         _addBuffType: 0
+        _canBuffEnemy: 0
+        _isRandom: 0

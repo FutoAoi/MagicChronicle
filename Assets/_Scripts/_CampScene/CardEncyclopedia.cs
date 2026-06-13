@@ -55,7 +55,7 @@ public class CardEncyclopedia : MonoBehaviour
         _cost.text = data.Cost.ToString();
         _times.text = data.MaxTimes.ToString();
         _description.text = data.Description;
-        _image.sprite = data.Sprite;
+        _image.sprite = data.CardSprite;
     }
 
     /// <summary>

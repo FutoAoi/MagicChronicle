@@ -15,7 +15,8 @@ MonoBehaviour:
   _cardID: 2
   _rarity: 1
   _type: 1
-  _sprite: {fileID: 21300000, guid: 2f5e10d5528da124e88444a757f8f063, type: 3}
+  _cardSprite: {fileID: 21300000, guid: 3ee46f7249538184b8935307eaaa93e7, type: 3}
+  _magicSprite: {fileID: -6911713531835379244, guid: 0478ccdd028390047ab88dd87ac2ed56, type: 3}
   _name: "\u77E2\u5370\u53F3+"
   _description: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002"
   _cost: 1
@@ -24,6 +25,7 @@ MonoBehaviour:
   _isDestruction: 0
   _canEvolution: 1
   _evolutionID: 0
+  _displayArrowVector: 02
   _moveEffect:
     rid: 8909412632268111938
   _effect: []

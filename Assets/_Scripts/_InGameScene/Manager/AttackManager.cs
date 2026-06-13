@@ -47,12 +47,12 @@ public class AttackManager : MonoBehaviour
     public IEnumerator AttackTurn(bool isPlayer)
     {
         Debug.Log("攻撃開始！！！");
-        _magic = _magicPool.GetAttackMagic();
-        _magic.gameObject.SetActive(true);
         if (isPlayer)
         {            
             for(int i = 0; i < 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid); i++)
             {
+                _magic = _magicPool.GetAttackMagic();
+                _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
                     MagicVector.Right, _playerPos, _interval));
 
@@ -63,6 +63,8 @@ public class AttackManager : MonoBehaviour
         {
             for(int i = 0; i < 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid); i++)
             {
+                _magic = _magicPool.GetAttackMagic();
+                _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(_enemyPos,
                     MagicVector.Left, _enemyRectTr, _interval));
 
