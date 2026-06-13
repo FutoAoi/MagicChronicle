@@ -47,7 +47,7 @@ public class AttackManager : MonoBehaviour
     public IEnumerator AttackTurn(bool isPlayer)
     {
         Debug.Log("攻撃開始！！！");
-        if (isPlayer)
+        if (isPlayer) 
         {            
             for(int i = 0; i < 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid); i++)
             {
@@ -154,6 +154,7 @@ public class AttackManager : MonoBehaviour
             {
                 if (enemy.IsAttackTurn)
                 {
+                    CriAudioManager.Instance.PlaySe("SE_MagicShot");
                     _enemyPos = new Vector2Int(count, _width - 1);
                     _enemyRectTr = enemy.GetComponent<RectTransform>();
                     StartCoroutine(AttackTurn(false));

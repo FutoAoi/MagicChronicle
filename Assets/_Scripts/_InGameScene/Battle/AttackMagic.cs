@@ -91,11 +91,14 @@ public class AttackMagic : MonoBehaviour
         }
         else
         {
-            if (!_gameManager.StageManager.EnemyList[startPos.x].IsDead 
-                && _gameManager.StageManager.EnemyList[startPos.x].HasBuff(BuffType.Strength))
+            if (startPos.x < _stageManager.EnemyList.Count)
             {
-                AttackPower += _gameManager.StageManager.EnemyList[startPos.x]
-                    .GetBuffCount(BuffType.Strength);
+                Enemy enemy = _gameManager.StageManager.EnemyList[startPos.x];
+
+                if (enemy != null && !enemy.IsDead && enemy.HasBuff(BuffType.Strength))
+                {
+                    AttackPower += enemy.GetBuffCount(BuffType.Strength);
+                }
             }
         }
 
