@@ -11,6 +11,7 @@ public class Enemy : CharacterBase
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemyID => _enemyID;
 
+
     [Header("エネミー詳細")]
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
     [SerializeField, Tooltip("攻撃ターンの表示")] private TextMeshProUGUI _attackTurnTMP;
@@ -18,12 +19,10 @@ public class Enemy : CharacterBase
     [SerializeField, Tooltip("お金演出プレハブ")] private GameObject _moneyParticle;
 
     [SerializeField, Tooltip("エネミーの攻撃までのターン数")] private int _enemyAT;
-    [SerializeField] private HpBarContller _hpBarContller;
     private int _enemyID;
     private EnemyData _enemy;
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
-    private RectTransform _rect;
     private int _currentSAT;
 
     /// <summary>
@@ -46,7 +45,6 @@ public class Enemy : CharacterBase
         {
             _specialTMP.text = null;
         }
-        _rect = GetComponent<RectTransform>();
         _enemyImage.sprite = _enemy.Sprite;
         _attackTurnTMP.text = _enemyAT.ToString();
         if (enemyID == 0)
@@ -58,7 +56,7 @@ public class Enemy : CharacterBase
         }
         else
         {
-           _hpBarContller.ShowUI(CurrentHP, MaxHP);
+           HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
         Debug.Log("Enemy" + $"{CurrentHP}");
     }
@@ -70,9 +68,6 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
-        CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
-        DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
-        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
 
     /// <summary>
@@ -179,7 +174,7 @@ public class Enemy : CharacterBase
 
     public override void Dead()
     {
-        _hpBarContller.HideUI();
+        HpBarContller.HideUI();
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
         _enemyImage.DOFade(0f, 1f);
@@ -189,7 +184,7 @@ public class Enemy : CharacterBase
 
         if(_gameManager.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
         {
-            _gameManager.EffectManager.ApplyEffect(ParticleType.Money,manager.ParticleParent,_rect);
+            _gameManager.EffectManager.ApplyEffect(ParticleType.Money,manager.ParticleParent,Rect);
         }
     }
 }

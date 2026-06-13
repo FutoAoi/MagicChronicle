@@ -6,9 +6,7 @@ public class StagePlayer : CharacterBase
     public int CurrentCost => _currentCost;
 
     [SerializeField] private int _maxCost = 8;
-    [SerializeField] private HpBarContller _hpBarContller;
     private int _currentCost;
-    private RectTransform _rect;
     private PlayerStatus _status;
 
     protected override void Start()
@@ -16,7 +14,6 @@ public class StagePlayer : CharacterBase
         base.Start();
 
         _gameManager.Player = this;
-        _rect = GetComponent<RectTransform>();
     }
 
 
@@ -24,9 +21,6 @@ public class StagePlayer : CharacterBase
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
-        CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
-        DamagePopUpObjectPool.Instance.Get(_rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
-        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
 
     /// <summary>
@@ -84,7 +78,7 @@ public class StagePlayer : CharacterBase
     {
         _status = nowPlayerStatus;
         SetStatus(_status.PlayerMaxHp, _status.PlayerCurrentHp);
-        _hpBarContller.ShowUI(CurrentHP, MaxHP);
+        HpBarContller.ShowUI(CurrentHP, MaxHP);
         _maxCost = _status.PlayerMaxCost;
         foreach (var buff in _status.DefaultBuffs)
         {

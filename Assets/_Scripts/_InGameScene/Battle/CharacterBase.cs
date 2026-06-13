@@ -6,8 +6,13 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public bool IsDead;
     public int MaxHP => _maxHP;
     public int CurrentHP => _currentHP;
-    [SerializeField, Tooltip("çUåÇóÕ")] protected int _attackPower;
 
+    public HpBarContller HpBarContller => _hpBarContller;
+    public RectTransform Rect => _rect;
+    [SerializeField, Tooltip("çUåÇóÕ")] protected int _attackPower;
+    [SerializeField] private HpBarContller _hpBarContller;
+
+    private RectTransform _rect;
     private int _maxHP;
     private int _currentHP;
     private BuffStacks _buffs = new BuffStacks((int)BuffType.End);
@@ -19,6 +24,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         _gameManager = GameManager.Instance;
         _buffUIManager = GetComponent<BuffUIManager>();
+        _rect = GetComponent<RectTransform>();
     }
     #endregion
     #region äÓñ{èàóù
@@ -52,9 +58,14 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         if (IsDead) return;
 
-        float mag = _buffs.Has(BuffType.Weaken)? 1.0f : 1.5f;
+        float mag = _buffs.Has(BuffType.Weaken)? 1.5f : 1.0f;
 
         _currentHP -= (int)(damage*mag);
+
+        CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
+        DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
+        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
+
         if (_currentHP <= 0)
         {
             _currentHP = 0;

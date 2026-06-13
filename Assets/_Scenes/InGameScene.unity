@@ -1394,8 +1394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   IsDead: 0
   _attackPower: 0
-  _maxCost: 8
   _hpBarContller: {fileID: 460636256}
+  _maxCost: 8
 --- !u!114 &460636254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4517,7 +4517,7 @@ MonoBehaviour:
   _playerPos: {fileID: 460636252}
   _interval: 0.2
   _duration: 3
-  _rapidInterval: 1
+  _rapidInterval: 0.5
   AttackStartPos: 0
 --- !u!114 &1154090791
 MonoBehaviour:
