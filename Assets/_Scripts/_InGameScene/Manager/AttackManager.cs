@@ -46,7 +46,6 @@ public class AttackManager : MonoBehaviour
     /// <param name="isPlayer"></param>
     public IEnumerator AttackTurn(bool isPlayer)
     {
-        Debug.Log("攻撃開始！！！");
         if (isPlayer) 
         {            
             for(int i = 0; i < 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid); i++)

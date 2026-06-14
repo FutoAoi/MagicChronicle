@@ -79,19 +79,25 @@ public class DeckPanelManager : MonoBehaviour
     }
     void DisableAll(Dictionary<int, List<GameObject>> dict)
     {
-        foreach (var list in dict.Values)
+        foreach (List<GameObject> list in dict.Values)
         {
-            foreach (var obj in list)
+            foreach (GameObject obj in list)
             {
                 obj.SetActive(false);
             }
         }
     }
+    /// <summary>
+    /// 指定のカードデータを表示
+    /// </summary>
+    /// <param name="ids">表示するカードID</param>
+    /// <param name="dict">表示先オブジェクトのDictionary</param>
     void EnableCards(List<int> ids, Dictionary<int, List<GameObject>> dict)
     {
+        //指定の同名カードが何枚あるかのDict
         Dictionary<int, int> counter = new();
 
-        foreach (var id in ids)
+        foreach (int id in ids)
         {
             if (!counter.ContainsKey(id))
                 counter[id] = 0;

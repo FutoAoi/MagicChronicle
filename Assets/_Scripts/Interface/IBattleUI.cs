@@ -6,7 +6,7 @@ public interface IBattleUI
     /// <summary>
     /// カードを引く
     /// </summary>
-    IEnumerator DrawCard();
+    IEnumerator DrawCardAnimation();
     /// <summary>
     /// ドロー数を増減させる
     /// </summary>
@@ -41,6 +41,10 @@ public interface IBattleUI
     /// デッキをリセット
     /// </summary>
     void ResetDeck();
+    /// <summary>
+    /// デッキをシャッフル
+    /// </summary>
+    void ShuffleDeck();
     /// <summary>
     /// 説明パネルを更新
     /// </summary>
