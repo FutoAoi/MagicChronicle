@@ -16,6 +16,7 @@ public class CardData : ScriptableObject
     [SerializeField, Tooltip("最大回数")] private int _maxTimes;
     [SerializeField, Tooltip("霊陣")] private bool _isGhost = false;
     [SerializeField, Tooltip("破棄")] private bool _isDestruction = false;
+    [SerializeField, Tooltip("プレイヤーの魔法陣")] private bool _isPlayerMagic = true;
     [SerializeField, Tooltip("進化できるかのフラグ")] private bool _canEvolution;
     [ShowIf("_canEvolution"),SerializeField, Tooltip("進化先のID")] private int _evolutionID;
 
@@ -39,6 +40,7 @@ public class CardData : ScriptableObject
     public CardType Type => _type;
     public bool IsGhost => _isGhost;
     public bool IsDestruction => _isDestruction;
+    public bool IsPlayerMagic => _isPlayerMagic;
     public bool CanEvolution => _canEvolution;
     public int EvolutionID => _evolutionID;
 }

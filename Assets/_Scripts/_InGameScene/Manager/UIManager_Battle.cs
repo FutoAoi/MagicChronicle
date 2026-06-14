@@ -4,17 +4,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 /// <summary>
 /// インゲームのバトル時のUIManager
 /// </summary>
 public class UIManager_Battle : UIManagerBase, IBattleUI
 {
-    [Header("-----カード-----")]
-    [Tooltip("山札")] public List<int> DeckCard = new List<int>();
-    [Tooltip("手札")] public List<GameObject> HandCard = new List<GameObject>();
-    [Tooltip("捨て札")] public List<int> DiscardCard = new List<int>();
-    [Tooltip("除外札")] public List<int> RemoveCard = new List<int>();
-
     [Header("-----数値設定-----")]
     [SerializeField, Tooltip("手札の数")] private int _handRange = 5;
     [SerializeField, Tooltip("ドロー間隔")] private float _distance = 0.1f;
@@ -48,10 +43,9 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     private RewardManager _rewardManager;
     private DescriptionPanel _description;
     private GameObject _card;
-    private Image _panelimg,_descptionImage;
-    private RectTransform _panelRectTr;
-    private Color _defaultColor;
     private int _currentNumber,_deltaDrawCount = 0;
+    private int _randomIndex;
+    private int _temp;
     public override void InitUI()
     {
         _deckManager = DeckManager.Instance;
@@ -75,7 +69,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         _gameManager.EffectManager.ApplyEffect(ParticleType.Firefly, ParticleParent);
     }
-    public IEnumerator DrawCard()
+    public IEnumerator DrawCardAnimation()
     {
         int deckCount = DeckCard.Count;
         int discardCount = DiscardCard.Count;
@@ -132,6 +126,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     }
     public void ResetDeck()
     {
+        Debug.Log("デッキの補充");
         DeckCard.Clear();
         DeckCard = _deckManager.DeckMain;
         foreach(int id in RemoveCard)
@@ -144,7 +139,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         _card = Instantiate(CardPrefab, _playerHandTr);
         Card card = _card.GetComponent<Card>();
-        card.SetCard(_deckManager.DrawCard(),true);
+        card.SetCard(DrawCard(),true);
         DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
         HandCardColorChange();
@@ -323,6 +318,52 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             obj.GetComponent<CardHoverAnimation>()
                 .ColorAnimation(_gameManager.Player.CurrentCost
                 >= _gameManager.CardDataBase.GetCardData(card.CardID).Cost);
+        }
+    }
+
+    /// <summary>
+    /// デッキのシャッフルメソット
+    /// </summary>
+    public void ShuffleDeck()
+    {
+        ReconstructionDeck(RemoveCard);
+        for (int i = 0; i < DeckCard.Count; i++)
+        {
+            _randomIndex = Random.Range(i, DeckCard.Count);
+
+            _temp = DeckCard[i];
+            DeckCard[i] = DeckCard[_randomIndex];
+            DeckCard[_randomIndex] = _temp;
+        }
+        Debug.Log("デッキをシャッフルしました");
+    }
+
+    /// <summary>
+    /// デッキドローメッソト
+    /// </summary>
+    /// <returns></returns>
+    public int DrawCard()
+    {
+        if (DeckCard.Count == 0)
+        {
+            if (_gameManager == null) _gameManager = GameManager.Instance;
+            (_gameManager.CurrentUIManager as IBattleUI)?.ResetDeck();
+            ShuffleDeck();
+        }
+
+        int _topCard = DeckCard[0];
+        DeckCard.RemoveAt(0);
+        return _topCard;
+    }
+
+    private void ReconstructionDeck(List<int> deleteID)
+    {
+        DeckCard = new List<int>(_deckManager.DeckMain);
+        if (deleteID.Count == 0) return;
+
+        foreach (int id in deleteID)
+        {
+            DeckCard.Remove(id);
         }
     }
 }

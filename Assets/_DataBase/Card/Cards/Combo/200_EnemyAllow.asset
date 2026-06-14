@@ -23,6 +23,7 @@ MonoBehaviour:
   _maxTimes: 1
   _isGhost: 0
   _isDestruction: 0
+  _isPlayerMagic: 0
   _canEvolution: 0
   _evolutionID: 0
   _displayArrowVector: 03

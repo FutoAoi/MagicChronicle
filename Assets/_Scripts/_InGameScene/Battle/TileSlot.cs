@@ -84,13 +84,17 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     effect.OnExcute(null);
                 }
             }
-            if (data.IsDestruction)
+
+            if (data.IsPlayerMagic)
             {
-                (_gameManager.CurrentUIManager as IBattleUI)?.RegisterRemoveCard(ID);
-            }
-            else
-            {
-                (_gameManager.CurrentUIManager as IBattleUI)?.ResisterDiscardCard(ID);
+                if (data.IsDestruction)
+                {
+                    (_gameManager.CurrentUIManager as IBattleUI)?.RegisterRemoveCard(ID);
+                }
+                else
+                {
+                    (_gameManager.CurrentUIManager as IBattleUI)?.ResisterDiscardCard(ID);
+                }
             }
             _isDestroy = false;
             ClearSlot();

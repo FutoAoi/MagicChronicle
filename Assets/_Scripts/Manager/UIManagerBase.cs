@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -5,6 +6,12 @@ using UnityEngine;
 /// </summary>
 public abstract class UIManagerBase : MonoBehaviour
 {
+    [Header("-----ƒJ[ƒh-----")]
+    [Tooltip("RD")] public List<int> DeckCard = new List<int>();
+    [Tooltip("èD")] public List<GameObject> HandCard = new List<GameObject>();
+    [Tooltip("Ì‚ÄD")] public List<int> DiscardCard = new List<int>();
+    [Tooltip("œŠOD")] public List<int> RemoveCard = new List<int>();
+
     protected virtual void Awake()
     {
         GameManager.Instance.RegisterUIManager(this);

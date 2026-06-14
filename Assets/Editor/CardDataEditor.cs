@@ -21,6 +21,7 @@ public class CardDataEditor : Editor
     private SerializedProperty _maxTimes;
     private SerializedProperty _isGhost;
     private SerializedProperty _isDestruction;
+    private SerializedProperty _isPlayerMagic;
     private SerializedProperty _canEvolution;
     private SerializedProperty _evolutionID;
     private SerializedProperty _displayArrowVector;
@@ -46,6 +47,7 @@ public class CardDataEditor : Editor
         _maxTimes = serializedObject.FindProperty("_maxTimes");
         _isGhost = serializedObject.FindProperty("_isGhost");
         _isDestruction = serializedObject.FindProperty("_isDestruction");
+        _isPlayerMagic = serializedObject.FindProperty("_isPlayerMagic");
         _canEvolution = serializedObject.FindProperty("_canEvolution");
         _evolutionID = serializedObject.FindProperty("_evolutionID");
         _displayArrowVector = serializedObject.FindProperty("_displayArrowVector");
@@ -95,6 +97,7 @@ public class CardDataEditor : Editor
         EditorGUILayout.PropertyField(_maxTimes);
         EditorGUILayout.PropertyField(_isGhost);
         EditorGUILayout.PropertyField(_isDestruction);
+        EditorGUILayout.PropertyField(_isPlayerMagic);
         EditorGUILayout.PropertyField(_canEvolution);
 
         // ─── 進化先 プルダウン（_canEvolution == true のみ表示） ──

@@ -117,8 +117,8 @@ public class GameManager : MonoBehaviour
             if (Player.HasBuff(BuffType.CardPlus))
                 _uiManagerButtle.ChangeDrawCount(Player.GetBuffCount(BuffType.CardPlus));
 
-            _deckManager.ShuffleDeck();
-            StartCoroutine(_uiManagerButtle.DrawCard());
+            _uiManagerButtle.ShuffleDeck();
+            StartCoroutine(_uiManagerButtle.DrawCardAnimation());
             Player.SetCost();
             _isDraw = true;
         }
