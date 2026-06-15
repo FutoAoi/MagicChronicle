@@ -45,7 +45,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     private GameObject _card;
     private int _currentNumber,_deltaDrawCount = 0;
     private int _randomIndex;
-    private int _temp;
     public override void InitUI()
     {
         _deckManager = DeckManager.Instance;
@@ -64,6 +63,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         UpdateMaxCostImage(_stagePlayer.MaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
+        Debug.Log("初期化");
     }
     private void Start()
     {
@@ -96,6 +96,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public void ClearCard()
     {
+        Debug.Log($"{DeckCard.Count}");
         foreach(GameObject hand in HandCard)
         {
             Card card = hand.GetComponent<Card>();
@@ -111,11 +112,13 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             Destroy(hand);
         }
         HandCard.Clear();
+        Debug.Log($"{DeckCard.Count}");
     }
     public void ResisterDiscardCard(int id)
     {
-        DeckCard.Remove(id);
+        //DeckCard.Remove(id);
         DiscardCard.Add(id);
+        Debug.Log("削除ォォォォォ！！！");
         //アニメーションをつくるならここ
     }
     public void RegisterRemoveCard(int id)
@@ -128,10 +131,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         Debug.Log("デッキの補充");
         DeckCard.Clear();
-        DeckCard = _deckManager.DeckMain;
-        foreach(int id in RemoveCard)
+        DeckCard = new List<int>(_deckManager.DeckMain);
+        foreach(GameObject card in HandCard)
         {
-            DeckCard.Remove(id);
+            DeckCard.Remove(card.GetComponent<Card>().CardID);
         }
         DiscardCard.Clear();
     }
@@ -140,10 +143,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _card = Instantiate(CardPrefab, _playerHandTr);
         Card card = _card.GetComponent<Card>();
         card.SetCard(DrawCard(),true);
-        DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
         HandCardColorChange();
-        Debug.Log("カードを引いた");
     }
     /// <summary>
     /// 敵攻撃時のカットイン
@@ -327,16 +328,15 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void ShuffleDeck()
     {
-        //ReconstructionDeck(RemoveCard);
         for (int i = 0; i < DeckCard.Count; i++)
         {
             _randomIndex = Random.Range(i, DeckCard.Count);
 
-            _temp = DeckCard[i];
+            int _temp = DeckCard[i];
             DeckCard[i] = DeckCard[_randomIndex];
             DeckCard[_randomIndex] = _temp;
         }
-        Debug.Log("デッキをシャッフルしました");
+        Debug.Log($"Shuffle後:{DeckCard.Count}");
     }
 
     /// <summary>
@@ -347,24 +347,13 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         if (DeckCard.Count == 0)
         {
-            if (_gameManager == null) _gameManager = GameManager.Instance;
-            (_gameManager.CurrentUIManager as IBattleUI)?.ResetDeck();
+            ResetDeck();
             ShuffleDeck();
         }
 
-        int _topCard = DeckCard[0];
+        int topCard = DeckCard[0];
         DeckCard.RemoveAt(0);
-        return _topCard;
+        Debug.Log("ドロー！！");
+        return topCard;
     }
-
-    //private void ReconstructionDeck(List<int> deleteID)
-    //{
-    //    DeckCard = new List<int>(_deckManager.DeckMain);
-    //    if (deleteID.Count == 0) return;
-
-    //    foreach (int id in deleteID)
-    //    {
-    //        DeckCard.Remove(id);
-    //    }
-    //}
 }
