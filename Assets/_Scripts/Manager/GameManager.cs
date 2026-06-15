@@ -140,11 +140,11 @@ public class GameManager : MonoBehaviour
     {
         if (!_isAction)
         {
+            _uiManagerButtle.ClearCard();
             CriAudioManager.Instance.PlaySe("SE_MagicShot");
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
             StartCoroutine(_attackManager.AttackTurn(true));
-            _uiManagerButtle.ClearCard();
             _isAction = true;
         }
 
