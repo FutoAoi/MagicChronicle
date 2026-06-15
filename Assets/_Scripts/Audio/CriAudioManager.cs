@@ -28,7 +28,11 @@ public class CriAudioManager : MonoBehaviour
 
     // ─── 内部状態 ───────────────────────────────────────────────────
     private CriAtomExPlayer _bgmPlayer;
-    private CriAtomExPlayer _sePlayer;
+
+    //private CriAtomExPlayer _sePlayer;
+    private readonly List<CriAtomExPlayer> _sePlayerPool = new List<CriAtomExPlayer>();
+    private const int SE_POOL_SIZE = 8; // 同時発音数の上限
+
     private CriAtomExAcb _bgmAcb;
     private CriAtomExAcb _seAcb;
     private CriAtomExPlayback _bgmPlayback;   // Update()に渡すPlayback
@@ -39,6 +43,8 @@ public class CriAudioManager : MonoBehaviour
 
     private string _currentBgmCueName = string.Empty;
     private Coroutine _fadeCoroutine;
+
+    private bool _isInitialized = false;
 
     // ─── 音量プロパティ ─────────────────────────────────────────────
     public float MasterVolume
@@ -74,16 +80,12 @@ public class CriAudioManager : MonoBehaviour
     private void Start()
     {
         InitializeCri();
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
         ReleaseCri();
-    }
-
-    private void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
@@ -100,28 +102,31 @@ public class CriAudioManager : MonoBehaviour
 
     private IEnumerator ReloadAcbAfterSceneLoad()
     {
-        yield return null; // CriAtomの初期化を待つ
+        yield return null;
 
-        // すでにCueSheetが登録済みなら再登録しない
+        if (!_isInitialized) yield break;
+
         if (CriAtom.GetAcb("BGM") == null)
-        {
             CriAtom.AddCueSheet("BGM", "BGM.acb", "BGM.awb", null);
-        }
         if (CriAtom.GetAcb("SE") == null)
-        {
             CriAtom.AddCueSheet("SE", "SE.acb", null, null);
-        }
 
         _bgmAcb = CriAtom.GetAcb("BGM");
         _seAcb = CriAtom.GetAcb("SE");
 
-        Debug.Log($"[CriAudioManager] シーン再ロード後 BGM={_bgmAcb != null} SE={_seAcb != null}");
-
-        // シーン遷移前に再生していたBGMを復元
-        if (!string.IsNullOrEmpty(_currentBgmCueName))
+        // SEプールを再生成
+        foreach (var p in _sePlayerPool) p?.Dispose();
+        _sePlayerPool.Clear();
+        for (int i = 0; i < SE_POOL_SIZE; i++)
         {
-            PlayBgm(_currentBgmCueName);
+            var p = new CriAtomExPlayer();
+            p.SetPanType(CriAtomEx.PanType.Pan3d);
+            p.Set3dSource(null);
+            _sePlayerPool.Add(p);
         }
+
+        if (!string.IsNullOrEmpty(_currentBgmCueName))
+            PlayBgm(_currentBgmCueName);
     }
 
     // ─── 初期化 / 解放 ──────────────────────────────────────────────
@@ -155,10 +160,13 @@ public class CriAudioManager : MonoBehaviour
         _bgmPlayer.Set3dSource(null);
         _bgmPlayer.SetVolume(1.0f);
 
-        _sePlayer = new CriAtomExPlayer();
-        _sePlayer.SetPanType(CriAtomEx.PanType.Pan3d);
-        _sePlayer.Set3dSource(null);
-        _sePlayer.SetVolume(1.0f);
+        for (int i = 0; i < SE_POOL_SIZE; i++)
+        {
+            var p = new CriAtomExPlayer();
+            p.SetPanType(CriAtomEx.PanType.Pan3d);
+            p.Set3dSource(null);
+            _sePlayerPool.Add(p);
+        }
 
         // 初期音量設定
         _masterVolume = initialMasterVolume;
@@ -170,6 +178,7 @@ public class CriAudioManager : MonoBehaviour
         PrintCueList(_seAcb, "SE");
 
         Debug.Log("[CriAudioManager] 初期化完了");
+        _isInitialized = true;
     }
 
     private void ReleaseCri()
@@ -177,7 +186,8 @@ public class CriAudioManager : MonoBehaviour
         StopFade();
 
         _bgmPlayer?.Dispose();
-        _sePlayer?.Dispose();
+        foreach (var p in _sePlayerPool) p?.Dispose();
+        _sePlayerPool.Clear();
         _bgmAcb?.Dispose();
         _seAcb?.Dispose();
 
@@ -248,17 +258,36 @@ public class CriAudioManager : MonoBehaviour
             return;
         }
 
-        _sePlayer.SetCue(_seAcb, cueName);
-        _sePlayer.SetVolume(_seVolume * _masterVolume);
-        _sePlayer.Start();
+        // 再生が終わっているプレーヤーを探す
+        CriAtomExPlayer player = null;
+        foreach (var p in _sePlayerPool)
+        {
+            // StoppedまたはPlaybackなしなら空き
+            if (p.GetStatus() == CriAtomExPlayer.Status.Stop ||
+                p.GetStatus() == CriAtomExPlayer.Status.PlayEnd)
+            {
+                player = p;
+                break;
+            }
+        }
 
-        //Debug.Log($"[CriAudioManager] SE再生: {cueName}");
+        // 空きがなければ最初のプレーヤーを強制使用（上書き）
+        if (player == null)
+        {
+            player = _sePlayerPool[0];
+            Debug.LogWarning("[CriAudioManager] SEプールが満杯です。最古のプレーヤーを再利用します。");
+        }
+
+        player.SetCue(_seAcb, cueName);
+        player.SetVolume(_seVolume * _masterVolume);
+        player.Start();
     }
 
     /// <summary>再生中のSEをすべて停止します。</summary>
     public void StopAllSe()
     {
-        _sePlayer.StopWithoutReleaseTime();
+        foreach (var p in _sePlayerPool)
+            p.StopWithoutReleaseTime();
         Debug.Log("[CriAudioManager] SE全停止");
     }
 
