@@ -179,8 +179,7 @@ public class Enemy : CharacterBase
         _specialTMP.text = null;
         _enemyImage.DOFade(0f, 1f);
 
-        int money = _enemy.RandomReword();
-        WalletManager.Instance.ChangePlayerMoney(money);
+        WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
 
         if(_gameManager.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
         {
