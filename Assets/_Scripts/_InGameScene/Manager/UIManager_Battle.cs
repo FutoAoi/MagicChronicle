@@ -64,6 +64,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         UpdateMaxCostImage(_stagePlayer.MaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
+        Debug.Log("初期化");
     }
     private void Start()
     {
@@ -128,7 +129,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         Debug.Log("デッキの補充");
         DeckCard.Clear();
-        DeckCard = _deckManager.DeckMain;
+        DeckCard = new List<int>(_deckManager.DeckMain);
         foreach(int id in RemoveCard)
         {
             DeckCard.Remove(id);
@@ -140,7 +141,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _card = Instantiate(CardPrefab, _playerHandTr);
         Card card = _card.GetComponent<Card>();
         card.SetCard(DrawCard(),true);
-        DeckCard.Remove(card.CardID);
+        //DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
         HandCardColorChange();
         Debug.Log("カードを引いた");
@@ -327,7 +328,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void ShuffleDeck()
     {
-        //ReconstructionDeck(RemoveCard);
         for (int i = 0; i < DeckCard.Count; i++)
         {
             _randomIndex = Random.Range(i, DeckCard.Count);
@@ -337,6 +337,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             DeckCard[_randomIndex] = _temp;
         }
         Debug.Log("デッキをシャッフルしました");
+        Debug.Log($"Shuffle後:{DeckCard.Count}");
     }
 
     /// <summary>
@@ -352,19 +353,8 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             ShuffleDeck();
         }
 
-        int _topCard = DeckCard[0];
+        int topCard = DeckCard[0];
         DeckCard.RemoveAt(0);
-        return _topCard;
+        return topCard;
     }
-
-    //private void ReconstructionDeck(List<int> deleteID)
-    //{
-    //    DeckCard = new List<int>(_deckManager.DeckMain);
-    //    if (deleteID.Count == 0) return;
-
-    //    foreach (int id in deleteID)
-    //    {
-    //        DeckCard.Remove(id);
-    //    }
-    //}
 }
