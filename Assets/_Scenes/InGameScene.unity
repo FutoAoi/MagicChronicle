@@ -8943,6 +8943,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CriWareInitializer
       objectReference: {fileID: 0}
+    - target: {fileID: 831968750521854934, guid: 3eb84f4976066584ba2b9d0fca319471, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738905665910737, guid: 3eb84f4976066584ba2b9d0fca319471, type: 3}
+      propertyPath: cueSheets.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8091172260007201695, guid: 3eb84f4976066584ba2b9d0fca319471, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8983,8 +8991,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 831968750521854934, guid: 3eb84f4976066584ba2b9d0fca319471, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

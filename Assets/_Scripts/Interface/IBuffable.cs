@@ -7,5 +7,5 @@ public interface IBuffable
     /// </summary>
     /// <param name="type">ƒoƒt‚Ìw’è</param>
     /// <param name="time">‘«‚³‚ê‚é”</param>
-    void AddBuff(BuffType type,int time);
+    void AddBuff(BuffType type,int time, bool hasSound);
 }

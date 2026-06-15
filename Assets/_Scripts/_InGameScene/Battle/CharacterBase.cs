@@ -79,16 +79,16 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     #endregion
 
     #region ƒoƒt
-    public void AddBuff(BuffType type, int time = 1)
+    public void AddBuff(BuffType type, int time = 1, bool hasSound = true)
     {
         _buffs[type] = Mathf.Clamp(_buffs[type] + time, 0, 999);
         BuffData buff = _gameManager.BuffDataBase.GetBuffData(type);
 
-        if(buff.IsDecreaseTurn == true)
+        if(buff.IsDecreaseTurn == true && hasSound)
         {
             CriAudioManager.Instance.PlaySe("SE_Debuff");
         }
-        else
+        else if(hasSound)
         {
             CriAudioManager.Instance.PlaySe("SE_Buff");
         }

@@ -82,7 +82,7 @@ public class StagePlayer : CharacterBase
         _maxCost = _status.PlayerMaxCost;
         foreach (var buff in _status.DefaultBuffs)
         {
-            AddBuff(buff);
+            AddBuff(buff, 1, false);
         }
     }
 }
