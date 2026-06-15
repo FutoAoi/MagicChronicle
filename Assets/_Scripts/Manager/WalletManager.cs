@@ -15,12 +15,13 @@ public class WalletManager : MonoBehaviour
 
     private int _currentMoney;
     private int _currentJem;
+    private Tween _tween;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
             return;
         }
         Instance = this;
@@ -68,6 +69,12 @@ public class WalletManager : MonoBehaviour
             WalletType.Jem => _currentJem,
             _ => 0
         };
+
+        if (WalletType.Jem == type)
+            _currentJem = targetValue;
+        else
+            _currentMoney = targetValue;
+
         TextMeshProUGUI _walletText = CurrentWalletPanel.GetWalletText(type);
 
         //パネル移動演出
@@ -76,7 +83,9 @@ public class WalletManager : MonoBehaviour
 
         //テキスト更新演出
         bool isfinish = false;
-        DOTween.To(() => value,
+
+        _tween?.Kill();
+        _tween = DOTween.To(() => value,
             x =>
             {
                 value = x;

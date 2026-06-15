@@ -143,6 +143,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         DeckCard.Remove(card.CardID);
         HandCard.Add(_card);
         HandCardColorChange();
+        Debug.Log("カードを引いた");
     }
     /// <summary>
     /// 敵攻撃時のカットイン
@@ -326,7 +327,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void ShuffleDeck()
     {
-        ReconstructionDeck(RemoveCard);
+        //ReconstructionDeck(RemoveCard);
         for (int i = 0; i < DeckCard.Count; i++)
         {
             _randomIndex = Random.Range(i, DeckCard.Count);
@@ -356,14 +357,14 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         return _topCard;
     }
 
-    private void ReconstructionDeck(List<int> deleteID)
-    {
-        DeckCard = new List<int>(_deckManager.DeckMain);
-        if (deleteID.Count == 0) return;
+    //private void ReconstructionDeck(List<int> deleteID)
+    //{
+    //    DeckCard = new List<int>(_deckManager.DeckMain);
+    //    if (deleteID.Count == 0) return;
 
-        foreach (int id in deleteID)
-        {
-            DeckCard.Remove(id);
-        }
-    }
+    //    foreach (int id in deleteID)
+    //    {
+    //        DeckCard.Remove(id);
+    //    }
+    //}
 }
