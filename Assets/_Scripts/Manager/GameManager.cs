@@ -114,8 +114,6 @@ public class GameManager : MonoBehaviour
     {
         if (!_isDraw)
         {
-            _uiManagerButtle.ResetDrawCount();
-
             //ドローバフの確認
             if (Player.HasBuff(BuffType.CardPlus))
                 _uiManagerButtle.ChangeDrawCount(Player.GetBuffCount(BuffType.CardPlus));
@@ -134,7 +132,6 @@ public class GameManager : MonoBehaviour
 
         if (_isDraw && _isOrganize)
         {
-            _uiManagerButtle.ChangeDrawCount();
             CurrentPhase = BattlePhase.Set;
         }
     }
@@ -143,6 +140,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isAction)
         {
+            _uiManagerButtle.ResetDrawCount();
             _uiManagerButtle.ClearCard();
             CriAudioManager.Instance.PlaySe("SE_MagicShot");
             _attackManager = FindAnyObjectByType<AttackManager>();

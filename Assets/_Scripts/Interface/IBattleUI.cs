@@ -12,7 +12,7 @@ public interface IBattleUI
     /// </summary>
     void ChangeDrawCount(int delta = 0);
     /// <summary>
-    /// ドロー数のバフをリセットする
+    /// ドロー数の一時バフをリセットする
     /// </summary>
     void ResetDrawCount();
     /// <summary>
