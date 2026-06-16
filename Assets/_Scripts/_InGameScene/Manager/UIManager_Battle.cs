@@ -96,7 +96,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public void ClearCard()
     {
-        Debug.Log($"{DeckCard.Count}");
         foreach(GameObject hand in HandCard)
         {
             Card card = hand.GetComponent<Card>();
@@ -112,13 +111,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             Destroy(hand);
         }
         HandCard.Clear();
-        Debug.Log($"{DeckCard.Count}");
     }
     public void ResisterDiscardCard(int id)
     {
-        //DeckCard.Remove(id);
         DiscardCard.Add(id);
-        Debug.Log("削除ォォォォォ！！！");
         //アニメーションをつくるならここ
     }
     public void RegisterRemoveCard(int id)
@@ -231,6 +227,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     public void ChangeDrawCount(int delta = 0)
     {
         _deltaDrawCount += delta;
+        Debug.Log(_handRange + _deltaDrawCount);
     }
 
     public void ResetDrawCount()
@@ -320,7 +317,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             DeckCard[i] = DeckCard[_randomIndex];
             DeckCard[_randomIndex] = _temp;
         }
-        Debug.Log($"Shuffle後:{DeckCard.Count}");
     }
 
     /// <summary>
@@ -337,7 +333,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
         int topCard = DeckCard[0];
         DeckCard.RemoveAt(0);
-        Debug.Log("ドロー！！");
         return topCard;
     }
 }
