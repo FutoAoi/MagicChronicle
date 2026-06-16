@@ -161,24 +161,16 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// </summary>
     public void DisplayReward()
     {
-        _fadePanel.gameObject.SetActive(true);
-
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(0.3f)
-            .Append(_fadePanel.DOFade(1f, 0.4f).SetEase(Ease.OutQuad))
-            .AppendCallback(() =>
+        FadeManager.Instance.FadePanel(false, () =>
+        {
+            _resultPanel.SetActive(true);
+            _rewardManager = _resultPanel.GetComponent<RewardManager>();
+            _rewardManager.Reward();
+            FadeManager.Instance.FadePanel(true, () =>
             {
-                _resultPanel.SetActive(true);
-                _rewardManager = _resultPanel.GetComponent<RewardManager>();
-                _rewardManager.Reward();
-            })
-            .AppendInterval(0.2f)
-            .Append(_fadePanel.DOFade(0f, 0.4f))
-            .OnComplete(() =>
-            {
-                _fadePanel.gameObject.SetActive(false);
                 StartCoroutine(_rewardManager.RewardAnimation());
             });
+        });
     }
     /// <summary>
     /// コスト表記の初期化
@@ -210,22 +202,14 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public void DisplayGameOverPanel()
     {
-        _fadePanel.gameObject.SetActive(true);
-
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(0.3f)
-            .Append(_fadePanel.DOFade(1f, 0.4f).SetEase(Ease.OutQuad))
-            .AppendCallback(() =>
-            {
-                _gameoverPanel.SetActive(true);
-            })
-            .AppendInterval(0.2f)
-            .Append(_fadePanel.DOFade(0f, 0.4f))
-            .OnComplete(() =>
-            {
-                _fadePanel.gameObject.SetActive(false);
-            });
+        FadeManager.Instance.FadePanel(false, () =>
+        {
+            _gameoverPanel.SetActive(true);
+            _gameManager.transform.SetAsLastSibling();
+            FadeManager.Instance.FadePanel(true);
+        });
     }
+
     public void UpdateDescriptionPanel(int id, bool isClear)
     {
         if (!_descriptionPanel.activeSelf) return;

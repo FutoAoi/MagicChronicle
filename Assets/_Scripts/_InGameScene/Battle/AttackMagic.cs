@@ -70,6 +70,8 @@ public class AttackMagic : MonoBehaviour
     }
     public IEnumerator Attack(Vector2Int startPos, MagicVector startVector, RectTransform startRectTr,float interval)
     {
+        if (_gameManager.CurrentPhase == BattlePhase.Gameover) yield break;
+
         IsAttack = true;
         _currentSlot = startPos;//初期ポジ
         bool isPlayer = _attackManager.IsPlayerTurn;
@@ -106,7 +108,6 @@ public class AttackMagic : MonoBehaviour
         //移動ループ処理
         while (!_finish)
         {
-            //Audioいるよー
             CriAudioManager.Instance.PlaySe("SE_MagicMove");
             //魔法の移動
             if (_firstAttack)

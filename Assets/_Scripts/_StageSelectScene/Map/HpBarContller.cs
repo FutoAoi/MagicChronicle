@@ -33,7 +33,9 @@ public class HpBarContller : MonoBehaviour
 
     public void ShowUI(int currentHp, int maxHp)
     {
-        HpBarUpdate(currentHp, maxHp);
+        _mainBar.fillAmount = (float)currentHp / maxHp;
+        _ghostBar.fillAmount = (float)currentHp / maxHp;
+        _hpText.text = $"{currentHp}/{maxHp}";
         _backGround.SetActive(true);
     }
 

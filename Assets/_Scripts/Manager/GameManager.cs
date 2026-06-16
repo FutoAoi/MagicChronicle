@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
     private FadeManager _fadeManager;
     private PlayerType _playerType = PlayerType.Combo;
     private PlayerStatus _playerStatus = null;
-    private bool _isOrganize = false, _isDraw = false, _isAction = false, _isReward = false, _isBattleUIManager;
+    private bool _isOrganize = false, _isDraw = false, _isAction = false, _isReward = false, _isBattleUIManager, _isGameover = false;
 
     [SerializeField] private SceneType _currentScene;
 
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
             case BattlePhase.Direction: break;
             case BattlePhase.End: UpdateEnd(); break;
             case BattlePhase.Reward: UpdateReward(); break;
+            case BattlePhase.Gameover: UpdateGameover(); break;
         }
     }
 
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         StageManager.CreateStage(StageID);
         _deckManager = DeckManager.Instance;
         _isReward = false;
+        _isGameover = false;
 
         if (CurrentUIManager.TryGetComponent<IBattleUI>(out var battle))
             _uiManagerButtle = battle;
@@ -187,6 +190,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void UpdateGameover()
+    {
+        if (!_isGameover)
+        {
+            _isGameover = true;
+            CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
+        }
+    }
+
 
     public void RegisterUIManager(UIManagerBase ui)
     {
@@ -217,6 +229,7 @@ public class GameManager : MonoBehaviour
         _isOrganize = false;
         _isAction = false;
         DecreaseBuff = false;
+        IsEnemyAction = false;
     }
 
     private void TrySetPlayerStatus(bool isSet)
@@ -250,4 +263,5 @@ public class GameManager : MonoBehaviour
     {
         return _buffDataBase.GetBuffData((BuffType)_playerType);
     }
+
 }
