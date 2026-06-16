@@ -9,7 +9,8 @@ public enum BattlePhase: byte
     Direction,
     End,
     Reward,
-    BuildStage
+    BuildStage,
+    Gameover
 }
 /// <summary>
 /// UŒ‚‚Ì•ûŒüw’è

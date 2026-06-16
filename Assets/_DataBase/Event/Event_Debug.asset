@@ -15,7 +15,7 @@ MonoBehaviour:
   _eventID: 1
   _name: "\u30C7\u30D0\u30C3\u30AF"
   _description: "\u5546\u4EBA\u304C\u4EA4\u6E09\u3057\u3066\u304D\u305F"
-  _backGround: {fileID: -4636773860857036971, guid: 31e6febe8b53d7346b7aa23dbe3d915a, type: 3}
+  _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
   _choices:
   - {fileID: 11400000, guid: 606158613b98f1d42a0ca5bde34e375b, type: 2}
   - {fileID: 11400000, guid: 14ede8cd76538454caac89b32a1536d2, type: 2}

@@ -9,10 +9,8 @@ using CriWare;
 /// </summary>
 public class CriAudioManager : MonoBehaviour
 {
-    // ─── シングルトン ───────────────────────────────────────────────
     public static CriAudioManager Instance { get; private set; }
 
-    // ─── インスペクター設定 ─────────────────────────────────────────
     [Header("ACF設定")]
     [Tooltip("StreamingAssets内のACFファイル名（拡張子なし）")]
     [SerializeField] private string acfFileName = "GameAudioSetting";
@@ -26,16 +24,14 @@ public class CriAudioManager : MonoBehaviour
     [Range(0f, 1f)][SerializeField] private float initialBgmVolume = 1.0f;
     [Range(0f, 1f)][SerializeField] private float initialSeVolume = 1.0f;
 
-    // ─── 内部状態 ───────────────────────────────────────────────────
     private CriAtomExPlayer _bgmPlayer;
 
-    //private CriAtomExPlayer _sePlayer;
     private readonly List<CriAtomExPlayer> _sePlayerPool = new List<CriAtomExPlayer>();
-    private const int SE_POOL_SIZE = 8; // 同時発音数の上限
+    private const int SE_POOL_SIZE = 8;
 
     private CriAtomExAcb _bgmAcb;
     private CriAtomExAcb _seAcb;
-    private CriAtomExPlayback _bgmPlayback;   // Update()に渡すPlayback
+    private CriAtomExPlayback _bgmPlayback;
 
     private float _masterVolume;
     private float _bgmVolume;
@@ -46,7 +42,6 @@ public class CriAudioManager : MonoBehaviour
 
     private bool _isInitialized = false;
 
-    // ─── 音量プロパティ ─────────────────────────────────────────────
     public float MasterVolume
     {
         get => _masterVolume;
@@ -159,12 +154,15 @@ public class CriAudioManager : MonoBehaviour
         _bgmPlayer.SetPanType(CriAtomEx.PanType.Pan3d);
         _bgmPlayer.Set3dSource(null);
         _bgmPlayer.SetVolume(1.0f);
+        _bgmPlayer.SetVoicePriority(255);        // ← 追加：最高優先度（0〜255）
+        _bgmPlayer.SetVoiceControlMethod(CriAtomEx.VoiceControlMethod.PreferLast);
 
         for (int i = 0; i < SE_POOL_SIZE; i++)
         {
             var p = new CriAtomExPlayer();
             p.SetPanType(CriAtomEx.PanType.Pan3d);
             p.Set3dSource(null);
+            p.SetVoicePriority(0);
             _sePlayerPool.Add(p);
         }
 

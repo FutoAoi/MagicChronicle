@@ -68,6 +68,7 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
+        CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
     }
 
     /// <summary>

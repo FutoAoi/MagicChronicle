@@ -71,7 +71,7 @@ public class StagePlayer : CharacterBase
 
     public override void Dead()
     {
-        _gameManager.CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
+        _gameManager.CurrentPhase = BattlePhase.Gameover;
     }
 
     public void StagePlayerInit(PlayerStatus nowPlayerStatus)
