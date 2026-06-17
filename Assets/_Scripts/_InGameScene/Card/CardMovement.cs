@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public int ID;
+    public bool IsDragging { get; private set; } = false;
 
     [Header("-----参照-----")]
     [SerializeField, Header("移動中のカード")] private GameObject _moveCardView;
@@ -72,6 +73,8 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //前回置かれた魔法陣か確認
         if (IsBeforeOccupied()) return;
 
+        IsDragging = true;
+        _uiManager.RegisterCardMovement(true, this);
         transform.SetParent(_uiManager.DragLayer.transform);
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.alpha = 0.6f;
@@ -127,6 +130,8 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
         _dropTarget = eventData.pointerCurrentRaycast.gameObject;
+        IsDragging = false;
+        _uiManager.RegisterCardMovement(false, this);
         if (_dropTarget != null && _dropTarget.GetComponent<TileSlot>() != null)
         {
             _tileSlot = _dropTarget.GetComponent<TileSlot>();

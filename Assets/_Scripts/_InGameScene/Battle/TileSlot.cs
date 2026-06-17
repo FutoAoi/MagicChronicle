@@ -12,16 +12,36 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private GameObject _tileBoardPrefab;
     [SerializeField] private Sprite[] _tileSprites;
     [NonSerialized] public int ID;
+    [SerializeField] private SlotMagicCircleShadow _slotMagicCircleShadow;
     public bool IsLastTimeCard = false;//前のフェーズで置かれたものかどうか
-    public bool IsOccupied { get; private set; } = false;//すでに置かれているか
+    /// <summary>
+    /// すでに置かれているかのフラグ。
+    /// set時にタイルの色変更を行う
+    /// </summary>
+    public bool IsOccupied
+    {
+        get => _isOccupied;
+        set
+        {
+            if (IsOccupied == value) return;
+
+            _isOccupied = value;
+
+            if (_isOccupied) _img.DOColor(_uiManager.SelectColor, 0.1f);
+            else
+            {
+                _slotMagicCircleShadow.DisplayShadow();
+                _img.DOColor(Color.white, 0.1f);
+            }
+        }
+    }
     private GameManager _gameManager;
     private GameObject _newCard;
     private CardMovement _tileMovement;
     private UIManager_Battle _uiManager;
-    private DOTween _tween;
     private Image _img;
     private int _index,_currentnumber;
-    private bool _isDestroy = false,_isColorChange = false;
+    private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
 
     private void Start()
     {
@@ -107,6 +127,9 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="toGrow">明るくさせるかどうか</param>
     public void TileColorChangeAnimation(float duration,bool toGrow)
     {
+        //演出いるようだったら描く
+        return;
+
         if (_isColorChange) return;
 
         Color startColor = _img.color;
@@ -124,15 +147,34 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _img.DOColor(_uiManager.SelectColor, 0.1f);
-        if (!IsOccupied) return;
-        _uiManager.DisplayDescriptionPanel(true);
-        _uiManager.UpdateDescriptionPanel(ID,false);
+        if (IsOccupied)
+        {
+            _uiManager.DisplayDescriptionPanel(true);
+            _uiManager.UpdateDescriptionPanel(ID, false);
+        }
+        else
+        {
+            if(_uiManager.CardMovement != null)
+            {
+                _slotMagicCircleShadow.DisplayShadow(true,_uiManager.CardMovement.ID);
+            }
+            _img.DOColor(_uiManager.SelectColor, 0.1f);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _uiManager.DisplayDescriptionPanel(false);
-        _img.DOColor(Color.white, 0.1f);
+        if (IsOccupied)
+        {
+            _uiManager.DisplayDescriptionPanel(false);
+        }
+        else
+        {
+            if (_uiManager.CardMovement != null)
+            {
+                _slotMagicCircleShadow.DisplayShadow(false, _uiManager.CardMovement.ID);
+            }
+            _img.DOColor(Color.white, 0.1f);
+        }
     }
 }

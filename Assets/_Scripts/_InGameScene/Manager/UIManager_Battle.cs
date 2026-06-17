@@ -10,6 +10,8 @@ using static UnityEditor.Progress;
 /// </summary>
 public class UIManager_Battle : UIManagerBase, IBattleUI
 {
+    public CardMovement CardMovement { get; set; }
+
     [Header("-----”’lİ’è-----")]
     [SerializeField, Tooltip("èD‚Ì”")] private int _handRange = 5;
     [SerializeField, Tooltip("ƒhƒ[ŠÔŠu")] private float _distance = 0.1f;
@@ -334,5 +336,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         int topCard = DeckCard[0];
         DeckCard.RemoveAt(0);
         return topCard;
+    }
+
+    public void RegisterCardMovement(bool isRegist,CardMovement movement)
+    {
+        CardMovement = isRegist? movement : null;
     }
 }
