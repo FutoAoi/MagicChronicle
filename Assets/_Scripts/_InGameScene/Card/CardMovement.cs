@@ -78,7 +78,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if(_card != null) ID = _card.CardID;
 
         _cost = _gameManager.CardDataBase.GetCardData(ID).Cost;
-        if (!_player.ConsumeCost(_cost)) return;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         IsDragging = true;
         _uiManager.RegisterCardMovement(true, this);
@@ -104,7 +104,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
-        if (!_player.ConsumeCost(_cost)) return;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         //前回置かれた魔法陣か確認
         if (IsBeforeOccupied()) return;
@@ -126,7 +126,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
-        if (!_player.ConsumeCost(_cost)) return;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
         if (tileSlot != null && tileSlot.IsLastTimeCard) return;

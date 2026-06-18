@@ -107,7 +107,6 @@ public class AttackManager : MonoBehaviour
     public void AttackFinish(bool isPlayer)
     {
         AttackMagicIndex--;
-        Debug.Log(AttackMagicIndex);
         if (AttackMagicIndex > 0) return;
         if (!CheckAttackFinish()) return;
 

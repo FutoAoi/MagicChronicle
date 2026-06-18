@@ -122,7 +122,6 @@ public class AttackMagic : MonoBehaviour
         {
             CriAudioManager.Instance.PlaySe("SE_MagicMove");
             currentInterval = Mathf.Max(_attackManager.Interval - _attackManager.AttackDeltaTime,0.05f);
-            Debug.Log(currentInterval);
 
             //–‚–@‚ÌˆÚ“®
             if (_firstAttack)
