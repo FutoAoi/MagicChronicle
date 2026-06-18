@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public StageDataBase StageDataBase => _stageDataBase;
     public EnemyDataBase EnemyDataBase => _enemyDataBase;
     public GenerateMapData GenerateMapData => _generateMapData;
+    public PlayerDataBase PlayerDataBase => _playerDataBase;
     public PlayerType PlayerType => _playerType;
     public PlayerStatus PlayerStatus => _playerStatus;
 
