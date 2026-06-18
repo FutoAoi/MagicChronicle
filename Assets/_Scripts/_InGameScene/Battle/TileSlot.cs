@@ -78,7 +78,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(_newCard != null)
         {
-            Destroy(_newCard);
+            //‰ó‚ê‚é‰‰o
+            _tileMovement.MagicDestroyAnimation();
             _newCard = null;
         }
         IsOccupied = false;

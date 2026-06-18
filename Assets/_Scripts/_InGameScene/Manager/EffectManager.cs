@@ -31,7 +31,6 @@ public class EffectManager : MonoBehaviour
         Vector3 startPos = pos != null? pos.position : Vector3.zero;
         GameObject effect = Instantiate(effectData.ParticlePrefab, startPos,Quaternion.identity);
         effect.transform.SetParent(parent,false);
-
         if(pos != null && effect.TryGetComponent<RectTransform>(out var rt))
         {
             rt.position = pos.position;
