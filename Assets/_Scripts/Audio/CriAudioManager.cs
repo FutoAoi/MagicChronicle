@@ -136,18 +136,12 @@ public class CriAudioManager : MonoBehaviour
         string bgmAcbPath = System.IO.Path.Combine(Application.streamingAssetsPath, bgmAcbName + ".acb");
         string seAcbPath = System.IO.Path.Combine(Application.streamingAssetsPath, seAcbName + ".acb");
 
-        Debug.Log($"[CriAudioManager] BGM ACBパス: {bgmAcbPath}");
-        Debug.Log($"[CriAudioManager] SE  ACBパス: {seAcbPath}");
-        Debug.Log($"[CriAudioManager] BGM ファイル存在: {System.IO.File.Exists(bgmAcbPath)}");
-        Debug.Log($"[CriAudioManager] SE  ファイル存在: {System.IO.File.Exists(seAcbPath)}");
 
         CriAtom.AddCueSheet("BGM", "BGM.acb", "BGM.awb", null);
         _bgmAcb = CriAtom.GetAcb("BGM");
         CriAtom.AddCueSheet("SE", "SE.acb", null, null);
         _seAcb = CriAtom.GetAcb("SE");
 
-        Debug.Log($"[CriAudioManager] BGM ACBロード結果: {(_bgmAcb != null ? "成功" : "失敗")}");
-        Debug.Log($"[CriAudioManager] SE  ACBロード結果: {(_seAcb != null ? "成功" : "失敗")}");
 
         // プレーヤー生成（2D設定を明示）
         _bgmPlayer = new CriAtomExPlayer();
@@ -175,7 +169,6 @@ public class CriAudioManager : MonoBehaviour
         PrintCueList(_bgmAcb, "BGM");
         PrintCueList(_seAcb, "SE");
 
-        Debug.Log("[CriAudioManager] 初期化完了");
         _isInitialized = true;
     }
 
@@ -191,7 +184,6 @@ public class CriAudioManager : MonoBehaviour
 
         CriAtomEx.UnregisterAcf();
 
-        Debug.Log("[CriAudioManager] リソース解放完了");
     }
 
     // ─── BGM ────────────────────────────────────────────────────────
@@ -213,8 +205,6 @@ public class CriAudioManager : MonoBehaviour
         _bgmPlayer.SetVolume(_bgmVolume * _masterVolume);
         _bgmPlayback = _bgmPlayer.Start();  // Playbackを保持
 
-        Debug.Log($"[CriAudioManager] BGM再生: {cueName}  loop={loop}");
-        Debug.Log($"[CriAudioManager] Playback ID: {_bgmPlayback.id}");
         StartCoroutine(CheckPlaybackStatus());
     }
 
@@ -228,21 +218,18 @@ public class CriAudioManager : MonoBehaviour
             _bgmPlayer.StopWithoutReleaseTime();
 
         _currentBgmCueName = string.Empty;
-        Debug.Log("[CriAudioManager] BGM停止");
     }
 
     /// <summary>BGMを一時停止します。</summary>
     public void PauseBgm()
     {
         _bgmPlayer.Pause();
-        Debug.Log("[CriAudioManager] BGM一時停止");
     }
 
     /// <summary>BGMを再開します。</summary>
     public void ResumeBgm()
     {
         _bgmPlayer.Resume(CriAtomEx.ResumeMode.AllPlayback);
-        Debug.Log("[CriAudioManager] BGM再開");
     }
 
     // ─── SE ─────────────────────────────────────────────────────────
@@ -273,7 +260,6 @@ public class CriAudioManager : MonoBehaviour
         if (player == null)
         {
             player = _sePlayerPool[0];
-            Debug.LogWarning("[CriAudioManager] SEプールが満杯です。最古のプレーヤーを再利用します。");
         }
 
         player.SetCue(_seAcb, cueName);
@@ -286,7 +272,6 @@ public class CriAudioManager : MonoBehaviour
     {
         foreach (var p in _sePlayerPool)
             p.StopWithoutReleaseTime();
-        Debug.Log("[CriAudioManager] SE全停止");
     }
 
     // ─── フェード ────────────────────────────────────────────────────
@@ -391,8 +376,6 @@ public class CriAudioManager : MonoBehaviour
         // 数フレーム待ってからステータスを確認
         yield return new WaitForSeconds(0.5f);
         var status = _bgmPlayback.GetStatus();
-        Debug.Log($"[CriAudioManager] 0.5秒後のPlaybackステータス: {status}");
-        // Playing=再生中, Removed=再生できなかった, Prep=準備中
     }
 
     private void StopFade()
@@ -418,7 +401,6 @@ public class CriAudioManager : MonoBehaviour
         sb.AppendLine($"[CriAudioManager] {label} ACB のキュー一覧 ({cueInfoList.Length}件):");
         foreach (var info in cueInfoList)
             sb.AppendLine($"  ID:{info.id}  名前:{info.name}");
-        Debug.Log(sb.ToString());
     }
 
     // ─── 内部ユーティリティ ─────────────────────────────────────────

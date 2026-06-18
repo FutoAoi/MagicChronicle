@@ -12,6 +12,7 @@ public class PlayerData : ScriptableObject
     [SerializeField] private bool _isPlayable = true;
     [TextArea(3, 10)]
     [SerializeField] private string _playerDescription;
+    [SerializeField] private GameObject _playerPrefab;
 
     public int PlayerID => _playerID;
     public string PlayerName => _playerName;
@@ -21,4 +22,5 @@ public class PlayerData : ScriptableObject
     public Sprite PlayerSprite => _playerSprite;
     public bool IsPlayable => _isPlayable;
     public string Description => _playerDescription;
+    public GameObject PlayerPrefab => _playerPrefab;
 }

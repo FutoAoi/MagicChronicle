@@ -1,3 +1,4 @@
+using Spine.Unity;
 using UnityEngine;
 
 public class StagePlayer : CharacterBase
@@ -8,6 +9,7 @@ public class StagePlayer : CharacterBase
     [SerializeField] private int _maxCost = 8;
     private int _currentCost;
     private PlayerStatus _status;
+    private SkeletonAnimation _skeletonAnimation;
 
     protected override void Start()
     {
@@ -21,6 +23,8 @@ public class StagePlayer : CharacterBase
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
+        _skeletonAnimation.AnimationState.SetAnimation(0, "ダメージモーション", false);
+        _skeletonAnimation.AnimationState.AddAnimation(0, "アイドルモーション", true, 0);
     }
 
     /// <summary>
@@ -78,6 +82,9 @@ public class StagePlayer : CharacterBase
     {
         _status = nowPlayerStatus;
         SetStatus(_status.PlayerMaxHp, _status.PlayerCurrentHp);
+        GameObject spinePlayer = _gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab;
+        _skeletonAnimation = spinePlayer.GetComponent<SkeletonAnimation>();
+        Instantiate(_gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab, this.transform);
         HpBarContller.ShowUI(CurrentHP, MaxHP);
         _maxCost = _status.PlayerMaxCost;
         foreach (var buff in _status.DefaultBuffs)
