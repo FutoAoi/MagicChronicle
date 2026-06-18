@@ -17,16 +17,31 @@ public class AttackManager : MonoBehaviour
     [SerializeField, Tooltip("òAë±çUåÇÇÃä‘äu")] private float _rapidInterval = 1.0f;
 
     public int AttackStartPos;
+    public float AttackDeltaTime => _attackDeltaTime;
     private bool _isPlayerTurn = true;
     public bool IsPlayerTurn => _isPlayerTurn;
     public float Interval => _interval;
+    public bool IsAttack
+    {
+        get => _isAttack;
+        set
+        {
+            if (_isAttack == value) return;
+
+            _isAttack = value;
+            _attackDeltaTime = 0f;
+        }
+    }
+
+    public int AttackMagicIndex {  get; set; }
 
     private GameManager _gameManager;
     private MagicObjectPool _magicPool;
     private AttackMagic _magic;
     private int _height, _width;
+    private float _attackDeltaTime = 0f;
     private bool _isFinishEnemyAttack = false,_isVictory = false;
-    private bool _isFinishEnemyBuff = false, _isFinishSpecialAttack = false;
+    private bool _isFinishEnemyBuff = false, _isFinishSpecialAttack = false,_isAttack = false;
     private Vector2Int _enemyPos;
     private RectTransform _enemyRectTr;
 
@@ -40,32 +55,46 @@ public class AttackManager : MonoBehaviour
         _width = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Width;
         AttackStartPos = _height / 2;
     }
+
+    private void Update()
+    {
+        if (IsAttack)
+        {
+            _attackDeltaTime += Time.deltaTime * 0.05f;
+        }
+    }
     /// <summary>
     /// çUåÇéwé¶
     /// </summary>
     /// <param name="isPlayer"></param>
     public IEnumerator AttackTurn(bool isPlayer)
     {
+        IsAttack = true;
+        AttackMagicIndex = 0;
         if (isPlayer) 
-        {            
-            for(int i = 0; i < 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid); i++)
+        {
+            AttackMagicIndex = 1 + _gameManager.Player.GetBuffCount(BuffType.Rapid);
+            int time = AttackMagicIndex;
+            for (int i = 0; i < time; i++)
             {
                 _magic = _magicPool.GetAttackMagic();
                 _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
-                    MagicVector.Right, _playerPos, _interval));
+                    MagicVector.Right, _playerPos));
 
                 yield return new WaitForSeconds(_rapidInterval);
             }
         }
         else
         {
-            for(int i = 0; i < 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid); i++)
+            AttackMagicIndex = 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid);
+            int time = AttackMagicIndex;
+            for (int i = 0; i < time; i++)
             {
                 _magic = _magicPool.GetAttackMagic();
                 _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(_enemyPos,
-                    MagicVector.Left, _enemyRectTr, _interval));
+                    MagicVector.Left, _enemyRectTr));
 
                 yield return new WaitForSeconds(_rapidInterval);
             }
@@ -77,6 +106,9 @@ public class AttackManager : MonoBehaviour
     /// <param name="isPlayer"></param>
     public void AttackFinish(bool isPlayer)
     {
+        AttackMagicIndex--;
+        Debug.Log(AttackMagicIndex);
+        if (AttackMagicIndex > 0) return;
         if (!CheckAttackFinish()) return;
 
         if (isPlayer)
@@ -87,6 +119,7 @@ public class AttackManager : MonoBehaviour
         {
             _isFinishEnemyAttack = true;
         }
+        IsAttack = false;
     }
     /// <summary>
     /// ì¡éÍçUåÇèIóπÉtÉâÉO
