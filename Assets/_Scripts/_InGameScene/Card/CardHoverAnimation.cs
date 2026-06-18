@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// カードにカーソル重なったときの拡大縮小アニメーション
 /// </summary>
-public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
 {
     [Header("-----参照-----")]
     [SerializeField] private Image _img;
@@ -18,9 +18,59 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     [SerializeField, Tooltip("上昇量")] private float _upper = 50f;
     [SerializeField, Tooltip("明るさ")] private float _bloom = 0.3f;
 
+    private UIManager_Battle _uiManager;
+
+    public bool IsSelected
+    {
+        get => _isSelected;
+        set
+        {
+            if (_isSelected == value) return;
+
+            if (_uiManager == null)
+            {
+                _uiManager = GameManager.Instance.CurrentUIManager.GetComponent<UIManager_Battle>();
+            }
+
+            if (value && _uiManager.CardMovement != null) return;
+
+            _isSelected = value;
+
+            if (_isSelected)
+            {
+                //他のカードを未選択状態にする
+                if (_uiManager != null)
+                {
+                    _uiManager.ChangeSelectHandCard(this);
+                }
+
+                //自分を大きくする
+                _scaleTween?.Kill();
+                _scaleTween = _rect.DOScale(_defaultScale * _magnificationRatio, _duration)
+                    .SetEase(Ease.OutBack);
+                _rectTween?.Kill();
+                _rectTween = _rect.DOAnchorPos(new Vector2(0, _upper), _duration)
+                    .SetEase(Ease.OutQuad);
+                _highLightImg.gameObject.SetActive(true);
+            }
+            else
+            {
+                //自分を小さくする
+                _scaleTween?.Kill();
+                _scaleTween = _rect.DOScale(_defaultScale, _duration)
+                    .SetEase(Ease.OutBack);
+                _rectTween?.Kill();
+                _rectTween = _rect.DOAnchorPos(Vector2.zero, _duration)
+                    .SetEase(Ease.OutQuad);
+                _highLightImg.gameObject.SetActive(false);
+            }
+        }
+    }
+
     private RectTransform _rect;
     private Tweener _scaleTween,_rectTween,_colorTween;
     private Vector3 _defaultScale;
+    private bool _isSelected = false;
     private void Awake()
     {
         _rect = transform.Find("View").GetComponent<RectTransform>();
@@ -29,23 +79,11 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _scaleTween?.Kill();
-        _scaleTween = _rect.DOScale(_defaultScale * _magnificationRatio, _duration)
-            .SetEase(Ease.OutBack);
-        _rectTween?.Kill();
-        _rectTween = _rect.DOAnchorPos(new Vector2(0, _upper), _duration)
-            .SetEase(Ease.OutQuad);
-        _highLightImg.gameObject.SetActive(true);
+        IsSelected = true;
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        _scaleTween?.Kill();
-        _scaleTween = _rect.DOScale(_defaultScale,_duration)
-            .SetEase(Ease.OutBack);
-        _rectTween?.Kill();
-        _rectTween = _rect.DOAnchorPos(Vector2.zero, _duration)
-            .SetEase(Ease.OutQuad);
-        _highLightImg.gameObject.SetActive(false);
+        IsSelected= false;
     }
 
     public void ColorAnimation(bool canSelect)
@@ -54,5 +92,13 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
         _colorTween?.Kill();
         _colorTween = _img.DOFade(bloom, _duration)
             .SetEase(Ease.OutBack);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            IsSelected = true;
+        }
     }
 }

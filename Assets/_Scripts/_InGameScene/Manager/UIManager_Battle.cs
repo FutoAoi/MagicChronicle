@@ -341,4 +341,16 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         CardMovement = isRegist? movement : null;
     }
+
+    public void ChangeSelectHandCard(CardHoverAnimation selectCard)
+    {
+        foreach(GameObject card in HandCard)
+        {
+            CardHoverAnimation cardHover = card.GetComponent<CardHoverAnimation>();
+            if(cardHover != selectCard)
+            {
+                cardHover.IsSelected = false;
+            }
+        }
+    }
 }

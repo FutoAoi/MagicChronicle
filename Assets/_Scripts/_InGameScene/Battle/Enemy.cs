@@ -58,7 +58,6 @@ public class Enemy : CharacterBase
         {
            HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
-        Debug.Log("Enemy" + $"{CurrentHP}");
     }
     /// <summary>
     /// エネミーに攻撃

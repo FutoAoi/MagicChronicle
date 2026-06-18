@@ -131,19 +131,19 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //‰‰o‚¢‚é‚æ‚¤‚¾‚Á‚½‚ç•`‚­
         return;
 
-        if (_isColorChange) return;
+        //if (_isColorChange) return;
 
-        Color startColor = _img.color;
-        Color endColor = toGrow ? _uiManager.GrowColor : Color.white;
+        //Color startColor = _img.color;
+        //Color endColor = toGrow ? _uiManager.GrowColor : Color.white;
 
-        if(startColor == endColor) return;
+        //if(startColor == endColor) return;
 
-        Sequence seq = DOTween.Sequence();
+        //Sequence seq = DOTween.Sequence();
 
-        seq.Append(_img.DOColor(endColor, duration).SetEase(Ease.Linear))
-            .OnStart(() => _isColorChange = true)
-            .OnComplete(() => _isColorChange = false)
-            .OnKill(() => _isColorChange = false);
+        //seq.Append(_img.DOColor(endColor, duration).SetEase(Ease.Linear))
+        //    .OnStart(() => _isColorChange = true)
+        //    .OnComplete(() => _isColorChange = false)
+        //    .OnKill(() => _isColorChange = false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
