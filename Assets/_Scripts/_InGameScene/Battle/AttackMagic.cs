@@ -32,7 +32,7 @@ public class AttackMagic : MonoBehaviour
     private Vector2Int _currentSlot, _speedInt;
     private Vector2 _outPos, _goalPos;
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
-        _combo = false;
+        _combo = false,_firstParticle = true;
     private int _width, _height,_comboStack;
 
     #endregion
@@ -47,6 +47,10 @@ public class AttackMagic : MonoBehaviour
         _finish = false;
         _firstAttack = true;
         _isAccelerate = false;
+    }
+    private void OnDisable()
+    {
+        
     }
     #endregion
     #region ‰Šú‰»ˆ—
@@ -76,6 +80,12 @@ public class AttackMagic : MonoBehaviour
         _currentSlot = startPos;//‰Šúƒ|ƒW
         bool isPlayer = _attackManager.IsPlayerTurn;
         _player = _gameManager.Player;
+        if (_firstParticle)
+        {
+            _gameManager.EffectManager.ApplyEffect(ParticleType.Magic, transform);
+            _gameManager.EffectManager.ApplyEffect(ParticleType.FireDust, transform);
+            _firstParticle = false;
+        }
 
         if (isPlayer)
         {

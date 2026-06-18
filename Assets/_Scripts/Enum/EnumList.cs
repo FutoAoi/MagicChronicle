@@ -108,4 +108,6 @@ public enum ParticleType : byte
     Money,
     PowerUp,
     Firefly,
+    FireDust,
+    Magic
 }

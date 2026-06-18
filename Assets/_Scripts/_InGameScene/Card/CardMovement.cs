@@ -257,6 +257,11 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
+    public void MagicDestroyAnimation()
+    {
+        Destroy(gameObject);
+    }
+
     private Image GetArrowImage(MagicVector vector)
     {
         return vector switch

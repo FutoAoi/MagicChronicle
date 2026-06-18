@@ -4550,6 +4550,10 @@ MonoBehaviour:
     _particlePrefab: {fileID: 7761543508517687421, guid: 20c276735de6e9142a522b0c990a1c65, type: 3}
   - _particleType: 2
     _particlePrefab: {fileID: 8648298190534469447, guid: 8a2567871d37d244289a915db6e54628, type: 3}
+  - _particleType: 3
+    _particlePrefab: {fileID: 3837065054071848264, guid: 20fc673ba7ad0494c906ca3909ba9e5d, type: 3}
+  - _particleType: 4
+    _particlePrefab: {fileID: 2117051869309673058, guid: 7aef95e4fc1c7a44fa310a9f2d1f0bc7, type: 3}
 --- !u!1 &1159417357
 GameObject:
   m_ObjectHideFlags: 0
