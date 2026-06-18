@@ -11,6 +11,8 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     [Header("-----参照-----")]
     [SerializeField] private Image _img;
     [SerializeField] private Image _highLightImg;
+    [SerializeField] private Canvas _canvas;
+    [SerializeField] private RectTransform _rect;
 
     [Header("-----数値設定-----")]
     [SerializeField, Tooltip("効果時間")] private float _duration = 0.2f;
@@ -44,6 +46,10 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
                     _uiManager.ChangeSelectHandCard(this);
                 }
 
+                //表示順を手前に変更
+                _canvas.overrideSorting = true;
+                _canvas.sortingOrder = 100;
+
                 //自分を大きくする
                 _scaleTween?.Kill();
                 _scaleTween = _rect.DOScale(_defaultScale * _magnificationRatio, _duration)
@@ -55,6 +61,8 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
             }
             else
             {
+                _canvas.overrideSorting =false;
+
                 //自分を小さくする
                 _scaleTween?.Kill();
                 _scaleTween = _rect.DOScale(_defaultScale, _duration)
@@ -66,16 +74,14 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
             }
         }
     }
-
-    private RectTransform _rect;
     private Tweener _scaleTween,_rectTween,_colorTween;
     private Vector3 _defaultScale;
     private bool _isSelected = false;
     private void Awake()
     {
-        _rect = transform.Find("View").GetComponent<RectTransform>();
         _defaultScale = _rect.localScale;
         _img.color = new Color(0f, 0f, 0f, 0f);
+        _canvas.overrideSorting = false;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
