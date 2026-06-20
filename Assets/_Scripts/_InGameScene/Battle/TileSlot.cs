@@ -40,12 +40,14 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private CardMovement _tileMovement;
     private UIManager_Battle _uiManager;
     private Image _img;
+    private RectTransform _rt;
     private int _index,_currentnumber;
     private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
 
     private void Start()
     {
         _img = GetComponent<Image>();
+        _rt = GetComponent<RectTransform>();
         _index = UnityEngine.Random.Range(0, _tileSprites.Length - 1);
         _img.sprite = _tileSprites[_index];
         IsLastTimeCard = false;
@@ -108,6 +110,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (data.IsPlayerMagic)
             {
+                _gameManager.EffectManager.ApplyEffect(ParticleType.DestroyFire, _uiManager.ParticleParent, _rt);
                 if (data.IsDestruction)
                 {
                     (_gameManager.CurrentUIManager as IBattleUI)?.RegisterRemoveCard(ID);
@@ -117,7 +120,11 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     (_gameManager.CurrentUIManager as IBattleUI)?.ResisterDiscardCard(ID);
                 }
             }
-            _isDestroy = false;
+            else
+            {
+                _gameManager.EffectManager.ApplyEffect(ParticleType.DestroyFireRed, _uiManager.ParticleParent, _rt);
+            }
+                _isDestroy = false;
             ClearSlot();
         }
     }

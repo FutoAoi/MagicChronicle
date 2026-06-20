@@ -3659,7 +3659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  _deckData: {fileID: 11400000, guid: 7265da1be29dc5445b5b057e70380a1f, type: 2}
 --- !u!114 &975691465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4457,7 +4457,7 @@ MonoBehaviour:
   HandCard: []
   DiscardCard: 
   RemoveCard: 
-  _handRange: 5
+  _handRange: 7
   _distance: 0.1
   _valueDuration: 0.3
   GrowColor: {r: 1, g: 0.5571428, b: 0, a: 1}
@@ -4554,6 +4554,10 @@ MonoBehaviour:
     _particlePrefab: {fileID: 3837065054071848264, guid: 20fc673ba7ad0494c906ca3909ba9e5d, type: 3}
   - _particleType: 4
     _particlePrefab: {fileID: 2117051869309673058, guid: 7aef95e4fc1c7a44fa310a9f2d1f0bc7, type: 3}
+  - _particleType: 5
+    _particlePrefab: {fileID: 6452176739721105503, guid: 47a07ed91da943649ae9fc2cff98ee4a, type: 3}
+  - _particleType: 6
+    _particlePrefab: {fileID: 6452176739721105503, guid: 27e173ff08a5df54ab20f42ee81216dc, type: 3}
 --- !u!1 &1159417357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,9 +8665,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: -10
+    m_Bottom: -20
   m_ChildAlignment: 7
-  m_Spacing: 0
+  m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

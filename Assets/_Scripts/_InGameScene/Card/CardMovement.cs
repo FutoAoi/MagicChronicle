@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -264,7 +265,13 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void MagicDestroyAnimation()
     {
-        Destroy(gameObject);
+        CardData data = _gameManager.CardDataBase.GetCardData(ID);
+        foreach (MagicVector vector in data.DisplayArrowVector)
+        {
+            GetArrowImage(vector).DOFade(0f, 0.2f);
+        }
+        _magicCircleImage.DOFade(0f, 0.3f)
+            .OnComplete(() => Destroy(gameObject));
     }
 
     private Image GetArrowImage(MagicVector vector)

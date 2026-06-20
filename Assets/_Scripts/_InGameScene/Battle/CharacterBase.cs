@@ -62,7 +62,6 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
 
         _currentHP -= (int)(damage*mag);
 
-        CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
         DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
 
