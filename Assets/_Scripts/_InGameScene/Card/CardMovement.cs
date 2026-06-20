@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -35,7 +36,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private TileSlot _tileSlot;
     private Card _card;
     private UIManager_Battle _uiManager;
-    private bool _isBoardCard = false,_refundedCostOnDrag = false;
+    private bool _isBoardCard = false, _refundedCostOnDrag = false, _canMove = true;
     private int _cost;
 
     private void Start()
@@ -73,20 +74,21 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //前回置かれた魔法陣か確認
         if (IsBeforeOccupied()) return;
 
-        IsDragging = true;
-        _uiManager.RegisterCardMovement(true, this);
-        transform.SetParent(_uiManager.DragLayer.transform);
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.alpha = 0.6f;
-
         //手札カードだったらIDを保持
         _card = GetComponent<Card>();
         if(_card != null) ID = _card.CardID;
 
         _cost = _gameManager.CardDataBase.GetCardData(ID).Cost;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
+
+        IsDragging = true;
+        _uiManager.RegisterCardMovement(true, this);
+        transform.SetParent(_uiManager.DragLayer.transform);
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.alpha = 0.9f;
 
         //盤面カードだったら処理
-        if(_isBoardCard && _trOriginalParent.GetComponent<TileSlot>() != null && 
+        if (_isBoardCard && _trOriginalParent.GetComponent<TileSlot>() != null && 
             _player.CurrentCost < _player.MaxCost)
         {
             //コスト変化
@@ -103,6 +105,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         //前回置かれた魔法陣か確認
         if (IsBeforeOccupied()) return;
@@ -124,10 +127,10 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
+        if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
         if (tileSlot != null && tileSlot.IsLastTimeCard) return;
-        _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
         _dropTarget = eventData.pointerCurrentRaycast.gameObject;
         IsDragging = false;
@@ -140,6 +143,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 ReturnToOriginalSlot();
                 UpdateCardObject(false);
+                _canvasGroup.alpha = 1f;
                 return;
             }
             //盤面上から動かされてたらスロットを空に
@@ -160,6 +164,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         else if(_isBoardCard)
         {
+            _canvasGroup.alpha = 1f;
             if (tileSlot.IsLastTimeCard) return;
             tileSlot.ClearSlot();
             InstanceHandCard(ID);
@@ -170,6 +175,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             ReturnToOriginalSlot();
             UpdateCardObject(false);
         }
+        _canvasGroup.alpha = 1f;
     }
     private void ReturnToOriginalSlot()
     {
@@ -259,7 +265,13 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void MagicDestroyAnimation()
     {
-        Destroy(gameObject);
+        CardData data = _gameManager.CardDataBase.GetCardData(ID);
+        foreach (MagicVector vector in data.DisplayArrowVector)
+        {
+            GetArrowImage(vector).DOFade(0f, 0.2f);
+        }
+        _magicCircleImage.DOFade(0f, 0.3f)
+            .OnComplete(() => Destroy(gameObject));
     }
 
     private Image GetArrowImage(MagicVector vector)

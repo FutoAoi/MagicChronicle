@@ -21,10 +21,10 @@ public class EffectManager : MonoBehaviour
 
     public void ApplyEffect(ParticleType type,Transform parent,RectTransform pos = null)
     {
-        EffectData effectData = _dictionary[type];
-        if(effectData == null)
+
+        if (!_dictionary.TryGetValue(type, out var effectData))
         {
-            Debug.LogError("エフェクトが登録されてないよ！！");
+            Debug.LogError("エフェクトが設定されてない！");
             return;
         }
 

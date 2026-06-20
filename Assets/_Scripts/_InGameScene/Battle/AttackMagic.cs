@@ -33,7 +33,7 @@ public class AttackMagic : MonoBehaviour
     private Vector2 _outPos, _goalPos;
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
         _combo = false,_firstParticle = true;
-    private int _width, _height,_comboStack;
+    private int _width, _height,_comboStack, _attackIndex = 0;
 
     #endregion
     #region ライフサイクル
@@ -72,7 +72,7 @@ public class AttackMagic : MonoBehaviour
         _onDisable?.Invoke();
         gameObject.SetActive(false);
     }
-    public IEnumerator Attack(Vector2Int startPos, MagicVector startVector, RectTransform startRectTr,float interval)
+    public IEnumerator Attack(Vector2Int startPos, MagicVector startVector, RectTransform startRectTr)
     {
         if (_gameManager.CurrentPhase == BattlePhase.Gameover) yield break;
 
@@ -115,10 +115,14 @@ public class AttackMagic : MonoBehaviour
             }
         }
 
+        float currentInterval = _attackManager.Interval;
+
         //移動ループ処理
         while (!_finish)
         {
             CriAudioManager.Instance.PlaySe("SE_MagicMove");
+            currentInterval = Mathf.Max(_attackManager.Interval - _attackManager.AttackDeltaTime,0.05f);
+
             //魔法の移動
             if (_firstAttack)
             {
@@ -174,14 +178,14 @@ public class AttackMagic : MonoBehaviour
                 }
             }
             _nextRectTr = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<RectTransform>();
-            _attackRectTr.DOMove(_nextRectTr.position, interval)
+            _attackRectTr.DOMove(_nextRectTr.position, currentInterval)
                 .SetEase(Ease.Linear);
-            yield return new WaitForSeconds(interval * 0.5f);
+            yield return new WaitForSeconds(currentInterval * 0.5f);
 
             _tileSlot = _stageManager.SlotList[_currentSlot.x][_currentSlot.y].GetComponent<TileSlot>();
-            _tileSlot.TileColorChangeAnimation(interval * 0.1f, true);
+            _tileSlot.TileColorChangeAnimation(currentInterval * 0.1f, true);
 
-            yield return new WaitForSeconds(interval * 0.2f);
+            yield return new WaitForSeconds(currentInterval * 0.2f);
 
             //コンボ処理
             if (_combo)
@@ -264,8 +268,8 @@ public class AttackMagic : MonoBehaviour
                     _isSelfHarm = true;
                 }
             }
-            yield return new WaitForSeconds(interval * 0.3f);
-            _tileSlot.TileColorChangeAnimation(interval * 0.1f, false);
+            yield return new WaitForSeconds(currentInterval * 0.3f);
+            _tileSlot.TileColorChangeAnimation(currentInterval * 0.1f, false);
         }
 
         if (_isAttack)
@@ -273,13 +277,13 @@ public class AttackMagic : MonoBehaviour
             if (isPlayer)
             {
                 _attackedEnemy = _stageManager.EnemyList[_currentSlot.x];
-                _attackRectTr.DOMove(_attackedEnemy.transform.position, interval)
+                _attackRectTr.DOMove(_attackedEnemy.transform.position, currentInterval)
                     .SetEase(Ease.Linear);
                 _attackedEnemy.Damaged(AttackPower);
             }
             else
             {
-                _attackRectTr.DOMove(_player.transform.position, interval)
+                _attackRectTr.DOMove(_player.transform.position, currentInterval)
                     .SetEase(Ease.Linear);
                 _player.Damaged(AttackPower);
             } 
@@ -291,7 +295,7 @@ public class AttackMagic : MonoBehaviour
             if (_currentSlot.y < 0) _outPos = new Vector2(-1, 0);
             if (_currentSlot.y >= _width) _outPos = new Vector2(1, 0);
             _goalPos = (Vector2)_attackRectTr.position + _outPos * 3f;
-            _attackRectTr.DOMove(_goalPos, interval)
+            _attackRectTr.DOMove(_goalPos, currentInterval)
                 .SetEase(Ease.Linear);
         }
         if (_isSelfHarm)
@@ -307,7 +311,7 @@ public class AttackMagic : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(interval);
+        yield return new WaitForSeconds(currentInterval);
 
         //スロットに接地フラグいれる
         foreach (List<GameObject> Hslot in _stageManager.SlotList)
@@ -371,7 +375,7 @@ public class AttackMagic : MonoBehaviour
     /// <param name="rect">生成場所</param>
     public void Split(MagicVector vector,Vector2Int start,RectTransform rect)
     {
-        StartCoroutine(Attack(start,vector,rect,_attackManager.Interval));
+        StartCoroutine(Attack(start,vector,rect));
     }
     /// <summary>
     /// 次のマスを飛ばす

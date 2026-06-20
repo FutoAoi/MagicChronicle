@@ -109,5 +109,12 @@ public enum ParticleType : byte
     PowerUp,
     Firefly,
     FireDust,
-    Magic
+    Magic,
+    DestroyFire,
+    DestroyFireRed
+}
+
+public enum DescriptionWindowKeyWord : byte
+{
+    
 }

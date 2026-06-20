@@ -40,12 +40,14 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private CardMovement _tileMovement;
     private UIManager_Battle _uiManager;
     private Image _img;
+    private RectTransform _rt;
     private int _index,_currentnumber;
     private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
 
     private void Start()
     {
         _img = GetComponent<Image>();
+        _rt = GetComponent<RectTransform>();
         _index = UnityEngine.Random.Range(0, _tileSprites.Length - 1);
         _img.sprite = _tileSprites[_index];
         IsLastTimeCard = false;
@@ -108,6 +110,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (data.IsPlayerMagic)
             {
+                _gameManager.EffectManager.ApplyEffect(ParticleType.DestroyFire, _uiManager.ParticleParent, _rt);
                 if (data.IsDestruction)
                 {
                     (_gameManager.CurrentUIManager as IBattleUI)?.RegisterRemoveCard(ID);
@@ -117,7 +120,11 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     (_gameManager.CurrentUIManager as IBattleUI)?.ResisterDiscardCard(ID);
                 }
             }
-            _isDestroy = false;
+            else
+            {
+                _gameManager.EffectManager.ApplyEffect(ParticleType.DestroyFireRed, _uiManager.ParticleParent, _rt);
+            }
+                _isDestroy = false;
             ClearSlot();
         }
     }
@@ -131,19 +138,19 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //‰‰o‚¢‚é‚æ‚¤‚¾‚Á‚½‚ç•`‚­
         return;
 
-        if (_isColorChange) return;
+        //if (_isColorChange) return;
 
-        Color startColor = _img.color;
-        Color endColor = toGrow ? _uiManager.GrowColor : Color.white;
+        //Color startColor = _img.color;
+        //Color endColor = toGrow ? _uiManager.GrowColor : Color.white;
 
-        if(startColor == endColor) return;
+        //if(startColor == endColor) return;
 
-        Sequence seq = DOTween.Sequence();
+        //Sequence seq = DOTween.Sequence();
 
-        seq.Append(_img.DOColor(endColor, duration).SetEase(Ease.Linear))
-            .OnStart(() => _isColorChange = true)
-            .OnComplete(() => _isColorChange = false)
-            .OnKill(() => _isColorChange = false);
+        //seq.Append(_img.DOColor(endColor, duration).SetEase(Ease.Linear))
+        //    .OnStart(() => _isColorChange = true)
+        //    .OnComplete(() => _isColorChange = false)
+        //    .OnKill(() => _isColorChange = false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
