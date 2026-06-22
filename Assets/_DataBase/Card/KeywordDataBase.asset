@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180a6d7566fea614ea509280f6106464, type: 3}
+  m_Name: KeywordDataBase
+  m_EditorClassIdentifier: Assembly-CSharp::KeywordDataBase
+  _keywords:
+  - Type: 0
+    KeyName: "\u970A\u9663"
+    Description: "\u30AB\u30A6\u30F3\u30C8\u304C\uFF10\u306B\u306A\u308B\u3068\u767A\u52D5\u3059\u308B\u80FD\u529B\u3002"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 1
+    KeyName: "\u30B3\u30F3\u30DC"
+    Description: "\uFF11\u30DE\u30B9\u79FB\u52D5\u3059\u308B\u3054\u3068\u306B\u305D\u306E\u9B54\u6CD5\u5F3E\u306E\u653B\u6483\u529B\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4E0A\u6607\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 2
+    KeyName: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
+    Description: "\u653B\u6483\u3092\u53D7\u3051\u308B\u5EA6\u306B\u6012\u308A\u3092\uFF11\u5F97\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 3
+    KeyName: "\u30C6\u30AF\u30CB\u30AB\u30EB"
+    Description: "\u6BD2\u4ED8\u4E0E"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 4
+    KeyName: "\u6BD2"
+    Description: "\u30B9\u30BF\u30C3\u30AF\u5206\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 5
+    KeyName: "\u7B4B\u529B"
+    Description: "\u59CB\u3081\u306E\u653B\u6483\u529B\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4E0A\u6607\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 6
+    KeyName: "\u5F31\u4F53"
+    Description: "\u88AB\u30C0\u30E1\u30FC\u30B8\u304C50%\u5897\u52A0\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 7
+    KeyName: "\u75B2\u52B4"
+    Description: "\u653B\u6483\u529B\u304C50%\u4E0B\u304C\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 8
+    KeyName: "\u30EA\u30B8\u30A7\u30CD"
+    Description: "\u56DE\u5FA9"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 9
+    KeyName: "\u53CD\u5C04"
+    Description: "\u30B9\u30BF\u30C3\u30AF\u5206\u653B\u6483\u3092\u8DF3\u306D\u8FD4\u3059"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 13
+    KeyName: "\u9023\u767A"
+    Description: "\u653B\u6483\u56DE\u6570\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 11
+    KeyName: "\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9"
+    Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4F4E\u4E0B\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 10
+    KeyName: "\u30B3\u30B9\u30C8\u30DE\u30A4\u30CA\u30B9"
+    Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4F4E\u4E0B\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 12
+    KeyName: "\u30AB\u30FC\u30C9\u30D7\u30E9\u30B9"
+    Description: "\u5F15\u304F\u30AB\u30FC\u30C9\u306E\u679A\u6570\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
+    KeywordColor: {r: 0, g: 0, b: 0, a: 0}

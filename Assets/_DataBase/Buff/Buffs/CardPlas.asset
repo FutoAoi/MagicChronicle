@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf22f2a5ebf76b54e8732f057d90d103, type: 3}
-  m_Name: Berserker
+  m_Name: CardPlas
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
-  _type: 1
-  _icon: {fileID: 4413183947946236502, guid: e567db0059eea7f4daf24bf7aba44be9, type: 3}
-  _name: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
+  _type: 11
+  _icon: {fileID: 3549787769471415488, guid: 2df5f56892db95c47ba5e40763121bdf, type: 3}
+  _name: "\u30AB\u30FC\u30C9\u30D7\u30E9\u30B9"
   _description: 
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
-  _keywords: 02
+  _keywords: 
   references:
     version: 2
     RefIds: []

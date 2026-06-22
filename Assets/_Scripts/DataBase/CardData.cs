@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Datas/Card")]
@@ -26,6 +27,8 @@ public class CardData : ScriptableObject
     [Header("-----Œø‰Ê-----")]
     [SerializeReference, SubclassSelector] private IEffect[] _effect;
 
+    [SerializeField] private List<DescriptionKeyWord> _keywords = new();
+
     public int CardID => _cardID;
     public Sprite CardSprite => _cardSprite;
     public Sprite MagicSprite => _magicSprite;
@@ -43,4 +46,23 @@ public class CardData : ScriptableObject
     public bool IsPlayerMagic => _isPlayerMagic;
     public bool CanEvolution => _canEvolution;
     public int EvolutionID => _evolutionID;
+    public List<DescriptionKeyWord> KeyWords => _keywords;
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (KeywordDataBase.Instance == null) return;
+        if (string.IsNullOrEmpty(_description)) return;
+
+        KeyWords.Clear();
+        foreach(DescriptionKeyWord type in System.Enum.GetValues(typeof(DescriptionKeyWord)))
+        {
+            var data = KeywordDataBase.Instance.GetDataEditor(type);
+            if (data == null) continue;
+            if (_description.Contains(data.KeyName))
+                KeyWords.Add(type);
+        }
+
+        UnityEditor.EditorUtility.SetDirty(this);
+    }
+#endif
 }

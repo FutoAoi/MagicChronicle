@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public EnemyDataBase EnemyDataBase => _enemyDataBase;
     public GenerateMapData GenerateMapData => _generateMapData;
     public PlayerDataBase PlayerDataBase => _playerDataBase;
+    public KeywordDataBase KeywordDataBase => _keywordDataBase;
     public PlayerType PlayerType => _playerType;
     public PlayerStatus PlayerStatus => _playerStatus;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("マップデータ")] private MapData _mapData;
     [SerializeField, Tooltip("プレイヤーデータ")] private PlayerDataBase _playerDataBase;
     [SerializeField, Tooltip("生成マップデータ")] private GenerateMapData _generateMapData;
+    [SerializeField, Tooltip("キーワードデータ")] private KeywordDataBase _keywordDataBase;
 
     [Header("ID")]
     [SerializeField, Tooltip("今のステージID")] public int StageID = 1;

@@ -49,7 +49,7 @@ public interface IBattleUI
     /// 説明パネルを更新
     /// </summary>
     /// <param name="data"></param>
-    void UpdateDescriptionPanel(int id,bool isClear);
+    void UpdateDescriptionPanel(bool isCard, RectTransform rect, int id = 0, BuffType buff = BuffType.Combo);
     /// <summary>
     /// 説明パネル表示
     /// </summary>

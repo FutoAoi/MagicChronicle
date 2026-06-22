@@ -13,6 +13,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private Sprite[] _tileSprites;
     [NonSerialized] public int ID;
     [SerializeField] private SlotMagicCircleShadow _slotMagicCircleShadow;
+    [SerializeField] private RectTransform _windowRt;
     public bool IsLastTimeCard = false;//前のフェーズで置かれたものかどうか
     /// <summary>
     /// すでに置かれているかのフラグ。
@@ -158,7 +159,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (IsOccupied)
         {
             _uiManager.DisplayDescriptionPanel(true);
-            _uiManager.UpdateDescriptionPanel(ID, false);
+            _uiManager.UpdateDescriptionPanel(true,_windowRt,ID);
         }
         else
         {

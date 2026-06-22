@@ -17,7 +17,9 @@ MonoBehaviour:
   _name: "\u30C6\u30AF\u30CB\u30AB\u30EB"
   _description: 
   _isDecreaseTurn: 0
+  _isDisplayCount: 1
   _effect: []
+  _keywords: 03
   references:
     version: 2
     RefIds: []

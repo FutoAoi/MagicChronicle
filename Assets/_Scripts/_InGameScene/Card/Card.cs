@@ -12,6 +12,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("カード名")] private TextMeshProUGUI _nameText;
     [SerializeField, Tooltip("コスト表示")]private TextMeshProUGUI _costText;
     [SerializeField, Tooltip("耐久値表示")] private TextMeshProUGUI _timeText;
+    [SerializeField, Tooltip("説明パネル表示")] private RectTransform _rt;
 
     [Header("数値設定")]
     //[SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
@@ -57,7 +58,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         _battleUI.DisplayDescriptionPanel(true);
-        _battleUI.UpdateDescriptionPanel(CardID,false);
+        _battleUI.UpdateDescriptionPanel(true,_rt,CardID);
     }
 
     public void OnPointerExit(PointerEventData eventData)

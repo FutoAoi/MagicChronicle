@@ -31,6 +31,7 @@ MonoBehaviour:
     rid: 5748720707591208961
   _effect:
   - rid: 5748720707591209029
+  _keywords: 00
   references:
     version: 2
     RefIds:

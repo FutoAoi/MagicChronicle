@@ -3,5 +3,5 @@ using UnityEngine;
 public interface IDescriptionWindow
 {
     void ShowWindow(RectTransform rect);
-    void UpdateWindow();
+    void UpdateWindow(int id);
 }
