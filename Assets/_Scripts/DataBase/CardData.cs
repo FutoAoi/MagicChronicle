@@ -13,6 +13,7 @@ public class CardData : ScriptableObject
     [SerializeField, Tooltip("カードの名前")] private string _name;
     [TextArea(3, 10)]
     [SerializeField, Tooltip("カードの説明")] private string _description;
+    [SerializeField, HideInInspector] private string _colorDescription;
     [SerializeField, Tooltip("カードのコスト")] private int _cost;
     [SerializeField, Tooltip("最大回数")] private int _maxTimes;
     [SerializeField, Tooltip("霊陣")] private bool _isGhost = false;
@@ -34,6 +35,7 @@ public class CardData : ScriptableObject
     public Sprite MagicSprite => _magicSprite;
     public string Name => _name;
     public string Description => _description;
+    public string ColorDescription => _colorDescription;
     public int Cost => _cost;
     public MagicVector[] DisplayArrowVector => _displayArrowVector;
     public IEffect MoveEffect => _moveEffect;
@@ -54,14 +56,21 @@ public class CardData : ScriptableObject
         if (string.IsNullOrEmpty(_description)) return;
 
         KeyWords.Clear();
+        string colored = _description;
         foreach(DescriptionKeyWord type in System.Enum.GetValues(typeof(DescriptionKeyWord)))
         {
             var data = KeywordDataBase.Instance.GetDataEditor(type);
             if (data == null) continue;
             if (_description.Contains(data.KeyName))
+            {
                 KeyWords.Add(type);
+                colored = colored.Replace(
+                    data.KeyName
+                    , $"<color=#{ColorUtility.ToHtmlStringRGB(data.KeywordColor)}>{data.KeyName}</color>"
+                );
+            }   
         }
-
+        _colorDescription = colored;
         UnityEditor.EditorUtility.SetDirty(this);
     }
 #endif

@@ -19,6 +19,7 @@ MonoBehaviour:
   _magicSprite: {fileID: 2714453574471835212, guid: cd82df6726587bc489da4d8129710d64, type: 3}
   _name: "\u56DE\u5FA9+"
   _description: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u30D7\u30EC\u30A4\u30E4\u30FC\u306EHP\u309210\u56DE\u5FA9\u3059\u308B"
+  _colorDescription: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(<color=#FFF300>\u970A\u9663</color>)\u30D7\u30EC\u30A4\u30E4\u30FC\u306EHP\u309210\u56DE\u5FA9\u3059\u308B"
   _cost: 2
   _maxTimes: 8
   _isGhost: 1
@@ -30,6 +31,7 @@ MonoBehaviour:
   _moveEffect:
     rid: 8909412632268111942
   _effect: []
+  _keywords: 00
   references:
     version: 2
     RefIds:

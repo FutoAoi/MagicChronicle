@@ -16,11 +16,11 @@ MonoBehaviour:
   - Type: 0
     KeyName: "\u970A\u9663"
     Description: "\u30AB\u30A6\u30F3\u30C8\u304C\uFF10\u306B\u306A\u308B\u3068\u767A\u52D5\u3059\u308B\u80FD\u529B\u3002"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 1, g: 0.95234996, b: 0, a: 1}
   - Type: 1
     KeyName: "\u30B3\u30F3\u30DC"
     Description: "\uFF11\u30DE\u30B9\u79FB\u52D5\u3059\u308B\u3054\u3068\u306B\u305D\u306E\u9B54\u6CD5\u5F3E\u306E\u653B\u6483\u529B\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4E0A\u6607\u3059\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 0, g: 0.8983083, b: 1, a: 1}
   - Type: 2
     KeyName: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
     Description: "\u653B\u6483\u3092\u53D7\u3051\u308B\u5EA6\u306B\u6012\u308A\u3092\uFF11\u5F97\u308B"
@@ -32,15 +32,15 @@ MonoBehaviour:
   - Type: 4
     KeyName: "\u6BD2"
     Description: "\u30B9\u30BF\u30C3\u30AF\u5206\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 0.92222345, g: 0.26100624, b: 1, a: 1}
   - Type: 5
     KeyName: "\u7B4B\u529B"
     Description: "\u59CB\u3081\u306E\u653B\u6483\u529B\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4E0A\u6607\u3059\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 1, g: 0.21069163, b: 0.21069163, a: 1}
   - Type: 6
     KeyName: "\u5F31\u4F53"
     Description: "\u88AB\u30C0\u30E1\u30FC\u30B8\u304C50%\u5897\u52A0\u3059\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 1, g: 0.6753407, b: 0.20440245, a: 1}
   - Type: 7
     KeyName: "\u75B2\u52B4"
     Description: "\u653B\u6483\u529B\u304C50%\u4E0B\u304C\u308B"
@@ -56,7 +56,7 @@ MonoBehaviour:
   - Type: 13
     KeyName: "\u9023\u767A"
     Description: "\u653B\u6483\u56DE\u6570\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 0.3050313, g: 1, b: 0.560802, a: 1}
   - Type: 11
     KeyName: "\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9"
     Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4F4E\u4E0B\u3059\u308B"

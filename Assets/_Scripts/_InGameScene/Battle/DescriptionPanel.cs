@@ -36,7 +36,7 @@ public class DescriptionPanel : MonoBehaviour
                 window.transform.SetParent(_parent.transform, false);
                 DescriptionWindow description = window.GetComponent<DescriptionWindow>();
                 _keywordWindowDic.Add(data.Type, description);
-                description.SetBuffWindow(_gameManager.BuffDataBase.GetBuffData(buff));
+                description.SetBuffWindow(_gameManager.BuffDataBase.GetBuffData(buff),data);
                 description.gameObject.SetActive(false);
             }
             else
@@ -63,7 +63,7 @@ public class DescriptionPanel : MonoBehaviour
         _cardName.text = data.Name;
         _cardCost.text = data.Cost.ToString();
         _cardDurability.text = data.MaxTimes.ToString();
-        _cardDescription.text = data.Description;
+        _cardDescription.text = data.ColorDescription;
     }
 
 
