@@ -147,6 +147,8 @@ public class GameManager : MonoBehaviour
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
             StartCoroutine(_attackManager.AttackTurn(true));
+            Player.SkeletonAnimation.AnimationState.SetAnimation(0, "攻撃モーション", false);
+            Player.SkeletonAnimation.AnimationState.AddAnimation(0, "アイドルモーション", true, 0);
             _isAction = true;
         }
 

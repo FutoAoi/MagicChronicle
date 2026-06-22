@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,6 +25,7 @@ public class Enemy : CharacterBase
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
     private int _currentSAT;
+    private SkeletonAnimation _skeletonAnimation;
 
     /// <summary>
     /// エネミーにステータスをセット
@@ -56,7 +58,9 @@ public class Enemy : CharacterBase
         }
         else
         {
-           HpBarContller.ShowUI(CurrentHP, MaxHP);
+            GameObject spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
+            _skeletonAnimation = spineEnemy.GetComponent<SkeletonAnimation>();
+            HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
     }
     /// <summary>
@@ -67,6 +71,8 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
+        _skeletonAnimation.AnimationState.SetAnimation(0, "ダメージモーション", false);
+        _skeletonAnimation.AnimationState.AddAnimation(0, "待機モーション", true, 0);
         CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
     }
 

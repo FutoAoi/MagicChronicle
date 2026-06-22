@@ -5,6 +5,7 @@ public class StagePlayer : CharacterBase
 {
     public int MaxCost => _maxCost;
     public int CurrentCost => _currentCost;
+    public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
 
     [SerializeField] private int _maxCost = 8;
     private int _currentCost;
@@ -82,9 +83,8 @@ public class StagePlayer : CharacterBase
     {
         _status = nowPlayerStatus;
         SetStatus(_status.PlayerMaxHp, _status.PlayerCurrentHp);
-        GameObject spinePlayer = _gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab;
+        GameObject spinePlayer = Instantiate(_gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab, this.transform);
         _skeletonAnimation = spinePlayer.GetComponent<SkeletonAnimation>();
-        Instantiate(_gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab, this.transform);
         HpBarContller.ShowUI(CurrentHP, MaxHP);
         _maxCost = _status.PlayerMaxCost;
         foreach (var buff in _status.DefaultBuffs)

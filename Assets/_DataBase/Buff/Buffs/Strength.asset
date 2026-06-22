@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Strength
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 4
-  _icon: {fileID: 21300000, guid: 9a0e19041c110c7488d9b48adf0b9a24, type: 3}
+  _icon: {fileID: 4413183947946236502, guid: e567db0059eea7f4daf24bf7aba44be9, type: 3}
   _name: "\u529B"
   _description: 
   _isDecreaseTurn: 0

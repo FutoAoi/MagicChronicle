@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -371,12 +371,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   IsDead: 0
   _attackPower: 0
+  _hpBarContller: {fileID: 1985735508438076980}
   _enemyImage: {fileID: 4944544609988709223}
   _attackTurnTMP: {fileID: 1027000069510636074}
   _specialTMP: {fileID: 6544005495104867096}
   _moneyParticle: {fileID: 7761543508517687421, guid: 20c276735de6e9142a522b0c990a1c65, type: 3}
   _enemyAT: 0
-  _hpBarContller: {fileID: 1985735508438076980}
 --- !u!114 &1985735508438076980
 MonoBehaviour:
   m_ObjectHideFlags: 0

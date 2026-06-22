@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Regeneration
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 7
-  _icon: {fileID: 21300000, guid: 666d0364659cc624d8fa1c164ff55916, type: 3}
+  _icon: {fileID: -2449679489317538134, guid: a60a92cffe53f5f499db658a8935769a, type: 3}
   _name: "\u30EA\u30B8\u30A7\u30CD"
   _description: 
   _isDecreaseTurn: 0

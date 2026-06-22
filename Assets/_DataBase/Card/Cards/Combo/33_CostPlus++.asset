@@ -15,14 +15,15 @@ MonoBehaviour:
   _cardID: 33
   _rarity: 2
   _type: 1
-  _cardSprite: {fileID: 1447903738651757210, guid: b13f9bc229b1ba24f9f69e2e613c98fd, type: 3}
-  _magicSprite: {fileID: -6911713531835379244, guid: 0478ccdd028390047ab88dd87ac2ed56, type: 3}
+  _cardSprite: {fileID: 283717651496071894, guid: 7a9fa28d66306ef4a937e9e6fbcd24d5, type: 3}
+  _magicSprite: {fileID: 3465286685962602723, guid: d54823ea3c6ff9745878fd07908bdc5f, type: 3}
   _name: "\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9++"
   _description: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9+1"
   _cost: 1
   _maxTimes: 10
   _isGhost: 1
   _isDestruction: 0
+  _isPlayerMagic: 1
   _canEvolution: 0
   _evolutionID: 0
   _displayArrowVector: 01

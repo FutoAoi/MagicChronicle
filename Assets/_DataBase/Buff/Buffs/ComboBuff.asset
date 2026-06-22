@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ComboBuff
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 0
-  _icon: {fileID: 21300000, guid: 637ec472b8f98b84c89b62154ac9fc31, type: 3}
+  _icon: {fileID: 2367749502280738190, guid: 5984a53bc03ea614fad94300f3e13343, type: 3}
   _name: "\u30B3\u30F3\u30DC"
   _description: 
   _isDecreaseTurn: 0
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2
