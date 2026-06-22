@@ -19,7 +19,7 @@ MonoBehaviour:
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
-  _keywords: 
+  _keywords: 0a
   references:
     version: 2
     RefIds: []

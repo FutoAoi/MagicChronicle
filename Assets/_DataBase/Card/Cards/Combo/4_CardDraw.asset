@@ -18,7 +18,8 @@ MonoBehaviour:
   _cardSprite: {fileID: -4228817229122164698, guid: 0cdf7e2ede78022429171226d9a9025f, type: 3}
   _magicSprite: {fileID: 3465286685962602723, guid: d54823ea3c6ff9745878fd07908bdc5f, type: 3}
   _name: "\u30AB\u30FC\u30C9\u30C9\u30ED\u30FC"
-  _description: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u6B21\u306E\u30C9\u30ED\u30FC\u30921\u679A\u5897\u3084\u3059\u3002"
+  _description: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002\n(\u970A\u9663)\u6B21\u306E\u30C9\u30ED\u30FC\u30921\u679A\u5897\u3084\u3059\u3002"
+  _colorDescription: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002\n(<color=#FFF300>\u970A\u9663</color>)\u6B21\u306E\u30C9\u30ED\u30FC\u30921\u679A\u5897\u3084\u3059\u3002"
   _cost: 2
   _maxTimes: 6
   _isGhost: 1
@@ -31,6 +32,7 @@ MonoBehaviour:
     rid: 8909412632268111938
   _effect:
   - rid: 8909412632268111939
+  _keywords: 00
   references:
     version: 2
     RefIds:
