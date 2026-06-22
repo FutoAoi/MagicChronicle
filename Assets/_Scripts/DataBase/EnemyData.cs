@@ -5,6 +5,7 @@ public class EnemyData : ScriptableObject
 {
     public int EnemyID => _enemyID;
     public Sprite Sprite => _sprite;
+    public GameObject SpineEnemy => _spineEnemy;
     public int EnemyHP => _enemyHP;
     public int EnemyAP => _enemyAP;
     public int EnemyAttackTime => _enemyAttackTime;
@@ -21,6 +22,7 @@ public class EnemyData : ScriptableObject
 
     [SerializeField, Tooltip("ID")] private int _enemyID;
     [SerializeField, Tooltip("Œ©‚½–Ú")] private Sprite _sprite;
+    [SerializeField, Tooltip("ƒXƒpƒCƒ“")] private GameObject _spineEnemy;
     [SerializeField, Tooltip("‘Ì—Í")] private int _enemyHP;
     [SerializeField, Tooltip("UŒ‚—Í")] private int _enemyAP;
     [SerializeField, Tooltip("UŒ‚‰ñ”")] private int _enemyAttackTime;

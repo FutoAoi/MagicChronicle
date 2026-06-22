@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackPointSerectButton
   _dark: {fileID: 8850154681455051601, guid: d5bb300136fbe8c4f910fd6f7e7b08f9, type: 3}
-  _light: {fileID: 21300000, guid: 64c25ff8c3e7b604693ee0b249d49814, type: 3}
+  _light: {fileID: 21300000, guid: fe6c492077ffef84991d744061eb1999, type: 3}
   _alpha: 0.95
   _duration: 0.2
   _selectMag: 1.2

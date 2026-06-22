@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RpidBuff
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 12
-  _icon: {fileID: 21300000, guid: 8d1e0b2f498c9734a995cb5a900df0d0, type: 3}
+  _icon: {fileID: -3919194973710999973, guid: b82086ceff3fd8b4bbf937a51c45a8fd, type: 3}
   _name: "\u9023\u767A"
   _description: 
   _isDecreaseTurn: 0

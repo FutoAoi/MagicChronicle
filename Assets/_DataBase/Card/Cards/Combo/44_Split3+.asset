@@ -16,16 +16,17 @@ MonoBehaviour:
   _rarity: 2
   _type: 1
   _cardSprite: {fileID: 21300000, guid: 3ee46f7249538184b8935307eaaa93e7, type: 3}
-  _magicSprite: {fileID: -6911713531835379244, guid: 0478ccdd028390047ab88dd87ac2ed56, type: 3}
+  _magicSprite: {fileID: -855298285791758126, guid: a9236ad5178122f43b5fb03843304887, type: 3}
   _name: "3\u5206\u5272+"
   _description: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u4E0A\u4E0B\u306B3\u5206\u5272\u3059\u308B\u3002\u9B54\u6CD5\u5F3E\u306E\u706B\u529B\u30823\u5206\u5272\u3055\u308C\u308B\u3002"
   _cost: 2
   _maxTimes: 7
   _isGhost: 0
   _isDestruction: 0
+  _isPlayerMagic: 1
   _canEvolution: 1
   _evolutionID: 0
-  _displayArrowVector: 000301
+  _displayArrowVector: 000201
   _moveEffect:
     rid: 5748720707591209033
   _effect: []
@@ -35,4 +36,4 @@ MonoBehaviour:
     - rid: 5748720707591209033
       type: {class: EffectSplitAttack, ns: , asm: Assembly-CSharp}
       data:
-        _vector: 000301
+        _vector: 000201

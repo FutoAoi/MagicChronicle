@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Berserker
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 1
-  _icon: {fileID: 21300000, guid: 10ebf7e8da7586e43b7c806faf36af44, type: 3}
+  _icon: {fileID: 4413183947946236502, guid: e567db0059eea7f4daf24bf7aba44be9, type: 3}
   _name: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
   _description: 
   _isDecreaseTurn: 0
+  _isDisplayCount: 1
   _effect: []
   references:
     version: 2
