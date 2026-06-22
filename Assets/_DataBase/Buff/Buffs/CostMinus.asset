@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf22f2a5ebf76b54e8732f057d90d103, type: 3}
-  m_Name: Berserker
+  m_Name: CostMinus
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
-  _type: 1
-  _icon: {fileID: 4413183947946236502, guid: e567db0059eea7f4daf24bf7aba44be9, type: 3}
-  _name: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
+  _type: 9
+  _icon: {fileID: 21300000, guid: d469c26137963a742b295925e9affa0f, type: 3}
+  _name: "\u30B3\u30B9\u30C8\u30DE\u30A4\u30CA\u30B9"
   _description: 
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
-  _keywords: 02
+  _keywords: 
   references:
     version: 2
     RefIds: []

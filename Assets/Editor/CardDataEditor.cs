@@ -27,6 +27,7 @@ public class CardDataEditor : Editor
     private SerializedProperty _displayArrowVector;
     private SerializedProperty _moveEffect;
     private SerializedProperty _effect;
+    private SerializedProperty _keywords;
 
     // ─── DB 参照 & プルダウン用キャッシュ ────────────────
     private CardDataBase _database;
@@ -53,6 +54,7 @@ public class CardDataEditor : Editor
         _displayArrowVector = serializedObject.FindProperty("_displayArrowVector");
         _moveEffect = serializedObject.FindProperty("_moveEffect");
         _effect = serializedObject.FindProperty("_effect");
+        _keywords = serializedObject.FindProperty("_keywords");
 
         // EditorPrefs に保存した DB パスを復元
         string savedPath = EditorPrefs.GetString("CardDataEditor_DatabasePath", "");
@@ -98,6 +100,7 @@ public class CardDataEditor : Editor
         EditorGUILayout.PropertyField(_isGhost);
         EditorGUILayout.PropertyField(_isDestruction);
         EditorGUILayout.PropertyField(_isPlayerMagic);
+        EditorGUILayout.PropertyField(_keywords);
         EditorGUILayout.PropertyField(_canEvolution);
 
         // ─── 進化先 プルダウン（_canEvolution == true のみ表示） ──

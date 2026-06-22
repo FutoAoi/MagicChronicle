@@ -29,7 +29,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("フェード用のパネル")] private Image _fadePanel;
     [SerializeField, Tooltip("デッキ確認用パネル")] private GameObject _deckPanel;
     [SerializeField, Tooltip("ゲームオーバー用パネル")] private GameObject _gameoverPanel;
-    [SerializeField, Tooltip("説明パネル")] public GameObject _descriptionPanel;
     [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
@@ -38,11 +37,9 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public bool _isFinishCutIn = false;
 
-    private GameManager _gameManager;
     [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;
     private RewardManager _rewardManager;
-    private DescriptionPanel _description;
     private GameObject _card;
     private int _currentNumber,_deltaDrawCount = 0;
     private int _randomIndex;
@@ -207,20 +204,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         });
     }
 
-    public void UpdateDescriptionPanel(int id, bool isClear)
-    {
-        if (!_descriptionPanel.activeSelf) return;
-
-        if (_description == null)
-            _description = _descriptionPanel.GetComponent<DescriptionPanel>();
-
-        _description.UpdateText(_gameManager.CardDataBase.GetCardData(id),isClear);
-    }
-
-    public void DisplayDescriptionPanel(bool isDisplay)
-    {
-        _descriptionPanel.SetActive(isDisplay);
-    }
     /// <summary>
     /// ドロー数を増減させる
     /// </summary>

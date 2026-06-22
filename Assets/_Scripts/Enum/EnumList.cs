@@ -114,7 +114,27 @@ public enum ParticleType : byte
     DestroyFireRed
 }
 
-public enum DescriptionWindowKeyWord : byte
+public enum DescriptionKeyWord : byte
 {
-    
+    Reijin,
+    Combo,
+    Berserker,
+    Technical,
+    Poizon,
+    Strength,
+    Weaken,
+    Tired,
+    Regeneration,
+    Counter,
+    CostMinus,
+    CostPlus,
+    CardPlus,
+    Rapid,
+}
+
+public enum DescriptionWindowType : byte
+{
+    Card,
+    Buff,
+    KeyWord
 }

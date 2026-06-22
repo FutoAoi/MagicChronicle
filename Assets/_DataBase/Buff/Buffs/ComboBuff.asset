@@ -15,10 +15,11 @@ MonoBehaviour:
   _type: 0
   _icon: {fileID: 2367749502280738190, guid: 5984a53bc03ea614fad94300f3e13343, type: 3}
   _name: "\u30B3\u30F3\u30DC"
-  _description: 
+  _description: "\u79FB\u52D5\u3059\u308B\u6BCE\u306B\u653B\u6483\u529B\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
+  _keywords: 
   references:
     version: 2
     RefIds: []
