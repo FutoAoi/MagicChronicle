@@ -440,6 +440,7 @@ MonoBehaviour:
   - {fileID: -8645835677812769639, guid: 1178eb536e4023744a5d139ee7c2fa67, type: 3}
   _slotMagicCircleShadow: {fileID: 530415975510857271}
   _windowRt: {fileID: 6241241297481629640}
+  _gauge: {fileID: 0}
   IsLastTimeCard: 0
 --- !u!114 &530415975510857271
 MonoBehaviour:

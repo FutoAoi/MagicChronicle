@@ -28,7 +28,10 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             _isOccupied = value;
 
-            if (_isOccupied) _img.DOColor(_uiManager.SelectColor, 0.1f);
+            if (_isOccupied)
+            {
+                _img.DOColor(_uiManager.SelectColor, 0.1f);
+            }
             else
             {
                 _slotMagicCircleShadow.DisplayShadow();
@@ -40,9 +43,10 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private GameObject _newCard;
     private CardMovement _tileMovement;
     private UIManager_Battle _uiManager;
-    private Image _img;
+    private Image _img,_gauge;
     private RectTransform _rt;
-    private int _index,_currentnumber;
+    private Tween _tween;
+    private int _index,_currentnumber,_max;
     private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
 
     private void Start()
@@ -71,7 +75,9 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _tileMovement.ID = id;
         _tileMovement.SetSlotMagicImage(_gameManager.CardDataBase.GetCardData(id));
         _tileMovement.SetAsBoardCard();
+        _gauge = _tileMovement.Gauge;
         _currentnumber = _gameManager.CardDataBase.GetCardData(id).MaxTimes;
+        _max = _currentnumber;
         IsOccupied = true;
     }
     /// <summary>
@@ -95,8 +101,30 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (!IsOccupied || _isDestroy) return;
 
+        float value = _currentnumber;
         _currentnumber -= times;
+
+        //ゲージ最大値更新処理(回復時)
+        if(times < 0)
+        {
+            if(_gameManager.CardDataBase.GetCardData(ID).MaxTimes < _currentnumber)
+            _max = _currentnumber;
+        }
+
         _newCard.GetComponentInChildren<TextMeshProUGUI>().text = _currentnumber.ToString();
+
+        //耐久ゲージ演出
+        _tween?.Kill();
+        _tween = DOTween.To(() => value,
+            x =>
+            {
+                value = x;
+                _gauge.fillAmount = Mathf.Lerp(0f, 1f, value / _max);
+            },
+            _currentnumber,
+            0.2f
+        );
+
         if (_currentnumber <= 0)
         {
             _isDestroy = true;

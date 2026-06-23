@@ -22,6 +22,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField, Header("右印")] private Image _rightArrowImage;
     [SerializeField,Header("左印")] private Image _leftArrowImage;
     [SerializeField, Header("下印")] private Image _downArrowImage;
+    [SerializeField, Header("耐久ゲージ")] public Image Gauge;
 
     [Header("-----数値調整-----")]
     [SerializeField, Header("ホールド時のローカル座標")] private Vector2 _offset = new Vector2(0,250);
