@@ -42,7 +42,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private GameManager _gameManager;
     private GameObject _newCard;
     private CardMovement _tileMovement;
-    private UIManager_Battle _uiManager;
+    private UIManagerBase _uiManager;
+    private IBattleUI _battleUI;
     private Image _img,_gauge;
     private RectTransform _rt;
     private Tween _tween;
@@ -57,9 +58,10 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _img.sprite = _tileSprites[_index];
         IsLastTimeCard = false;
         _gameManager = GameManager.Instance;
-        if(_gameManager.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
+        _uiManager = _gameManager.CurrentUIManager;
+        if (_gameManager.CurrentUIManager.TryGetComponent<IBattleUI>(out var manager))
         {
-            _uiManager = manager;
+            _battleUI = manager;
         }
     }
     /// <summary>
@@ -191,8 +193,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (IsOccupied)
         {
-            _uiManager.DisplayDescriptionPanel(true);
-            _uiManager.UpdateDescriptionPanel(true,_windowRt,ID);
+            _battleUI.DisplayDescriptionPanel(true);
+            _battleUI.UpdateDescriptionPanel(true,_windowRt,ID);
         }
         else
         {
@@ -208,7 +210,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (IsOccupied)
         {
-            _uiManager.DisplayDescriptionPanel(false);
+            _battleUI.DisplayDescriptionPanel(false);
         }
         else
         {

@@ -55,4 +55,16 @@ public interface IBattleUI
     /// </summary>
     /// <param name="isDisplay"></param>
     void DisplayDescriptionPanel(bool isDisplay);
+    /// <summary>
+    /// ゲームオーバー表示
+    /// </summary>
+    void DisplayGameOverPanel();
+
+    void RegisterCardMovement(bool isRegist, CardMovement movement);
+
+    void UpdateCostText(int targetValue);
+
+    void ChangeSelectHandCard(CardHoverAnimation selectCard);
+
+    void CutInAnimation(float duration);
 }

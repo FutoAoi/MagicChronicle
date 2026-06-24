@@ -63,7 +63,7 @@ public class CutInPanel : MonoBehaviour
         seq.OnComplete(() =>
         {
             _gamemanager.CurrentPhase = _battlePhase;
-            if(_gamemanager.CurrentUIManager.TryGetComponent<UIManager_Battle>(out var manager))
+            if(_gamemanager.CurrentUIManager.TryGetComponent<UIManagerBase>(out var manager))
             {
                 manager._isFinishCutIn = true;
             }

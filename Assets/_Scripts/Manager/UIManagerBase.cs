@@ -7,11 +7,20 @@ using UnityEngine;
 /// </summary>
 public abstract class UIManagerBase : MonoBehaviour
 {
+    public CardMovement CardMovement { get; set; }
+
     [Header("-----カード-----")]
     [Tooltip("山札")] public List<int> DeckCard = new List<int>();
     [Tooltip("手札")] public List<GameObject> HandCard = new List<GameObject>();
     [Tooltip("捨て札")] public List<int> DiscardCard = new List<int>();
     [Tooltip("除外札")] public List<int> RemoveCard = new List<int>();
+
+    [Header("-----参照-----")]
+    [SerializeField, Tooltip("手札の場所")] public Transform HandArea;
+    [SerializeField, Tooltip("カードの基盤")] public GameObject CardPrefab;
+    [SerializeField, Tooltip("ドラッグ時の場所")] public RectTransform DragLayer;
+    [SerializeField, Tooltip("パーティクル用親オブジェクト")] public RectTransform ParticleParent;
+    [SerializeField, Tooltip("タイルの暗色")] public Color SelectColor = Color.gray7;
 
     [Header("-----説明パネル-----")]
     [SerializeField, Header("親オブジェクト")] private GameObject _descriptionPanel;
@@ -19,7 +28,9 @@ public abstract class UIManagerBase : MonoBehaviour
     protected GameManager _gameManager;
     private RectTransform _rt;
 
-    protected virtual void Awake()
+    public bool _isFinishCutIn = false;
+
+    protected virtual void Start()
     {
         _gameManager = GameManager.Instance;
         _gameManager.RegisterUIManager(this);

@@ -15,7 +15,7 @@ public class DeckPanelManager : MonoBehaviour
 
     private DeckManager _deckManager;
     private GameManager _gameManager;
-    private UIManager_Battle _uiManager;
+    private UIManagerBase _uiManager;
     private CardType _cardType;
     private RectTransform[] _deckTabs;
 
@@ -34,7 +34,7 @@ public class DeckPanelManager : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
 
-        if (_gameManager.CurrentUIManager.TryGetComponent(out UIManager_Battle ui))
+        if (_gameManager.CurrentUIManager.TryGetComponent(out UIManagerBase ui))
             _uiManager = ui;
 
         _deckManager = DeckManager.Instance;

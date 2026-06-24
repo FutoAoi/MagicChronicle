@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
         if (!_isGameover)
         {
             _isGameover = true;
-            CurrentUIManager.GetComponent<UIManager_Battle>().DisplayGameOverPanel();
+            _uiManagerButtle.DisplayGameOverPanel();
         }
     }
 

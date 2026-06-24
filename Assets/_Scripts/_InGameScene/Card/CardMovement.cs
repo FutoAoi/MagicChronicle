@@ -36,7 +36,8 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private RectTransform _rt;
     private TileSlot _tileSlot;
     private Card _card;
-    private UIManager_Battle _uiManager;
+    private UIManagerBase _uiManager;
+    private IBattleUI _battleUIManager;
     private bool _isBoardCard = false, _refundedCostOnDrag = false, _canMove = true;
     private int _cost;
 
@@ -44,7 +45,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         _gameManager = GameManager.Instance;
         _player = _gameManager.Player;
-        _uiManager = FindAnyObjectByType<UIManager_Battle>();
+        _uiManager = FindAnyObjectByType<UIManagerBase>();
         _rt = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -54,6 +55,10 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         _trHandArea = _uiManager.HandArea;
         _cardPrefab = _uiManager.CardPrefab;
+        if(_uiManager.TryGetComponent<IBattleUI>(out var manager))
+        {
+            _battleUIManager = manager;
+        }
         UpdateCardObject(false);
     }
     /// <summary>
@@ -83,7 +88,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         IsDragging = true;
-        _uiManager.RegisterCardMovement(true, this);
+        _battleUIManager.RegisterCardMovement(true, this);
         transform.SetParent(_uiManager.DragLayer.transform);
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.alpha = 0.9f;
@@ -94,7 +99,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             //ƒRƒXƒg•Ï‰»
             _player.ChangeCost(_cost, false);
-            _uiManager.UpdateCostText(_player.CurrentCost);
+            _battleUIManager.UpdateCostText(_player.CurrentCost);
             _refundedCostOnDrag = true;
 
             //Œ©‚½–Ú•Ï‰»
@@ -135,7 +140,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _canvasGroup.blocksRaycasts = true;
         _dropTarget = eventData.pointerCurrentRaycast.gameObject;
         IsDragging = false;
-        _uiManager.RegisterCardMovement(false, this);
+        _battleUIManager.RegisterCardMovement(false, this);
         if (_dropTarget != null && _dropTarget.GetComponent<TileSlot>() != null)
         {
             _tileSlot = _dropTarget.GetComponent<TileSlot>();
@@ -154,7 +159,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             }
             _tileSlot.PlaceCard(ID);
             _player.ChangeCost(_cost, true);
-            _uiManager.UpdateCostText(_player.CurrentCost);
+            _battleUIManager.UpdateCostText(_player.CurrentCost);
             Card card = GetComponent<Card>();
             if (card != null)
             {
@@ -185,7 +190,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (_refundedCostOnDrag)
         {
             _player.ChangeCost(_cost, true);
-            _uiManager.UpdateCostText(_player.CurrentCost);
+            _battleUIManager.UpdateCostText(_player.CurrentCost);
             _refundedCostOnDrag = false;
         }
     }
@@ -207,7 +212,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             }
             _cost = _gameManager.CardDataBase.GetCardData(ID).Cost;
             _player.ChangeCost(_cost, false);
-            _uiManager.UpdateCostText(_player.CurrentCost);
+            _battleUIManager.UpdateCostText(_player.CurrentCost);
             InstanceHandCard(ID);
             Destroy(gameObject,0.05f);
         }

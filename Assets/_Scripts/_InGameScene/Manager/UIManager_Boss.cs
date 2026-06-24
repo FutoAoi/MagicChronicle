@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-/// <summary>
-/// インゲームのバトル時のUIManager
-/// </summary>
-public class UIManager_Battle : UIManagerBase, IBattleUI
+
+public class UIManager_Boss : UIManagerBase, IBattleUI
 {
     [Header("-----数値設定-----")]
     [SerializeField, Tooltip("手札の数")] private int _handRange = 5;
@@ -32,7 +30,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     private DeckManager _deckManager;
     private RewardManager _rewardManager;
     private GameObject _card;
-    private int _currentNumber,_deltaDrawCount = 0;
+    private int _currentNumber, _deltaDrawCount = 0;
     private int _randomIndex;
     public override void InitUI()
     {
@@ -40,7 +38,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         _gameManager = GameManager.Instance;
         _gameManager.CurrentPhase = BattlePhase.BuildStage;
         DeckCard.Clear();
-        foreach(int id in _deckManager.DeckMain)
+        foreach (int id in _deckManager.DeckMain)
         {
             DeckCard.Add(id);
         }
@@ -70,7 +68,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         SetupCostText();
 
 
-        UpdateDeckCount(deckCount,DeckCard.Count,InGameDeckType.Deck);
+        UpdateDeckCount(deckCount, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(discardCount, DiscardCard.Count, InGameDeckType.Discard);
     }
 
@@ -85,7 +83,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public void ClearCard()
     {
-        foreach(GameObject hand in HandCard)
+        foreach (GameObject hand in HandCard)
         {
             Card card = hand.GetComponent<Card>();
             if (_gameManager.CardDataBase.GetCardData(card.CardID).IsDestruction)
@@ -117,7 +115,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         Debug.Log("デッキの補充");
         DeckCard.Clear();
         DeckCard = new List<int>(_deckManager.DeckMain);
-        foreach(GameObject card in HandCard)
+        foreach (GameObject card in HandCard)
         {
             DeckCard.Remove(card.GetComponent<Card>().CardID);
         }
@@ -127,7 +125,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         _card = Instantiate(CardPrefab, _playerHandTr);
         Card card = _card.GetComponent<Card>();
-        card.SetCard(DrawCard(),true);
+        card.SetCard(DrawCard(), true);
         HandCard.Add(_card);
         HandCardColorChange();
     }
@@ -171,7 +169,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// <param name="targetValue"></param>
     public void UpdateCostText(int targetValue)
     {
-        DOTween.To(() => _currentNumber, 
+        DOTween.To(() => _currentNumber,
             x =>
             {
                 _currentNumber = x;
@@ -212,11 +210,11 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
     public void UpdateCostImage(int value)
     {
-        foreach(Image cost in _costImages)
+        foreach (Image cost in _costImages)
         {
             cost.gameObject.SetActive(false);
         }
-        for(int i =0; i < value; i++)
+        for (int i = 0; i < value; i++)
         {
             _costImages[i].gameObject.SetActive(true);
         }
@@ -245,7 +243,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// <param name="start">始めの枚数</param>
     /// <param name="target">終わりの枚数</param>
     /// <param name="deckType">どこを更新するか</param>
-    public void UpdateDeckCount(int start,int target,InGameDeckType deckType)
+    public void UpdateDeckCount(int start, int target, InGameDeckType deckType)
     {
         TextMeshProUGUI text = deckType switch
         {
@@ -266,7 +264,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             _valueDuration
             )
             .SetEase(Ease.OutQuad);
-    } 
+    }
 
     private void HandCardColorChange()
     {
@@ -311,17 +309,17 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         return topCard;
     }
 
-    public void RegisterCardMovement(bool isRegist,CardMovement movement)
+    public void RegisterCardMovement(bool isRegist, CardMovement movement)
     {
-        CardMovement = isRegist? movement : null;
+        CardMovement = isRegist ? movement : null;
     }
 
     public void ChangeSelectHandCard(CardHoverAnimation selectCard)
     {
-        foreach(GameObject card in HandCard)
+        foreach (GameObject card in HandCard)
         {
             CardHoverAnimation cardHover = card.GetComponent<CardHoverAnimation>();
-            if(cardHover != selectCard)
+            if (cardHover != selectCard)
             {
                 cardHover.IsSelected = false;
             }

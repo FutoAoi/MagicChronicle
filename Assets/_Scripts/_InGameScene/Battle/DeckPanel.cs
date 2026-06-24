@@ -11,17 +11,11 @@ public class DeckPanel : MonoBehaviour
     [Header("並べるプレハブ")]
     [SerializeField, Tooltip("デッキ確認用プレハブ")] private GameObject _cardPrefab;
 
-    GameManager _gameManager;
-    UIManager_Battle _uiManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _gameManager = GameManager.Instance;
-        if(_gameManager.CurrentUIManager.TryGetComponent(out UIManager_Battle ui))
-        {
-            _uiManager = ui;
-        }
+
     }
     /// <summary>
     /// デッキの現状をパネルに反映
