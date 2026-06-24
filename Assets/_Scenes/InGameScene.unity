@@ -4392,7 +4392,7 @@ MonoBehaviour:
   DiscardCard: 
   RemoveCard: 
   _descriptionPanel: {fileID: 1995691328}
-  _handRange: 7
+  _handRange: 5
   _distance: 0.1
   _valueDuration: 0.3
   GrowColor: {r: 1, g: 0.5571428, b: 0, a: 1}

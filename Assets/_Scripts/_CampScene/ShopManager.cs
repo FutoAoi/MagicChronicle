@@ -72,6 +72,7 @@ public class ShopManager : MonoBehaviour
         {
             DeckManager.Instance.AddDeck(cardID);
             shopCardGameObject.SetActive(false);
+            CriAudioManager.Instance.PlaySe("SE_Buy");
         }
         else
         {
