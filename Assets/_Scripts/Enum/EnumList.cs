@@ -59,7 +59,8 @@ public enum CardType : byte
     Nomal,
     Combo,
     Berserker,
-    Variation
+    Variation,
+    Enemy
 }
 /// <summary>
 /// ƒJ[ƒh‚ª‚Ç‚±‚É‚ ‚é‚©

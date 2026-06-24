@@ -13,7 +13,7 @@ public class WalletManager : MonoBehaviour
     [SerializeField, Header("増加演出時間")] private float _duration = 0.7f;
     [SerializeField, Header("移動待機時間")] private float _waitSec = 0.4f;
 
-    private int _currentMoney;
+    [SerializeField] private int _currentMoney;
     private int _currentJem;
     private Tween _tween;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +42,19 @@ public class WalletManager : MonoBehaviour
         {
             Debug.Log("お金が" + $"{delta - _currentMoney}" + "＄足りません");
         }
+    }
+
+    /// <summary>
+    /// お金が足りるかの判定
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns></returns>
+    public bool TrySpendMoney(int amount)
+    {
+        if (_currentMoney < amount) return false;
+
+        StartCoroutine(WalletChangeAnimation(WalletType.Money, _currentMoney - amount));
+        return true;
     }
     /// <summary>
     /// プレイヤーのジェム数を変化させる。

@@ -16,18 +16,20 @@ public class RewardManager : MonoBehaviour
 
     private CardDataBase _cardData;
     private int _serectReward = 0;
+    private GameManager _gameManager;
 
     /// <summary>
     /// ÉäÉèÅ[Éhï\é¶
     /// </summary>
     public void Reward()
     {
-        _cardData = GameManager.Instance.CardDataBase;
+        _gameManager = GameManager.Instance;
+        _cardData = _gameManager.CardDataBase;
         _getButton.onClick.AddListener(GetReward);
         _skipButton.onClick.AddListener(RewardSkip);
         foreach (var card in _rewardCard)
         {
-            card.SetCard(_cardData.GetRandomCardIDByRarity(_rarity));
+            card.SetCard(_cardData.GetRandomCardIDByRarity(_rarity, _gameManager.GetCardTypeByPlayerType(_gameManager.PlayerType)));
         }
     }
 
@@ -37,7 +39,7 @@ public class RewardManager : MonoBehaviour
     public void GetReward()
     {
         DeckManager.Instance.AddDeck(_rewardCard[_serectReward].CardID);
-        GameManager.Instance.SceneChange(SceneType.StageSerectScene);
+        _gameManager.SceneChange(SceneType.StageSerectScene);
     }
 
     /// <summary>
@@ -45,7 +47,7 @@ public class RewardManager : MonoBehaviour
     /// </summary>
     public void RewardSkip()
     {
-        GameManager.Instance.SceneChange(SceneType.StageSerectScene);
+        _gameManager.SceneChange(SceneType.StageSerectScene);
     }
 
     /// <summary>

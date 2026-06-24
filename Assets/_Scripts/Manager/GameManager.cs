@@ -267,4 +267,15 @@ public class GameManager : MonoBehaviour
         return _buffDataBase.GetBuffData((BuffType)_playerType);
     }
 
+    public CardType GetCardTypeByPlayerType(PlayerType playerType)
+    {
+        switch (playerType)
+        {
+            case PlayerType.Combo: return CardType.Combo;
+            case PlayerType.Berserker: return CardType.Berserker;
+            case PlayerType.Technical: return CardType.Variation;
+            default: return CardType.Nomal;
+        }
+    }
+
 }

@@ -42,11 +42,11 @@ public class CardDataBase : ScriptableObject
         return null;
     }
 
-    public int GetRandomCardIDByRarity(CardRarity rarity)
+    public int GetRandomCardIDByRarity(CardRarity rarity, CardType cardType)
     {
         Initialize();
 
-        var filtered = _cards.Where(c => c.Rarity == rarity).ToList();
+        var filtered = _cards.Where(c => c.Rarity == rarity && c.Type == cardType).ToList();
 
         if (filtered.Count == 0)
         {
