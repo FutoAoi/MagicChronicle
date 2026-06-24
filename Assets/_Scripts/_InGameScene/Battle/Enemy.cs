@@ -26,6 +26,7 @@ public class Enemy : CharacterBase
     private bool _isSpecialAttack = false;
     private int _currentSAT;
     private SkeletonAnimation _skeletonAnimation;
+    private GameObject _spineEnemy;
 
     /// <summary>
     /// エネミーにステータスをセット
@@ -58,8 +59,8 @@ public class Enemy : CharacterBase
         }
         else
         {
-            GameObject spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
-            _skeletonAnimation = spineEnemy.GetComponent<SkeletonAnimation>();
+            _spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
+            _skeletonAnimation = _spineEnemy.GetComponent<SkeletonAnimation>();
             HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
     }
@@ -183,7 +184,7 @@ public class Enemy : CharacterBase
         HpBarContller.HideUI();
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
-        _enemyImage.DOFade(0f, 1f);
+        _spineEnemy.SetActive(false);
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
 

@@ -26,10 +26,10 @@ public class DamagePopUpObjectPool : MonoBehaviour
         );
     }
 
-    public DamagePopup Get(Vector2 anchoredPos, int damage)
+    public DamagePopup Get(Vector2 anchoredPos, int damage, Color color)
     {
         DamagePopup popup = _pool.Get();
-        popup.Setup(damage, this);
+        popup.Setup(damage, this, color);
         popup.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
         return popup;
     }

@@ -3516,7 +3516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a234882df860250429beba25b0794662, type: 2}
+  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
 --- !u!114 &975691465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3577,6 +3577,7 @@ MonoBehaviour:
   CurrentWalletPanel: {fileID: 1241243118}
   _duration: 0.7
   _waitSec: 0.4
+  _currentMoney: 0
 --- !u!1 &996937589
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,8 +7263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 716.7, y: -424.2}
-  m_SizeDelta: {x: 1700, y: 800}
+  m_AnchoredPosition: {x: 749, y: -441}
+  m_SizeDelta: {x: 1530, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906802090
 MonoBehaviour:

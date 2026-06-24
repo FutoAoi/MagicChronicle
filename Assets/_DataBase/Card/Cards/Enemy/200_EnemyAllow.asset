@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 200
   _rarity: 0
-  _type: 0
+  _type: 4
   _cardSprite: {fileID: 21300000, guid: c953a72d207241a4788c980456ee69d0, type: 3}
   _magicSprite: {fileID: 8288426215254106694, guid: 4e0104072b27dfa41ab45ffa09f128cc, type: 3}
   _name: "\u6575\u306E\u9B54\u6CD5\u9663"
   _description: "\u5DE6\u65B9\u5411\u306B\u9B54\u6CD5\u5F3E\u3092\u66F2\u3052\u308B\u3002"
+  _colorDescription: "\u5DE6\u65B9\u5411\u306B\u9B54\u6CD5\u5F3E\u3092\u66F2\u3052\u308B\u3002"
   _cost: 1
   _maxTimes: 1
   _isGhost: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
   _moveEffect:
     rid: 5748720775523205186
   _effect: []
+  _keywords: 
   references:
     version: 2
     RefIds:

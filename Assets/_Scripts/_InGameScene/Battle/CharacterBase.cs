@@ -60,9 +60,9 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
 
         float mag = _buffs.Has(BuffType.Weaken)? 1.5f : 1.0f;
 
-        _currentHP -= (int)(damage*mag);
+        _currentHP = Mathf.Clamp((int)(_currentHP - damage*mag), 0, MaxHP);
 
-        DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage);
+        DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), damage, Color.red);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
 
         if (_currentHP <= 0)
@@ -71,6 +71,16 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
             IsDead = true;
             Dead();
         }
+    }
+
+    public virtual void Healed(int heal)
+    {
+        if (IsDead) return;
+
+        Mathf.Clamp(_currentHP + heal, 0, MaxHP);
+
+        DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), heal, Color.green);
+        _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
     }
 
     public abstract void Dead();
@@ -123,9 +133,6 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         _attackPower = Mathf.Max(1, _attackPower + delta);
     }
-
-    #endregion
-    #region HPŠÖŒW
 
     #endregion
 }

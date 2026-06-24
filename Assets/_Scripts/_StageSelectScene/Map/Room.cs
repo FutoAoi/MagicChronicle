@@ -45,6 +45,14 @@ public class Room : MonoBehaviour, IPointerClickHandler
                     FadeManager.Instance.FadePanel(true);
                 });
             }
+            else if(_roomType == RoomType.Shop)
+            {
+                FadeManager.Instance.FadePanel(false, () =>
+                {
+                    _mapManager.OpenShopPanel(_roomIndex);
+                    FadeManager.Instance.FadePanel(true);
+                });
+            }
             else
             {
                 _mapManager.MoveTo(_roomIndex);
