@@ -23,6 +23,7 @@ public class CutInPanel : MonoBehaviour
     /// </summary>
     public void CutInAnimation(float duration)
     {
+        CriAudioManager.Instance.PlaySe("SE_TurnSwitch");
         _charactorText.rectTransform.anchoredPosition = new Vector2(Vector2.left.x * 1500f,_charactorText.rectTransform.anchoredPosition.y) ;
         _attackText.rectTransform.anchoredPosition = new Vector2(Vector2.right.x * 1500f,_attackText.rectTransform.anchoredPosition.y);
         _magicCircle.color = new Color(_magicCircle.color.r, _magicCircle.color.g, _magicCircle.color.b, 0f);
