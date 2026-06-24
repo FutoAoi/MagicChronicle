@@ -20,7 +20,8 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     [SerializeField, Tooltip("上昇量")] private float _upper = 50f;
     [SerializeField, Tooltip("明るさ")] private float _bloom = 0.3f;
 
-    private UIManager_Battle _uiManager;
+    private UIManagerBase _uiManager;
+    private IBattleUI _battleUI;
 
     public bool IsSelected
     {
@@ -31,7 +32,11 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
 
             if (_uiManager == null)
             {
-                _uiManager = GameManager.Instance.CurrentUIManager.GetComponent<UIManager_Battle>();
+                _uiManager = GameManager.Instance.CurrentUIManager;
+                if(_uiManager.TryGetComponent<IBattleUI>(out var battle))
+                {
+                    _battleUI = battle;
+                }
             }
 
             if (value && _uiManager.CardMovement != null) return;
@@ -41,9 +46,9 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
             if (_isSelected)
             {
                 //他のカードを未選択状態にする
-                if (_uiManager != null)
+                if (_battleUI != null)
                 {
-                    _uiManager.ChangeSelectHandCard(this);
+                    _battleUI.ChangeSelectHandCard(this);
                 }
 
                 //表示順を手前に変更

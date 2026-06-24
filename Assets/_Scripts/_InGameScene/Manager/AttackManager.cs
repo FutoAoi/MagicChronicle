@@ -8,7 +8,7 @@ public class AttackManager : MonoBehaviour
 {
     [Header("コンポーネント設定")]
     [SerializeField] private StageManager _stageManager;
-    [SerializeField] private UIManager_Battle _uiManager;
+    [SerializeField] private UIManagerBase _uiManager;
     [SerializeField] private RectTransform _playerPos;
 
     [Header("数値設定")]
@@ -38,6 +38,7 @@ public class AttackManager : MonoBehaviour
     private GameManager _gameManager;
     private MagicObjectPool _magicPool;
     private AttackMagic _magic;
+    private IBattleUI _battleUI;
     private int _height, _width;
     private float _attackDeltaTime = 0f;
     private bool _isFinishEnemyAttack = false,_isVictory = false;
@@ -54,6 +55,10 @@ public class AttackManager : MonoBehaviour
         _height = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Height;
         _width = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Width;
         AttackStartPos = _height / 2;
+        if(_uiManager.TryGetComponent<IBattleUI>(out var manager))
+        {
+            _battleUI = manager;
+        }
     }
 
     private void Update()
@@ -162,7 +167,7 @@ public class AttackManager : MonoBehaviour
 
         if (!_isVictory)
         {
-            _uiManager.CutInAnimation(_duration);
+            _battleUI.CutInAnimation(_duration);
             yield return new WaitUntil(() => _uiManager._isFinishCutIn);
             _uiManager._isFinishCutIn = false;
             int count = 0;
