@@ -30,11 +30,16 @@ MonoBehaviour:
   _displayArrowVector: 03
   _moveEffect:
     rid: 8909412632268111942
-  _effect: []
+  _effect:
+  - rid: 5748721190964297793
   _keywords: 00
   references:
     version: 2
     RefIds:
+    - rid: 5748721190964297793
+      type: {class: EffectHeal, ns: , asm: Assembly-CSharp}
+      data:
+        _healAmount: 10
     - rid: 8909412632268111942
       type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
       data:

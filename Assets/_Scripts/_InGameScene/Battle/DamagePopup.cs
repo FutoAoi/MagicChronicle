@@ -19,7 +19,7 @@ public class DamagePopup : MonoBehaviour
         _rect = GetComponent<RectTransform>();
     }
 
-    public void Setup(int damage, DamagePopUpObjectPool pool)
+    public void Setup(int amount, DamagePopUpObjectPool pool, Color color)
     {
         _pool = pool;
 
@@ -28,9 +28,9 @@ public class DamagePopup : MonoBehaviour
             _textMesh = GetComponent<TextMeshProUGUI>();
         }
 
-        _textMesh.text = damage.ToString();
+        _textMesh.text = amount.ToString();
         _textMesh.fontSize = _textSize;
-        _textMesh.color = Color.white;
+        _textMesh.color = color;
 
         _textColor = _textMesh.color;
         _disappearTimer = DISAPPEAR_TIME;
