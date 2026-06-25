@@ -14,6 +14,12 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("耐久値表示")] private TextMeshProUGUI _timeText;
     [SerializeField, Tooltip("説明パネル表示")] private RectTransform _rt;
 
+    [Header("矢印")]
+    [SerializeField] private Image _up;
+    [SerializeField] private Image _right;
+    [SerializeField] private Image _left;
+    [SerializeField] private Image _down;
+
     [Header("数値設定")]
     //[SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
     //[SerializeField, Tooltip("非表示アニメーション時間")] private float _hideSpeed = 0.1f;
@@ -37,7 +43,18 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         _nameText.text = data.Name;
         _costText.text = data.Cost.ToString();
         _timeText.text = data.MaxTimes.ToString();
-        //_isGhostCircle = data.IsGhost;
+        
+        if(_up != null)
+        {
+            _up.color = Color.black;
+            _down.color = Color.black;
+            _left.color = Color.black;
+            _right.color = Color.black;
+            foreach(MagicVector vector in data.DisplayArrowVector)
+            {
+                GetArrowImage(vector).color = Color.greenYellow;
+            }
+        }
 
         if (GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
         {
@@ -79,5 +96,17 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     private void EnablePointer()
     {
         //_ignorePointer = false;
+    }
+
+    private Image GetArrowImage(MagicVector vector)
+    {
+        return vector switch
+        {
+            MagicVector.UP => _up,
+            MagicVector.Right => _right,
+            MagicVector.Left => _left,
+            MagicVector.Down => _down,
+            _ => null
+        };
     }
 }
