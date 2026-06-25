@@ -13,6 +13,7 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     [SerializeField] private Image _highLightImg;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private RectTransform _rect;
+    [SerializeField] private GameObject _arrowParent;
 
     [Header("-----êîílê›íË-----")]
     [SerializeField, Tooltip("å¯â éûä‘")] private float _duration = 0.2f;
@@ -77,6 +78,9 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
                     .SetEase(Ease.OutQuad);
                 _highLightImg.gameObject.SetActive(false);
             }
+
+            //ñÓàÛï\é¶
+            _arrowParent.SetActive(IsSelected);
         }
     }
     private Tweener _scaleTween,_rectTween,_colorTween;
@@ -87,6 +91,7 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
         _defaultScale = _rect.localScale;
         _img.color = new Color(0f, 0f, 0f, 0f);
         _canvas.overrideSorting = false;
+        _arrowParent.SetActive(false);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
