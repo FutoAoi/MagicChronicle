@@ -11,7 +11,6 @@ public class RewardCard : MonoBehaviour, IPointerDownHandler
     [SerializeField, Tooltip("カードID")] private int _cardID;
     [SerializeField, Tooltip("カードの見た目")] private Image _image;
     [SerializeField, Tooltip("カードの名前")] private TMP_Text _name;
-    [SerializeField, Tooltip("カードの説明")] private TMP_Text _description;
     [SerializeField, Tooltip("カードのコスト")] private TMP_Text _cost;
     [SerializeField, Tooltip("最大回数")] private TMP_Text _maxTimes;
     [SerializeField, Tooltip("報酬番号")] private int _rewardNumber;
@@ -61,7 +60,6 @@ public class RewardCard : MonoBehaviour, IPointerDownHandler
         _rarity = _data.Rarity;
         _image.sprite = _data.CardSprite;
         _name.text = _data.Name;
-        _description.text = _data.Description;
         _cost.text = $"{_data.Cost}";
         _maxTimes.text = $"{_data.MaxTimes}";
         _normalScale = _tr.localScale;

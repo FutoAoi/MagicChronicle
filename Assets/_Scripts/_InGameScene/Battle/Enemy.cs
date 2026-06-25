@@ -15,7 +15,9 @@ public class Enemy : CharacterBase
 
     [Header("エネミー詳細")]
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
+    [SerializeField] private Image _attackImage;
     [SerializeField, Tooltip("攻撃ターンの表示")] private TextMeshProUGUI _attackTurnTMP;
+    [SerializeField] private Image _specialImage;
     [SerializeField, Tooltip("特殊攻撃ターンの表示")] private TextMeshProUGUI _specialTMP;
     [SerializeField, Tooltip("お金演出プレハブ")] private GameObject _moneyParticle;
 
@@ -53,6 +55,8 @@ public class Enemy : CharacterBase
         if (enemyID == 0)
         {
             _enemyImage.color = new Color(1f,1f,1f,0f);
+            _attackImage.gameObject.SetActive(false);
+            _specialImage.gameObject.SetActive(false);
             _attackTurnTMP.text = null;
             _specialTMP.text = null;
             IsDead = true;
@@ -182,6 +186,8 @@ public class Enemy : CharacterBase
     public override void Dead()
     {
         HpBarContller.HideUI();
+        _attackImage.gameObject.SetActive(false);
+        _specialImage.gameObject.SetActive(false);
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
         _spineEnemy.SetActive(false);

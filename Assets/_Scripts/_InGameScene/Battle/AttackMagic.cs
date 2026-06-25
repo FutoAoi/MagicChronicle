@@ -336,6 +336,7 @@ public class AttackMagic : MonoBehaviour
     /// <param name="slot"></param>
     private void ActivateMagic(TileSlot slot,int decreaseCount = 1,bool isDecreaseEffect = false,bool isChangeDurability = false)
     {
+        CriAudioManager.Instance.PlaySe("SE_MagicCircleWork");
         CardData cardData = _gameManager.CardDataBase.GetCardData(slot.ID);
         if(cardData.MoveEffect != null)
         {
