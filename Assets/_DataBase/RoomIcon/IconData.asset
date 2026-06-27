@@ -21,3 +21,7 @@ MonoBehaviour:
     _roomIcon: {fileID: 21300000, guid: 3ee46f7249538184b8935307eaaa93e7, type: 3}
   - _roomType: 5
     _roomIcon: {fileID: 21300000, guid: 88aeb74be7925dd4aa68ea070a3d0867, type: 3}
+  - _roomType: 6
+    _roomIcon: {fileID: 21300000, guid: d7fd1366f858fd848a895b461706de31, type: 3}
+  - _roomType: 3
+    _roomIcon: {fileID: 8746419863116862090, guid: 566fdd0ac0c51d649920f876e5962c61, type: 3}

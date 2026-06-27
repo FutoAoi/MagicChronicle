@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossFloor
   m_EditorClassIdentifier: Assembly-CSharp::FloorData
   _roomDatas:
-  - _roomType: 1
+  - _roomType: 6
     _stageID: 1
   _minNodes: 1
   _maxNodes: 1

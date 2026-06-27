@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f9c5cf156b38e46bcaf2d9ee857b29, type: 3}
-  m_Name: FloorData
+  m_Name: FloorData_4
   m_EditorClassIdentifier: Assembly-CSharp::FloorData
   _roomDatas:
   - _roomType: 1
-    _stageID: 0
-  - _roomType: 4
-    _stageID: 1
+    _stageID: 3
   - _roomType: 2
-    _stageID: 0
-  - _roomType: 5
-    _stageID: 0
-  _minNodes: 2
-  _maxNodes: 6
+    _stageID: 3
+  _minNodes: 3
+  _maxNodes: 3

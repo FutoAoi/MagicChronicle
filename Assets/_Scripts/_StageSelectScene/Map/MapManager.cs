@@ -9,6 +9,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] RoomIconData _roomIconData;
     [SerializeField] EventPanelController _eventPanelController;
     [SerializeField] ShopManager _shopManager;
+    [SerializeField] GameObject _gameObject;
 
     private void Start()
     {
@@ -94,5 +95,10 @@ public class MapManager : MonoBehaviour
 
         MapData.CurrentFloorIndex++;
         MapData.CurrentRoomIndex = nextRoomIndex;
+    }
+
+    public void OpenEndPanel()
+    {
+        _gameObject.SetActive(true);
     }
 }

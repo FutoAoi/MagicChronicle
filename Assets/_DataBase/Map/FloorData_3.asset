@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f9c5cf156b38e46bcaf2d9ee857b29, type: 3}
+  m_Name: FloorData_3
+  m_EditorClassIdentifier: Assembly-CSharp::FloorData
+  _roomDatas:
+  - _roomType: 4
+    _stageID: 1
+  - _roomType: 4
+    _stageID: 1
+  - _roomType: 1
+    _stageID: 2
+  - _roomType: 5
+    _stageID: 1
+  _minNodes: 4
+  _maxNodes: 4

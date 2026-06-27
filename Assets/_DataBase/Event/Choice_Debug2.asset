@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841466d708f25044e9924998fbd238fc, type: 3}
   m_Name: Choice_Debug2
   m_EditorClassIdentifier: Assembly-CSharp::EventChoice
-  _choiceText: "100\u30B4\u30FC\u30EB\u30C9\u3092\u6255\u3044\u30C7\u30C3\u30AD\u3092\u4E00\u679A\u6392\u9664\u3059\u308B"
-  _resultText: "\u6392\u9664\u3057\u305F"
+  _choiceText: "\u8EAB\u3092\u96A0\u3057\u3001\u901A\u308A\u904E\u304E\u308B\u306E\u3092\u5F85\u3064"
+  _resultText: "\u898B\u3064\u304B\u3063\u305F\u304B\u3068\u601D\u3063\u305F\u304C\u3001\u3069\u3053\u304B\u3078\u6D88\u3048\u3066\u3057\u307E\u3063\u305F\u3002(HP\u304C10\uFF05\u56DE\u5FA9)"
   _eventEffects:
   - rid: 2977463296770965570
   references:

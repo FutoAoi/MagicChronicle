@@ -8,6 +8,7 @@ public enum RoomType
     Rest,
     Event,
     Shop,
+    Boss
 }
 
 [CreateAssetMenu(menuName = "Map/MapData")]

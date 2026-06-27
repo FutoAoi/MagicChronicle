@@ -21,6 +21,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Vector3 _defaultScale;
     private int _cardPrice;
     private ShopManager _shopManager;
+    private Transform _tf;
 
     /// <summary>
     /// カードデータセット
@@ -28,7 +29,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="cardID"></param>
     public void SetCardData(CardData cardData, int cardPrice, ShopManager shopManager)
     {
-        _defaultScale = transform.localScale;
+        _tf = transform;
+        _defaultScale = _tf .localScale;
         _shopManager = shopManager;
         _cardID = cardData.CardID;
         _cardPrice = cardPrice;
@@ -45,8 +47,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="eventData"></param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.DOKill();
-        transform.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+        _tf.DOKill();
+        _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
     }
 
     /// <summary>
@@ -55,8 +57,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="eventData"></param>
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.DOKill();
-        transform.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+        _tf.DOKill();
+        _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
     }
 
     /// <summary>

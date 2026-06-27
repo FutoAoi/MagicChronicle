@@ -11,11 +11,9 @@ public class RewardManager : MonoBehaviour
     [SerializeField, Tooltip("抽選されるレアリティ")] private CardRarity _rarity;
 
     [Header("ボタン設定")]
-    [SerializeField, Tooltip("獲得ボタン")] private Button _getButton;
     [SerializeField, Tooltip("スキップボタン")] private Button _skipButton;
 
     private CardDataBase _cardData;
-    private int _serectReward = 0;
     private GameManager _gameManager;
 
     /// <summary>
@@ -25,21 +23,11 @@ public class RewardManager : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         _cardData = _gameManager.CardDataBase;
-        _getButton.onClick.AddListener(GetReward);
         _skipButton.onClick.AddListener(RewardSkip);
         foreach (var card in _rewardCard)
         {
             card.SetCard(_cardData.GetRandomCardIDByRarity(_rarity, _gameManager.GetCardTypeByPlayerType(_gameManager.PlayerType)));
         }
-    }
-
-    /// <summary>
-    /// 報酬取得
-    /// </summary>
-    public void GetReward()
-    {
-        DeckManager.Instance.AddDeck(_rewardCard[_serectReward].CardID);
-        _gameManager.SceneChange(SceneType.StageSerectScene);
     }
 
     /// <summary>
@@ -50,14 +38,6 @@ public class RewardManager : MonoBehaviour
         _gameManager.SceneChange(SceneType.StageSerectScene);
     }
 
-    /// <summary>
-    /// 獲得する報酬の数を設定
-    /// </summary>
-    /// <param name="number"></param>
-    public void SetRewardNumber(int number)
-    {
-        _serectReward = number;
-    }
 
     /// <summary>
     /// カードがめくれるアニメーション
