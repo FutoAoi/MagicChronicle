@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -50,6 +49,7 @@ public class ShopManager : MonoBehaviour
         {
             CardData cardData = _cardDatabase.GetCardData(_cardDatabase.GetRandomCardIDByRarity(card.CardRarity, _gameManager.GetCardTypeByPlayerType(_gameManager.PlayerType)));
             card.ShopCard.SetCardData(cardData, RandomPriceByCardRarity(cardData.Rarity), this);
+            card.ShopCard.gameObject.SetActive(true);
         }
     }
 

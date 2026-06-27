@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841466d708f25044e9924998fbd238fc, type: 3}
   m_Name: Choice_Debug
   m_EditorClassIdentifier: Assembly-CSharp::EventChoice
-  _choiceText: "100\u30B4\u30FC\u30EB\u30C9\u3092\u6255\u3044HP\u309230\u56DE\u5FA9\u3059\u308B"
-  _resultText: "100\u30B4\u30FC\u30EB\u30C9\u3092\u3082\u3089\u3044HP\u309230\u56DE\u5FA9\u3057\u305F"
+  _choiceText: "\u9B54\u6CD5\u3067\u5012\u3059"
+  _resultText: "\u4E0A\u624B\u304F\u5012\u305B\u305F\u3088\u3046\u3060\u3002\u5148\u3078\u9032\u3082\u3046\u3002(150\u30B4\u30FC\u30EB\u30C9\u7372\u5F97)"
   _eventEffects:
-  - rid: 2977463296770965570
+  - rid: 5748721297630691394
   references:
     version: 2
     RefIds:
-    - rid: 2977463296770965570
-      type: {class: EventDebug, ns: , asm: Assembly-CSharp}
+    - rid: 5748721297630691394
+      type: {class: EventGold, ns: , asm: Assembly-CSharp}
       data:
-        text: "100\u30B4\u30FC\u30EB\u30C9\u3092\u6255\u3044HP\u309230\u56DE\u5FA9\u3059\u308B"
+        _amount: 150

@@ -53,6 +53,14 @@ public class Room : MonoBehaviour, IPointerClickHandler
                     FadeManager.Instance.FadePanel(true);
                 });
             }
+            else if(_roomType == RoomType.Boss)
+            {
+                FadeManager.Instance.FadePanel(false, () =>
+                {
+                    _mapManager.OpenEndPanel();
+                    FadeManager.Instance.FadePanel(true);
+                });
+            }
             else
             {
                 _mapManager.MoveTo(_roomIndex);

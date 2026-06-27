@@ -15,9 +15,7 @@ MonoBehaviour:
   _floorDatas:
   - {fileID: 11400000, guid: 86e2e807c45088a49822f743ca9a7fb9, type: 2}
   - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
-  - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
-  - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
-  - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
-  - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
-  - {fileID: 11400000, guid: ff8ef21ae723c9841b3982f1bed9bf94, type: 2}
+  - {fileID: 11400000, guid: e56045e084e1e8745802e101a1727267, type: 2}
+  - {fileID: 11400000, guid: a2131ac578107e44f83676b3f17aadf8, type: 2}
+  - {fileID: 11400000, guid: 3c8889c77dda40a40b899f97ce19a6b6, type: 2}
   - {fileID: 11400000, guid: e5e91f47652b8fd4baec53625f172d9b, type: 2}

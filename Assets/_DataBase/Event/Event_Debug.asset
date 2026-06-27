@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Event_Debug
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   _eventID: 1
-  _name: "\u30C7\u30D0\u30C3\u30AF"
-  _description: "\u5546\u4EBA\u304C\u4EA4\u6E09\u3057\u3066\u304D\u305F"
+  _name: "\u6575\u306E\u6C17\u914D"
+  _description: "\u30E2\u30F3\u30B9\u30BF\u30FC\u306E\u3046\u3081\u304D\u58F0\u304C\u805E\u3053\u3048\u308B\u3002\u3053\u3061\u3089\u306B\u5411\u304B\u3063\u3066\u304D\u3066\u3044\u308B\u3088\u3046\u3060\u3002"
   _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
   _choices:
-  - {fileID: 11400000, guid: 606158613b98f1d42a0ca5bde34e375b, type: 2}
   - {fileID: 11400000, guid: 14ede8cd76538454caac89b32a1536d2, type: 2}
+  - {fileID: 11400000, guid: 606158613b98f1d42a0ca5bde34e375b, type: 2}

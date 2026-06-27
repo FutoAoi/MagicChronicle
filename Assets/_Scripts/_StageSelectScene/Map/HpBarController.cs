@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HpBarContller : MonoBehaviour
+public class HpBarController : MonoBehaviour
 {
     [Header("HPアニメーション設定")]
     [SerializeField, Tooltip("メインバーが減るスピード")] private float _mainSpeed = 0.2f;
