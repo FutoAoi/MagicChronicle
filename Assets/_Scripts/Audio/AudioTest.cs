@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class AudioTest : MonoBehaviour
 {
+    [SerializeField] string BGM;
     void Start()
     {
-        CriAudioManager.Instance.PlayBgm("BGM_Stage1");
+        CriAudioManager.Instance.PlayBgm(BGM);
     }
 }

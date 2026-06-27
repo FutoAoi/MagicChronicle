@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 4e46de5166b56fd4291d1a44f770a9a8
+guid: f777eced48d8fdf479daad7bc2427c15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6937817954938267909
-    second: 2_0
+      213: -8537139493931686670
+    second: CharaSerect_BackButtom_0
   - first:
-      213: 3191122964850554743
-    second: 2_1
+      213: 84144038384466272
+    second: CharaSerect_BackButtom_1
   - first:
-      213: 5382512944479897801
-    second: 2_2
-  - first:
-      213: -5515383189529662604
-    second: 2_3
-  - first:
-      213: -3926759211464601419
-    second: 2_4
+      213: -3565534158973206659
+    second: CharaSerect_BackButtom_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,57 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_0
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 30
-        width: 651
-        height: 970
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5092c600ca4184060800000000000000
-      internalID: 6937817954938267909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_1
-      rect:
-        serializedVersion: 2
-        x: 661
-        y: 962
-        width: 38
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7773282ed65294c20800000000000000
-      internalID: 3191122964850554743
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 2_2
+      name: CharaSerect_BackButtom_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 104
-        width: 8
-        height: 13
+        y: 10
+        width: 242
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c88aa6510782ba40800000000000000
-      internalID: 5382512944479897801
+      spriteID: 2f46e3aacdcf58980800000000000000
+      internalID: -8537139493931686670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_3
+      name: CharaSerect_BackButtom_1
       rect:
         serializedVersion: 2
-        x: 669
-        y: 71
-        width: 9
-        height: 9
+        x: 216
+        y: 13
+        width: 63
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47b6cebf53c6573b0800000000000000
-      internalID: -5515383189529662604
+      spriteID: 0697fdd9e80fa2100800000000000000
+      internalID: 84144038384466272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2_4
+      name: CharaSerect_BackButtom_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 15
-        width: 13
-        height: 10
+        x: 0
+        y: 0
+        width: 5
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b0d8225d495189c0800000000000000
-      internalID: -3926759211464601419
+      spriteID: d7f71ebc29da48ec0800000000000000
+      internalID: -3565534158973206659
       vertices: []
       indices: 
       edges: []
@@ -248,11 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2_0: 6937817954938267909
-      2_1: 3191122964850554743
-      2_2: 5382512944479897801
-      2_3: -5515383189529662604
-      2_4: -3926759211464601419
+      CharaSerect_BackButtom_0: -8537139493931686670
+      CharaSerect_BackButtom_1: 84144038384466272
+      CharaSerect_BackButtom_2: -3565534158973206659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

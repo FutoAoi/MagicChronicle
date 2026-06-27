@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51e2a5f21979bbf47aa58b65548b088c, type: 3}
-  m_Name: 101_Enemy
+  m_Name: 101_Enemy2
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  _enemyID: 101
+  _enemyID: 102
   _sprite: {fileID: -1070814208690267576, guid: 8f68416fe64d3754f9e02a29397dcef7, type: 3}
-  _spineEnemy: {fileID: 6285623933888752181, guid: 09dd6be3f21d1c744a1f06f64edab190, type: 3}
+  _spineEnemy: {fileID: 6783211275798280595, guid: ca8780760e7b9d940963c0fb2e951720, type: 3}
   _enemyHP: 20
   _enemyAP: 1
   _enemyAttackTime: 0

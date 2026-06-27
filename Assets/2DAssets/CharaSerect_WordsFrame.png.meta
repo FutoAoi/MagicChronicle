@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 40490f9fef79f4247899c560b1ece141
+guid: 959dc68b72cb520488faca33baf1e955
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7527825532738435769
-    second: "\u65B9\u5411\u77E2\u5370 (1)_0"
+      213: 6223661729248527601
+    second: CharaSerect_WordsFrame_0
   - first:
-      213: 3436859726351741782
-    second: "\u65B9\u5411\u77E2\u5370 (1)_1"
+      213: 1918146510016688926
+    second: CharaSerect_WordsFrame_1
   - first:
-      213: 3097094259389208899
-    second: "\u65B9\u5411\u77E2\u5370 (1)_2"
-  - first:
-      213: -3659681189536429136
-    second: "\u65B9\u5411\u77E2\u5370 (1)_3"
+      213: -8715540470689641486
+    second: CharaSerect_WordsFrame_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u65B9\u5411\u77E2\u5370 (1)_0"
+      name: CharaSerect_WordsFrame_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 223
-        width: 62
-        height: 62
+        x: 8
+        y: 582
+        width: 432
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ba7df91075387860800000000000000
-      internalID: 7527825532738435769
+      spriteID: 1f44d0e4e53ee5650800000000000000
+      internalID: 6223661729248527601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u65B9\u5411\u77E2\u5370 (1)_1"
+      name: CharaSerect_WordsFrame_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 225
-        width: 62
-        height: 62
+        x: 8
+        y: 211
+        width: 425
+        height: 359
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 653ba0c36bd22bf20800000000000000
-      internalID: 3436859726351741782
+      spriteID: e1333bc8610ae9a10800000000000000
+      internalID: 1918146510016688926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u65B9\u5411\u77E2\u5370 (1)_2"
+      name: CharaSerect_WordsFrame_2
       rect:
         serializedVersion: 2
-        x: 174
-        y: 181
-        width: 150
-        height: 151
+        x: 0
+        y: 0
+        width: 434
+        height: 197
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,30 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3499bced1d61bfa20800000000000000
-      internalID: 3097094259389208899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u65B9\u5411\u77E2\u5370 (1)_3"
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 73
-        width: 279
-        height: 367
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0bb80821953363dc0800000000000000
-      internalID: -3659681189536429136
+      spriteID: 2fbc00b6e1e2c0780800000000000000
+      internalID: -8715540470689641486
       vertices: []
       indices: 
       edges: []
@@ -223,10 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u65B9\u5411\u77E2\u5370 (1)_0": 7527825532738435769
-      "\u65B9\u5411\u77E2\u5370 (1)_1": 3436859726351741782
-      "\u65B9\u5411\u77E2\u5370 (1)_2": 3097094259389208899
-      "\u65B9\u5411\u77E2\u5370 (1)_3": -3659681189536429136
+      CharaSerect_WordsFrame_0: 6223661729248527601
+      CharaSerect_WordsFrame_1: 1918146510016688926
+      CharaSerect_WordsFrame_2: -8715540470689641486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

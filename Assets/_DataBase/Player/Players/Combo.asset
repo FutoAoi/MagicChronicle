@@ -20,4 +20,4 @@ MonoBehaviour:
   _playerSprite: {fileID: 0}
   _isPlayable: 1
   _playerDescription: "\u8AAC\u660E"
-  _playerPrefab: {fileID: 9018591979439045523, guid: 362fb286b9744d44c871dc4437919cf8, type: 3}
+  _playerPrefab: {fileID: 1094308748824032833, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}

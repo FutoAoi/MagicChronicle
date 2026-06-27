@@ -49,7 +49,8 @@ public enum SceneType : byte
     TitleScene,
     InGameScene,
     StageSerectScene,
-    CampScene
+    CampScene,
+    CharacterSerectScene
 }
 /// <summary>
 /// カードのタイプ

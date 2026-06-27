@@ -127,25 +127,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551759324}
     m_Modifications:
-    - target: {fileID: 1021266846593026903, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643869823664565045, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008291623034687507, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3407070511455606843, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Name
       value: '[IMG]Enemy'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903021368572587565, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -2266,25 +2250,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551759324}
     m_Modifications:
-    - target: {fileID: 1021266846593026903, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643869823664565045, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008291623034687507, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3407070511455606843, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Name
       value: '[IMG]Enemy (3)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903021368572587565, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -2675,50 +2643,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &690786709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 690786711}
-  - component: {fileID: 690786710}
-  m_Layer: 0
-  m_Name: AudioTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &690786710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690786709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b5c9365ae3188439cab3a7b12ca065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioTest
---- !u!4 &690786711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690786709}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.01797, y: -4.54168, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &729007235 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
@@ -4567,6 +4491,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163386060}
   m_CullTransparentMesh: 1
+--- !u!1 &1165212576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165212578}
+  - component: {fileID: 1165212577}
+  m_Layer: 0
+  m_Name: AudioTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165212577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165212576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b5c9365ae3188439cab3a7b12ca065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioTest
+  BGM: BGM_Stage1
+--- !u!4 &1165212578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165212576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.34892, y: 1.03841, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1199759511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4575,25 +4544,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551759324}
     m_Modifications:
-    - target: {fileID: 1021266846593026903, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643869823664565045, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008291623034687507, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3407070511455606843, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Name
       value: '[IMG]Enemy (4)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903021368572587565, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -4902,25 +4855,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551759324}
     m_Modifications:
-    - target: {fileID: 1021266846593026903, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643869823664565045, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008291623034687507, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3407070511455606843, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Name
       value: '[IMG]Enemy (1)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903021368572587565, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -5483,25 +5420,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551759324}
     m_Modifications:
-    - target: {fileID: 1021266846593026903, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.800003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643869823664565045, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3008291623034687507, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3407070511455606843, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Name
       value: '[IMG]Enemy (2)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7903021368572587565, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826331207823016317, guid: 3449dc56daefdb74aabb4b172fb41a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -8613,5 +8534,5 @@ SceneRoots:
   - {fileID: 1524835713}
   - {fileID: 301651111}
   - {fileID: 4120424206820112660}
-  - {fileID: 690786711}
   - {fileID: 172518660376583478}
+  - {fileID: 1165212578}
