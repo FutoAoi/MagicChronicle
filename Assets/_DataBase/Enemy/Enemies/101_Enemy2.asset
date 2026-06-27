@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51e2a5f21979bbf47aa58b65548b088c, type: 3}
-  m_Name: 999_TestEnemy
+  m_Name: 101_Enemy2
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  _enemyID: 999
-  _sprite: {fileID: -6393953091253504009, guid: 3114f275a66737b4693f866287f6c5fa, type: 3}
-  _spineEnemy: {fileID: 8820112516472953550, guid: 09dd6be3f21d1c744a1f06f64edab190, type: 3}
-  _enemyHP: 25
+  _enemyID: 102
+  _sprite: {fileID: -1070814208690267576, guid: 8f68416fe64d3754f9e02a29397dcef7, type: 3}
+  _spineEnemy: {fileID: 4581577360232373975, guid: b43db30dec3836a4e9106bd32b48a605, type: 3}
+  _enemyHP: 20
   _enemyAP: 1
-  _enemyAttackTime: 1
+  _enemyAttackTime: 0
   _enemyAT: 1
   _isSpecialAttack: 1
   _enemySAT: 1
@@ -25,4 +25,4 @@ MonoBehaviour:
   _effectTime: 1
   _cardEffectID: c8000000
   _canBuff: 0
-  _rewardAmount: 64000000e8030000
+  _rewardAmount: 0000000000000000

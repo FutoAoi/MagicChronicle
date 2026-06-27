@@ -24,8 +24,8 @@ public class StagePlayer : CharacterBase
     public override void Damaged(int damage)
     {
         base.Damaged(damage);
-        _skeletonAnimation.AnimationState.SetAnimation(0, "ダメージモーション", false);
-        _skeletonAnimation.AnimationState.AddAnimation(0, "アイドルモーション", true, 0);
+        _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
+        _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
     }
 
     /// <summary>

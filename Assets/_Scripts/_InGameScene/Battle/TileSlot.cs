@@ -136,7 +136,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 foreach(IEffect effect in data.Effect)
                 {
                     effect.OnExcute(null);
-                    CriAudioManager.Instance.PlaySe("SE_MagicCircleWork");
+                    CriAudioManager.Instance.PlaySe("SE_Reijin");
                 }
             }
             else

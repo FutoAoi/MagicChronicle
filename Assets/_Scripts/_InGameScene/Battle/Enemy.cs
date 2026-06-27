@@ -11,6 +11,7 @@ public class Enemy : CharacterBase
     public bool IsAttackTurn => _isAttackTurn;
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemyID => _enemyID;
+    public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
 
 
     [Header("エネミー詳細")]
@@ -76,8 +77,8 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
-        _skeletonAnimation.AnimationState.SetAnimation(0, "ダメージモーション", false);
-        _skeletonAnimation.AnimationState.AddAnimation(0, "待機モーション", true, 0);
+        _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
+        _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
         CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
     }
 

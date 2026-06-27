@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -145,12 +146,13 @@ public class GameManager : MonoBehaviour
         {
             _uiManagerButtle.ResetDrawCount();
             _uiManagerButtle.ClearCard();
-            CriAudioManager.Instance.PlaySe("SE_MagicShot");
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
-            StartCoroutine(_attackManager.AttackTurn(true));
-            Player.SkeletonAnimation.AnimationState.SetAnimation(0, "攻撃モーション", false);
-            Player.SkeletonAnimation.AnimationState.AddAnimation(0, "アイドルモーション", true, 0);
+            Player.SkeletonAnimation.AnimationState.SetAnimation(0, "atacck_motion", false);
+            Player.SkeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+
+            StartCoroutine(AttackRoutine());
+
             _isAction = true;
         }
 
@@ -278,4 +280,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //一旦仮
+    private IEnumerator AttackRoutine()
+    {
+        yield return new WaitForSeconds(1.1f); // モーション開始を待つ
+        CriAudioManager.Instance.PlaySe("SE_MagicShot");
+        yield return StartCoroutine(_attackManager.AttackTurn(true));
+    }
 }
