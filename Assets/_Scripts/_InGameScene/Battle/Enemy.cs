@@ -192,6 +192,7 @@ public class Enemy : CharacterBase
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
         _spineEnemy.SetActive(false);
+        
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
 
