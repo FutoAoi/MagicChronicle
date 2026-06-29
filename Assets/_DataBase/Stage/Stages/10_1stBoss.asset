@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   _stageID: 10
   _background: {fileID: 5839194292900329320, guid: 71b7dd6df99d82d448c1b8ee1f57936b, type: 3}
-  _width: 7
-  _height: 7
+  _width: 5
+  _height: 5
   _enemies:
   - _enemyID: 999
     _enemyPosition: 0
