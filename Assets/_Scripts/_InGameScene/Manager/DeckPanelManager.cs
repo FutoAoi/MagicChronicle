@@ -7,7 +7,6 @@ public class DeckPanelManager : MonoBehaviour
     [Header("各エリア")]
     [SerializeField, Tooltip("山札")] private RectTransform _deckArea;
     [SerializeField, Tooltip("捨て札")] private RectTransform _discardArea;
-    [SerializeField, Tooltip("除外札")] private RectTransform _removeArea;
 
     [Header("参照")]
     [SerializeField, Tooltip("生成するカード")] private GameObject _cardPrefab;
@@ -21,7 +20,6 @@ public class DeckPanelManager : MonoBehaviour
 
     private Dictionary<int, List<GameObject>> _deckDict = new();
     private Dictionary<int, List<GameObject>> _discardDict = new();
-    private Dictionary<int, List<GameObject>> _removeDict = new();
     private void Start()
     {
         if (_deckManager == null)
@@ -39,21 +37,15 @@ public class DeckPanelManager : MonoBehaviour
 
         _deckManager = DeckManager.Instance;
 
-        _deckTabs = new RectTransform[3];
+        _deckTabs = new RectTransform[2];
         _deckTabs[0] = _deckArea;
         _deckTabs[1] = _discardArea;
-        _deckTabs[2] = _removeArea;
 
         for (int i = 0; i < _deckManager.DeckMain.Count; i++)
         {
             int id = _deckManager.DeckMain[i];
             InstantiateCard(InGameDeckType.Deck, id);
             InstantiateCard(InGameDeckType.Discard, id);
-
-            if (_gameManager.CardDataBase.GetCardData(id).IsDestruction)
-            {
-                InstantiateCard(InGameDeckType.Remove, id);
-            }
         }
 
         ChangeDeckTab(InGameDeckType.Deck);
@@ -71,11 +63,9 @@ public class DeckPanelManager : MonoBehaviour
     {
         DisableAll(_deckDict);
         DisableAll(_discardDict);
-        DisableAll(_removeDict);
 
         EnableCards(_uiManager.DeckCard, _deckDict);
         EnableCards(_uiManager.DiscardCard, _discardDict);
-        EnableCards(_uiManager.RemoveCard, _removeDict);
     }
     void DisableAll(Dictionary<int, List<GameObject>> dict)
     {
@@ -136,12 +126,6 @@ public class DeckPanelManager : MonoBehaviour
                 dict = _discardDict;
                 rect = _discardArea;
                 break;
-
-            case InGameDeckType.Remove:
-                dict = _removeDict;
-                rect = _removeArea;
-                break;
-
             default:
                 break;
         }
