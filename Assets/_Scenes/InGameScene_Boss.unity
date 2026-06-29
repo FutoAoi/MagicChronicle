@@ -3540,7 +3540,7 @@ MonoBehaviour:
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
   _keywordDataBase: {fileID: 11400000, guid: 19c8b3ebc53a79a499a7744b38065641, type: 2}
-  StageID: 0
+  StageID: 10
   CurrentPhase: 6
   Reset: 0
   IsEnemyAction: 0

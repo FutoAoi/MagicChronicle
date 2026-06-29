@@ -15,7 +15,7 @@ MonoBehaviour:
   _type: 10
   _icon: {fileID: -1557301391346419929, guid: 6f7402e3b40094643bfd767e3e2a4dfc, type: 3}
   _name: CostPuls
-  _description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u30921\u3042\u3052\u308B"
+  _description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u3092\u30B9\u30BF\u30C3\u30AF\u6570\u3042\u3052\u308B"
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
