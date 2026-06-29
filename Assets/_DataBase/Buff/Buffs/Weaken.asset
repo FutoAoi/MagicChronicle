@@ -15,7 +15,7 @@ MonoBehaviour:
   _type: 5
   _icon: {fileID: 21300000, guid: 67ccdb37b8202194497cc6fb2e7d007c, type: 3}
   _name: "\u5F31\u4F53"
-  _description: 
+  _description: "\u9632\u5FA1\u529B\u304C50%\u4E0B\u304C\u308B"
   _isDecreaseTurn: 1
   _isDisplayCount: 1
   _effect: []

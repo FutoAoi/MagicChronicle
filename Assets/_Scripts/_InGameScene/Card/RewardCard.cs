@@ -90,7 +90,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         _tf.DOKill();
-        _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+        _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
     }
 
     public void OnPointerClick(PointerEventData eventData)
