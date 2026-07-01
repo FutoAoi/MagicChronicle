@@ -17,6 +17,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField, Tooltip("回転時間")] private float _duration = 0.8f;
     [SerializeField, Tooltip("カード前面")] private GameObject _cardFrontObj;
     [SerializeField, Tooltip("カードの裏面")] private GameObject _cardBackObj;
+    [SerializeField, Tooltip("説明パネル表示")] private RectTransform _rt;
 
     [Header("-----アニメーション-----")]
     [SerializeField] private float _hoverScale = 1.1f;
@@ -27,6 +28,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private CardData _data;
     private Transform _tf;
+    private IBattleUI _battleUI;
     private Vector3 _defaultScale;
     private float _selectedScale = 1.1f;
     private float _animationTime = 0.2f;
@@ -53,6 +55,9 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _cost.text = $"{_data.Cost}";
         _maxTimes.text = $"{_data.MaxTimes}";
         _defaultScale = _tf.localScale;
+
+        if(GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
+            _battleUI = battleUI;
     }
 
     /// <summary>
@@ -83,14 +88,29 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!IsFinish) return;
+
         _tf.DOKill();
         _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
+
+        if(_battleUI != null)
+        {
+            _battleUI.DisplayDescriptionPanel(true);
+            _battleUI.UpdateDescriptionPanel(true, _rt, _cardID);
+
+            //でかくさせる
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (!IsFinish) return;
+
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
+
+        if (_battleUI != null)
+            _battleUI.DisplayDescriptionPanel(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

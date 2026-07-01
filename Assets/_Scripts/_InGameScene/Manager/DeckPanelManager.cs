@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeckPanelManager : MonoBehaviour
 {
     [Header("ŠeƒGƒŠƒA")]
+    [SerializeField, Tooltip("”wŒi")] private GameObject[] _background;
     [SerializeField, Tooltip("ŽRŽD")] private RectTransform _deckArea;
     [SerializeField, Tooltip("ŽÌ‚ÄŽD")] private RectTransform _discardArea;
 
@@ -156,6 +157,7 @@ public class DeckPanelManager : MonoBehaviour
         {
             bool isChose = (byte)type == i;
             _deckTabs[i].gameObject.SetActive(isChose);
+            _background[i].SetActive(isChose);
             _tabButton[i].ChangeColor(isChose);
         }
     }

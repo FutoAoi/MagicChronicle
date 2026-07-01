@@ -69,3 +69,11 @@ MonoBehaviour:
     KeyName: "\u30AB\u30FC\u30C9\u30D7\u30E9\u30B9"
     Description: "\u5F15\u304F\u30AB\u30FC\u30C9\u306E\u679A\u6570\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
     KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 14
+    KeyName: "\u901A\u5E38\u653B\u6483"
+    Description: "\u9B54\u6CD5\u3092\u3068\u3070\u3059"
+    KeywordColor: {r: 1, g: 0.17924517, b: 0.17924517, a: 0}
+  - Type: 15
+    KeyName: "\u7279\u6B8A\u653B\u6483"
+    Description: "\u9B54\u6CD5\u9663\u3092\u8A2D\u7F6E\u3059\u308B"
+    KeywordColor: {r: 1, g: 0.94652206, b: 0.103773475, a: 0}
