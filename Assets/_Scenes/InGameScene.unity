@@ -4155,6 +4155,7 @@ MonoBehaviour:
   DragLayer: {fileID: 269812594}
   ParticleParent: {fileID: 845816632}
   SelectColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  _canvas: {fileID: 1293538816}
   _descriptionPanel: {fileID: 1995691328}
   _isFinishCutIn: 0
   _handRange: 5
