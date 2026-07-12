@@ -1502,10 +1502,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8feadc0944e91e649be48c3804cae688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DescriptionPanel
-  _name: {fileID: 792955347}
-  _cost: {fileID: 1460829955}
-  _durability: {fileID: 2023314368}
-  _description: {fileID: 1159417359}
+  _parent: {fileID: 0}
+  _cardWindow: {fileID: 0}
+  _cardName: {fileID: 0}
+  _cardCost: {fileID: 0}
+  _cardDurability: {fileID: 0}
+  _cardDescription: {fileID: 0}
+  _buffPrefab: {fileID: 0}
+  _keywordPrefab: {fileID: 0}
 --- !u!114 &494222119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,9 +2575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c30477e701b9e8448fccc7fd716d55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckPanelManager
+  _background: []
   _deckArea: {fileID: 1016627549}
   _discardArea: {fileID: 1760399131}
-  _removeArea: {fileID: 1629837108}
   _cardPrefab: {fileID: 8233745660893882452, guid: 02a5140a962503e4497996c8f673999c, type: 3}
   _tabButton:
   - {fileID: 828442921}
@@ -2810,6 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b5c9365ae3188439cab3a7b12ca065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioTest
+  BGM: 
 --- !u!4 &690786711
 Transform:
   m_ObjectHideFlags: 0
@@ -3580,6 +3585,7 @@ MonoBehaviour:
     Floors: []
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
+  _keywordDataBase: {fileID: 0}
   StageID: 0
   CurrentPhase: 6
   Reset: 0
@@ -3617,6 +3623,7 @@ MonoBehaviour:
   CurrentWalletPanel: {fileID: 1241243118}
   _duration: 0.7
   _waitSec: 0.4
+  _currentMoney: 0
 --- !u!1 &999624247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,22 +4362,25 @@ MonoBehaviour:
   HandCard: []
   DiscardCard: 
   RemoveCard: 
+  HandArea: {fileID: 2118124055}
+  CardPrefab: {fileID: 8233745660893882452, guid: 292f5517cfce1fa4189433030bf34c2b, type: 3}
+  DragLayer: {fileID: 269812594}
+  ParticleParent: {fileID: 845816632}
+  SelectColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  _canvas: {fileID: 1293538816}
+  _descriptionPanel: {fileID: 494222116}
+  _isFinishCutIn: 0
   _handRange: 5
   _distance: 0.1
   _valueDuration: 0.3
   GrowColor: {r: 1, g: 0.5571428, b: 0, a: 1}
-  SelectColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   _playerHandTr: {fileID: 2118124055}
-  HandArea: {fileID: 2118124055}
-  CardPrefab: {fileID: 8233745660893882452, guid: 292f5517cfce1fa4189433030bf34c2b, type: 3}
-  DragLayer: {fileID: 269812594}
   _enemyAttackPanel: {fileID: 1435232785}
   _resultPanel: {fileID: 1908586316}
   _attackPosPanel: {fileID: 349422005}
   _fadePanel: {fileID: 1688558824}
   _deckPanel: {fileID: 628158624}
   _gameoverPanel: {fileID: 505951955}
-  _descriptionPanel: {fileID: 494222116}
   _costImages:
   - {fileID: 1003746224}
   - {fileID: 313869790}
@@ -4395,8 +4405,6 @@ MonoBehaviour:
   - {fileID: 374469914}
   _deckCountText: {fileID: 922467363}
   _discardConutText: {fileID: 1864157328}
-  ParticleParent: {fileID: 845816632}
-  _isFinishCutIn: 0
   _stagePlayer: {fileID: 460636253}
 --- !u!114 &1154090790
 MonoBehaviour:

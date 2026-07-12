@@ -37,6 +37,14 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _slotMagicCircleShadow.DisplayShadow();
                 _img.DOColor(Color.white, 0.1f);
             }
+
+            if (_uiManager.IsMouseOverUI(_rt))
+            {
+                _battleUI.DisplayDescriptionPanel(_isOccupied);
+
+                if(_isOccupied)
+                    _battleUI.UpdateDescriptionPanel(true, _windowRt, ID);
+            }
         }
     }
     private GameManager _gameManager;

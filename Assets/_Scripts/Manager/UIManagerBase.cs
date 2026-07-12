@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 基本UIManagerクラス
@@ -8,6 +9,8 @@ using UnityEngine;
 public abstract class UIManagerBase : MonoBehaviour
 {
     public CardMovement CardMovement { get; set; }
+
+    public bool IsDisplayDescription { get; private set; } = false;
 
     [Header("-----カード-----")]
     [Tooltip("山札")] public List<int> DeckCard = new List<int>();
@@ -21,6 +24,7 @@ public abstract class UIManagerBase : MonoBehaviour
     [SerializeField, Tooltip("ドラッグ時の場所")] public RectTransform DragLayer;
     [SerializeField, Tooltip("パーティクル用親オブジェクト")] public RectTransform ParticleParent;
     [SerializeField, Tooltip("タイルの暗色")] public Color SelectColor = Color.gray7;
+    [SerializeField] private Canvas _canvas;
 
     [Header("-----説明パネル-----")]
     [SerializeField, Header("親オブジェクト")] private GameObject _descriptionPanel;
@@ -77,5 +81,20 @@ public abstract class UIManagerBase : MonoBehaviour
             _description = _descriptionPanel.GetComponent<DescriptionPanel>();
 
         _description.DisplayWindow(isDisplay);
+        IsDisplayDescription = isDisplay;
+    }
+    public bool IsMouseOverUI(RectTransform rect)
+    {
+        Vector2 mouse = Mouse.current.position.ReadValue();
+
+        Camera cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
+            ? null
+            : _canvas.worldCamera;
+
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            rect,
+            mouse,
+            cam
+        );
     }
 }

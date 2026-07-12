@@ -26654,6 +26654,7 @@ MonoBehaviour:
     Floors: []
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
+  _keywordDataBase: {fileID: 0}
   StageID: 1
   CurrentPhase: 5
   Reset: 0
@@ -32448,6 +32449,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce0a3e6f5c599f4ca0bac95f8a4d837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager_Camp
+  DeckCard: 
+  HandCard: []
+  DiscardCard: 
+  RemoveCard: 
+  HandArea: {fileID: 0}
+  CardPrefab: {fileID: 0}
+  DragLayer: {fileID: 0}
+  ParticleParent: {fileID: 0}
+  SelectColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  _canvas: {fileID: 412316333}
+  _descriptionPanel: {fileID: 0}
+  _isFinishCutIn: 0
   _objs:
   - {fileID: 1433984767}
   - {fileID: 2132025195}
