@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
         {
             _uiManagerButtle.ResetDrawCount();
             _uiManagerButtle.ClearCard();
+            _uiManagerButtle.DisplayDescriptionPanel(false);
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
             Player.SkeletonAnimation.AnimationState.SetAnimation(0, "atacck_motion", false);

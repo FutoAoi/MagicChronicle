@@ -2465,9 +2465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c30477e701b9e8448fccc7fd716d55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckPanelManager
+  _background: []
   _deckArea: {fileID: 1016627549}
   _discardArea: {fileID: 1760399131}
-  _removeArea: {fileID: 1629837108}
   _cardPrefab: {fileID: 8233745660893882452, guid: 02a5140a962503e4497996c8f673999c, type: 3}
   _tabButton:
   - {fileID: 828442921}
@@ -2704,6 +2704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b5c9365ae3188439cab3a7b12ca065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioTest
+  BGM: 
 --- !u!4 &690786711
 Transform:
   m_ObjectHideFlags: 0
@@ -4454,6 +4455,7 @@ MonoBehaviour:
   DragLayer: {fileID: 269812594}
   ParticleParent: {fileID: 845816632}
   SelectColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  _canvas: {fileID: 1293538816}
   _descriptionPanel: {fileID: 1995691328}
   _isFinishCutIn: 0
   _handRange: 5
