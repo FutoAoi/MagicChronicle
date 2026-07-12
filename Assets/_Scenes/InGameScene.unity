@@ -8082,6 +8082,30 @@ PrefabInstance:
       propertyPath: m_HorizontalFit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_CellSize.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_CellSize.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8933583649003198221, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

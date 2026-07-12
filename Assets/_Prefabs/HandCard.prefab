@@ -778,8 +778,8 @@ RectTransform:
   - {fileID: 7248344842231897396}
   - {fileID: 1478158545424686648}
   - {fileID: 6508944711944237151}
-  - {fileID: 4467728673733302241}
   - {fileID: 9217722884840670618}
+  - {fileID: 4467728673733302241}
   m_Father: {fileID: 4134511255626177681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1290,6 +1290,8 @@ MonoBehaviour:
   _costText: {fileID: 6095012120660692815}
   _timeText: {fileID: 755535331337219961}
   _rt: {fileID: 6860116754971427196}
+  _arrowColor: {r: 0.6039216, g: 0.8039216, b: 0.1960784, a: 1}
+  _defaultColor: {r: 0, g: 0.3921569, b: 0, a: 1}
   _up: {fileID: 7146199805700952630}
   _right: {fileID: 988975504462410489}
   _left: {fileID: 5572823336184254821}
@@ -1315,7 +1317,7 @@ MonoBehaviour:
   _duration: 0.2
   _magnificationRatio: 1.5
   _upper: 50
-  _bloom: 0.5
+  _bloom: 0.7
 --- !u!1 &8641184383456231089
 GameObject:
   m_ObjectHideFlags: 0
