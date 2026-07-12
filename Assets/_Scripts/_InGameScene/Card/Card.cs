@@ -13,6 +13,8 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("コスト表示")]private TextMeshProUGUI _costText;
     [SerializeField, Tooltip("耐久値表示")] private TextMeshProUGUI _timeText;
     [SerializeField, Tooltip("説明パネル表示")] private RectTransform _rt;
+    [SerializeField, Tooltip("矢印色")] private Color _arrowColor = Color.yellowGreen;
+    [SerializeField, Tooltip("矢印デフォルト色")] private Color _defaultColor = Color.darkGreen;
 
     [Header("矢印")]
     [SerializeField] private Image _up;
@@ -46,13 +48,13 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         
         if(_up != null)
         {
-            _up.color = Color.black;
-            _down.color = Color.black;
-            _left.color = Color.black;
-            _right.color = Color.black;
+            _up.color = _defaultColor;
+            _down.color = _defaultColor;
+            _left.color = _defaultColor;
+            _right.color = _defaultColor;
             foreach(MagicVector vector in data.DisplayArrowVector)
             {
-                GetArrowImage(vector).color = Color.greenYellow;
+                GetArrowImage(vector).color = _arrowColor;
             }
         }
 
