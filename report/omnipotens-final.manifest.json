@@ -1,9 +1,13 @@
 {
   "schemaVersion": 2,
-  "project": "MagicChronicle",
+  "project": "MagicChronicle Analysis & Review",
   "generatedAt": "2026-07-16 (JST)",
   "output": "omnipotens-final.html",
   "files": [
+    {
+      "path": "report/anatomia-domain-graph.html",
+      "sha256": "5247d4e8e7f942d3281835a7b0ed42287f65a1e4d568260b03775f3a105f3ef5"
+    },
     {
       "path": "report/architecture-review.html",
       "sha256": "28a676cf2f435b157a485037c86935a813d3c3278133d6642ae8f52681a7a3ec"
@@ -17,16 +21,20 @@
       "sha256": "19cf47c69261289b763eada24b78675999ee2170f0548afd7fc195e0639a43e2"
     },
     {
+      "path": "spec/data/anatomia-domains/magic-chronicle.domain.json",
+      "sha256": "6adeadea85dc66ce1eec3be09fd81b998d10582cc166cbb332686c7854c7a0f7"
+    },
+    {
       "path": "spec/data/game-data-contracts.md",
       "sha256": "c1f406dd86eb997bc3cfba90bb897e640b6eba0db21ea63e9b971964d37f98b0"
     },
     {
       "path": "spec/data/omnipotens-report-layout.json",
-      "sha256": "9bd390d848080172b8fd928018dce82c3da8ac5e62c4066007e51d51a4c40a63"
+      "sha256": "72647c6a0ac47891be1c620c0f270f1ef82bae98ffc0a6ad98fe2ab321afbef3"
     },
     {
       "path": "spec/data/tool-manifest.json",
-      "sha256": "9476d3bbab479af328dcb27c9eb471b800a163aa56e43f3acba4801c9ad85741"
+      "sha256": "887db1cd1eef2dc5f3f0348703bfd8bd91ce476fef78ca2304b722ca6ce03d76"
     },
     {
       "path": "spec/data/vitia-input.json",
@@ -50,7 +58,7 @@
     },
     {
       "path": "spec/plan/00-executive-summary.md",
-      "sha256": "de13ae887248143950101246cbf6b748df3c3383dd2da2f28637e8003b75a030"
+      "sha256": "727499b7c52de30ba36bc6819d2750f52cd99e2a26749c1fc0e161a928508c0b"
     },
     {
       "path": "spec/plan/00-source-manifest.md",
@@ -66,7 +74,7 @@
     },
     {
       "path": "spec/plan/05-anatomia-analysis.md",
-      "sha256": "13dcf23ac1f81a7ef7037989408a9cdd2a392e469fe6af41f7f5781516255d6a"
+      "sha256": "cdcde72d3c318f9067fee16b5b7f4d19ebec9720717296462028745f31e57a44"
     },
     {
       "path": "spec/plan/06-spec-code-wiring.md",
@@ -116,6 +124,12 @@
   "sources": [
     {
       "stage": "06",
+      "path": "report/anatomia-domain-graph.html",
+      "kind": "html",
+      "sha256": "5247d4e8e7f942d3281835a7b0ed42287f65a1e4d568260b03775f3a105f3ef5"
+    },
+    {
+      "stage": "06",
       "path": "report/architecture-review.html",
       "kind": "html",
       "sha256": "28a676cf2f435b157a485037c86935a813d3c3278133d6642ae8f52681a7a3ec"
@@ -134,6 +148,12 @@
     },
     {
       "stage": "support",
+      "path": "spec/data/anatomia-domains/magic-chronicle.domain.json",
+      "kind": "json",
+      "sha256": "6adeadea85dc66ce1eec3be09fd81b998d10582cc166cbb332686c7854c7a0f7"
+    },
+    {
+      "stage": "support",
       "path": "spec/data/game-data-contracts.md",
       "kind": "markdown",
       "sha256": "c1f406dd86eb997bc3cfba90bb897e640b6eba0db21ea63e9b971964d37f98b0"
@@ -142,13 +162,13 @@
       "stage": "support",
       "path": "spec/data/omnipotens-report-layout.json",
       "kind": "json",
-      "sha256": "9bd390d848080172b8fd928018dce82c3da8ac5e62c4066007e51d51a4c40a63"
+      "sha256": "72647c6a0ac47891be1c620c0f270f1ef82bae98ffc0a6ad98fe2ab321afbef3"
     },
     {
       "stage": "support",
       "path": "spec/data/tool-manifest.json",
       "kind": "json",
-      "sha256": "9476d3bbab479af328dcb27c9eb471b800a163aa56e43f3acba4801c9ad85741"
+      "sha256": "887db1cd1eef2dc5f3f0348703bfd8bd91ce476fef78ca2304b722ca6ce03d76"
     },
     {
       "stage": "support",
@@ -184,7 +204,7 @@
       "stage": "00",
       "path": "spec/plan/00-executive-summary.md",
       "kind": "markdown",
-      "sha256": "de13ae887248143950101246cbf6b748df3c3383dd2da2f28637e8003b75a030"
+      "sha256": "727499b7c52de30ba36bc6819d2750f52cd99e2a26749c1fc0e161a928508c0b"
     },
     {
       "stage": "10",
@@ -199,7 +219,7 @@
       "sha256": "c751a382d9e15bc01f81714d01fb5beb6627c8229de2e6fddc99a3dc42012e26"
     },
     {
-      "stage": "02",
+      "stage": "06",
       "path": "spec/plan/04-domain-model.md",
       "kind": "markdown",
       "sha256": "ac95f1df45449679540167f675a3d744b7c6187ac9659ca2ffd23f5a9324f779"
@@ -208,7 +228,7 @@
       "stage": "06",
       "path": "spec/plan/05-anatomia-analysis.md",
       "kind": "markdown",
-      "sha256": "13dcf23ac1f81a7ef7037989408a9cdd2a392e469fe6af41f7f5781516255d6a"
+      "sha256": "cdcde72d3c318f9067fee16b5b7f4d19ebec9720717296462028745f31e57a44"
     },
     {
       "stage": "06",

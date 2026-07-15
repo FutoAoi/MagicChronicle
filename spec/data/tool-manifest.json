@@ -11,6 +11,14 @@
     "vitia_skill_sha256": "CD4613A247B79F4FB2680DEFA6E3B25B220158B11B0306F4DCFCC9CE5668A8C2",
     "vitia_score_script_sha256": "9982BB4605E02A670212F6D83A74F4269ADDC4349CCEA651DA11B3351EBD64EB"
   },
+  "anatomia_domain_baseline": {
+    "source": "spec/plan/04-domain-model.md",
+    "plugin": "spec/data/anatomia-domains/magic-chronicle.domain.json",
+    "mode": "manual-locked-verbatim-domain-names-and-descriptions",
+    "domain_count": 8,
+    "graph": "report/anatomia-domain-graph.html",
+    "execution_note": "Anatomia commit was pinned, but its local worktree contained pre-existing uncommitted changes; the built CLI was used without starting a service."
+  },
   "accepted_omissions": [
     {
       "stage": "di-live-llm",

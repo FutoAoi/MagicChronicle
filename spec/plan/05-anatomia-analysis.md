@@ -1,15 +1,35 @@
 # Anatomia コード・ドメイン詳細解析
 
-- 文書版: 0.1.0
+- 文書版: 0.2.0
 - 対象コード: `ed9846e62728080798edf34f70237689ae807428`
-- 生成物: `../../report/architecture-review.html`、`../data/anatomia-architecture-review.json`
+- 生成物: `../../report/architecture-review.html`、`../../report/anatomia-domain-graph.html`、`../data/anatomia-architecture-review.json`
 - 実行方式: ビルド済みAnatomiaをローカルで直接実行。常駐サービスは不使用。
+- 仕様ドメイン入力: `04-domain-model.md`を原文のまま読み、`../data/anatomia-domains/magic-chronicle.domain.json`としてmanual/lockedの権威入力へ変換。
 
 ## エグゼクティブサマリ
 
 現コードは、遊べる縦切りをUnityのシーンとManager群へ迅速に組み上げた構造である。一方、本作固有のルールである弾道、発火、分岐、耐久、カード移動、ターン遷移がUI・MonoBehaviour・共有Managerへまたがっている。個々の関数の循環的複雑度は最大9と極端ではないが、呼び出し結合、循環、共有状態、Battle/Bossの重複が変更リスクを押し上げている。
 
 Anatomiaの設計強度は**59.4/100**である。ただし、99.3%のドメインカバレッジと98.6%の凝集度は、421実装要素がほぼ全て汎用`state-machine`一領域へ分類された結果であり、ゲームドメインが強く設計されていることを意味しない。実際の改善判断では、サイクル健全性0、仕様リンク0、God Class健全性45.8、ディレクトリモジュール性53.2を重く見る。
+
+## 仕様ドメイン原文入力による再解析
+
+旧解析の自動分類が本作固有の境界を捉えなかったため、仕様の8ドメインを改名・統合・要約せずAnatomiaのプロジェクト固有DomainDefへ入力した。名称と説明は`04-domain-model.md`の原文を正本とし、コードmembershipだけを`06-spec-code-wiring.md`の証拠から追加した。LLMによる再推定は行っていない。
+
+| 仕様ドメイン | 所属実装 | 内部edge | 境界edge | 凝集度 | 孤立 |
+|---|---:|---:|---:|---:|---:|
+| Run Progression | 36 | 25 | 26 | 49.0% | 12 |
+| Combat Encounter | 52 | 35 | 44 | 44.3% | 20 |
+| Board Topology | 23 | 10 | 32 | 23.8% | 11 |
+| Deck & Build | 96 | 68 | 32 | 68.0% | 36 |
+| Effects & Status | 30 | 7 | 23 | 23.3% | 21 |
+| Economy & Reward | 23 | 6 | 16 | 27.3% | 15 |
+| Meta Progression | 18 | 9 | 9 | 50.0% | 5 |
+| Narrative Content | 15 | 4 | 3 | 57.1% | 9 |
+
+8ドメインのmembershipは延べ293件で、重複所属を含む。重要なのは、仕様上の中核であるBoard Topologyが内部10に対して境界32、Effects & Statusが内部7に対して境界23となり、ルールがドメイン内部よりManager/UI/隣接ドメインへ強く漏れている点である。Economy & Rewardも凝集27.3%で、取引境界が独立していない。Deck & Buildは凝集68.0%だが96実装と大きく、UI操作とカード保存則を同じ境界へ抱えている。
+
+Anatomia組込みの`state-machine`等も同時検出されるため、全体coverage/overlapは仕様8ドメインだけの指標ではない。再解析の判断には上表のドメイン別値を用い、旧59.4/100との単純な前後比較は行わない。
 
 ## 解析規模
 
@@ -20,7 +40,8 @@ Anatomiaの設計強度は**59.4/100**である。ただし、99.3%のドメイ�
 | 解決済み呼び出し | 347 |
 | 未解決呼び出し | 764 |
 | スキップ | 0 |
-| 検出ドメイン | 2 |
+| 旧自動検出ドメイン | 2 |
+| 仕様原文入力ドメイン | 8（組込み2を除く） |
 | ホットスポット | 50 |
 | 循環グループ | 12 |
 | 静的fan-in 0の関数 | 129 |

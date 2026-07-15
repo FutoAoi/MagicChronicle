@@ -1,0 +1,129 @@
+[
+  {
+    "name": "Run Progression",
+    "description": "ラン開始から終了までの状態、マップ、部屋遷移を所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_StageSelectScene/Map/" },
+      { "pathPattern": "(^|/)Assets/_Scripts/Manager/GameManager\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Run Progression\" domain: ラン開始から終了までの状態、マップ、部屋遷移を所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#1-run-progression"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Combat Encounter",
+    "description": "一回の戦闘、ターン、弾の解決、勝敗を所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Battle/(CharacterBase|Enemy|StagePlayer)\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Manager/AttackManager\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/Manager/GameManager\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Combat Encounter\" domain: 一回の戦闘、ターン、弾の解決、勝敗を所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#2-combat-encounter"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Board Topology",
+    "description": "5x5盤面、魔法陣、接触、方向変更、分岐、耐久を所有する。このドメインが本作の中核である。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Battle/(AttackMagic|TileSlot)\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Manager/(AttackPointManager|StageManager)\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Board Topology\" domain: 5x5盤面、魔法陣、接触、方向変更、分岐、耐久を所有する。このドメインが本作の中核である。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#3-board-topology"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Deck & Build",
+    "description": "カードの定義とインスタンス、各ゾーン、ドロー、配置コスト、報酬によるデッキ変更を所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Card/(?!CardEffect/)" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Manager/(DeckManager|DeckPanelManager|UIManager_Battle|UIManager_Boss)\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/DataBase/(Card|Deck)" }
+    ],
+    "cardTemplate": "Summarise the \"Deck & Build\" domain: カードの定義とインスタンス、各ゾーン、ドロー、配置コスト、報酬によるデッキ変更を所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#4-deck--build"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Effects & Status",
+    "description": "魔法陣効果、バフ、デバフ、トリガー、スタック、寿命を統一して所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Card/CardEffect/" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Buff/" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Manager/(EffectManager|BuffUIManager)\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/Interface/(IEffect|IBuff|IBuffable)\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Effects & Status\" domain: 魔法陣効果、バフ、デバフ、トリガー、スタック、寿命を統一して所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#5-effects--status"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Economy & Reward",
+    "description": "ラン内通貨、報酬候補、店、鍛冶屋、価格、支払いを所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/Manager/WalletManager\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Manager/RewardManager\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_InGameScene/Card/RewardCard\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_CampScene/ShopManager\\.cs$" },
+      { "pathPattern": "(^|/)Assets/_Scripts/_StageSelectScene/Event/ShopCard\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Economy & Reward\" domain: ラン内通貨、報酬候補、店、鍛冶屋、価格、支払いを所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#6-economy--reward"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Meta Progression",
+    "description": "複数ランを跨ぐ発見、解放、図鑑、チャレンジを所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_CampScene/(CardEncyclopedia|PlayableCharactorSort|UIManager_Camp)\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Meta Progression\" domain: 複数ランを跨ぐ発見、解放、図鑑、チャレンジを所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#7-meta-progression"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  },
+  {
+    "name": "Narrative Content",
+    "description": "イベント、選択肢、物語フラグ、エンディング条件を所有する。",
+    "presetRules": [],
+    "templateRules": [],
+    "membership": [
+      { "pathPattern": "(^|/)Assets/_Scripts/_StageSelectScene/Event/" },
+      { "pathPattern": "(^|/)Assets/_Scripts/DataBase/Event" },
+      { "pathPattern": "(^|/)Assets/_Scripts/Interface/IEventEffect\\.cs$" }
+    ],
+    "cardTemplate": "Summarise the \"Narrative Content\" domain: イベント、選択肢、物語フラグ、エンディング条件を所有する。",
+    "source": "manual",
+    "lockedFields": ["*"],
+    "specRefs": ["spec/plan/04-domain-model.md#8-narrative-content"],
+    "rationale": "仕様ドメインモデルの名称と説明を原文のまま権威入力とする。"
+  }
+]

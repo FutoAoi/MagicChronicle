@@ -35,8 +35,8 @@
     {
       "id": "06",
       "title": "06. Anatomia解析結果",
-      "sources": ["spec/plan/05-anatomia-analysis.md", "spec/plan/06-spec-code-wiring.md"],
-      "artifacts": ["report/architecture-review.html"]
+      "sources": ["spec/plan/04-domain-model.md", "spec/plan/05-anatomia-analysis.md", "spec/plan/06-spec-code-wiring.md"],
+      "artifacts": ["report/anatomia-domain-graph.html", "report/architecture-review.html"]
     },
     {
       "id": "07",

@@ -27,6 +27,7 @@ Vitiaでは、感覚的実演を重視するLuxuriaが0.768で主軸となった
 |---|---:|---|
 | AI Format | B | Critical 0、High 9、release hold |
 | Anatomia design strength | 59.4 / 100 | cycle health 0、spec linkage 0、God Class health 45.8 |
+| 仕様ドメイン再解析 | 8ドメイン原文入力 | Board凝集23.8%、Effects 23.3%、Economy 27.3%で境界漏出が顕著 |
 | 循環のきれいさ | 43 / 100 暫定 | 耐久は強いがcard/economy/meta/resetが未閉鎖 |
 | 本質的complexity | 67 / 100 暫定 | 本作の価値として残す |
 | 偶発的complexity | 78 / 100 暫定 | 35以下を目標に削減 |
