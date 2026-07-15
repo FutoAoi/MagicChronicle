@@ -1,8 +1,34 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MagicChronicle 解析ソース台帳</title><style>
+<title>10. 引用元・使用ツール</title><style>
 :root{--bg:#070a12;--panel:#111827;--text:#eef4ff;--muted:#9caecb;--cyan:#62e6ff;--violet:#a78bfa;--gold:#ffd166;--line:#2a3855}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -10%,#273261 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:48px 24px 80px}header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:.25em 0}h2{margin-top:2.2em;color:#fff;border-bottom:1px solid var(--line);padding-bottom:.25em}h3{color:#d7e5ff;margin-top:1.8em}p,li{max-width:88ch}a{color:var(--cyan)}code{background:#060914;border:1px solid #273550;border-radius:5px;padding:.08em .35em}pre{background:#050812;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;color:#dce8ff}pre[data-language="mermaid"]{border-color:#6d5bb5}blockquote{border-left:3px solid var(--violet);margin:1em 0;padding:.55em 1em;background:#14182b;color:#d9e3f7}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:1em 0}table{width:100%;border-collapse:collapse;background:rgba(17,24,39,.8)}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{color:var(--cyan);background:#131d31}nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#cbd8ef}.stage{background:linear-gradient(145deg,rgba(23,32,51,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.stage summary{cursor:pointer;font-weight:800;color:var(--gold)}.source{color:var(--muted);font-size:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.link-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--text)}.link-card:hover{border-color:var(--cyan)}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:700px){main{padding:28px 14px}th,td{min-width:140px}}@media print{body{background:#fff;color:#111}main{max-width:none}.stage,.link-card,pre,table{background:#fff;color:#111}a{color:#075985}details{display:block}details>summary{display:none}}
-</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>MagicChronicle 解析ソース台帳</h1><p>spec/plan/00-source-manifest.md</p></header><h1>MagicChronicle 解析ソース台帳</h1>
+</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>10. 引用元・使用ツール</h1><p>spec/plan/10-sources-and-tools.md / spec/plan/00-source-manifest.md</p></header><section class="report-source"><p class="source">spec/plan/10-sources-and-tools.md</p><h1>10. 引用元・使用ツール</h1>
+<h2>一次資料</h2>
+<ul>
+<li>Magic Chronicle公開Notion: 企画、仕様、game system、story、魔法陣、敵、buff、event案。</li>
+<li>公開Notion添付<code>Magic Chronicle企画書.pdf</code>全10ページ。</li>
+<li>MagicChronicle repository commit <code>ed9846e62728080798edf34f70237689ae807428</code>。</li>
+</ul>
+<p>公開Notionはユーザ指定どおり通常のWebページとbrowser-loaded public resourceとして取得した。Notion workspace connectorは使用していない。一時署名URL、個人情報、秘密情報は保存していない。</p>
+<h2>使用ツール</h2>
+<div class="table-wrap"><table><thead><tr><th>Tool</th><th>Pin / hash</th><th>用途</th></tr></thead><tbody><tr><td>Ludus</td><td><code>b949cfa136fa27de101ace324f99a715f17e6846</code></td><td>遊びの辞書、genre/system/domain照合</td></tr><tr><td>Anatomia</td><td><code>2b09de8f79f4c205f6cb797a3135316e764ef56e</code></td><td>code graph、cycle、complexity、domain指標</td></tr><tr><td>AI Format</td><td><code>ae8a566700fb108d225e0f2e8f7e42fb61679f7f</code></td><td>21観点のgame review形式</td></tr><tr><td>Vitia</td><td>skill SHA256 <code>CD4613...A8C2</code></td><td>market mechanism routingと倫理監査</td></tr><tr><td>Vitia scorer</td><td>SHA256 <code>9982...64EB</code></td><td>7 domainの決定的採点</td></tr><tr><td>Discutere</td><td><code>5640fda49e1759a1ce07cfa677e39c5b5379563d</code></td><td>discussion paper形式の参照。実議論は省略</td></tr><tr><td>Omnipotens</td><td>local reusable skill</td><td>工程統合、HTML packaging、hash manifest</td></tr></tbody></table></div>
+<h2>証拠ラベル</h2>
+<ul>
+<li><code>source</code>: 公開企画・仕様に明記。</li>
+<li><code>code</code>: 固定commitのcode/assetから観測。</li>
+<li><code>analysis</code>: 複数証拠から導出。</li>
+<li><code>hypothesis</code>: 未検証の提案。</li>
+<li><code>question</code>: 仕様決定者の承認が必要。</li>
+</ul>
+<h2>制限</h2>
+<ul>
+<li>Unity compile、EditMode/PlayMode test、実機build、実play、性能計測は未実施。</li>
+<li>市場規模、競合比較、価格、wishlist/retentionの実測は未取得。</li>
+<li>Di実AI議論は今回省略。</li>
+<li>Browserによる最終HTML目視は接続timeoutのため未実施。UTF-8、hash、local link、決定性は静的検証済み。</li>
+</ul>
+<p>完全なURL、取得時刻、tool status、全hashは<code>00-source-manifest.md</code>、<code>../data/tool-manifest.json</code>、<code>report/omnipotens-final.manifest.json</code>を正本とする。</p></section>
+<section class="report-source"><p class="source">spec/plan/00-source-manifest.md</p><h1>MagicChronicle 解析ソース台帳</h1>
 <ul>
 <li>文書版: 0.1.0</li>
 <li>取得日時: 2026-07-15 22:55 JST</li>
@@ -25,4 +51,4 @@
 <li><code>question</code>: 仕様決定者へ確認が必要な事項。</li>
 </ul>
 <h2>工程状態</h2>
-<div class="table-wrap"><table><thead><tr><th>工程</th><th>状態</th><th>備考</th></tr></thead><tbody><tr><td>仕様・企画初版</td><td>complete</td><td>本ディレクトリの0.1.0</td></tr><tr><td>Ludus解析</td><td>complete</td><td>固定コミットのOKF bundleと照合。固有評価は本プロジェクト内にのみ保存</td></tr><tr><td>ドメイン整理</td><td>pending</td><td>仕様初版を入力に実施</td></tr><tr><td>Anatomia解析</td><td>complete</td><td>ビルド済みAnatomiaを現コミットへ再実行。HTML/JSONと解釈資料を保存</td></tr><tr><td>仕様・ドメイン・コード配線</td><td>complete</td><td>8ドメインと主要コード、未実装・不具合・テストを追跡表へ接続</td></tr><tr><td>メカニクス・経済解析</td><td>complete</td><td>ルールグラフ、内部経済、循環清浄度、複雑度を仕様・コード根拠で暫定評価</td></tr><tr><td>AI Format・詳細指標レビュー</td><td>complete</td><td>AIFormat固定版で差分監査し、現コミットのAnatomia詳細指標と統合</td></tr><tr><td>UX</td><td>complete</td><td>戦闘HUD、情報階層、tutorial、入力・accessibility、検証指標を提案</td></tr><tr><td>Vitia</td><td>complete</td><td>公式score scriptでLuxuriaを主軸選定。truth ledgerと実験・倫理監査を保存</td></tr><tr><td>Di</td><td>accepted-omission</td><td>ディスカッションペーパーまで作成し、今回は実AI議論なしで完了扱い</td></tr><tr><td>統合HTML</td><td>complete</td><td><code>report/</code>へ到達済み17文書・専門成果物をhash manifest付きでpackaging。Browser目視のみ接続timeoutで未実施</td></tr></tbody></table></div><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>
+<div class="table-wrap"><table><thead><tr><th>工程</th><th>状態</th><th>備考</th></tr></thead><tbody><tr><td>仕様・企画初版</td><td>complete</td><td>本ディレクトリの0.1.0</td></tr><tr><td>Ludus解析</td><td>complete</td><td>固定コミットのOKF bundleと照合。固有評価は本プロジェクト内にのみ保存</td></tr><tr><td>ドメイン整理</td><td>pending</td><td>仕様初版を入力に実施</td></tr><tr><td>Anatomia解析</td><td>complete</td><td>ビルド済みAnatomiaを現コミットへ再実行。HTML/JSONと解釈資料を保存</td></tr><tr><td>仕様・ドメイン・コード配線</td><td>complete</td><td>8ドメインと主要コード、未実装・不具合・テストを追跡表へ接続</td></tr><tr><td>メカニクス・経済解析</td><td>complete</td><td>ルールグラフ、内部経済、循環清浄度、複雑度を仕様・コード根拠で暫定評価</td></tr><tr><td>AI Format・詳細指標レビュー</td><td>complete</td><td>AIFormat固定版で差分監査し、現コミットのAnatomia詳細指標と統合</td></tr><tr><td>UX</td><td>complete</td><td>戦闘HUD、情報階層、tutorial、入力・accessibility、検証指標を提案</td></tr><tr><td>Vitia</td><td>complete</td><td>公式score scriptでLuxuriaを主軸選定。truth ledgerと実験・倫理監査を保存</td></tr><tr><td>Di</td><td>accepted-omission</td><td>ディスカッションペーパーまで作成し、今回は実AI議論なしで完了扱い</td></tr><tr><td>統合HTML</td><td>complete</td><td><code>report/</code>へ指定の00〜10構成・専門成果物をhash manifest付きでpackaging。Browser目視のみ接続timeoutで未実施</td></tr></tbody></table></div></section><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>

@@ -54,4 +54,4 @@
 | UX | complete | 戦闘HUD、情報階層、tutorial、入力・accessibility、検証指標を提案 |
 | Vitia | complete | 公式score scriptでLuxuriaを主軸選定。truth ledgerと実験・倫理監査を保存 |
 | Di | accepted-omission | ディスカッションペーパーまで作成し、今回は実AI議論なしで完了扱い |
-| 統合HTML | complete | `report/`へ到達済み17文書・専門成果物をhash manifest付きでpackaging。Browser目視のみ接続timeoutで未実施 |
+| 統合HTML | complete | `report/`へ指定の00〜10構成・専門成果物をhash manifest付きでpackaging。Browser目視のみ接続timeoutで未実施 |

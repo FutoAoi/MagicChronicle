@@ -19,6 +19,10 @@
       "sha256": "c1f406dd86eb997bc3cfba90bb897e640b6eba0db21ea63e9b971964d37f98b0"
     },
     {
+      "path": "spec/data/omnipotens-report-layout.json",
+      "sha256": "b50e5c459b9d916d17166ea22b4780749938233033bb56c3ee649e198eabf626"
+    },
+    {
       "path": "spec/data/tool-manifest.json",
       "sha256": "9476d3bbab479af328dcb27c9eb471b800a163aa56e43f3acba4801c9ad85741"
     },
@@ -43,8 +47,12 @@
       "sha256": "28bb658d5cda93e551f11bada9cbc2d444608c13515a5d318fe621cd90b67f88"
     },
     {
+      "path": "spec/plan/00-executive-summary.md",
+      "sha256": "de13ae887248143950101246cbf6b748df3c3383dd2da2f28637e8003b75a030"
+    },
+    {
       "path": "spec/plan/00-source-manifest.md",
-      "sha256": "f6a05b57e0190bcd68b6ffb48475cfbae528a42c1a990fc27b99e67dfe155697"
+      "sha256": "a431dcc3125a8f24e1ee4a098ad9a21fd1447be603da2b5b032abaca913cb3d9"
     },
     {
       "path": "spec/plan/03-ludus-analysis.md",
@@ -73,6 +81,14 @@
     {
       "path": "spec/plan/09-ai-format-review.md",
       "sha256": "0ee5ded52e12c05399ebd48e08cabc3bd0992542f302a350e60fadf7c7315dfa"
+    },
+    {
+      "path": "spec/plan/09-di-result.md",
+      "sha256": "b5353a134c9cd4e8add376401f64376396dab2404ae6186e3b10ad908d6f0825"
+    },
+    {
+      "path": "spec/plan/10-sources-and-tools.md",
+      "sha256": "6257ffadce013a0e4aa5923289c9b219b8beef2bd8157b2b40de62d3008403c8"
     },
     {
       "path": "spec/plan/10-ux-review.md",
