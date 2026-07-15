@@ -33,6 +33,6 @@
 - Unity compile、EditMode/PlayMode test、実機build、実play、性能計測は未実施。
 - 市場規模、競合比較、価格、wishlist/retentionの実測は未取得。
 - Di実AI議論は今回省略。
-- Browserによる最終HTML目視は接続timeoutのため未実施。UTF-8、hash、local link、決定性は静的検証済み。
+- 最終HTMLはEdge headless（1440×1100）で目視確認済み。UTF-8、hash、local link、決定性も静的検証済み。
 
 完全なURL、取得時刻、tool status、全hashは`00-source-manifest.md`、`../data/tool-manifest.json`、`report/omnipotens-final.manifest.json`を正本とする。

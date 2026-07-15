@@ -1,6 +1,8 @@
 {
-  "formatVersion": 1,
+  "schemaVersion": 2,
   "project": "MagicChronicle",
+  "generatedAt": "2026-07-16 (JST)",
+  "output": "omnipotens-final.html",
   "files": [
     {
       "path": "report/architecture-review.html",
@@ -20,7 +22,7 @@
     },
     {
       "path": "spec/data/omnipotens-report-layout.json",
-      "sha256": "b50e5c459b9d916d17166ea22b4780749938233033bb56c3ee649e198eabf626"
+      "sha256": "9bd390d848080172b8fd928018dce82c3da8ac5e62c4066007e51d51a4c40a63"
     },
     {
       "path": "spec/data/tool-manifest.json",
@@ -52,7 +54,7 @@
     },
     {
       "path": "spec/plan/00-source-manifest.md",
-      "sha256": "a431dcc3125a8f24e1ee4a098ad9a21fd1447be603da2b5b032abaca913cb3d9"
+      "sha256": "3a37cce561c1abc65a7881054ea6eb105d78582c6c281e9efd4eb91fc97e1da1"
     },
     {
       "path": "spec/plan/03-ludus-analysis.md",
@@ -88,7 +90,7 @@
     },
     {
       "path": "spec/plan/10-sources-and-tools.md",
-      "sha256": "6257ffadce013a0e4aa5923289c9b219b8beef2bd8157b2b40de62d3008403c8"
+      "sha256": "66ee5ecb7cedaff2a4f0c1231224e6097a8b86b22ea02ab955e2371e7befee42"
     },
     {
       "path": "spec/plan/10-ux-review.md",
@@ -109,6 +111,216 @@
     {
       "path": "spec/test/review-test-plan.md",
       "sha256": "6642c1562287fffe1e169d76df94ed3712b79cb2a7ee726727c4c001f179a50b"
+    }
+  ],
+  "sources": [
+    {
+      "stage": "06",
+      "path": "report/architecture-review.html",
+      "kind": "html",
+      "sha256": "28a676cf2f435b157a485037c86935a813d3c3278133d6642ae8f52681a7a3ec"
+    },
+    {
+      "stage": "01",
+      "path": "report/ludus-analysis.html",
+      "kind": "html",
+      "sha256": "ea8b932e82605d5ff25257c948516fe16807e8ce7164121bdb1aca13ab9d8476"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/anatomia-architecture-review.json",
+      "kind": "json",
+      "sha256": "19cf47c69261289b763eada24b78675999ee2170f0548afd7fc195e0639a43e2"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/game-data-contracts.md",
+      "kind": "markdown",
+      "sha256": "c1f406dd86eb997bc3cfba90bb897e640b6eba0db21ea63e9b971964d37f98b0"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/omnipotens-report-layout.json",
+      "kind": "json",
+      "sha256": "9bd390d848080172b8fd928018dce82c3da8ac5e62c4066007e51d51a4c40a63"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/tool-manifest.json",
+      "kind": "json",
+      "sha256": "9476d3bbab479af328dcb27c9eb471b800a163aa56e43f3acba4801c9ad85741"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/vitia-input.json",
+      "kind": "json",
+      "sha256": "5bc73fc2b2fec87b0c9dec0ca8f4f6c0d7bdaa6ed6e8154d4233307768c4ed97"
+    },
+    {
+      "stage": "support",
+      "path": "spec/data/vitia-output.json",
+      "kind": "json",
+      "sha256": "a2db959b1c29853b9dc6e5c75ea8b895368bff72258e9d8703c1971d115f7ca5"
+    },
+    {
+      "stage": "01",
+      "path": "spec/feature/game-spec.md",
+      "kind": "markdown",
+      "sha256": "0f95c5dc29c47dd79d047a6820944c792013e9f2c1ed4d95755119c7f018541a"
+    },
+    {
+      "stage": "support",
+      "path": "spec/feature/product-brief.md",
+      "kind": "markdown",
+      "sha256": "efb5322ef816837629af309ee4662ba88c88f1c663863eb92d2b9150639cb77d"
+    },
+    {
+      "stage": "support",
+      "path": "spec/interface/runtime-boundaries.md",
+      "kind": "markdown",
+      "sha256": "28bb658d5cda93e551f11bada9cbc2d444608c13515a5d318fe621cd90b67f88"
+    },
+    {
+      "stage": "00",
+      "path": "spec/plan/00-executive-summary.md",
+      "kind": "markdown",
+      "sha256": "de13ae887248143950101246cbf6b748df3c3383dd2da2f28637e8003b75a030"
+    },
+    {
+      "stage": "10",
+      "path": "spec/plan/00-source-manifest.md",
+      "kind": "markdown",
+      "sha256": "3a37cce561c1abc65a7881054ea6eb105d78582c6c281e9efd4eb91fc97e1da1"
+    },
+    {
+      "stage": "01",
+      "path": "spec/plan/03-ludus-analysis.md",
+      "kind": "markdown",
+      "sha256": "c751a382d9e15bc01f81714d01fb5beb6627c8229de2e6fddc99a3dc42012e26"
+    },
+    {
+      "stage": "02",
+      "path": "spec/plan/04-domain-model.md",
+      "kind": "markdown",
+      "sha256": "ac95f1df45449679540167f675a3d744b7c6187ac9659ca2ffd23f5a9324f779"
+    },
+    {
+      "stage": "06",
+      "path": "spec/plan/05-anatomia-analysis.md",
+      "kind": "markdown",
+      "sha256": "13dcf23ac1f81a7ef7037989408a9cdd2a392e469fe6af41f7f5781516255d6a"
+    },
+    {
+      "stage": "06",
+      "path": "spec/plan/06-spec-code-wiring.md",
+      "kind": "markdown",
+      "sha256": "7135c99e9bbb0b3c7aca440d941b7ebfb66960deabc3bd48d76f6113528142d9"
+    },
+    {
+      "stage": "03",
+      "path": "spec/plan/07-spec-gaps-and-contradictions.md",
+      "kind": "markdown",
+      "sha256": "18f4e689fba358bf39288e26224abf970208b0543d4ca20577a1152d6502c2b1"
+    },
+    {
+      "stage": "04",
+      "path": "spec/plan/08-mechanics-and-economy.md",
+      "kind": "markdown",
+      "sha256": "c1a68f4c6e3b0af030a568e78b8b65f2b00d532a47e7a6f2cb3232e97fed4cb4"
+    },
+    {
+      "stage": "05",
+      "path": "spec/plan/09-ai-format-review.md",
+      "kind": "markdown",
+      "sha256": "0ee5ded52e12c05399ebd48e08cabc3bd0992542f302a350e60fadf7c7315dfa"
+    },
+    {
+      "stage": "09",
+      "path": "spec/plan/09-di-result.md",
+      "kind": "markdown",
+      "sha256": "b5353a134c9cd4e8add376401f64376396dab2404ae6186e3b10ad908d6f0825"
+    },
+    {
+      "stage": "10",
+      "path": "spec/plan/10-sources-and-tools.md",
+      "kind": "markdown",
+      "sha256": "66ee5ecb7cedaff2a4f0c1231224e6097a8b86b22ea02ab955e2371e7befee42"
+    },
+    {
+      "stage": "07",
+      "path": "spec/plan/10-ux-review.md",
+      "kind": "markdown",
+      "sha256": "ff961c5086f03172c286c1825379176bf83dac90c4cd60eee57abea4d8171f8e"
+    },
+    {
+      "stage": "08",
+      "path": "spec/plan/11-vitia-market-review.md",
+      "kind": "markdown",
+      "sha256": "67893db55cae3cdc217baca40506e279ad461f3d8d27628797e996310ced1cf3"
+    },
+    {
+      "stage": "09",
+      "path": "spec/plan/12-discussion-paper.md",
+      "kind": "markdown",
+      "sha256": "2a4d072e2c33f3c25ac0ea066f0de128627774356771dbaca069f6f59dddffef"
+    },
+    {
+      "stage": "support",
+      "path": "spec/setup/reproducible-build.md",
+      "kind": "markdown",
+      "sha256": "89eaec355cb0b79df3fffde10d6f464b8a5365311dff1da31b39c037bcb6eaf8"
+    },
+    {
+      "stage": "support",
+      "path": "spec/test/review-test-plan.md",
+      "kind": "markdown",
+      "sha256": "6642c1562287fffe1e169d76df94ed3712b79cb2a7ee726727c4c001f179a50b"
+    }
+  ],
+  "stageReports": [
+    {
+      "stageId": "00",
+      "path": "stages/00-エグゼクティブサマリ-まとめ.html"
+    },
+    {
+      "stageId": "01",
+      "path": "stages/01-仕様書-ludusゲーム内容解析.html"
+    },
+    {
+      "stageId": "02",
+      "path": "stages/02-ゲーム内ドメインと導出コンセプト.html"
+    },
+    {
+      "stageId": "03",
+      "path": "stages/03-仕様不足-矛盾点.html"
+    },
+    {
+      "stageId": "04",
+      "path": "stages/04-メカニクス-内部経済-循環-ルール複雑度.html"
+    },
+    {
+      "stageId": "05",
+      "path": "stages/05-ai-formatレビュー結果.html"
+    },
+    {
+      "stageId": "06",
+      "path": "stages/06-anatomia解析結果.html"
+    },
+    {
+      "stageId": "07",
+      "path": "stages/07-ux確認-提案-改善.html"
+    },
+    {
+      "stageId": "08",
+      "path": "stages/08-vitiaマーケティング分析-評価-提案.html"
+    },
+    {
+      "stageId": "09",
+      "path": "stages/09-di議論結果.html"
+    },
+    {
+      "stageId": "10",
+      "path": "stages/10-引用元-使用ツール.html"
     }
   ]
 }

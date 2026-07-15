@@ -1,4 +1,5 @@
 {
+  "generatedAt": "2026-07-16 (JST)",
   "sections": [
     {
       "id": "00",
@@ -8,7 +9,8 @@
     {
       "id": "01",
       "title": "01. 仕様書・Ludusゲーム内容解析",
-      "sources": ["spec/feature/game-spec.md", "spec/plan/03-ludus-analysis.md"]
+      "sources": ["spec/feature/game-spec.md", "spec/plan/03-ludus-analysis.md"],
+      "artifacts": ["report/ludus-analysis.html"]
     },
     {
       "id": "02",
@@ -33,7 +35,8 @@
     {
       "id": "06",
       "title": "06. Anatomia解析結果",
-      "sources": ["spec/plan/05-anatomia-analysis.md", "spec/plan/06-spec-code-wiring.md"]
+      "sources": ["spec/plan/05-anatomia-analysis.md", "spec/plan/06-spec-code-wiring.md"],
+      "artifacts": ["report/architecture-review.html"]
     },
     {
       "id": "07",
