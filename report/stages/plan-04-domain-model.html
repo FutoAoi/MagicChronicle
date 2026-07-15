@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MagicChronicle ドメインモデル初版</title><style>
+:root{--bg:#070a12;--panel:#111827;--text:#eef4ff;--muted:#9caecb;--cyan:#62e6ff;--violet:#a78bfa;--gold:#ffd166;--line:#2a3855}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -10%,#273261 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:48px 24px 80px}header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:.25em 0}h2{margin-top:2.2em;color:#fff;border-bottom:1px solid var(--line);padding-bottom:.25em}h3{color:#d7e5ff;margin-top:1.8em}p,li{max-width:88ch}a{color:var(--cyan)}code{background:#060914;border:1px solid #273550;border-radius:5px;padding:.08em .35em}pre{background:#050812;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;color:#dce8ff}pre[data-language="mermaid"]{border-color:#6d5bb5}blockquote{border-left:3px solid var(--violet);margin:1em 0;padding:.55em 1em;background:#14182b;color:#d9e3f7}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:1em 0}table{width:100%;border-collapse:collapse;background:rgba(17,24,39,.8)}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{color:var(--cyan);background:#131d31}nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#cbd8ef}.stage{background:linear-gradient(145deg,rgba(23,32,51,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.stage summary{cursor:pointer;font-weight:800;color:var(--gold)}.source{color:var(--muted);font-size:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.link-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--text)}.link-card:hover{border-color:var(--cyan)}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:700px){main{padding:28px 14px}th,td{min-width:140px}}@media print{body{background:#fff;color:#111}main{max-width:none}.stage,.link-card,pre,table{background:#fff;color:#111}a{color:#075985}details{display:block}details>summary{display:none}}
+</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>MagicChronicle ドメインモデル初版</h1><p>spec/plan/04-domain-model.md</p></header><h1>MagicChronicle ドメインモデル初版</h1>
+<ul>
+<li>文書版: 0.1.0</li>
+<li>入力: 仕様初版、Ludus解析、対象コード <code>ed9846e62728080798edf34f70237689ae807428</code></li>
+<li>目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</li>
+</ul>
+<h2>ドメイン地図</h2>
+<pre data-language="mermaid"><code>flowchart LR
+  Meta[Meta Progression] --&gt; Run[Run Progression]
+  Narrative[Narrative Content] --&gt; Run
+  Run --&gt; Encounter[Combat Encounter]
+  Run --&gt; Economy[Economy &amp; Reward]
+  Economy --&gt; Deck[Deck &amp; Build]
+  Deck --&gt; Board[Board Topology]
+  Encounter --&gt; Board
+  Encounter --&gt; Effects[Effects &amp; Status]
+  Board --&gt; Effects
+  Effects --&gt; Encounter
+  Presentation[Presentation / Input] -. adapter .-&gt; Run
+  Presentation -. adapter .-&gt; Encounter
+  Presentation -. adapter .-&gt; Deck</code></pre>
+<p>Presentation / Inputはドメインではなく、入力をコマンドへ変換し、結果イベントを表示するアダプターである。音、アニメーション、ドラッグ、画面遷移がルールの正本にならないようにする。</p>
+<h2>1. Run Progression</h2>
+<p>ラン開始から終了までの状態、マップ、部屋遷移を所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>Run</code>: <code>RunId</code>、seed、難易度、現在階層、現在部屋、状態、ラン内資産。</li>
+<li><code>RunMap</code>: 階層と<code>RoomNode</code>の有向非巡回グラフ。</li>
+<li><code>RoomNode</code>: 種別、接続先、公開情報、解決状態。</li>
+<li><code>RunState</code>: <code>NotStarted / SelectingRoom / ResolvingRoom / Rewarding / Cleared / Failed / Abandoned</code>。</li>
+</ul>
+<h3>コマンドとイベント</h3>
+<ul>
+<li><code>StartRun(seed, character, startingDeck)</code> → <code>RunStarted</code></li>
+<li><code>SelectRoom(nodeId)</code> → <code>RoomEntered</code></li>
+<li><code>CompleteRoom(result)</code> → <code>RoomCompleted</code>, <code>RewardOffered</code></li>
+<li><code>FailRun(reason)</code> → <code>RunFailed</code></li>
+</ul>
+<h3>不変条件</h3>
+<ul>
+<li>現在ノードから接続された未解決ノードだけを選択できる。</li>
+<li>一つの部屋を二重に解決しない。</li>
+<li><code>Cleared / Failed / Abandoned</code>後にラン内状態を変更しない。</li>
+</ul>
+<h2>2. Combat Encounter</h2>
+<p>一回の戦闘、ターン、弾の解決、勝敗を所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>Encounter</code>: 参加者、盤面、ターン番号、フェーズ、解決キュー、結果。</li>
+<li><code>Combatant</code>: HP、最大HP、攻撃起点、状態。</li>
+<li><code>TurnPhase</code>: <code>Planning / PlayerResolution / BoardSettling / EnemyResolution / EndTurn / Reward / Finished</code>。</li>
+<li><code>Projectile</code>: 所有者、位置、方向、威力、タグ、残り分岐履歴。</li>
+<li><code>EnemyIntent</code>: 次の射出点、軌道に影響する情報、予告精度。</li>
+</ul>
+<h3>コマンドとイベント</h3>
+<ul>
+<li><code>CommitPlacement(plan)</code> → <code>PlacementCommitted</code></li>
+<li><code>ResolvePlayerProjectiles()</code> → <code>ProjectileAdvanced</code>, <code>MagicCircleTriggered</code>, <code>DamageApplied</code></li>
+<li><code>ResolveEnemyProjectiles()</code> → 同上</li>
+<li><code>AdvancePhase()</code> → <code>PhaseChanged</code></li>
+<li><code>ConcedeEncounter()</code> → <code>EncounterLost</code></li>
+</ul>
+<h3>不変条件</h3>
+<ul>
+<li>フェーズ遷移は一方向で、解決中に新しい配置を受け付けない。</li>
+<li>勝敗確定後はダメージ、回復、報酬を二重適用しない。</li>
+<li>全ての結果は決定的な解決キューから順に生成する。</li>
+</ul>
+<h2>3. Board Topology</h2>
+<p>5x5盤面、魔法陣、接触、方向変更、分岐、耐久を所有する。このドメインが本作の中核である。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>Board</code>: 幅5、高さ5の<code>Cell</code>集合。</li>
+<li><code>Cell</code>: 座標、地形、配置物。</li>
+<li><code>MagicCircleInstance</code>: 定義ID、向き、残耐久、所有、付与修正。</li>
+<li><code>Route</code>: Projectileが通った座標と発火列。</li>
+<li><code>ResolutionQueue</code>: 安定した順序を持つドメイン操作列。</li>
+</ul>
+<h3>コマンドとイベント</h3>
+<ul>
+<li><code>PlaceMagicCircle(cardInstanceId, coordinate, rotation)</code> → <code>MagicCirclePlaced</code></li>
+<li><code>EnterCell(projectileId, coordinate)</code> → <code>MagicCircleTriggered</code></li>
+<li><code>ChangeDirection</code>, <code>SplitProjectile</code>, <code>ChangePower</code></li>
+<li><code>ConsumeDurability(amount)</code> → <code>DurabilityChanged</code>, <code>MagicCircleDestroyed</code></li>
+</ul>
+<h3>解決規則の提案</h3>
+<ol>
+<li>Projectileが次セルへ入る。</li>
+<li>セル上の魔法陣を一度だけ発火予約する。</li>
+<li>発火効果をカード記載順、同順位なら安定ID順でキューへ積む。</li>
+<li>効果を一件ずつ適用し、その発火の耐久を消費する。</li>
+<li>耐久0なら破壊イベントをキュー末尾へ積む。</li>
+<li>分岐弾は親弾の直後へ、方向の安定順で積む。</li>
+<li>盤外・停止・対象命中まで繰り返す。</li>
+</ol>
+<p>正式仕様では、破壊時効果と次の弾のどちらが先か、同一魔法陣への再入場、無限ループ上限を決定する必要がある。</p>
+<h3>不変条件</h3>
+<ul>
+<li>一つのセルに置ける盤面オブジェクト数は仕様上限以下。</li>
+<li>耐久は0未満にならず、0の魔法陣は後続弾へ作用しない。</li>
+<li>同じ入力、seed、初期状態から同じイベント列を得る。</li>
+<li>一つのProjectileに発火数または移動数の安全上限を置く。</li>
+</ul>
+<h2>4. Deck &amp; Build</h2>
+<p>カードの定義とインスタンス、各ゾーン、ドロー、配置コスト、報酬によるデッキ変更を所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>DeckBuild</code>: 所有カードインスタンスとラン内修正。</li>
+<li><code>CardDefinition</code>: 表示名、コスト、タグ、魔法陣定義、基礎効果。</li>
+<li><code>CardInstance</code>: 一意ID、強化段階、ラン内修正。</li>
+<li><code>CardZone</code>: <code>DrawPile / Hand / DiscardPile / Exhausted / Board / RewardOffer</code>。</li>
+<li><code>BuildTag</code>: <code>Combo / Berserker / Technical / Spirit</code>等。</li>
+</ul>
+<h3>状態遷移</h3>
+<pre data-language="mermaid"><code>stateDiagram-v2
+  [*] --&gt; DrawPile
+  DrawPile --&gt; Hand: draw
+  Hand --&gt; Board: place and pay
+  Hand --&gt; DiscardPile: discard
+  Board --&gt; DiscardPile: combat rule
+  Board --&gt; Exhausted: exhaust rule
+  DiscardPile --&gt; DrawPile: reshuffle
+  RewardOffer --&gt; DrawPile: acquire
+  Exhausted --&gt; [*]: end of run</code></pre>
+<h3>不変条件</h3>
+<ul>
+<li>一つのカードインスタンスは同時に一つのゾーンにだけ属する。</li>
+<li>コスト不足なら配置確定しない。</li>
+<li>山札再構築は捨て札を一度だけ移し、空のままならドローを終了する。</li>
+<li>除外カードを通常の捨て札へ戻さない。</li>
+</ul>
+<h2>5. Effects &amp; Status</h2>
+<p>魔法陣効果、バフ、デバフ、トリガー、スタック、寿命を統一して所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>EffectDefinition</code>: 対象、契機、演算、優先度、タグ。</li>
+<li><code>StatusInstance</code>: 定義ID、付与先、スタック、残回数、残ターン。</li>
+<li><code>Trigger</code>: <code>OnPlace / OnProjectileEnter / OnDestroyed / OnDamage / OnDraw / OnEnemyAttack / OnTurnEnd</code>。</li>
+<li><code>Modifier</code>: 加算、乗算、置換、禁止。</li>
+</ul>
+<h3>不変条件</h3>
+<ul>
+<li>全状態に消費契機と寿命を必須とする。</li>
+<li>同名状態の重複規則を<code>Add / Refresh / Replace / Reject</code>から選ぶ。</li>
+<li>置換・禁止・乗算・加算の順を固定する。</li>
+<li>UI文言と実際の契機は同じ定義から生成する。</li>
+</ul>
+<h2>6. Economy &amp; Reward</h2>
+<p>ラン内通貨、報酬候補、店、鍛冶屋、価格、支払いを所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>RunWallet</code>: 通貨種別と残高。</li>
+<li><code>RewardOffer</code>: 候補、選択数、期限、取得済み状態。</li>
+<li><code>ShopInventory</code>: seed付き商品列、価格、売切れ状態。</li>
+<li><code>UpgradeOffer</code>: 対象カード、変化内容、価格。</li>
+</ul>
+<h3>不変条件</h3>
+<ul>
+<li>支払いと取得は一つの操作として成功または失敗する。</li>
+<li>同じ報酬を二重取得しない。</li>
+<li>価格は購入前に確定し、表示値と決済値を一致させる。</li>
+<li>通貨の発生源と消費先をイベントとして追跡できる。</li>
+</ul>
+<h2>7. Meta Progression</h2>
+<p>複数ランを跨ぐ発見、解放、図鑑、チャレンジを所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>PlayerProfile</code>: バージョン、解放、実績、設定参照。</li>
+<li><code>Collection</code>: 発見済みカード・敵・イベント。</li>
+<li><code>Unlock</code>: 条件、対象、受領状態。</li>
+<li><code>Challenge</code>: 制約、記録、報酬。</li>
+</ul>
+<p>恒久成長は数値強化より、初期デッキ、キャラクター、カードプール、チャレンジなど横方向の選択肢を優先する。これは「無限に遊べる」と難易度維持の両立に向く。</p>
+<h2>8. Narrative Content</h2>
+<p>イベント、選択肢、物語フラグ、エンディング条件を所有する。</p>
+<h3>集約・値</h3>
+<ul>
+<li><code>NarrativeEvent</code>: 出現条件、本文、選択肢、効果。</li>
+<li><code>StoryFlag</code>: ラン内／プロフィール内のスコープ。</li>
+<li><code>EndingCondition</code>: Chronicle撃破、Kairos解放、隠しボス等の判定。</li>
+</ul>
+<h3>不変条件</h3>
+<ul>
+<li>選択可能な選択肢が0件のイベントを開始しない。</li>
+<li>不正なIDでも画面を閉じられる安全なフォールバックを持つ。</li>
+<li>文言、条件、効果を同じコンテンツIDで追跡できる。</li>
+</ul>
+<h2>ドメイン間イベント</h2>
+<div class="table-wrap"><table><thead><tr><th>発行元</th><th>イベント</th><th>主な購読先</th><th>意味</th></tr></thead><tbody><tr><td>Run</td><td><code>RoomEntered</code></td><td>Combat / Narrative / Economy</td><td>部屋種別に応じた解決開始</td></tr><tr><td>Deck</td><td><code>MagicCirclePlaced</code></td><td>Board / Economy / Presentation</td><td>カード移動とコスト支払い後の配置</td></tr><tr><td>Board</td><td><code>MagicCircleTriggered</code></td><td>Effects / Presentation</td><td>効果適用と演出</td></tr><tr><td>Board</td><td><code>MagicCircleDestroyed</code></td><td>Effects / Deck / Presentation</td><td>破壊時効果とゾーン移動</td></tr><tr><td>Encounter</td><td><code>EncounterWon</code></td><td>Run / Economy / Meta</td><td>部屋完了と報酬生成</td></tr><tr><td>Encounter</td><td><code>EncounterLost</code></td><td>Run / Meta</td><td>ラン終了または例外的継続</td></tr><tr><td>Economy</td><td><code>RewardSelected</code></td><td>Deck / Run / Presentation</td><td>デッキ・資産更新</td></tr><tr><td>Narrative</td><td><code>StoryFlagChanged</code></td><td>Run / Meta</td><td>分岐・解放・結末判定</td></tr></tbody></table></div>
+<h2>共通語彙</h2>
+<div class="table-wrap"><table><thead><tr><th>用語</th><th>定義</th></tr></thead><tbody><tr><td>魔法陣</td><td>盤面セルへ配置され、弾の接触で発火するルールオブジェクト</td></tr><tr><td>カード</td><td>魔法陣を配置する権利と定義を持つ、ゾーン間を移動するインスタンス</td></tr><tr><td>発火</td><td>接触等の契機で効果を解決キューへ登録すること</td></tr><tr><td>耐久</td><td>発火で消費され、0で魔法陣を盤面から除く回数資源</td></tr><tr><td>自弾／敵弾</td><td>所有者がプレイヤー／敵のProjectile。盤面規則は共有する</td></tr><tr><td>連鎖</td><td>一つの入力から複数の発火・分岐・破壊時効果が因果的に続くこと</td></tr><tr><td>ラン</td><td>開始デッキ選択からクリア・失敗・放棄までの一回の進行</td></tr><tr><td>恒久</td><td>ラン終了後もプロフィールへ残る状態</td></tr></tbody></table></div>
+<h2>現コードへ導入する際の境界</h2>
+<p>新しいルールを画面Managerへ追加せず、純粋なドメイン操作として実装し、Unity側はコマンド送信とイベント表示に限定する。特に<code>UIManager_Battle</code>、<code>UIManager_Boss</code>、<code>GameManager</code>へ新しい分岐を集中させない。段階移行では、まずカードゾーン、次に解決キュー、最後にラン状態を抽出する順が安全である。</p><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>

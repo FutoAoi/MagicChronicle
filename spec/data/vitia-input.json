@@ -1,0 +1,32 @@
+{
+  "signals": {
+    "identity_relevance": 0.75,
+    "status_visibility": 0.35,
+    "aspiration": 0.70,
+    "public_consumption": 0.25,
+    "proof_strength": 0.45,
+    "sensory_vividness": 0.90,
+    "affect_intensity": 0.85,
+    "immediacy": 0.80,
+    "trialability": 0.90,
+    "novelty": 0.75,
+    "reward_clarity": 0.70,
+    "repeat_frequency": 0.70,
+    "variety_potential": 0.85,
+    "habit_opportunity": 0.65,
+    "satiation_risk": 0.60,
+    "feedback_speed": 0.85,
+    "decision_friction": 0.70,
+    "effort": 0.60,
+    "delay": 0.20,
+    "choice_complexity": 0.80
+  },
+  "confidence": {
+    "global": 0.65,
+    "luxuria": 0.80,
+    "superbia": 0.65,
+    "gula": 0.55,
+    "acedia": 0.70
+  },
+  "risk_flags": []
+}

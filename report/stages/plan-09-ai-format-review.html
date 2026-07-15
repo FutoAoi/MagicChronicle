@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MagicChronicle AI Format統合レビュー</title><style>
+:root{--bg:#070a12;--panel:#111827;--text:#eef4ff;--muted:#9caecb;--cyan:#62e6ff;--violet:#a78bfa;--gold:#ffd166;--line:#2a3855}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -10%,#273261 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:48px 24px 80px}header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:.25em 0}h2{margin-top:2.2em;color:#fff;border-bottom:1px solid var(--line);padding-bottom:.25em}h3{color:#d7e5ff;margin-top:1.8em}p,li{max-width:88ch}a{color:var(--cyan)}code{background:#060914;border:1px solid #273550;border-radius:5px;padding:.08em .35em}pre{background:#050812;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;color:#dce8ff}pre[data-language="mermaid"]{border-color:#6d5bb5}blockquote{border-left:3px solid var(--violet);margin:1em 0;padding:.55em 1em;background:#14182b;color:#d9e3f7}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:1em 0}table{width:100%;border-collapse:collapse;background:rgba(17,24,39,.8)}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{color:var(--cyan);background:#131d31}nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#cbd8ef}.stage{background:linear-gradient(145deg,rgba(23,32,51,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.stage summary{cursor:pointer;font-weight:800;color:var(--gold)}.source{color:var(--muted);font-size:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.link-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--text)}.link-card:hover{border-color:var(--cyan)}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:700px){main{padding:28px 14px}th,td{min-width:140px}}@media print{body{background:#fff;color:#111}main{max-width:none}.stage,.link-card,pre,table{background:#fff;color:#111}a{color:#075985}details{display:block}details>summary{display:none}}
+</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>MagicChronicle AI Format統合レビュー</h1><p>spec/plan/09-ai-format-review.md</p></header><h1>MagicChronicle AI Format統合レビュー</h1>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>対象</td><td><code>FutoAoi/MagicChronicle</code></td></tr><tr><td>対象コミット</td><td><code>ed9846e62728080798edf34f70237689ae807428</code></td></tr><tr><td>基準日</td><td>2026-07-15</td></tr><tr><td>AI Format</td><td><code>ae8a566700fb108d225e0f2e8f7e42fb61679f7f</code></td></tr><tr><td>サービス分類</td><td><code>game</code>（Unityクライアント、バックエンドなし）</td></tr><tr><td>Anatomia</td><td>120 files / 424 functions / design strength 59.4</td></tr></tbody></table></div>
+<h2>結論</h2>
+<p>総合評価は<strong>B</strong>、Critical 0、High 9。ScriptableObjectによるデータ分離、魔法・ダメージ表示のobject pool、UI/Effect interfaceの導入は良い。一方、回復不能、exhaustカードの再投入、空山札参照というコアループ停止級の不具合があり、自動テスト、run初期化、clean build、ライセンス、プラットフォーム準備も不足している。<strong>現状はリリース保留</strong>である。</p>
+<p>既存AI Formatレビューは一つ前の<code>4afc6224...</code>を対象としていた。現コミット<code>ed9846e...</code>との差分は<code>DeckPanelManager.cs</code>の未使用<code>NUnit</code> import削除のみであり、<code>CODE-011</code>（Low）は解消済み。他の指摘に影響するコード差分はないため、High件数とカテゴリ評価を維持した。</p>
+<h2>評価一覧</h2>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>観点</th><th>評価</th><th>High</th><th>今回の仕様・構造解析による補足</th></tr></thead><tbody><tr><td>1</td><td>設計強度</td><td>B</td><td>0</td><td>Anatomia 59.4。循環健全性0、God Class健全性45.8</td></tr><tr><td>2</td><td>設計思想の一貫性</td><td>B</td><td>0</td><td>データ駆動とManager直書き、serialized設定とhard-codeが混在</td></tr><tr><td>3</td><td>モジュール分割度</td><td>B</td><td>0</td><td>Battle/Boss UI重複、クラスmodularity 0.250</td></tr><tr><td>4</td><td>コード品質</td><td>C</td><td>3</td><td>回復、カードゾーン、空山札の実害</td></tr><tr><td>5</td><td>コード脆弱性</td><td>B</td><td>0</td><td>攻撃経路なし。Unity実行・動的検証は未実施</td></tr><tr><td>6</td><td>CI/CD・supply chain</td><td>B</td><td>0</td><td>依存inventory、provenance、clean build gateなし</td></tr><tr><td>7</td><td>テスト戦略</td><td>C</td><td>1</td><td>コア戦闘・deck・economy・data integrityの自動テストなし</td></tr><tr><td>8</td><td>ライセンス</td><td>C</td><td>1</td><td><code>LICENSE</code> / <code>THIRD_PARTY_NOTICES</code>不在</td></tr><tr><td>9</td><td>ドキュメント</td><td>B</td><td>0</td><td>今回spec初版を追加。ただしsetup/data/testの実装同期はこれから</td></tr><tr><td>10</td><td>LLMセキュリティ</td><td>N/A</td><td>0</td><td>LLM機能なし</td></tr><tr><td>11</td><td>AI生成コード検収</td><td>B</td><td>0</td><td>由来・検収方針なし</td></tr><tr><td>12</td><td>クライアント信頼境界</td><td>A</td><td>0</td><td>オフライン単体、外部権威値なし</td></tr><tr><td>13</td><td>チート対策</td><td>B</td><td>0</td><td>ランキングなし。要件文書なし</td></tr><tr><td>14</td><td>セーブ・課金保護</td><td>A</td><td>0</td><td>永続save/課金なし。将来導入時は再評価</td></tr><tr><td>15</td><td>マルチプレイ</td><td>N/A</td><td>0</td><td>オンライン要素なし</td></tr><tr><td>16</td><td>セーブデータ設計</td><td>C</td><td>1</td><td>run reset/carry-over境界なし</td></tr><tr><td>17</td><td>アセット管理</td><td>C</td><td>1</td><td>CRIWARE/StreamingAssets等の復元手順なし</td></tr><tr><td>18</td><td>データ駆動設計</td><td>C</td><td>1</td><td>authoring validatorなし、不正Event IDでsoftlock</td></tr><tr><td>19</td><td>パフォーマンス</td><td>B</td><td>0</td><td>pool/60fps設定はあるが計測予算なし</td></tr><tr><td>20</td><td>プラットフォーム互換</td><td>C</td><td>1</td><td>Mouse依存、safe area、product ID、build gate不足</td></tr><tr><td>21</td><td>accessibility/localization</td><td>B</td><td>0</td><td>文字列、UI scale、remap、色以外の識別が未整備</td></tr></tbody></table></div>
+<h2>High指摘</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>場所</th><th>事実と影響</th><th>修正の受け入れ条件</th></tr></thead><tbody><tr><td>CODE-001</td><td><code>CharacterBase.cs:80</code></td><td><code>Mathf.Clamp</code>戻り値を捨て、回復効果でHPが変わらない</td><td>0/通常/超過回復のtestが通る</td></tr><tr><td>CODE-003</td><td><code>UIManager_Battle.cs:115-125</code>, <code>UIManager_Boss.cs:113-123</code></td><td>exhaust/removedカードを山札へ再投入</td><td><code>RunDeckState</code>でゾーンを一意化し再構築testが通る</td></tr><tr><td>CODE-015</td><td>両UIManagerの<code>DrawCard</code></td><td>再構築後も山札0で<code>DeckCard[0]</code>を読む</td><td>no-cardを正常結果にし、全札が手札/除外でも停止しない</td></tr><tr><td>QUALITY-001</td><td><code>Assets</code>, <code>Packages</code></td><td>戦闘、deck、報酬、data integrityの自動testなし</td><td>Unity非依存rule test + Edit/PlayMode smoke + CI</td></tr><tr><td>QUALITY-002</td><td>ルート</td><td>配布権利と帰属を集約確認できない</td><td>license inventoryと<code>THIRD_PARTY_NOTICES</code>を承認</td></tr><tr><td>GAMEIMPL-001</td><td>Deck/Wallet/Game Manager</td><td>sceneを跨ぐ状態の新規run resetがない</td><td><code>StartNewRun/Resume/EndRun</code>で全状態を一括管理</td></tr><tr><td>GAMEIMPL-002</td><td><code>.gitignore</code>, CRI audio</td><td>clean cloneでvendor/runtime assetを復元できない</td><td>version/checksum/取得/配置/licenseを固定しCI build</td></tr><tr><td>GAMEIMPL-003</td><td>Event/Data/Map</td><td>将来の不正Event IDでblank panel softlock</td><td>pre-build validator + runtime fallback +復帰test</td></tr><tr><td>GAMEQUALITY-001</td><td>Input/UI/ProjectSettings</td><td><code>Mouse.current</code> null、safe area、製品設定、対象build gate不足</td><td>PC/iOS/Androidの優先gateごとに端末smokeを通す</td></tr></tbody></table></div>
+<h2>Anatomia詳細レビューの統合</h2>
+<h3>孤立関数</h3>
+<p>static fan-in 0は129件。ただしUnity lifecycle、EventSystem、Editor callback、Inspector/scene UnityEventが多数を占める。削除数として扱わず、<code>GameManager.ChangePlayerType</code>、<code>GivePlayerBuffData</code>、旧<code>AudioManager.PlayBGM</code>、CardEncyclopedia filter/sort等をscene/prefab・PlayMode到達まで確認する。<code>RewardManager.RewardSkip</code>は静的には孤立だが<code>AddListener</code>で使用中であり削除不可。</p>
+<h3>複雑度</h3>
+<ul>
+<li>最大cyclomatic: <code>AttackMagic.Attack</code> 9、<code>CardMovement.OnEndDrag</code> 9。</li>
+<li>最大級fan-out: <code>TileSlot.DecreaseTimes</code> 23、<code>AttackMagic.ActivateMagic</code> 22。</li>
+<li><code>GameManager.Update</code>はcyclomatic 7、cross-domain depth 10、shared-state fan-in 4。</li>
+</ul>
+<p>極端な単一関数より、盤面・効果・UI・Managerの相互呼び出しによる分散複雑度が主要リスクである。</p>
+<h3>設計強度</h3>
+<p>59.4/100。componentはdomain coverage 99.3、cohesion 98.6、cycle health 0、directory modularity 53.2、spec linkage 0、God Class health 45.8。coverage/cohesionは421要素が汎用<code>state-machine</code>へ集中した結果なので、良好値を過大評価しない。</p>
+<h3>ドメイン貧血度</h3>
+<p>自動値はrisk 18だが、ドメイン分類が一領域へ潰れているため意味上の貧血を捉えない。人手モデルではカード定義と各Dataは存在する一方、カード状態遷移、解決順、run lifecycle、取引不変条件をManager/UIが所有している。<code>RunDeckState</code>、<code>ResolutionQueue</code>、<code>RunState</code>、<code>RewardTransaction</code>を抽出する。</p>
+<h3>God Class</h3>
+<p>review candidateは<code>UIManager_Battle</code> 54.2、<code>UIManager_Boss</code> 54.2、<code>GameManager</code> 50.7。70以上のcritical候補はない。二つのUIManagerは同型メソッドと同一不具合を持つため、共通Presenter/HandControllerへの集約を最初に行う。</p>
+<h2>仕様入力で追加された判断</h2>
+<ol>
+<li>既存Highのdeck不具合は局所修正だけでなく、未定義のカードゾーン契約が根因である。</li>
+<li>戦闘循環は本作の連鎖メカニクスを直接表すため、単純にcallを切るのではなく決定的<code>ResolutionQueue</code>へ変換する。</li>
+<li><code>Mouse.current</code>問題は企画のPC/iOS/Android同時記載と直結する。TGS向けPC gateとモバイルgateを分離する。</li>
+<li>data integrity validatorはイベントsoftlockだけでなく、カード、buff、enemy、stage、mapのID/参照を一括検査する。</li>
+<li>「無限に遊べる」を品質要件へ変換し、run/profile reset、seed、横方向解放、履歴を仕様化する。</li>
+</ol>
+<h2>リリースゲート</h2>
+<h3>Gate 1 — コアループ修復</h3>
+<ul>
+<li>CODE-001/003/015を修正。</li>
+<li>カード保存則、空山札、回復、耐久端処理、run resetの自動test。</li>
+<li>Battle/Bossの共通カード操作。</li>
+</ul>
+<h3>Gate 2 — 決定性とデータ健全性</h3>
+<ul>
+<li><code>ResolutionQueue</code>または同等の処理順正本。</li>
+<li>同じseed・入力から同じイベント列。</li>
+<li>ScriptableObject ID、foreign key、必須参照、rangeのpre-build validator。</li>
+</ul>
+<h3>Gate 3 — 再現ビルド</h3>
+<ul>
+<li>clean cloneからUnity 6000.3.8f1 compile。</li>
+<li>vendor assetのversion/checksum/配置/license。</li>
+<li>主要scene smokeと対象プラットフォームbuild。</li>
+</ul>
+<h3>Gate 4 — TGS試遊品質</h3>
+<ul>
+<li>tutorial、敵意図、射線/発火順preview、safe input。</li>
+<li>20分等の試遊範囲と成功KPIを固定。</li>
+<li>frame time、メモリ、連鎖演出時間の実測。</li>
+</ul>
+<h2>未実施</h2>
+<p>Unity Editor compile、EditMode/PlayMode test、実機build、実プレイ、性能計測、動的脆弱性scanは未実施。サービス停止を成功扱いせず、静的レビューと文書化の範囲だけを完了とする。</p>
+<h2>最終判断</h2>
+<p><strong>Hold / 改修後再レビュー</strong>。まずコアループの3 Highとrun resetを直し、解決順・カードゾーンのテストを通す。その後にコンテンツ追加、モバイル対応、メタ進行へ進む。</p><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>

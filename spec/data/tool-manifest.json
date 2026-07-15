@@ -1,0 +1,20 @@
+{
+  "target": {
+    "repository": "FutoAoi/MagicChronicle",
+    "commit": "ed9846e62728080798edf34f70237689ae807428"
+  },
+  "tools": {
+    "ludus": "b949cfa136fa27de101ace324f99a715f17e6846",
+    "anatomia": "2b09de8f79f4c205f6cb797a3135316e764ef56e",
+    "aiformat": "ae8a566700fb108d225e0f2e8f7e42fb61679f7f",
+    "discutere": "5640fda49e1759a1ce07cfa677e39c5b5379563d",
+    "vitia_skill_sha256": "CD4613A247B79F4FB2680DEFA6E3B25B220158B11B0306F4DCFCC9CE5668A8C2",
+    "vitia_score_script_sha256": "9982BB4605E02A670212F6D83A74F4269ADDC4349CCEA651DA11B3351EBD64EB"
+  },
+  "accepted_omissions": [
+    {
+      "stage": "di-live-llm",
+      "reason": "The user chose to finish this run without a live Di discussion."
+    }
+  ]
+}

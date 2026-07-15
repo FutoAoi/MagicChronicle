@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicChronicle — Ludus Play Analysis</title>
+  <style>
+    :root{--bg:#080b14;--panel:#11182a;--panel2:#17213a;--text:#edf3ff;--muted:#9caecb;--cyan:#56e6ff;--violet:#a88cff;--gold:#ffd166;--red:#ff6b7a;--line:#2a3858}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 78% -10%,#25305f 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
+    main{max-width:1180px;margin:auto;padding:54px 24px 80px}header{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:end;margin-bottom:30px}
+    .eyebrow{color:var(--cyan);letter-spacing:.16em;text-transform:uppercase;font-size:12px;font-weight:800}h1{font-size:clamp(36px,7vw,72px);line-height:1;margin:.18em 0}.lead{font-size:18px;color:#cbd7ed;max-width:760px}.meta{border-left:2px solid var(--violet);padding-left:18px;color:var(--muted);font-size:13px}
+    section{margin:28px 0}.panel{background:linear-gradient(145deg,rgba(23,33,58,.96),rgba(13,19,34,.96));border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 18px 60px #0006}h2{font-size:24px;margin:0 0 16px}h3{margin:.2em 0}.grid3,.grid2{display:grid;gap:16px}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}
+    .layer{min-height:190px;position:relative;overflow:hidden}.layer b{font-size:20px}.n{font-size:54px;font-weight:900;color:#ffffff13;position:absolute;right:18px;bottom:2px}.tag{display:inline-block;border:1px solid currentColor;border-radius:999px;padding:2px 9px;margin:2px;color:var(--cyan);font-size:12px}.accent{color:var(--gold)}
+    .loop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.step{background:#0b1222;border:1px solid var(--line);border-radius:10px;padding:9px 12px}.arrow{color:var(--cyan)}
+    table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--cyan);position:sticky;top:0;background:var(--panel)}.fit{font-weight:800}.high{color:#70f0bb}.mid{color:var(--gold)}.low{color:var(--red)}
+    ol,ul{padding-left:1.3em}.risk{border-left:3px solid var(--red)}.strength{border-left:3px solid var(--cyan)}footer{color:var(--muted);font-size:12px;margin-top:34px}
+    @media(max-width:820px){header,.grid3,.grid2{grid-template-columns:1fr}main{padding:30px 14px}.panel{padding:18px}table{display:block;overflow:auto}}
+    @media print{body{background:#fff;color:#111}.panel{box-shadow:none;background:#fff;border-color:#bbb}.meta,.lead,footer{color:#444}.step{background:#fff}.tag,th{color:#075985}main{max-width:none}}
+  </style>
+</head>
+<body><main>
+  <header>
+    <div><div class="eyebrow">Ludus / Play Dictionary Analysis</div><h1>Magic<br>Chronicle</h1><p class="lead">盤面パズル、デッキ構築、ローグライト・ラン。その接点に「自分と敵が同じ魔法陣を使う」時系列パズルがある。</p></div>
+    <div class="meta">Document 0.1.0 / 2026-07-15<br>Code <code>ed9846e</code><br>Ludus <code>b949cfa</code><br>Source: public plan/spec + project code</div>
+  </header>
+  <section class="grid3">
+    <article class="panel layer"><span class="tag">Puzzle</span><h3>盤面を設計する</h3><p>5x5盤面へ魔法陣を配置し、弾道・発火順・耐久消費を読む。</p><div class="n">01</div></article>
+    <article class="panel layer"><span class="tag">Deckbuilder</span><h3>解法を構築する</h3><p>手札、コスト、報酬選択から、コンボ・自傷・状態異常の軸を育てる。</p><div class="n">02</div></article>
+    <article class="panel layer"><span class="tag">Roguelite</span><h3>リスクを持ち越す</h3><p>分岐する部屋と限られた資源の中で、次の戦闘へビルドを接続する。</p><div class="n">03</div></article>
+  </section>
+  <section class="panel"><h2>固有の遊び</h2><div class="grid2"><div><h3 class="accent">途中で経路が変わる</h3><p>発火で耐久が減り、魔法陣が消える。後続弾は変化後の盤面を通るため、一枚の盤面が時間とともに別の問題へ変わる。</p></div><div><h3 class="accent">敵も同じ装置を使う</h3><p>自分に有利な連鎖装置は、敵弾にも反応する。最大火力と安全性が同じ配置上で衝突する。</p></div></div></section>
+  <section class="panel"><h2>三つのループ</h2><h3>戦闘内</h3><div class="loop"><span class="step">手札確認</span><span class="arrow">→</span><span class="step">配置・予測</span><span class="arrow">→</span><span class="step">自弾</span><span class="arrow">→</span><span class="step">盤面変化</span><span class="arrow">→</span><span class="step">敵弾</span></div><h3>ラン内</h3><div class="loop"><span class="step">部屋選択</span><span class="arrow">→</span><span class="step">戦闘／イベント</span><span class="arrow">→</span><span class="step">報酬</span><span class="arrow">→</span><span class="step">ビルド更新</span><span class="arrow">→</span><span class="step">ボス</span></div><h3>メタ</h3><div class="loop"><span class="step">発見</span><span class="arrow">→</span><span class="step">図鑑・解放</span><span class="arrow">→</span><span class="step">新しい初期条件</span><span class="arrow">→</span><span class="step">別ビルド探索</span></div></section>
+  <section class="panel"><h2>辞書との主要対応</h2><table><thead><tr><th>Ludus項目</th><th>適合</th><th>実体</th><th>不足</th></tr></thead><tbody>
+    <tr><td>puzzle / grid-board</td><td class="fit high">高</td><td>5x5盤面、経路、連鎖、耐久</td><td>端・空き・配置不可・評価規則</td></tr>
+    <tr><td>deckbuilder / build-optimize</td><td class="fit high">高</td><td>手札、コスト、三つのビルド軸</td><td>カード状態遷移、出現重み、削除・強化</td></tr>
+    <tr><td>roguelike / run-growth</td><td class="fit high">高</td><td>分岐部屋、報酬、ボス</td><td>死亡時喪失、生成、恒久成長</td></tr>
+    <tr><td>rule-resolution / turn-phase</td><td class="fit mid">中</td><td>自弾→敵弾、接触発火</td><td>単一の解決キュー、例外、同時処理</td></tr>
+    <tr><td>hint-assist / information-ui</td><td class="fit low">低</td><td>画面案のみ</td><td>射線、発火順、消滅、危険経路の予測</td></tr>
+    <tr><td>meta-progression</td><td class="fit low">低</td><td>図鑑・解放の画面案</td><td>複数ランを跨ぐ目的と横方向の解放</td></tr>
+  </tbody></table></section>
+  <section class="grid2"><article class="panel strength"><h2>設計上の強み</h2><ul><li>攻撃装置と防御リスクが同居する。</li><li>耐久消滅が時系列パズルを作る。</li><li>シナジーを数値だけでなく弾道として見せられる。</li><li>一手の準備が多段連鎖へ変わり、企画の爽快感と一致する。</li></ul></article><article class="panel risk"><h2>主要リスク</h2><ol><li>解決順が見えず、奥深さが不可解さになる。</li><li>ドロー運と盤面最適解のどちらかが他方を上書きする。</li><li>敵射線が不明で、共有盤面が理不尽に見える。</li><li>報酬と部屋差が弱く、ランが同じ戦闘の反復になる。</li></ol></article></section>
+  <section class="panel"><h2>次に固定する6つの規則</h2><ol><li>発火・分岐・破壊・死亡を含む単一解決キュー</li><li>山札／手札／捨て札／除外／盤面の状態遷移</li><li>自弾・敵弾の完全予測と伏せ情報の境界</li><li>バフの寿命、消費、重複、上限、無効化順</li><li>ラン終了時に失うもの・残るもの</li><li>連鎖の巧さと爽快感を測る評価指標</li></ol></section>
+  <footer>MagicChronicle固有の評価はプロジェクト側にのみ保存。Ludusへの書き戻しは行っていない。</footer>
+</main></body></html>

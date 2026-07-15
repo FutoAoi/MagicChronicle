@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MagicChronicle ディスカッションペーパー</title><style>
+:root{--bg:#070a12;--panel:#111827;--text:#eef4ff;--muted:#9caecb;--cyan:#62e6ff;--violet:#a78bfa;--gold:#ffd166;--line:#2a3855}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -10%,#273261 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:48px 24px 80px}header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:.25em 0}h2{margin-top:2.2em;color:#fff;border-bottom:1px solid var(--line);padding-bottom:.25em}h3{color:#d7e5ff;margin-top:1.8em}p,li{max-width:88ch}a{color:var(--cyan)}code{background:#060914;border:1px solid #273550;border-radius:5px;padding:.08em .35em}pre{background:#050812;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;color:#dce8ff}pre[data-language="mermaid"]{border-color:#6d5bb5}blockquote{border-left:3px solid var(--violet);margin:1em 0;padding:.55em 1em;background:#14182b;color:#d9e3f7}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:1em 0}table{width:100%;border-collapse:collapse;background:rgba(17,24,39,.8)}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{color:var(--cyan);background:#131d31}nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#cbd8ef}.stage{background:linear-gradient(145deg,rgba(23,32,51,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.stage summary{cursor:pointer;font-weight:800;color:var(--gold)}.source{color:var(--muted);font-size:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.link-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--text)}.link-card:hover{border-color:var(--cyan)}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:700px){main{padding:28px 14px}th,td{min-width:140px}}@media print{body{background:#fff;color:#111}main{max-width:none}.stage,.link-card,pre,table{background:#fff;color:#111}a{color:#075985}details{display:block}details>summary{display:none}}
+</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>MagicChronicle ディスカッションペーパー</h1><p>spec/plan/12-discussion-paper.md</p></header><h1>MagicChronicle ディスカッションペーパー</h1>
+<ul>
+<li>Paper version: 0.1.0</li>
+<li>Date: 2026-07-15</li>
+<li>Intended engine: Discutere headless discussion</li>
+<li>Evidence policy: <code>source / code / analysis / hypothesis / unknown</code>を区別し、未実測を事実扱いしない</li>
+</ul>
+<h2>Theme</h2>
+<p>MagicChronicleは、共有盤面・耐久消滅・deck構築を組み合わせることで「面白く奥深く、売れるゲーム」になり得るか。TGS 2026へ向けて、何を残し、何を削り、何を最初に改善すべきか。</p>
+<h2>議論する三問</h2>
+<ol>
+<li><strong>面白さ/奥深さ</strong> — 共有盤面と時系列連鎖は、理解可能な深さになるか、それとも予測不能な複雑さになるか。</li>
+<li><strong>売れるか</strong> — 競争の激しいroguelike/deckbuilder市場で、短時間に固有価値を証明できるか。</li>
+<li><strong>どう改善するか</strong> — TGSまでの限られた期間で、bug、rule、UX、content、marketingのどれを優先すべきか。</li>
+</ol>
+<h2>1. 企画・仕様の要約</h2>
+<ul>
+<li><code>source</code>: 一人用roguelike puzzle。5x5盤面へ手札の魔法陣をcostで配置する。</li>
+<li><code>source</code>: 自弾が左から進み、接触した魔法陣が方向変更、分岐、damage、状態等を発火する。</li>
+<li><code>source</code>: 発火で耐久が減り、0で消滅。後続弾は変化後の盤面を通る。</li>
+<li><code>source</code>: player攻撃後、敵弾も同じ魔法陣を発火する。</li>
+<li><code>source</code>: 企画conceptは「ピースがはまった時の爆発的な爽快感」「無限に遊べる」。TGS 2026出展を目標とする。</li>
+<li><code>source</code>: deckbuilding、分岐map、戦闘/event/shop/鍛冶/elite/boss、三つのbuild軸を想定する。</li>
+<li><code>unknown</code>: 完全な解決順、card zone、buff式、run reset、economy値、meta progression、platform gate。</li>
+</ul>
+<h2>2. Ludus解析の要約</h2>
+<ul>
+<li><code>analysis</code>: 遊びは盤面puzzle、deckbuilder、roguelite runの三層。</li>
+<li><code>analysis</code>: 差別化の中心は、解決途中で盤面が変わる時系列puzzleと、敵も同じ装置を使うrisk/reward。</li>
+<li><code>analysis</code>: 強みはsynergyが数値だけでなく弾道として見えること。</li>
+<li><code>analysis</code>: 最大riskは予測不能化、draw運と盤面最適解の競合、敵turnの理不尽さ、runの単調化、meta不在。</li>
+</ul>
+<h2>3. ドメイン整理の要約</h2>
+<p>人手モデルはRun Progression、Combat Encounter、Board Topology、Deck &amp; Build、Effects &amp; Status、Economy &amp; Reward、Meta Progression、Narrative Contentの8領域。Presentation/Inputはadapterとした。</p>
+<p><code>analysis</code>: 中心となる不変条件は、決定的ResolutionQueue、一card一zone、支払いと取得の原子性、run終了後の不変性、全状態のtrigger/lifetime、同じseed/inputから同じ結果である。</p>
+<h2>4. Anatomia・コード配線の要約</h2>
+<ul>
+<li><code>code</code>: 120 files、424 functions、347 resolved calls、764 unresolved、12 cycle groups、129 static fan-in 0。</li>
+<li><code>analysis</code>: design strength 59.4。ただし421要素が汎用<code>state-machine</code>へ集中し、domain coverage 99.3/cohesion 98.6は過大評価しやすい。</li>
+<li><code>code</code>: <code>AttackMagic.Attack</code>と<code>CardMovement.OnEndDrag</code>はcyclomatic 9。<code>TileSlot.DecreaseTimes</code>はfan-out 23。</li>
+<li><code>code</code>: <code>AttackMagic ↔ TileSlot ↔ Effect</code>に7関数の中核cycle。</li>
+<li><code>analysis</code>: God Class候補は<code>UIManager_Battle/Boss</code>各54.2、<code>GameManager</code>50.7。</li>
+<li><code>analysis</code>: ルールはdata objectよりManager/UIへ置かれ、意味上のdomain anemiaがある。</li>
+</ul>
+<h2>5. 仕様不足・矛盾の要約</h2>
+<ul>
+<li>P0: 解決順、card zone、turn/cost、buff契約、run lifecycle、勝敗、敵情報、TGS scope。</li>
+<li>矛盾: 筋力式、buff消費契機、counter/反射、technicalの意味、cost minus、霊陣、拠点ガチャ、無限性。</li>
+<li><code>analysis</code>: content追加より、解決順・card zone・run lifecycleの承認が先。</li>
+</ul>
+<h2>6. Mechanics・内部経済の要約</h2>
+<ul>
+<li><code>analysis</code>: 最小動詞は読む、置く、確定する。</li>
+<li><code>analysis</code>: 耐久は発火回数、盤面寿命、破壊時価値の三役を接続する最も強い資源。</li>
+<li><code>analysis</code>: card経済はreward追加のsource優位でdeck肥大とsnowball risk。削除、強化、skipが必要。</li>
+<li><code>analysis</code>: 暫定循環清浄度43/100。本質的complexity 67、偶発的complexity 78。数値balanceは未評価。</li>
+<li><code>hypothesis</code>: 本質的complexityを保ち、偶発的complexityを35以下へ落とすと奥深さに変わる。</li>
+</ul>
+<h2>7. AI Format統合レビューの要約</h2>
+<ul>
+<li><code>code</code>: 総合B、Critical 0、High 9、release hold。</li>
+<li><code>code</code>: 回復不能、exhaust card再投入、空山札indexの3 core bug。</li>
+<li><code>code</code>: core自動testなし、run resetなし、不正Event ID softlock、clean build/vendor/license/platform gateなし。</li>
+<li><code>analysis</code>: 最初のrelease gateは3 bug + card保存則 + run reset + deterministic resolution。</li>
+</ul>
+<h2>8. UX提案の要約</h2>
+<ul>
+<li><code>analysis</code>: UX目標は「自分の一手でchainを作った」と因果を所有できること。</li>
+<li>P0: 自/敵弾の色・線種分離、敵意図、発火番号、耐久消滅preview、因果log。</li>
+<li><code>hypothesis</code>: tutorialを方向→cost→耐久→敵共有→分岐→buildの7段階で公開する。</li>
+<li><code>hypothesis</code>: 結果damageだけでなくevent列を見せると、初心者支援と上級最適化を両立する。</li>
+</ul>
+<h2>9. Vitia市場仮説の要約</h2>
+<ul>
+<li><code>analysis</code>: Vitia scoreはLuxuria 0.768がprimary。Gula 0.597はsecondary不採用。</li>
+<li><code>analysis</code>: 売るべきepisodeは「置く→連鎖→砕ける→敵弾が逆利用」。<code>無限</code>は未証明なので使わない。</li>
+<li><code>hypothesis</code>: Propositionは「その一手は、最強の連鎖にも、敵の罠にもなる。5×5の魔法陣ローグライト。」</li>
+<li><code>hypothesis</code>: 実gameplay 15秒 + 3分試遊でgeneric genre説明よりqualified demo start/wishlistが上がる。</li>
+</ul>
+<h2>Tensions</h2>
+<h3>T1 深さ vs 可読性</h3>
+<ul>
+<li>Thesis: 共有盤面と耐久消滅は、空間と時間を同時に読む独自の深さを作る。</li>
+<li>Antithesis: 分岐、複数弾、状態、敵turnが重なると、previewが答えを表示するか、無ければ運に見える。</li>
+<li>Evidence needed: 予測不一致率、発火列理解、3連鎖到達時間、preview有無の比較。</li>
+</ul>
+<h3>T2 deckbuilding vs board puzzle</h3>
+<ul>
+<li>Thesis: 引いたcardから毎turn別の経路を作る即興性がreplay価値を作る。</li>
+<li>Antithesis: 強いboard最適解がcard差を消すか、draw luckがboard思考を上書きする。</li>
+<li>Evidence needed: card選択多様性、tag集中度、drawによる勝敗寄与、同盤面の解法数。</li>
+</ul>
+<h3>T3 spectacle vs agency</h3>
+<ul>
+<li>Thesis: 多段連鎖の派手な自動解決はTGS/動画で強い。</li>
+<li>Antithesis: 長い自動演出はplayer agencyを奪い、「自分が作った」感覚を弱める。</li>
+<li>Evidence needed: 入力不能時間比、speed利用、chain所有感、映像理解。</li>
+</ul>
+<h3>T4 differentiation vs scope</h3>
+<ul>
+<li>Thesis: puzzle + deckbuilder + roguelite + story + metaは市場上の厚みになる。</li>
+<li>Antithesis: 8 domainと3 platformを同時に完成させると、最も売れる共有盤面の質が薄まる。</li>
+<li>Evidence needed: TGS vertical sliceの成功KPI、残日数、team throughput、feature cut候補。</li>
+</ul>
+<h3>T5 content量 vs rule engine</h3>
+<ul>
+<li>Thesis: 敵、card、event、bossが多いほどrun varietyが上がる。</li>
+<li>Antithesis: 今contentを増やすと、未定義ruleとManager cycleが指数的にtest matrixを増やす。</li>
+<li>Evidence needed: 新card一枚当たりのregression工数、rule coverage、content使用率。</li>
+</ul>
+<h3>T6 marketable moment vs durable product</h3>
+<ul>
+<li>Thesis: 15秒のchain clipで試遊獲得は可能。</li>
+<li>Antithesis: clipが売れても、meta progression、economy、run varietyが弱ければretentionとreviewは続かない。</li>
+<li>Evidence needed: trailer→demo、demo→wishlist、first run→second run、build variety、fatigue。</li>
+</ul>
+<h2>Positions for debate</h2>
+<ol>
+<li><strong>Core-first:</strong> TGS版はPC、短いrun、共有盤面に絞り、meta/story/mobileを後ろへ送る。</li>
+<li><strong>Content-first:</strong> 多様なcard/enemy/bossを優先し、見栄えとreplayを先に作る。</li>
+<li><strong>UX-first:</strong> resolverは現状を保ち、preview/tutorial/演出で理解可能にする。</li>
+<li><strong>Architecture-first:</strong> contentを止め、ResolutionQueue/RunDeckState/RunStateとtestを先に作る。</li>
+<li><strong>Market-first:</strong> 15秒proofを先に作り、反応が弱ければ大規模改修前にpositioningを変える。</li>
+</ol>
+<h2>Decision criteria</h2>
+<ul>
+<li>Unique value: 他作品で代替しにくいか。</li>
+<li>Player agency: playerが結果を自分の判断として説明できるか。</li>
+<li>Learnability: TGSの短時間で最初の価値へ届くか。</li>
+<li>Reliability: core loopが停止せず決定的か。</li>
+<li>Scope efficiency: 一つの改善がbug、UX、content速度、marketing proofを同時に改善するか。</li>
+<li>Evidence: 実測可能で、反証条件を持つか。</li>
+</ul>
+<h2>Initial synthesis hypothesis</h2>
+<p><code>hypothesis</code>: 最も効率がよい順は、(1) 3 core bugとcard保存則、(2) deterministic ResolutionQueueの最小版、(3) 発火列preview/tutorial、(4) 15秒proofのplaytest、(5) 反応を見てcontent、(6) meta/mobileである。Architecture-first単独では遅く、UX-first単独では暗黙ruleを固定できないため、<strong>resolverの薄い正本化とpreviewを同じvertical sliceで行う</strong>。</p>
+<h2>Requested conclusion format</h2>
+<p>Discutereは次を分けて結論する。</p>
+<ol>
+<li>面白さの核と、それが壊れる条件。</li>
+<li>奥深さとして残すcomplexity、削る偶発的complexity。</li>
+<li>売れる可能性を支持/反証する証拠と、誇張してはいけないclaim。</li>
+<li>TGSまでのP0/P1/P2改善順。</li>
+<li>最初の2週間で作る検証可能なvertical slice。</li>
+<li>未解決の反対意見と、次に取るdata。</li>
+</ol><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>

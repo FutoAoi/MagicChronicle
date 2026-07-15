@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vitia マーケティング・セールスポイント分析</title><style>
+:root{--bg:#070a12;--panel:#111827;--text:#eef4ff;--muted:#9caecb;--cyan:#62e6ff;--violet:#a78bfa;--gold:#ffd166;--line:#2a3855}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -10%,#273261 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:48px 24px 80px}header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:.25em 0}h2{margin-top:2.2em;color:#fff;border-bottom:1px solid var(--line);padding-bottom:.25em}h3{color:#d7e5ff;margin-top:1.8em}p,li{max-width:88ch}a{color:var(--cyan)}code{background:#060914;border:1px solid #273550;border-radius:5px;padding:.08em .35em}pre{background:#050812;border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;color:#dce8ff}pre[data-language="mermaid"]{border-color:#6d5bb5}blockquote{border-left:3px solid var(--violet);margin:1em 0;padding:.55em 1em;background:#14182b;color:#d9e3f7}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin:1em 0}table{width:100%;border-collapse:collapse;background:rgba(17,24,39,.8)}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{color:var(--cyan);background:#131d31}nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#cbd8ef}.stage{background:linear-gradient(145deg,rgba(23,32,51,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.stage summary{cursor:pointer;font-weight:800;color:var(--gold)}.source{color:var(--muted);font-size:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.link-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--text)}.link-card:hover{border-color:var(--cyan)}footer{margin-top:36px;color:var(--muted);font-size:12px}@media(max-width:700px){main{padding:28px 14px}th,td{min-width:140px}}@media print{body{background:#fff;color:#111}main{max-width:none}.stage,.link-card,pre,table{background:#fff;color:#111}a{color:#075985}details{display:block}details>summary{display:none}}
+</style></head><body><main><header><div class="eyebrow">Omnipotens analysis</div><h1>Vitia マーケティング・セールスポイント分析</h1><p>spec/plan/11-vitia-market-review.md</p></header><h1>Vitia マーケティング・セールスポイント分析</h1>
+<ul>
+<li>文書版: 0.1.0</li>
+<li>採点入力: <code>../data/vitia-input.json</code></li>
+<li>採点結果: <code>../data/vitia-output.json</code></li>
+<li>用途: TGS 2026試遊、Steam store/trailerを想定した仮説</li>
+</ul>
+<h2>1. Truth ledger</h2>
+<h3>Verified</h3>
+<ul>
+<li>5x5盤面へ魔法陣を配置し、弾の方向、分岐、効果、耐久を操作する企画である。</li>
+<li>プレイヤー弾の後に敵弾が同じ盤面・魔法陣を利用する。</li>
+<li>耐久0で魔法陣が消え、後続弾の経路が変わる。</li>
+<li>deckbuilder、puzzle、rogueliteの三層を持つ。</li>
+<li>企画書は18〜35歳のroguelike fan、PC/iOS/Android、一人用を想定する。</li>
+<li>TGS 2026出展を目標とし、動作するUnityコードと画面案が存在する。</li>
+</ul>
+<h3>Assumed / hypothesis</h3>
+<ul>
+<li>当面の獲得地点はTGS boothとSteam wishlistである。</li>
+<li>連鎖の視覚演出は10〜15秒の動画でも固有価値を伝えられる。</li>
+<li>roguelike/deckbuilder経験者は、数値synergyより空間的に見えるsynergyへ新規性を感じる。</li>
+<li>TGS版ではPCを第一gateとし、短い試遊へ絞る。</li>
+</ul>
+<h3>Unknown</h3>
+<ul>
+<li>価格、販売日、publisher、Steam page、demo配布条件。</li>
+<li>実プレイ映像の品質、完成asset、音、frame rate、実機build。</li>
+<li>playtestによる爽快感、理解度、継続率、wishlist転換。</li>
+<li>競合作品との直接比較、検索需要、市場規模。</li>
+<li>拠点ガチャ、課金、恒久通貨を製品へ含めるか。</li>
+</ul>
+<h2>2. Diagnosis</h2>
+<h3>Objective</h3>
+<p>TGS/短尺動画で、適合するプレイヤーに「この連鎖を自分で作ってみたい」と思わせ、試遊完了またはSteam wishlistへつなげる。</p>
+<h3>Bottleneck</h3>
+<p><code>roguelike puzzle deckbuilder</code>という分類だけでは混雑した市場で固有性が出ない。一方、本当の差別化である「敵も同じ魔法陣を使う」「耐久で解決途中に盤面が変わる」は文章だけだと複雑である。<strong>理解より先に、短い体験episodeとして見せる</strong>必要がある。</p>
+<h3>Audience context</h3>
+<p>対象仮説は、Slay the Spire等のbuild構築と、盤面/自動解決の先読みを好む成人player。短い会場接触では説明を読む余裕がなく、最初の一手から結果までの距離が重要になる。</p>
+<h2>3. Domain selection</h2>
+<div class="table-wrap"><table><thead><tr><th>Domain</th><th>score</th><th>coverage</th><th>判定</th></tr></thead><tbody><tr><td>Luxuria</td><td><strong>0.768</strong></td><td>1.00</td><td><strong>Primary</strong> — 連鎖の視覚・音・即時体験をdemoで届ける</td></tr><tr><td>Gula</td><td>0.597</td><td>1.00</td><td>不採用 — primaryとの差0.171。繰返し価値はmeta仕様/retention証拠がない</td></tr><tr><td>Acedia</td><td>0.483</td><td>0.80</td><td>marketing主軸ではなく、試遊activation friction改善に使う</td></tr><tr><td>Superbia</td><td>0.447</td><td>1.00</td><td>閾値未満。masteryは適合するが公開signal/proofが弱い</td></tr><tr><td>Invidia</td><td>0.345</td><td>0.30</td><td>peer比較の証拠なし</td></tr><tr><td>Avaritia</td><td>0.213</td><td>0.10</td><td>価格・価値証拠なし</td></tr><tr><td>Ira</td><td>0.000</td><td>0.00</td><td>blocked goal訴求は不要</td></tr></tbody></table></div>
+<p>Primaryは<strong>Luxuria（anticipated experience）</strong>。ここでの意味は性的・人格的な分類ではなく、商品の価値が感覚的な実演と即時feedbackで最も伝わるというroutingである。</p>
+<p>Gulaを副軸にしない理由は、<code>無限に遊べる</code>、多様性、collectionをまだ証明できないためである。現時点でretentionを強調すると、未完成のmeta progressionを誇張し、compulsion寄りの表現にもなり得る。</p>
+<h2>セールスポイント評価</h2>
+<div class="table-wrap"><table><thead><tr><th>優先</th><th>セールスポイント</th><th>真実との接続</th><th>見せ方</th></tr></thead><tbody><tr><td>S</td><td><strong>敵もあなたの魔法陣を使う共有盤面</strong></td><td>企画・実装の中心</td><td>同じ盤面で自弾成功→敵弾が逆利用する15秒clip</td></tr><tr><td>S</td><td><strong>耐久で連鎖の途中に道が変わる</strong></td><td>本作固有の時系列puzzle</td><td>一枚が砕け後続弾が別経路へ抜けるbefore/after</td></tr><tr><td>S</td><td><strong>一手が多段連鎖へ爆発する</strong></td><td>企画conceptと一致</td><td>入力1回→発火番号→大きなhitの音/画面feedback</td></tr><tr><td>A</td><td>deck synergyを盤面で「見える形」に組む</td><td>deck + boardの接続</td><td>card三枚が一本のrouteになる短いbuild story</td></tr><tr><td>A</td><td>強い装置ほど敵にも危険なrisk/reward</td><td>共有盤面から導出</td><td>最大damage案と安全案をside-by-side</td></tr><tr><td>B</td><td>rogueliteでbuildを育てる</td><td>room/reward案あり</td><td>meta/varietyが実装・計測後に昇格</td></tr><tr><td>C</td><td>古代遺跡×幾何学魔法技術</td><td>art direction案</td><td>最終asset品質が整ってから補強</td></tr></tbody></table></div>
+<h3>現時点で使わない主張</h3>
+<ul>
+<li>「無限に遊べる」— seed、meta、content量、retentionの証拠がない。</li>
+<li>「PC/iOS/Android対応」— 実機release gateがない。</li>
+<li>「戦略は無限大」「毎回全く違う」— 定量根拠がない。</li>
+<li>「誰でも簡単」— ルールcomplexityとtutorial未検証。</li>
+<li>ガチャ、希少性、期間限定 — 仕様・法務・倫理・確率が未定。</li>
+</ul>
+<h2>4. Strategy card</h2>
+<p><strong>Audience hypothesis:</strong> build構築と先読みを好む成人playerは、カードの数値説明より、自分の一手が盤面を変形させて大連鎖になる短い実演に反応する。</p>
+<p><strong>Bottleneck:</strong> 共有盤面と時系列変化を文章で理解する前に離脱する。</p>
+<p><strong>Primary domain / job:</strong> Luxuria — 最初の10〜15秒で「置く→連鎖→砕ける→敵弾で反転」のepisodeを体験させる。</p>
+<p><strong>Verified feature → outcome → mechanism:</strong> 敵味方が同じ魔法陣を発火し耐久で消滅する → 一手が火力とriskを同時に作る → 予測線と連鎖演出を含む短いplayable demoでmental simulationを起こす。</p>
+<p><strong>Proposition:</strong></p>
+<blockquote>その一手は、最強の連鎖にも、敵の罠にもなる。5×5の魔法陣ローグライト。</blockquote>
+<p><strong>Message variants:</strong></p>
+<ul>
+<li><code>置いた魔法陣を、敵の弾まで使ってくる。</code></li>
+<li><code>道を組め。連鎖させろ。壊れる順まで読み切れ。</code></li>
+<li><code>カードのコンボを、盤面に描く。</code></li>
+</ul>
+<p><strong>Proof:</strong> 実gameplayの未編集15秒、入力から最終結果までの一続き。自/敵弾、発火順、耐久が読めるUIを含める。</p>
+<p><strong>CTA:</strong> <code>3分で、一本の連鎖を完成させる</code>。試遊後は任意の<code>Steamでフォロー / wishlist</code>。拒否・離脱を容易にする。</p>
+<p><strong>Channel and moment:</strong> TGS boothのattract loop、試遊待機画面、Steam trailer冒頭、短尺SNS。長いworld説明は後段。</p>
+<p><strong>Boundary condition:</strong> previewが読めず結果が偶然に見えるbuild、未実装platform、未検証の無限性は訴求に使わない。</p>
+<h2>5. Experiment</h2>
+<h3>TGS/online動画テスト</h3>
+<ul>
+<li><strong>Control:</strong> genre、5x5盤面、deckbuildingを事実として説明する静止/通常動画。</li>
+<li><strong>Treatment:</strong> 同じofferで、共有盤面の15秒episode + 上記proposition。価格や特典は変えない。</li>
+<li><strong>対象:</strong> 18歳以上、roguelike/deckbuilderへ関心を自己申告した来場者/視聴者。未成年や脆弱性によるtargetingをしない。</li>
+<li><strong>Primary metric:</strong> qualified demo start率。Steam上ではtrailer 15秒到達→wishlist率。</li>
+<li><strong>Guardrail:</strong> demo後の「映像どおりのgameplayだった」trust rating、途中離脱、混乱率、誤期待自由記述。</li>
+<li><strong>補助:</strong> time-to-first-value、3連鎖達成率、「敵も使う」を説明できる割合。</li>
+<li><strong>Stopping rule:</strong> 各cell最低200 qualified exposureを目安に事前固定し、会場日/導線差を記録。無作為割当できない会場比較は因果と呼ばない。</li>
+<li><strong>Disconfirming result:</strong> start/wishlistが上がっても、因果理解が下がる、trustが悪化する、実playの早期離脱が増える場合は不採用。</li>
+</ul>
+<h3>Copy test</h3>
+<ul>
+<li>A: <code>カードのコンボを、盤面に描く。</code></li>
+<li>B: <code>その一手は、最強の連鎖にも、敵の罠にもなる。</code></li>
+<li>主指標: 適合者のdemo start。</li>
+<li>Guardrail: 内容理解quizと誤認率。</li>
+</ul>
+<h2>6. Ethics check</h2>
+<ul>
+<li>blocked conditionは現入力にない。七domainは人の人格診断に使っていない。</li>
+<li>fake scarcity、countdown、人気捏造、shame、hidden defaultを使わない。</li>
+<li><code>無限に遊べる</code>や対応platformを、証拠が揃う前に事実として広告しない。</li>
+<li>Gula的なrepeat訴求、ガチャ、variable rewardはretentionだけで最適化せず、疲労、後悔、過剰利用、停止容易性をguardrailにする。</li>
+<li>demo/wishlistは任意で、decline、途中退出、後から解除を容易にする。</li>
+<li>gameplay映像は実buildから取り、演出用mockなら明示する。</li>
+<li>取得dataは必要最小限にし、protected/sensitive traitを推定しない。</li>
+</ul>
+<h2>提案の要点</h2>
+<p>売るべきものは「カードが多い」ことでも「無限」でもなく、<strong>自分で描いた魔法陣が、時間と敵の介入で予想外の連鎖へ変わる瞬間</strong>である。まずその瞬間が読めるUXと実映像を作り、短いtrialで証明する。</p><footer>Generated by the omnipotens deterministic report packager.</footer></main></body></html>
