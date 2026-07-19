@@ -1,28 +1,58 @@
 {
+  "schemaVersion": 2,
+  "encoding": "UTF-8",
   "target": {
     "repository": "FutoAoi/MagicChronicle",
-    "commit": "ed9846e62728080798edf34f70237689ae807428"
+    "sourceCommit": "ed9846e62728080798edf34f70237689ae807428",
+    "analysisBranch": "analysis/omnipotens-v2-validation",
+    "sourceTreeMatchesCommit": true
   },
   "tools": {
+    "omnipotens": {
+      "commit": "92fab8e8bd398b12dddb663405d1e0df8bee2035",
+      "workspaceScannerSha256": "493d8dfc2fbb9120f5834f44c4844e64bfc32f2d614711584b4abb05ca53b5b6",
+      "inputPolicySha256": "a651160c047d4de13a43e3c0583d5a9583aaaed2151c74c14ab75f9ebe962b98"
+    },
     "ludus": "b949cfa136fa27de101ace324f99a715f17e6846",
-    "anatomia": "2b09de8f79f4c205f6cb797a3135316e764ef56e",
-    "aiformat": "ae8a566700fb108d225e0f2e8f7e42fb61679f7f",
-    "discutere": "5640fda49e1759a1ce07cfa677e39c5b5379563d",
-    "vitia_skill_sha256": "CD4613A247B79F4FB2680DEFA6E3B25B220158B11B0306F4DCFCC9CE5668A8C2",
-    "vitia_score_script_sha256": "9982BB4605E02A670212F6D83A74F4269ADDC4349CCEA651DA11B3351EBD64EB"
+    "anatomia": "12e3ee10b19c5a2292dce836b75f8f9568aa550e",
+    "aiformat": "90f2f1e7efe127b8c24c34a3c61e66a1c3023bce",
+    "vitia": {
+      "commit": "3fa33c9e5e7913c35a2a085dbbe49631cdee9eae",
+      "skillSha256": "11e4e643d855d2294fac5d3e6f6a3c217f727814a1c9e26e65463a8854f8fbb2",
+      "gameAuditSha256": "edb461379965629113ff65a85374f38f11f313939c3ffceb8cf11c82a044edb4",
+      "scoreScriptSha256": "7cdac21a0f45215983922afd110b339f3967452699141162d1b3e2c612391919",
+      "mechanismAuditSha256": "cdccec543fc1b211b540d3bd3166606e374588551577a498b9f705527e5d52dd"
+    },
+    "runtime": {
+      "node": "24.14.1",
+      "python": "3.9.6",
+      "clangUsed": false,
+      "llmRole": "固定ツール出力と仕様の解釈、AI平均反応シミュレーション、文書化"
+    }
   },
-  "anatomia_domain_baseline": {
+  "invocations": [
+    "node bin/anatomia.mjs review --repo <project> --json",
+    "node bin/anatomia.mjs domain-review --repo <project> --json",
+    "node bin/anatomia.mjs spec-review --repo <project> --json",
+    "node bin/anatomia.mjs screens --repo <project> --json",
+    "node bin/anatomia.mjs export-graph --repo <project> --output report/architecture-review.html",
+    "py -3 <vitia>/scripts/audit_game_experience.py spec/data/vitia-game-experience-input.json",
+    "py -3 <vitia>/scripts/score_vitia.py spec/data/vitia-scoring-input.json",
+    "py -3 <vitia>/scripts/audit_marketing_mechanisms.py spec/data/vitia-marketability-input.json"
+  ],
+  "anatomiaDomainBaseline": {
     "source": "spec/plan/04-domain-model.md",
     "plugin": "spec/data/anatomia-domains/magic-chronicle.domain.json",
-    "mode": "manual-locked-verbatim-domain-names-and-descriptions",
-    "domain_count": 8,
-    "graph": "report/anatomia-domain-graph.html",
-    "execution_note": "Anatomia commit was pinned, but its local worktree contained pre-existing uncommitted changes; the built CLI was used without starting a service."
+    "mode": "manual-locked-specification-domains",
+    "specificationDomainCount": 8
   },
-  "accepted_omissions": [
-    {
-      "stage": "di-live-llm",
-      "reason": "The user chose to finish this run without a live Di discussion."
-    }
-  ]
+  "stability": {
+    "repeatCount": 2,
+    "reviewByteIdentical": true,
+    "domainReviewByteIdentical": true,
+    "specReviewByteIdentical": true,
+    "screensByteIdentical": true
+  },
+  "externalServices": [],
+  "notRequested": ["Di"]
 }

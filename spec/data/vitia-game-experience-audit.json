@@ -1,0 +1,88 @@
+{
+  "status": "needs_work",
+  "priority_lenses": ["challenge_learning", "play_promise", "repeat_value", "player_agency_fairness"],
+  "lenses": [
+    {
+      "lens": "play_promise",
+      "domains": ["luxuria", "superbia"],
+      "status": "needs_work",
+      "confidence": 0.65,
+      "score": 0.208,
+      "raw_score": 0.622,
+      "signal_coverage": 0.9,
+      "observed_signals": {
+        "experience_promise_observable": 0.75,
+        "player_goal_clear": 0.55,
+        "core_action_available": 0.85,
+        "rule_obstacle_coherent": 0.55,
+        "action_feedback_traceable": 0.45,
+        "measurable_outcome_clear": 0.6
+      },
+      "weak_signals": ["action_feedback_traceable"],
+      "risk_flags": ["rule_ambiguity"],
+      "question": "Do the goal, available action, rule-created obstacle, feedback, and outcome truthfully demonstrate the promised experience?",
+      "next_step": "Trace one representative play episode and compare the first meaningful stage with the peak-value stage."
+    },
+    {
+      "lens": "challenge_learning",
+      "domains": ["superbia", "ira", "acedia"],
+      "status": "needs_work",
+      "confidence": 0.65,
+      "score": 0.0,
+      "raw_score": 0.373,
+      "signal_coverage": 0.65,
+      "observed_signals": {
+        "challenge_skill_adjustable": 0.55,
+        "goal_and_feedback_clear": 0.45,
+        "failure_informs_next_strategy": 0.2,
+        "recovery_path_available": 0.35
+      },
+      "weak_signals": ["failure_informs_next_strategy", "goal_and_feedback_clear", "recovery_path_available"],
+      "risk_flags": ["rule_ambiguity"],
+      "question": "Can a representative player form, test, and improve a strategy, then recover from failure without avoidable punishment?",
+      "next_step": "Observe an unaided attempt, diagnostic feedback, recovery, and a later transfer task after prompts fade."
+    },
+    {
+      "lens": "player_agency_fairness",
+      "domains": ["invidia", "ira", "superbia"],
+      "status": "exploratory",
+      "confidence": 0.65,
+      "score": 0.321,
+      "raw_score": 0.65,
+      "signal_coverage": 0.15,
+      "observed_signals": {"meaningful_choice_preserved": 0.65},
+      "weak_signals": [],
+      "risk_flags": [],
+      "question": "Can players, teammates, opponents, and spectators understand their roles and participate without coercion or hidden rule asymmetry?",
+      "next_step": "Audit rule parity, social obligation, harassment, paid advantage, role change, and exit with each affected role."
+    },
+    {
+      "lens": "repeat_value",
+      "domains": ["gula", "superbia"],
+      "status": "needs_work",
+      "confidence": 0.65,
+      "score": 0.54,
+      "raw_score": 0.661,
+      "signal_coverage": 0.9,
+      "observed_signals": {
+        "strategic_variety_present": 0.75,
+        "choices_change_future_state": 0.65,
+        "opponent_or_system_variation_meaningful": 0.55,
+        "counterplay_or_alternative_paths": 0.5,
+        "repeat_value_without_obligation": 0.8,
+        "stopping_cues_and_exit_easy": 0.7
+      },
+      "weak_signals": [],
+      "risk_flags": [],
+      "question": "Does repetition create new decisions, mastery, expression, or social situations without relying on obligation or compulsive pressure?",
+      "next_step": "Identify what changes across repetitions and run the trigger-to-exit pressure-stack audit."
+    }
+  ],
+  "unknown_risk_flags": [],
+  "label_neutrality": {
+    "status": "enforced",
+    "ignored_context_keys": ["artifact_name", "category_name", "declared_domain"],
+    "rule": "Names, genres, reputations, and declared domains do not affect lens scores."
+  },
+  "note": "Lens scores summarize observed integrity and evidence coverage. They do not measure fun, diagnose players, predict revenue, or alter Vitia domain scores."
+}

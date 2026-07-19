@@ -1,36 +1,193 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>MagicChronicle Analysis &amp; Review — Omnipotens Final Report</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>MagicChronicle — Omnipotens Final Report</title><style>
 :root{color-scheme:light;--bg:#f3f0e8;--paper:#fffdf8;--ink:#22231f;--muted:#6f716a;--line:#ded9cd;--gold:#9a6b1f;--gold-soft:#f6ead2;--red:#a33a31;--green:#2f714f;--shadow:0 15px 45px rgba(56,45,27,.10)}[data-theme=dark]{color-scheme:dark;--bg:#151511;--paper:#1e1e19;--ink:#f2eee4;--muted:#aaa79e;--line:#3b3930;--gold:#e0ae59;--gold-soft:#342b1d;--red:#ff8f84;--green:#7dd3a5;--shadow:none}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;line-height:1.7}.shell{max-width:1440px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:var(--shadow)}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px)}.brand{font-family:Georgia,serif;font-weight:800;letter-spacing:.12em;color:var(--gold)}.grow{flex:1}button,.button{border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:6px 10px;text-decoration:none;cursor:pointer;font:inherit}.hero{padding:34px 38px 26px;background:linear-gradient(135deg,var(--gold-soft),transparent 58%);border-bottom:1px solid var(--line)}.hero h1{font:800 clamp(28px,4vw,48px)/1.15 Georgia,"Yu Mincho",serif;margin:0}.hero p{max-width:850px;color:var(--muted)}.meta,.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:12px;background:var(--paper)}.layout{display:grid;grid-template-columns:250px minmax(0,1fr)}.nav{position:sticky;top:49px;align-self:start;height:calc(100vh - 49px);overflow:auto;padding:18px 14px;border-right:1px solid var(--line)}.nav a{display:block;color:var(--ink);text-decoration:none;padding:7px 9px;border-radius:6px;font-size:13px}.nav a:hover{background:var(--gold-soft)}.content{padding:26px 34px 60px;min-width:0}.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:25px}.card{border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--paper)}.card .label{font-size:12px;color:var(--muted)}.card .value{font-size:27px;font-weight:800;color:var(--gold)}.stage{scroll-margin-top:65px;border-top:3px double var(--line);padding-top:22px;margin-top:34px}.stage-head{display:flex;align-items:flex-start;gap:12px}.stage-no{font:700 13px Georgia,serif;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 8px}.stage h2{font:750 26px/1.3 Georgia,"Yu Mincho",serif;margin:0}.summary{border-left:3px solid var(--gold);padding:8px 13px;background:var(--gold-soft);margin:12px 0 20px}.document{margin:22px 0}.document-title{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:7px}.document-title h3{margin:0}.source{font-size:11px;color:var(--muted)}h1,h2,h3,h4{line-height:1.35}h1{font-size:28px}h2{font-size:23px}h3{font-size:19px}h4{font-size:16px}p{margin:8px 0}code{font-family:"Cascadia Code",Consolas,monospace;background:var(--gold-soft);padding:1px 4px;border-radius:3px}pre{background:#252720;color:#f4f1e8;border-radius:8px;padding:12px;overflow:auto;font-size:12px}pre code{background:none;padding:0}blockquote{border-left:3px solid var(--gold);margin:12px 0;padding:8px 13px;background:var(--gold-soft)}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--gold-soft)}a{color:var(--gold)}.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px}.related a{display:block;border:1px solid var(--line);border-radius:8px;padding:11px;text-decoration:none}.related a:hover{background:var(--gold-soft)}.empty-search{display:none;color:var(--muted);padding:20px}.search{width:min(420px,48vw);border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:7px 10px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;line-height:1.7}.shell{max-width:1440px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:var(--shadow)}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px)}.brand{font-family:Georgia,serif;font-weight:800;letter-spacing:.12em;color:var(--gold)}.grow{flex:1}button,.button{border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:6px 10px;text-decoration:none;cursor:pointer;font:inherit}.hero{padding:34px 38px 26px;background:linear-gradient(135deg,var(--gold-soft),transparent 58%);border-bottom:1px solid var(--line)}.hero h1{font:800 clamp(28px,4vw,48px)/1.15 Georgia,"Yu Mincho",serif;margin:0}.hero p{max-width:850px;color:var(--muted)}.meta,.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:12px;background:var(--paper)}.layout{display:grid;grid-template-columns:250px minmax(0,1fr)}.nav{position:sticky;top:49px;align-self:start;height:calc(100vh - 49px);overflow:auto;padding:18px 14px;border-right:1px solid var(--line)}.nav a{display:block;color:var(--ink);text-decoration:none;padding:7px 9px;border-radius:6px;font-size:13px}.nav a:hover{background:var(--gold-soft)}.content{padding:26px 34px 60px;min-width:0}.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:25px}.card{border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--paper)}.card .label{font-size:12px;color:var(--muted)}.card .value{font-size:27px;font-weight:800;color:var(--gold)}.stage{scroll-margin-top:65px;border-top:3px double var(--line);padding-top:22px;margin-top:34px}.stage-head{display:flex;align-items:flex-start;gap:12px}.stage-no{font:700 13px Georgia,serif;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 8px}.stage h2{font:750 26px/1.3 Georgia,"Yu Mincho",serif;margin:0}.summary{border-left:3px solid var(--gold);padding:8px 13px;background:var(--gold-soft);margin:12px 0 20px}.document{margin:22px 0}.document-title{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:7px}.document-title h3{margin:0}.source{font-size:11px;color:var(--muted)}h1,h2,h3,h4{line-height:1.35}h1{font-size:28px}h2{font-size:23px}h3{font-size:19px}h4{font-size:16px}p{margin:8px 0}code{font-family:"Cascadia Code",Consolas,monospace;background:var(--gold-soft);padding:1px 4px;border-radius:3px}pre{background:#252720;color:#f4f1e8;border-radius:8px;padding:12px;overflow:auto;font-size:12px}pre code{background:none;padding:0}blockquote{border-left:3px solid var(--gold);margin:12px 0;padding:8px 13px;background:var(--gold-soft)}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--gold-soft)}a{color:var(--gold)}.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px}.related a{display:block;border:1px solid var(--line);border-radius:8px;padding:11px;text-decoration:none}.related a:hover{background:var(--gold-soft)}.empty-search{display:none;color:var(--muted);padding:20px}.search{width:min(420px,48vw);border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:7px 10px}.profiles{margin:18px 0 30px}.profile-switch{display:flex;gap:8px;margin:10px 0}.profile-switch button[aria-selected=true]{border-color:var(--gold);background:var(--gold-soft);font-weight:700}.profile-panel[hidden]{display:none}.direction{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:9px}.direction h3{margin-top:0}.missing{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line)}.missing h4{margin:8px 0 3px}.advantage{font-weight:800;background:var(--gold-soft)}
 @media(max-width:800px){.hero{padding:24px 17px}.layout{display:block}.nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto;gap:4px;padding:8px}.nav a{white-space:nowrap}.content{padding:20px 15px 45px}.top{padding:8px 10px}.brand{font-size:13px}}
 @media print{body{background:#fff}.shell{box-shadow:none;max-width:none}.top,.nav{display:none}.layout{display:block}.hero{padding:0 0 15px}.content{padding:0}.stage{break-before:page}.stage:first-of-type{break-before:auto}.document{break-inside:avoid-page}.related a{color:#000}}
-</style></head><body><div class="shell"><header class="top"><span class="brand">OMNIPOTENS</span><span class="grow"></span><button data-theme type="button">◐ テーマ</button><button data-print type="button">⎙ 印刷</button></header><section class="hero"><div class="badges"><span class="badge">Final report</span><span class="badge">2026-07-16 (JST)</span></div><h1>MagicChronicle Analysis &amp; Review</h1><p>仕様、遊び、ドメイン、コード、メカニクス、UX、市場性、議論を、存在する証拠だけから統合した最終レポート。</p></section><div class="layout"><nav class="nav"><a href="#stage-00"><b>00</b> エグゼクティブサマリ（まとめ）</a><a href="#stage-01"><b>01</b> 仕様書・Ludusゲーム内容解析</a><a href="#stage-02"><b>02</b> ゲーム内ドメインと導出コンセプト</a><a href="#stage-03"><b>03</b> 仕様不足・矛盾点</a><a href="#stage-04"><b>04</b> メカニクス・内部経済・循環・ルール複雑度</a><a href="#stage-05"><b>05</b> AI Formatレビュー結果</a><a href="#stage-06"><b>06</b> Anatomia解析結果</a><a href="#stage-07"><b>07</b> UX確認・提案・改善</a><a href="#stage-08"><b>08</b> Vitiaマーケティング分析・評価・提案</a><a href="#stage-09"><b>09</b> Di議論結果</a><a href="#stage-10"><b>10</b> 引用元・使用ツール</a></nav><main class="content"><div class="overview"><div class="card"><div class="label">収録工程</div><div class="value">11</div></div><div class="card"><div class="label">入力成果物</div><div class="value">29</div></div><div class="card"><div class="label">生成形式</div><div class="value">HTML</div></div></div><input class="search" type="search" placeholder="全工程を検索" aria-label="全工程を検索"><div class="empty-search">一致する工程がありません。</div><section class="stage" id="stage-00" data-stage><div class="stage-head"><span class="stage-no">00</span><div><h2>エグゼクティブサマリ（まとめ）</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">MagicChronicleは、**自分と敵が同じ魔法陣を使う共有盤面**と、**耐久消滅によって解決途中に経路が変わる時系列パズル**に、明確な独自性がある。カードの相乗効果を数値だけでなく弾道として見せられるため、「ピースがはまった時の爆発的な爽快感」という企画意図とも整合する。</p><article class="document"><div class="document-title"><h3>00. エグゼクティブサマリ</h3><span class="source">spec/plan/00-executive-summary.md</span></div><h1>00. エグゼクティブサマリ</h1>
-<h2>総合判断</h2>
-<p>MagicChronicleは、<strong>自分と敵が同じ魔法陣を使う共有盤面</strong>と、<strong>耐久消滅によって解決途中に経路が変わる時系列パズル</strong>に、明確な独自性がある。カードの相乗効果を数値だけでなく弾道として見せられるため、「ピースがはまった時の爆発的な爽快感」という企画意図とも整合する。</p>
-<p>一方、現状はルールの正本、カード状態遷移、run初期化、予測UI、自動テストが不足している。実装には回復不能、消耗カード再投入、空山札参照というコアループ直結のHigh不具合が残る。<strong>総合評価はAI Format B、リリース判断はHold</strong>である。</p>
-<h2>面白さと奥深さ</h2>
+</style></head><body><div class="shell"><header class="top"><span class="brand">OMNIPOTENS</span><span class="grow"></span><button data-theme type="button">◐ テーマ</button><button data-print type="button">⎙ 印刷</button></header><section class="hero"><div class="badges"><span class="badge">Final report</span><span class="badge">2026-07-19T13:20:00+09:00</span></div><h1>MagicChronicle</h1><p>仕様、遊び、ドメイン、コード、メカニクス、UX、市場性、議論を、存在する証拠だけから統合した最終レポート。</p></section><div class="layout"><nav class="nav"><a href="#stage-00"><b>00</b> エグゼクティブサマリ</a><a href="#stage-01"><b>01</b> 企画・仕様</a><a href="#stage-02"><b>02</b> Ludus・遊びの構造</a><a href="#stage-03"><b>03</b> ドメインモデル</a><a href="#stage-04"><b>04</b> Anatomia Unity/C#解析</a><a href="#stage-05"><b>05</b> 仕様・ドメイン・コード追跡</a><a href="#stage-06"><b>06</b> メカニクス・ゲーム内経済</a><a href="#stage-07"><b>07</b> AI Format・設計健全性</a><a href="#stage-08"><b>08</b> UX・配信映え</a><a href="#stage-09"><b>09</b> Vitia市場性・グッズ・IP戦略</a><a href="#stage-10"><b>10</b> ソース・再現条件</a></nav><main class="content"><div class="overview"><div class="card"><div class="label">収録工程</div><div class="value">11</div></div><div class="card"><div class="label">入力成果物</div><div class="value">31</div></div><div class="card"><div class="label">生成形式</div><div class="value">HTML</div></div></div><input class="search" type="search" placeholder="全工程を検索" aria-label="全工程を検索"><div class="empty-search">一致する工程がありません。</div><section class="profiles"><h2>エグゼクティブサマリ</h2><div class="profile-switch" role="tablist" aria-label="表示の詳しさ"><button type="button" data-profile-button="beginner" aria-selected="true">学生・初学者向け</button><button type="button" data-profile-button="highResolution" aria-selected="false">高解像度データ</button></div><div class="profile-panel" data-profile="beginner"><article class="direction"><h3>遊びのロジック</h3><p>カードを5×5盤面へ置き、自分と敵の弾が通る道と魔法陣の壊れる順を組み立てる。強い配置が敵ターンでは危険にもなる点が中心の面白さである。</p><div class="missing"><h4>不足情報</h4><ul><li>同時発火・破壊・死亡の優先順位</li><li>実プレイの予測誤りと再挑戦行動</li></ul><h4>不足実装</h4><ul><li>単一の解決キュー</li><li>自弾・敵弾・破壊の予告と振り返り</li></ul></div></article><article class="direction"><h3>コード内容</h3><p>主要機能は実装済みだが、弾、魔法効果、耐久、演出が互いを直接呼び、変更の影響が広い。結果計算とUnity演出を分ける必要がある。</p><div class="missing"><h4>不足情報</h4><ul><li>scene/prefab/ScriptableObjectの実配線</li><li>実機フレーム時間とGC割当</li></ul><h4>不足実装</h4><ul><li>Unity非依存の結果計算</li><li>盤面端・分岐・listener重複・マップ境界の回帰テスト</li></ul></div></article><article class="direction"><h3>UX</h3><p>配置して連鎖を見る方向は企画と実装で一致するが、なぜその結果になったかを予測・説明する支援が弱い。派手さより因果の読みやすさを優先する。</p><div class="missing"><h4>不足情報</h4><ul><li>初見5〜8人の無介入プレイ</li><li>入力・色覚・光刺激・配信解像度の実機確認</li></ul><h4>不足実装</h4><ul><li>解決予告タイムライン</li><li>因果リプレイと入力代替</li><li>演出縮退とアクセシビリティ設定</li></ul></div></article><article class="direction"><h3>市場分析</h3><p>最も伝わりやすい売りは、自分で置いた魔法陣を弾が連鎖する一場面である。世界観や機能数より、短い実演を先に見せる。</p><div class="missing"><h4>不足情報</h4><ul><li>価格、比較対象、対象地域、販売導線</li><li>動画理解率、体験版完了率、ウィッシュリスト転換</li></ul><h4>不足実装</h4><ul><li>因果が読める短尺デモと同内容の体験版</li><li>理解・信頼・継続を測る実験導線</li></ul></div></article><article class="direction"><h3>配信映え</h3><p>準備した盤面が高速連鎖へ変わる前後差は配信向き。ただし、視聴者が上手さの理由を追える表示が必要である。</p><div class="missing"><h4>不足情報</h4><ul><li>配信画面での理解率と離脱</li><li>配信者・視聴者の希望情報</li></ul><h4>不足実装</h4><ul><li>観戦用因果表示</li><li>安全なクリップ出力と演出縮退</li></ul></div></article><article class="direction"><h3>グッズが売れるかどうか</h3><p>カードや魔法陣は商品にできるが、欲しい人がいる証拠はまだない。大量生産より代表記号を絞って需要を調べる。</p><div class="missing"><h4>不足情報</h4><ul><li>要素別認知・好意・購買意向</li><li>価格帯、製造数量、販路、原価</li></ul><h4>不足実装</h4><ul><li>代表記号のアートガイド</li><li>仮商品画像を用いた需要検証</li></ul></div></article><article class="direction"><h3>IP戦略</h3><p>作品の核をキャラクター数ではなく、共有盤面へ魔法陣を組んで弾道の物語を作る文法に置く。</p><div class="missing"><h4>不足情報</h4><ul><li>IP利用範囲、商標、アート正本、監修者</li><li>物語・キャラクター別の人気証拠</li></ul><h4>不足実装</h4><ul><li>IP権利台帳とアートガイド</li><li>アセットIDとゲーム内露出計画</li></ul></div></article><article class="direction"><h3>8月末から9月中旬の開発アプローチ</h3><p>8月末までに解決順と説明表示を固め、9月中旬までに理解・性能・短い体験の一致を検証する。</p><div class="missing"><h4>不足情報</h4><ul><li>チーム人数、担当、実働日、締切、対象端末</li><li>各時点の配布条件</li></ul><h4>不足実装</h4><ul><li>release checklist</li><li>理解・性能・信頼を記録するテレメトリ</li></ul></div></article></div><div class="profile-panel" data-profile="highResolution" hidden><article class="direction"><h3>遊びのロジック</h3><p>盤面パズル、デッキ構築、ローグライトを、耐久で時間変化する共有攻防盤面へ統合している。発想7.8/10に対して構造6.4/10であり、新機能より解決順・カード領域・失敗回復の確定を優先する。</p><div class="missing"><h4>不足情報</h4><ul><li>同時発火・破壊・死亡の優先順位</li><li>実プレイの予測誤りと再挑戦行動</li></ul><h4>不足実装</h4><ul><li>単一の解決キュー</li><li>自弾・敵弾・破壊の予告と振り返り</li></ul></div></article><article class="direction"><h3>コード内容</h3><p>Anatomiaは120ファイル、424関数、347解決呼び出し、764未解決呼び出し、12循環、29境界ドリフト候補を検出した。最大循環は戦闘コア7関数。汎用state-machineの高凝集度は421関数を捕捉した偽の高値として除外した。</p><div class="missing"><h4>不足情報</h4><ul><li>scene/prefab/ScriptableObjectの実配線</li><li>実機フレーム時間とGC割当</li></ul><h4>不足実装</h4><ul><li>Unity非依存の結果計算</li><li>盤面端・分岐・listener重複・マップ境界の回帰テスト</li></ul></div></article><article class="direction"><h3>UX</h3><p>AI平均反応シミュレーションはコアと実装の方向一致7.2/10、表現の納得性・パフォーマンス5.8/10。Vitia体験監査の挑戦と学習0.000は面白さ0点ではなく、規則曖昧ペナルティと失敗回復証拠の不足を示す。</p><div class="missing"><h4>不足情報</h4><ul><li>初見5〜8人の無介入プレイ</li><li>入力・色覚・光刺激・配信解像度の実機確認</li></ul><h4>不足実装</h4><ul><li>解決予告タイムライン</li><li>因果リプレイと入力代替</li><li>演出縮退とアクセシビリティ設定</li></ul></div></article><article class="direction"><h3>市場分析</h3><p>Vitiaは鮮明な体験6.46/10を主軸、反復価値5.74/10を補助軸とした。共有盤面の連鎖表現は市場優位性候補だが、内容量・価格・販売実績がないため『無限に遊べる』『売れる』とは断定しない。</p><div class="missing"><h4>不足情報</h4><ul><li>価格、比較対象、対象地域、販売導線</li><li>動画理解率、体験版完了率、ウィッシュリスト転換</li></ul><h4>不足実装</h4><ul><li>因果が読める短尺デモと同内容の体験版</li><li>理解・信頼・継続を測る実験導線</li></ul></div></article><article class="direction"><h3>配信映え</h3><p>独立評価6.8/10。連鎖番号、危険経路、結果内訳を小画面・無音でも残し、視聴者の因果説明率で検証する。エフェクト量の追加は平均的改善にならない。</p><div class="missing"><h4>不足情報</h4><ul><li>配信画面での理解率と離脱</li><li>配信者・視聴者の希望情報</li></ul><h4>不足実装</h4><ul><li>観戦用因果表示</li><li>安全なクリップ出力と演出縮退</li></ul></div></article><article class="direction"><h3>グッズが売れるかどうか</h3><p>独立評価4.2/10。識別可能なシルエット、反復露出、キャラクター人気、購買意向が未測定で市場優位性とはしない。代表魔法陣3種と主人公1体を仮商品で比較する。</p><div class="missing"><h4>不足情報</h4><ul><li>要素別認知・好意・購買意向</li><li>価格帯、製造数量、販路、原価</li></ul><h4>不足実装</h4><ul><li>代表記号のアートガイド</li><li>仮商品画像を用いた需要検証</li></ul></div></article><article class="direction"><h3>IP戦略</h3><p>独立評価6.0/10。カード、短編、配信、グッズを同じ魔法陣記号へ接続できる。人気証拠が得られるまで設定と登場人物の大規模追加を保留し、命名・色・形・禁止変形を正本化する。</p><div class="missing"><h4>不足情報</h4><ul><li>IP利用範囲、商標、アート正本、監修者</li><li>物語・キャラクター別の人気証拠</li></ul><h4>不足実装</h4><ul><li>IP権利台帳とアートガイド</li><li>アセットIDとゲーム内露出計画</li></ul></div></article><article class="direction"><h3>8月末から9月中旬の開発アプローチ</h3><p>8月末は解決キュー、予告/本番/リプレイ共通イベント列、1戦闘・1報酬・1分岐、形成的テスト2巡を完了する。9月中旬は理解率、再挑戦率、因果説明率、60fps縮退、動画と体験版の一致をrelease gateにする。</p><div class="missing"><h4>不足情報</h4><ul><li>チーム人数、担当、実働日、締切、対象端末</li><li>各時点の配布条件</li></ul><h4>不足実装</h4><ul><li>release checklist</li><li>理解・性能・信頼を記録するテレメトリ</li></ul></div></article></div></section><section><h2>遊びの構造スコア</h2><div class="table-scroll"><table><thead><tr><th>評価項目</th><th>スコア</th><th>正直な診断</th><th>判断</th><th>平均的改善提案</th><th>参照</th><th>不足情報</th><th>不足実装</th></tr></thead><tbody><tr><td>発想</td><td>7.8 / 10</td><td>辞書内要素を使うが、共有攻防盤面と耐久崩壊の組合せ距離がある。</td><td>現状維持</td><td>発想を追加せず現在の核を一戦闘で証明する。<br><small>高得点で、追加は予測不能性を増やす。</small></td><td>spec/plan/03-ludus-analysis.md</td><td>類似作品比較とプレイヤー認知</td><td>核を示す短い代表戦闘</td></tr><tr><td>構造</td><td>6.4 / 10</td><td>配置→自弾→敵弾→報酬は成立するが、解決規則と失敗回復が弱い。</td><td>改善する</td><td>単一の解決キューと失敗の因果表示を導入する。<br><small>中位点で、遊びの核を変えず冗長な相互呼出しを整理できる。</small></td><td>spec/plan/03-ludus-analysis.md<br>spec/plan/08-mechanics-economy.md</td><td>同時解決とラン終了規則</td><td>ResolutionQueueと回帰テスト</td></tr><tr><td>量産性</td><td>6.8 / 10</td><td>方向、耐久、破壊時効果、状態、敵配置から変種を作れるが、データ契約と検査が不足。</td><td>改善する</td><td>カードタグと許可組合せから変種を生成・検査する。<br><small>中位以上で、新システムなしに安全な量産性を上げられる。</small></td><td>spec/plan/08-mechanics-economy.md</td><td>カードプール、数値範囲、敵成長</td><td>タグ、seedシミュレーター、無限連鎖検査</td></tr></tbody></table></div></section><section><h2>UXスコア（AI平均反応シミュレーション）</h2><p><b>想定する大衆像:</b> デッキ構築または盤面パズルを知るがMagicChronicleを初めて見る一般プレイヤー</p><p><b>前提:</b> 完成した代表戦闘をPCで体験する / 開発者の説明を受けない / 主要演出は仕様どおり再生される</p><p><b>限界:</b> 実ユーザー調査、販売、レビュー、テレメトリではなくAI平均反応シミュレーション / scene/prefabと実機性能を未確認</p><section><h2>UXの2軸</h2><div class="table-scroll"><table><thead><tr><th>評価項目</th><th>スコア</th><th>正直な診断</th><th>判断</th><th>平均的改善提案</th><th>参照</th><th>不足情報</th><th>不足実装</th></tr></thead><tbody><tr><td>体験設計のコアと実装の方向一致</td><td>7.2 / 10</td><td>共有盤面、配置、耐久、自弾と敵弾のコアが実コードに存在する。</td><td>現状維持</td><td>コア機能を増やさず解決予告を接続する。<br><small>高めの点数で方向は正しい。追加システムは焦点を弱める。</small></td><td>spec/plan/10-ux-review.md<br>spec/plan/05-anatomia-analysis.md</td><td>実プレイでの中心体験到達率</td><td>予告モデル</td></tr><tr><td>表現の納得性・パフォーマンス</td><td>5.8 / 10</td><td>連鎖表現の可能性は高いが、因果表示、失敗回復、実機性能が未確認。</td><td>改善する</td><td>予告・演出・リプレイを同じイベント列で一貫させる。<br><small>中位点で、納得性と性能縮退を同時に改善できる。</small></td><td>spec/plan/10-ux-review.md</td><td>95%フレーム時間と初見理解</td><td>表現縮退、因果リプレイ、アクセシビリティ設定</td></tr></tbody></table></div></section></section><section><h2>AI Format スコア</h2><div class="table-scroll"><table><thead><tr><th>評価項目</th><th>スコア</th><th>正直な診断</th><th>判断</th><th>平均的改善提案</th><th>参照</th><th>不足情報</th><th>不足実装</th></tr></thead><tbody><tr><td>仕様資料の分類</td><td>10 / 10</td><td>AIFormatのdata、feature、interface、plan、setup、testが揃い、再監査A・指摘0。</td><td>現状維持</td><td>分類を増やさず索引と最終ファイル名だけを同期する。<br><small>満点であり、追加階層は探索コストを増やすため。</small></td><td>spec/plan/09-aiformat-architecture-review.md</td><td>なし（現時点の証拠範囲）</td><td>なし（現時点の証拠範囲）</td></tr><tr><td>仕様とコードの追跡</td><td>3 / 10</td><td>116ファイルに明示仕様リンクがなく、Anatomiaのspec integrityは0。</td><td>改善する</td><td>P0仕様だけへ安定IDを付け、テスト名と所有ドメインへ接続する。<br><small>低得点で影響が大きいが、全コード一括付与より小さく始める方が安全。</small></td><td>spec/plan/06-spec-domain-code-map.md<br>spec/data/anatomia-architecture-review.json</td><td>仕様IDの命名規則と責任者</td><td>仕様IDメタデータと自動照合</td></tr><tr><td>アーキテクチャ健全性</td><td>5.6 / 10</td><td>主要機能はあるが、戦闘コア7関数循環と低い仕様ドメイン凝集度が変更リスクを作る。</td><td>改善する</td><td>解決計算をUnity演出から分離し、同じイベント列を予告と再生へ使う。<br><small>中位点で、コア体験を変えずにテスト性とUXを同時改善できる。</small></td><td>spec/plan/05-anatomia-analysis.md<br>spec/plan/09-aiformat-architecture-review.md</td><td>実行時依存と性能</td><td>ResolutionQueueと回帰テスト</td></tr></tbody></table></div></section><section><h2>Vitia 市場性スコア（高い順）</h2><div class="table-scroll"><table><thead><tr><th>評価項目</th><th>スコア</th><th>正直な診断</th><th>判断</th><th>平均的改善提案</th><th>参照</th><th>不足情報</th><th>不足実装</th></tr></thead><tbody><tr class="advantage"><td><strong>Luxuria（鮮明な体験）</strong></td><td>6.46 / 10</td><td>連鎖を具体的な短い場面で示せ、試遊可能性と視覚的即時性が高い。</td><td>現状維持</td><td>場面を増やさず、配置から結果までの因果を明瞭にする。<br><small>最高点で市場優位性候補。機能追加は中心場面を薄める。</small></td><td>spec/plan/11-vitia-marketability.md<br>spec/data/vitia-scoring-output.json</td><td>完成映像の初見理解率</td><td>因果番号付き短尺デモ</td></tr><tr class="advantage"><td><strong>Gula（反復価値）</strong></td><td>5.74 / 10</td><td>カード、敵、経路の組合せで次の意思決定を変えられる。</td><td>改善する</td><td>二回目以降に何が変わるかを体験版で実証する。<br><small>市場優位性候補だが、内容量と反復行動の実測がない。</small></td><td>spec/plan/11-vitia-marketability.md<br>spec/data/vitia-scoring-output.json</td><td>複数ランの構成多様性と飽和</td><td>seed・履歴・変種テレメトリ</td></tr><tr><td>Acedia（開始摩擦）</td><td>5.31 / 10</td><td>選択複雑性と予測負荷が初回価値到達を遅らせる。</td><td>改善する</td><td>最初の戦闘を一つの曲がりと敵利用へ限定する。<br><small>中位以上だが、摩擦は訴求と学習の双方を阻害する。</small></td><td>spec/plan/10-ux-review.md<br>spec/data/vitia-scoring-output.json</td><td>初回価値到達時間</td><td>段階的チュートリアル</td></tr><tr><td>Superbia（習熟・自己表現）</td><td>4.31 / 10</td><td>上手さを見せる余地はあるが、技能の可視化と社会的証拠が不足。</td><td>改善する</td><td>結果内訳でプレイヤーの判断を具体的に称える。<br><small>低めの点数で、虚偽のランキングを使わず改善できる。</small></td><td>spec/plan/11-vitia-marketability.md</td><td>プレイヤーが誇りに感じる行動</td><td>技能を示す因果リプレイ</td></tr><tr><td>Ira（阻害・回復）</td><td>4.23 / 10</td><td>不可解な失敗を回復へ変える余地があるが、現状は原因説明が弱い。</td><td>改善する</td><td>失敗直後に原因、再試行、終了を同格で示す。<br><small>低めの点数で、主体性を回復する小さな改善が可能。</small></td><td>spec/plan/10-ux-review.md<br>spec/plan/11-vitia-marketability.md</td><td>失敗時の感情と再試行理由</td><td>失敗原因表示と回復導線</td></tr><tr><td>Invidia（比較）</td><td>3.54 / 10</td><td>比較対象、対戦、検証済み社会的証拠がなく、信号網羅も0.30。</td><td>現状維持</td><td>人気・ランキング・比較訴求を導入しない。<br><small>低点の原因は欠陥ではなく非該当と証拠不足で、無理な改善は不誠実。</small></td><td>spec/data/vitia-scoring-output.json</td><td>関連する比較行動の有無</td><td>なし（現時点の証拠範囲）</td></tr><tr><td>Avaritia（経済価値）</td><td>2.84 / 10</td><td>価格、総費用、所有条件、販売形態が不明で、信号網羅は0.20。</td><td>現状維持</td><td>価格と販売条件が決まるまで経済価値訴求を作らない。<br><small>低点を機能追加で埋めると根拠のない価値主張になる。</small></td><td>spec/data/vitia-scoring-output.json</td><td>価格、所有、返金、販売地域</td><td>なし（現時点の証拠範囲）</td></tr></tbody></table></div></section><section><h2>Ludusの新規性評価</h2><p><b>7.6 / 10</b> — 盤面パズル・デッキ構築・ローグライト自体は既知だが、敵も利用する共有魔法陣が耐久で解決途中に崩れる組合せは距離がある。</p><p><b>判断:</b> 現状維持 — 新規性を足さず共有盤面・耐久崩壊・敵利用の三点を実証する。<br><small>高得点で、追加機能は説明可能性を損なう。</small></p><div class="missing"><h4>不足情報</h4><ul><li>類似作品の構造比較と市場認知</li></ul><h4>不足実装</h4><ul><li>三点を一つの戦闘で示す垂直スライス</li></ul></div><h2>遊びの辞書からUXへつなぐ実装提案</h2><article class="direction"><h3>解決予告タイムライン</h3><p>自弾、敵弾、発火、破壊を同じイベント列で番号表示する。</p><p><b>遊びの辞書:</b> system:board-card:rule-resolution / system:puzzle:s06</p><p><b>UXへの接続:</b> 操作から結果までを予測可能にし、複雑さを不可解さではなく戦略へ変える。</p><p><b>優先度:</b> 最高</p><div class="missing"><h4>不足情報</h4><ul><li>完全予告と部分予告の境界</li></ul><h4>不足実装</h4><ul><li>予測器とタイムラインUI</li></ul></div></article><article class="direction"><h3>失敗の因果リプレイ</h3><p>最後の攻撃列を短く再生し、被害へ至った魔法陣を強調する。</p><p><b>遊びの辞書:</b> system:puzzle:s07 / challenge-recovery</p><p><b>UXへの接続:</b> 失敗を次の仮説へ変え、再挑戦と配信視聴者の理解を助ける。</p><p><b>優先度:</b> 高</p><div class="missing"><h4>不足情報</h4><ul><li>振り返りを望む失敗種別</li></ul><h4>不足実装</h4><ul><li>イベント履歴と短縮再生</li></ul></div></article><article class="direction"><h3>ビルドタグと変種検査</h3><p>カードへ経路・耐久・破壊時・状態タグを持たせ、報酬偏りを検査する。</p><p><b>遊びの辞書:</b> system:deckbuilder:s02 / system:roguelike:s08</p><p><b>UXへの接続:</b> 報酬が現在のビルドをどう変えるかを一文で説明できる。</p><p><b>優先度:</b> 中</p><div class="missing"><h4>不足情報</h4><ul><li>正式なカードプールと相乗効果規則</li></ul><h4>不足実装</h4><ul><li>タグスキーマと報酬分布検査</li></ul></div></article></section><section class="stage" id="stage-00" data-stage><div class="stage-head"><span class="stage-no">00</span><div><h2>エグゼクティブサマリ</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 対象コード: `ed9846e62728080798edf34f70237689ae807428` 出力: BOMなしUTF-8 評価方法: 仕様、Unity/C#静的解析、Ludus辞書、Vitia決定論的監査、AI平均反応シミュレーション</p><article class="document"><div class="document-title"><h3>MagicChronicle エグゼクティブサマリ</h3><span class="source">spec/plan/00-executive-summary.md</span></div><h1>MagicChronicle エグゼクティブサマリ</h1>
 <ul>
-<li>強み: 配置一手が、自弾の大連鎖と敵弾の危険を同時に作る。</li>
-<li>強み: 耐久が発火回数、盤面寿命、破壊時価値を一つに接続する。</li>
-<li>リスク: 分岐、複数弾、状態、破壊、敵turnの順序が見えないと、奥深さではなく予測不能になる。</li>
-<li>改善原則: 本質的な複雑さを削らず、暗黙順序・用語不一致・分散状態という偶発的複雑さを下げる。</li>
+<li>状態: 完了</li>
+<li>対象コード: <code>ed9846e62728080798edf34f70237689ae807428</code></li>
+<li>出力: BOMなしUTF-8</li>
+<li>評価方法: 仕様、Unity/C#静的解析、Ludus辞書、Vitia決定論的監査、AI平均反応シミュレーション</li>
 </ul>
-<h2>売れる可能性</h2>
-<p>Vitiaでは、感覚的実演を重視するLuxuriaが0.768で主軸となった。現段階で最も強い訴求は、次の15秒episodeである。</p>
-<blockquote>置く → 連鎖する → 魔法陣が砕けて道が変わる → 敵弾が同じ盤面を逆利用する</blockquote>
-<p>「無限に遊べる」「PC/iOS/Android対応」はまだ証拠がなく、訴求に使わない。実gameplayによる短いproofと3分試遊で、qualified demo start、wishlist、内容理解、trustを同時に検証する。</p>
-<h2>主要指標</h2>
-<div class="table-scroll"><table><thead><tr><th>指標</th><th>結果</th><th>解釈</th></tr></thead><tbody><tr><td>AI Format</td><td>B</td><td>Critical 0、High 9、release hold</td></tr><tr><td>Anatomia design strength</td><td>59.4 / 100</td><td>cycle health 0、spec linkage 0、God Class health 45.8</td></tr><tr><td>仕様ドメイン再解析</td><td>8ドメイン原文入力</td><td>Board凝集23.8%、Effects 23.3%、Economy 27.3%で境界漏出が顕著</td></tr><tr><td>循環のきれいさ</td><td>43 / 100 暫定</td><td>耐久は強いがcard/economy/meta/resetが未閉鎖</td></tr><tr><td>本質的complexity</td><td>67 / 100 暫定</td><td>本作の価値として残す</td></tr><tr><td>偶発的complexity</td><td>78 / 100 暫定</td><td>35以下を目標に削減</td></tr><tr><td>Vitia primary</td><td>Luxuria 0.768</td><td>短い感覚的実演を主軸にする</td></tr></tbody></table></div>
-<h2>最優先の改善</h2>
+<h2>遊びのロジック</h2>
+<h3>学生・初学者向け</h3>
+<p>カードを5×5の盤面へ置き、弾が通る道と魔法陣の壊れる順番を組み立てるゲームである。自分と敵が同じ盤面を使うため、強い配置が次の敵攻撃では危険にもなる点が面白さの中心である。新しい仕組みを足すより、発火順と敵の予定経路を見えるようにする方が効果が高い。</p>
+<h3>高解像度データ</h3>
+<p>Ludus上では盤面パズル、デッキ構築、ローグライトの既存語彙へ分解できる一方、「耐久で解決途中に経路が変わる共有攻防盤面」は組合せ距離がある。発想7.8/10、構造6.4/10、量産性6.8/10。構造点を下げる主因は解決キュー、カード領域、失敗回復の未定義であり、新規性不足ではない。</p>
+<h3>不足情報</h3>
+<ul>
+<li>発火、分岐、破壊、死亡が同時に起きる場合の正式な優先順位</li>
+<li>実プレイにおける予測誤り、連鎖理解、再挑戦率</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>自弾・敵弾の経路と発火順を示すタイムライン予告</li>
+<li>戦闘ログまたは失敗原因の短い振り返り</li>
+</ul>
+<h2>コード内容</h2>
+<h3>学生・初学者向け</h3>
+<p>120ファイル・424関数があり、ゲームの主要部分は実装されている。ただし、弾の移動・魔法効果・耐久減少が互いを直接呼び合うため、修正時に別の挙動まで変わりやすい。まず結果計算と見た目の再生を分けるべきである。</p>
+<h3>高解像度データ</h3>
+<p>Anatomiaは347解決呼び出し、764未解決呼び出し、12循環、129静的孤立関数、29境界ドリフト候補を検出した。最大循環は<code>AttackMagic.Attack</code>から<code>TileSlot.DecreaseTimes</code>、効果実装を経て再び攻撃へ戻る7関数。仕様8ドメインの凝集度は0.233〜0.680で、汎用<code>state-machine</code>の0.986は421関数を捕捉する偽の高値なので品質根拠に使わない。</p>
+<h3>不足情報</h3>
+<ul>
+<li>Unity scene/prefab上の実配線とScriptableObject参照切れ</li>
+<li>実機フレーム時間、GC割当、同時弾数の上限</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>純粋な<code>ResolutionQueue</code>と、結果を再生するUnity演出層の分離</li>
+<li>解決規則、マップ生成、報酬選択のEditModeテスト</li>
+</ul>
+<h2>UX</h2>
+<h3>学生・初学者向け</h3>
+<p>配置して連鎖を見る流れは企画と実装で同じ方向を向いている。しかし、なぜその結果になったかを先に読んだり後から振り返ったりする支援が弱い。派手さを増やす前に、原因と結果を一つずつ追える表示が必要である。</p>
+<h3>高解像度データ</h3>
+<p>AI平均反応シミュレーションは「体験設計のコアと実装の方向一致」7.2/10、「表現の納得性・パフォーマンス」5.8/10。Vitia体験監査は反復価値0.540に対し、遊びの約束0.208、挑戦と学習0.000となった。これは面白さ0点ではなく、<code>rule_ambiguity</code>と実プレイ証拠不足を含む厳格なカバレッジ指標である。</p>
+<h3>不足情報</h3>
+<ul>
+<li>初見5〜8人の無介入プレイ記録</li>
+<li>重要行動の発見率、誤配置率、失敗後の原因説明率</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>配置前予告、危険表示、取り消し、結果の因果ハイライト</li>
+<li>最初の戦闘で学んだ規則を別配置へ転用するチュートリアル</li>
+</ul>
+<h2>市場分析</h2>
+<h3>学生・初学者向け</h3>
+<p>一番伝わりやすい売りは「自分で組んだ魔法の道を弾が連鎖する瞬間」である。世界観や機能数を先に説明すると埋もれる。短い実演で遊びを見せ、その後にデッキ構築と繰り返しの深さを伝える。</p>
+<h3>高解像度データ</h3>
+<p>Vitiaは体験の鮮明さ<code>Luxuria</code> 6.46/10を主軸、反復価値<code>Gula</code> 5.74/10を補助軸とした。両者は強制的反復へ近づけない監査が必須。市場機構監査では具体的なプレイ場面の提示機会0.733、情報処理の整理機会0.729が高い一方、準備度は0.490、0.341に留まる。市場優位性は共有盤面の連鎖表現に限定し、「無限に遊べる」は内容量と継続データがないため主張しない。</p>
+<h3>不足情報</h3>
+<ul>
+<li>比較対象、価格、対象年齢、販売地域、ストア導線</li>
+<li>15秒動画の理解率、体験版完了率、ウィッシュリスト転換</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>一目で因果が読める連鎖デモと、同じ内容を遊べる短い体験版</li>
+<li>計測同意、離脱点、理解度を扱う検証導線</li>
+</ul>
+<h2>追加分析</h2>
+<h3>配信映え</h3>
+<p>盤面全体を見れば準備から爆発までの因果を共有でき、連鎖の成功瞬間は切り抜きに向く。一方、現状は小さい耐久値、同時エフェクト、発火順の不可視化により、視聴者が「何が上手かったか」を読みづらい。改善は派手さ追加ではなく、連鎖番号、危険経路、最終ダメージ内訳の観戦表示を優先する。</p>
+<h3>グッズが売れるかどうか</h3>
+<p>現証拠だけでは高評価できない。魔法陣・カード・キャラクターという商品化可能な単位はあるが、識別可能なシルエット、反復露出、人気キャラクターの実測がない。平均的な改善はSKU増加ではなく、ゲーム内で繰り返し見える代表魔法陣3種とキャラクター1体の視覚記号を固定し、欲しい理由を検証することである。</p>
+<h3>IP戦略</h3>
+<p>IPの核は固有名詞の量ではなく「共有盤面へ魔法陣を組み、弾道が物語を作る」という再現可能な文法に置く。カード名、演出、短編、グッズは同じ魔法陣記号へ接続できる。設定拡張はコアループの理解を邪魔しない範囲で行い、物語・キャラクター人気の証拠が得られるまで大規模展開を保留する。</p>
+<h3>不足情報</h3>
+<ul>
+<li>配信画面での視認性、視聴者の因果説明率</li>
+<li>キャラクター・魔法陣別の認知、好意、購買意向</li>
+<li>IP利用範囲、商標、アート正本、監修体制</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>観戦用の因果表示と安全なクリップ出力</li>
+<li>代表記号のアートガイド、アセットID、ゲーム内露出計画</li>
+</ul>
+<h2>開発アプローチ</h2>
+<h3>8月末まで</h3>
 <ol>
-<li>回復、消耗カード、空山札の3 Highを直し、カード保存則をテストする。</li>
-<li>発火、分岐、耐久、破壊、命中を決定的な<code>ResolutionQueue</code>へ集約する。</li>
-<li>自弾/敵弾の経路、敵意図、発火番号、耐久消滅を配置前に表示する。</li>
-<li><code>UIManager_Battle/Boss</code>のカード操作を共通化し、<code>GameManager</code>からrun/turn状態を分ける。</li>
-<li>TGS版をPCの短いvertical sliceへ絞り、15秒proofと3分試遊を検証する。</li>
-<li>その後にcontent、meta progression、mobileを順番に追加する。</li>
+<li>解決キューを仕様化し、<code>AttackMagic</code>循環から結果計算を分離する。</li>
+<li>予告・結果・失敗原因の3表示を同じイベント列から生成する。</li>
+<li>1戦闘、1報酬、1分岐を通し、5〜8人の形成的テストを2巡行う。</li>
+<li>代表魔法陣3種の記号と短尺デモを固定する。</li>
 </ol>
-<h2>今回の到達点</h2>
-<p>仕様初版、Ludus、ドメイン、仕様差分、mechanics/economy、AI Format、Anatomia詳細指標、UX、Vitiaを完了した。Di向けディスカッションペーパーは作成したが、<strong>今回はユーザ判断により実AI議論を省略</strong>した。</p></article></section><section class="stage" id="stage-01" data-stage><div class="stage-head"><span class="stage-no">01</span><div><h2>仕様書・Ludusゲーム内容解析</h2><div class="badges"><span class="badge">3 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 基準日: 2026-07-15 状態: 公開資料から再構成した初版。`question`項目は実装判断に使用しない。</p><article class="document"><div class="document-title"><h3>MagicChronicle ゲーム仕様書 初版</h3><span class="source">spec/feature/game-spec.md</span></div><h1>MagicChronicle ゲーム仕様書 初版</h1>
+<h3>9月中旬までの課題</h3>
+<ul>
+<li>ルール理解率、再挑戦率、因果説明率の合格条件を満たすこと。</li>
+<li>高密度連鎖時の60fps目標と、演出を落としても情報が残る縮退動作を確認すること。</li>
+<li>体験版と動画が同じ遊びを約束し、誇張や未実装内容を含まないこと。</li>
+<li>グッズ/IPは量産せず、代表記号の認知と希望商品を検証すること。</li>
+</ul>
+<h3>不足情報</h3>
+<ul>
+<li>チーム人数、担当、実働日、ビルド締切、対象端末</li>
+<li>8月末・9月中旬それぞれの配布条件</li>
+</ul>
+<h3>不足実装</h3>
+<ul>
+<li>上記4項目を自動確認するrelease checklistとテレメトリ</li>
+</ul>
+<h2>検証結論</h2>
+<p>旧安定版の主要数値は現行Anatomiaでも再現した。<code>review</code>、<code>domain-review</code>、<code>spec-review</code>、<code>screens</code>は各2回でバイト同一だった。変化したのは解析器の表示上限と評価契約であり、ゲームコードではない。最終判断は「発想を増やさず、解決の決定性・説明可能性・検証可能性を上げる」である。</p></article></section><section class="stage" id="stage-01" data-stage><div class="stage-head"><span class="stage-no">01</span><div><h2>企画・仕様</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 基準日: 2026-07-15 状態: 初版。公開Notionと添付企画書の統合整理であり、承認済み製品要件ではない。</p><article class="document"><div class="document-title"><h3>MagicChronicle 企画書 初版</h3><span class="source">spec/feature/product-brief.md</span></div><h1>MagicChronicle 企画書 初版</h1>
+<ul>
+<li>文書版: 0.1.0</li>
+<li>基準日: 2026-07-15</li>
+<li>状態: 初版。公開Notionと添付企画書の統合整理であり、承認済み製品要件ではない。</li>
+</ul>
+<h2>1. 製品定義</h2>
+<p>MagicChronicle（略称: マジクロ）は、5x5盤面に魔法陣カードを配置し、魔法弾の経路・分裂・強化・状態効果を設計して戦う、一人用の「魔法陣連鎖ローグライク」である。</p>
+<div class="table-scroll"><table><thead><tr><th>項目</th><th>現在の定義</th><th>根拠</th></tr></thead><tbody><tr><td>ジャンル</td><td>ローグライクパズル／連鎖構築型ローグライク</td><td><code>source</code>: SRC-PDF-001、SRC-SYS-001</td></tr><tr><td>コンセプト</td><td>ピースが噛み合った瞬間の爆発的な爽快感</td><td><code>source</code>: Notionトップ、SRC-PDF-001</td></tr><tr><td>プレイヤー価値</td><td>魔法の通り道を設計し、分裂と連鎖が想定以上に広がる快感と、敵にも同じ盤面を利用される緊張</td><td><code>analysis</code>: SRC-SYS-001</td></tr><tr><td>プラットフォーム</td><td>PC / iOS / Android</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>プレイ人数</td><td>1人</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>想定ターゲット</td><td>18〜35歳のローグライク好き</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>ハイレベルゴール</td><td>繰り返し長く遊べること</td><td><code>source</code>: Notionトップ</td></tr><tr><td>マイルストーン</td><td>東京ゲームショウ2026への出展</td><td><code>source</code>: SRC-PDF-001</td></tr></tbody></table></div>
+<h2>2. コア体験</h2>
+<ol>
+<li>分岐マップから次の部屋を選ぶ。</li>
+<li>手札からコスト内で魔法陣を5x5盤面へ配置する。</li>
+<li>プレイヤーの魔法弾が左側から進み、通過した魔法陣を即時発動する。</li>
+<li>方向転換、分裂、威力上昇、状態効果などが連鎖する。</li>
+<li>発動のたびに魔法陣の耐久が減り、破壊によって同一ターン内でも経路が変化する。</li>
+<li>敵の攻撃も同じ盤面と魔法陣を利用する。</li>
+<li>勝利後にカード等の報酬を選び、デッキを成長させる。</li>
+</ol>
+<p>核となる面白さは、静的な最適配置ではなく「発動順と破壊によって途中から盤面の意味が変わる連鎖設計」にある。強い配置を敵にも使われるため、最大火力と防御上の安全が同じ解にならないことが本作固有の駆け引き候補である。</p>
+<h2>3. 世界観と進行動機</h2>
+<ul>
+<li>表設定: プレイヤーは探検者となり、古代文明の魔法陣研究施設である巨大な塔を攻略する。</li>
+<li>景観: 神秘的な古代遺跡と、幾何学的に発光する魔法技術を組み合わせる。</li>
+<li>通常の到達点: 塔の最奥で魔法陣の創造者クロニクルと対峙する。</li>
+<li>真相: クロニクル撃破で封印が解け、兵器利用を望んだカイロスが復活する。</li>
+<li>追加到達点: 裏ボスのカイロスへ挑む。</li>
+</ul>
+<p><code>question</code>: この物語が1ラン内で完結するのか、複数ランの恒久進行で開示されるのかは未定義である。</p>
+<h2>4. コンテンツとビルド軸</h2>
+<h3>4.1 ラン内コンテンツ</h3>
+<ul>
+<li>部屋: ノーマル、エリート、ボス、イベント、ショップ、鍛冶。</li>
+<li>報酬: カード／魔法陣を中心とする選択報酬。</li>
+<li>資源候補: HP、配置コスト、手札・山札、カード耐久、所持金、各種バフスタック。</li>
+</ul>
+<h3>4.2 ビルド軸候補</h3>
+<ul>
+<li>コンボ: 移動マス数に応じた威力増加、方向転換、分裂、霊陣破壊。</li>
+<li>バーサーカー: 自傷、疲労、筋力、カウンター、回復。</li>
+<li>テクニカル: 毒、バフ操作、効果再発動、高耐久の霊陣。</li>
+<li>基礎: 固定ダメージ、ドロー、回復、加速、通貨獲得。</li>
+</ul>
+<h3>4.3 敵コンテンツ目標</h3>
+<ul>
+<li>TGS版目標: 雑魚5、エリート2、ボス1。</li>
+<li>製品版理想: 追加の雑魚10、エリート6、ボス3〜4。</li>
+<li>敵行動候補: 通常攻撃、自己強化、弱い魔法陣の配置、盤面の上書き・遮断、反射、大型当たり判定。</li>
+</ul>
+<h2>5. メタゲーム候補</h2>
+<p>拠点には図鑑、ショップ、出撃準備があり、ショップにはキャラクター解放とカード解放ガチャが記載されている。現資料では、以下が未決定である。</p>
+<ul>
+<li>ラン終了後に残る通貨・カード・キャラクター。</li>
+<li>ガチャの確率、重複、救済、価格、課金の有無。</li>
+<li>「無限に遊べる」を支える難易度上昇、シード、チャレンジ、スコア、アンロック。</li>
+<li>新規ラン開始時に何を初期化し、何を保持するか。</li>
+</ul>
+<h2>6. 企画上の強み</h2>
+<ol>
+<li>経路設計とデッキ構築を同一の魔法陣カードへ統合している。</li>
+<li>分裂による画面上の増殖が、短時間で視覚的な見せ場を作れる。</li>
+<li>魔法陣の耐久破壊により、事前計画と実行中の予想外が共存する。</li>
+<li>敵も同じ魔法陣を使うため、盤面構築が攻撃と防御の両方になる。</li>
+<li>1ターンの連鎖を映像で説明しやすく、展示・動画・ストア素材へ転用しやすい。</li>
+</ol>
+<h2>7. 主要リスク</h2>
+<div class="table-scroll"><table><thead><tr><th>リスク</th><th>影響</th><th>現時点の対処案</th></tr></thead><tbody><tr><td>連鎖結果が読めない</td><td>爽快感より理不尽さが勝つ</td><td>経路プレビュー、発動順表示、危険経路の敵色表示</td></tr><tr><td>配置・デッキ・耐久・バフが同時に増える</td><td>初回理解負荷が高い</td><td>チュートリアルを概念ごとの短い実戦へ分割</td></tr><tr><td>敵も盤面を使うルールが罰に見える</td><td>良い配置を作る動機が下がる</td><td>敵射線の事前提示、回避・逆利用の明確な成功演出</td></tr><tr><td>メタ進行が未定義</td><td>「無限に遊べる」を支えられない</td><td>ラン内／恒久進行の契約を先に決める</td></tr><tr><td>PCとモバイル同時展開</td><td>UI・入力・性能・safe areaの負担が増える</td><td>TGS版の主要プラットフォームと製品ロードマップを分離</td></tr><tr><td>コンテンツ量目標が大きい</td><td>品質と調整が分散する</td><td>敵数よりビルド間相互作用とボス固有盤面を優先</td></tr></tbody></table></div>
+<h2>8. 成功指標案</h2>
+<p><code>hypothesis</code>: 企画書にKPIはないため、以下は検証用の仮置きである。</p>
+<ul>
+<li>初見プレイヤーが説明後3分以内に、方向転換と分裂を用いた連鎖を自力で成立させる。</li>
+<li>10分試遊で「敵も同じ盤面を使う」ことを理解し、それを利用または回避する判断を1回以上行う。</li>
+<li>1ラン内で少なくとも2つの異なるビルド方針が成立し、報酬選択の理由を説明できる。</li>
+<li>TGS試遊後に、プレイヤーが本作を「魔法陣の経路を組むローグライク」と再説明できる。</li>
+</ul></article><article class="document"><div class="document-title"><h3>MagicChronicle ゲーム仕様書 初版</h3><span class="source">spec/feature/game-spec.md</span></div><h1>MagicChronicle ゲーム仕様書 初版</h1>
 <ul>
 <li>文書版: 0.1.0</li>
 <li>基準日: 2026-07-15</li>
@@ -205,74 +362,75 @@
 <li>チュートリアル、イベント、エンドロールの最小仕様。</li>
 <li>PC・iOS・Androidの優先順位と入力・UI・性能のrelease gate。</li>
 <li>コアループの自動テスト対象と、TGS試遊の成功指標。</li>
-</ol></article><article class="document"><div class="document-title"><h3>Ludus 遊びの辞書による解析</h3><span class="source">spec/plan/03-ludus-analysis.md</span></div><h1>Ludus 遊びの辞書による解析</h1>
+</ol></article></section><section class="stage" id="stage-02" data-stage><div class="stage-head"><span class="stage-no">02</span><div><h2>Ludus・遊びの構造</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 Ludus: `b949cfa136fa27de101ace324f99a715f17e6846` 対象: `product-brief.md`、`game-spec.md`、Unity/C#コード データ方針: 公開・汎用辞書を読み取り専用で参照し、MagicChronicle固有データは書き戻さない</p><article class="document"><div class="document-title"><h3>Ludus 遊びの辞書による再解析</h3><span class="source">spec/plan/03-ludus-analysis.md</span></div><h1>Ludus 遊びの辞書による再解析</h1>
 <ul>
-<li>文書版: 0.1.0</li>
-<li>対象コード: <code>ed9846e62728080798edf34f70237689ae807428</code></li>
+<li>状態: 完了</li>
 <li>Ludus: <code>b949cfa136fa27de101ace324f99a715f17e6846</code></li>
-<li>入力: <code>../feature/product-brief.md</code>、<code>../feature/game-spec.md</code>、公開企画書・仕様書</li>
+<li>対象: <code>product-brief.md</code>、<code>game-spec.md</code>、Unity/C#コード</li>
+<li>データ方針: 公開・汎用辞書を読み取り専用で参照し、MagicChronicle固有データは書き戻さない</li>
 </ul>
-<h2>結論</h2>
-<p>MagicChronicleの遊びは、次の三層を一つの戦闘へ重ねた設計である。</p>
+<h2>学生・初学者向け</h2>
+<p>このゲームは「盤面へカードを置く」「弾の通り道を考える」「次のカードを選ぶ」「分岐したマップを進む」という複数の遊びを重ねている。珍しさは各部品ではなく、自分と敵が同じ魔法陣を使い、魔法陣が途中で壊れるため、攻撃の道が時間とともに変わる組み合わせにある。</p>
+<h2>高解像度データ</h2>
+<h3>辞書対応</h3>
+<div class="table-scroll"><table><thead><tr><th>Ludus安定項目</th><th>適合</th><th>実装・仕様の根拠</th><th>判断</th></tr></thead><tbody><tr><td><code>genre:puzzle</code> / <code>system:puzzle:s01</code></td><td>高</td><td>5×5盤面、位置・方向・耐久による経路構成</td><td>維持</td></tr><tr><td><code>genre:deckbuilder</code> / <code>system:deckbuilder:s02</code></td><td>高</td><td>手札配置、コスト、報酬選択、ビルド軸</td><td>維持</td></tr><tr><td><code>genre:roguelike</code> / <code>system:roguelike:s01</code></td><td>中</td><td>分岐マップとラン内報酬</td><td>seed、死亡、持越しが不足</td></tr><tr><td><code>genre:board-card</code> / <code>system:board-card:rule-resolution</code></td><td>中〜高</td><td>カードが共有盤面の規則を変更</td><td>解決順の仕様化が必要</td></tr><tr><td><code>system:puzzle:s06</code></td><td>低</td><td>ヒント・予告は十分に確認できない</td><td>UXへ接続して改善</td></tr><tr><td><code>system:puzzle:s07</code></td><td>低</td><td>連鎖の巧さを示す評価が未定義</td><td>結果説明へ接続して改善</td></tr><tr><td><code>system:roguelike:s08</code></td><td>高</td><td>カード効果、破壊、バフの組合せ</td><td>数値・タグ規則は不足</td></tr><tr><td><code>system:board-card:opponent-assist</code></td><td>高・反転</td><td>敵弾も自分の魔法陣を利用</td><td>独自性の核として維持</td></tr></tbody></table></div>
+<h3>遊びの構造スコア</h3>
+<div class="table-scroll"><table><thead><tr><th>項目</th><th>点数</th><th>正直な判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td>発想</td><td>7.8/10</td><td>共有攻防盤面×時間で壊れる経路は類似性が薄い。部品自体は辞書内</td><td><code>hold</code>: 新機能を足さず核を実証する</td></tr><tr><td>構造</td><td>6.4/10</td><td>配置→自弾→敵弾→報酬は成立。解決規則と失敗回復が弱い</td><td><code>improve</code>: 単一の解決キューを導入する</td></tr><tr><td>量産性</td><td>6.8/10</td><td>カード効果・方向・耐久・敵配置で変種を作れるが、データ契約が薄い</td><td><code>improve</code>: タグと数値範囲から組合せを生成・検査する</td></tr></tbody></table></div>
+<h3>新規性</h3>
+<p>新規性は7.6/10。新規性を上げるための追加機能は不要である。現在の組合せは説明可能な上限へ近く、さらにシステムを足すと予測不能性が増す。改善判断は<code>hold</code>とし、共有盤面・耐久崩壊・敵利用の三点を一つの短いプレイで証明する。</p>
+<h2>ループ</h2>
 <ol>
-<li><strong>盤面パズル</strong> — 5x5盤面へ魔法陣を配置し、軌道・順序・耐久変化を設計する。</li>
-<li><strong>デッキ構築</strong> — 手札、山札、コスト、報酬選択によって解法候補を組み替える。</li>
-<li><strong>ローグライト・ラン</strong> — 分岐する部屋を進み、一時的な成長とリスクを管理する。</li>
+<li>戦闘内: <code>手札確認 → 配置 → 自弾解決 → 盤面変化 → 敵弾解決 → 次の判断</code></li>
+<li>ラン内: <code>部屋選択 → 戦闘/イベント → 報酬 → ビルド更新 → 次のリスク</code></li>
+<li>複数ラン: <code>発見 → 図鑑/解放 → 別構成の探索</code></li>
 </ol>
-<p>固有の魅力は、魔法陣の破壊で解決途中にも経路が変化することと、敵弾も同じ盤面・魔法陣を利用することにある。この二点が「自分で組んだ連鎖が爆発する爽快感」と「強い盤面ほど危険にもなる読み合い」を同時に作る。</p>
-<h2>辞書との対応</h2>
-<div class="table-scroll"><table><thead><tr><th>Ludus項目</th><th>適合</th><th>MagicChronicleでの実体</th><th>未確定・不足</th></tr></thead><tbody><tr><td><code>genre:puzzle</code></td><td>高</td><td>盤面、経路設計、連鎖、耐久による状態変化</td><td>勝利条件と評価指標の提示</td></tr><tr><td><code>genre:deckbuilder</code></td><td>高</td><td>手札から魔法陣を配置、コスト、報酬で構築</td><td>山札・捨て札・除外・初期デッキの正式規則</td></tr><tr><td><code>genre:roguelike</code></td><td>中〜高</td><td>分岐マップ、戦闘・イベント・店・鍛冶屋・ボス</td><td>死亡時喪失、ラン生成、恒久成長の境界</td></tr><tr><td><code>genre:board-card</code></td><td>中</td><td>カードを盤面へ配置し共有状態を解決</td><td>優先権・同時発火・無効化時の裁定</td></tr><tr><td><code>system:puzzle:s01</code> grid/board</td><td>高</td><td>5x5盤面</td><td>端、空きマス、配置不可マスの規則</td></tr><tr><td><code>system:puzzle:s03</code> piece drag/move</td><td>高</td><td>ドラッグによる魔法陣配置</td><td>モバイル誤操作防止、取り消し、再配置</td></tr><tr><td><code>system:puzzle:s05</code> constraints/goals</td><td>中</td><td>コスト、耐久、敵HP、盤面制約</td><td>目標・制約の画面内説明</td></tr><tr><td><code>system:puzzle:s06</code> hint/assist</td><td>低</td><td>仕様上未定</td><td>射線プレビュー、発火順、危険経路の支援</td></tr><tr><td><code>system:puzzle:s07</code> score/evaluation</td><td>低</td><td>仕様上未定</td><td>連鎖数、過剰ダメージ、被害回避等の評価</td></tr><tr><td><code>system:deckbuilder:s02</code> build/optimize</td><td>高</td><td>コンボ・バーサーカー・テクニカル軸</td><td>カードプール、出現重み、削除・強化規則</td></tr><tr><td><code>system:deckbuilder:s03</code> turn/mana</td><td>中</td><td>配置コストとプレイヤー・敵フェーズ</td><td>コスト回復、未使用分、ターン定義</td></tr><tr><td><code>system:deckbuilder:s05</code> battle mechanics</td><td>高</td><td>配置後の弾道解決と状態効果</td><td>同時効果、割り込み、死亡時処理</td></tr><tr><td><code>system:roguelike:s01</code> procedural map</td><td>中</td><td>分岐ステージセレクト</td><td>生成アルゴリズム、可視情報、再現seed</td></tr><tr><td><code>system:roguelike:s02</code> death penalty</td><td>低</td><td>仕様上未定</td><td>ラン終了、持ち帰り、リトライ規則</td></tr><tr><td><code>system:roguelike:s06</code> run growth</td><td>高</td><td>報酬、バフ、魔法陣強化</td><td>バフ寿命と重複規則</td></tr><tr><td><code>system:roguelike:s07</code> meta progression</td><td>低</td><td>図鑑・解放の画面案のみ</td><td>恒久通貨、解放対象、強さへの影響</td></tr><tr><td><code>system:roguelike:s08</code> synergy/build</td><td>高</td><td>三つのビルド軸、破壊時発火、状態連携</td><td>タグ・相乗効果をプレイヤーへ伝える語彙</td></tr><tr><td><code>system:board-card:turn-phase</code></td><td>中</td><td>配置→自弾→敵弾→報酬</td><td>正式なフェーズ遷移と例外</td></tr><tr><td><code>system:board-card:rule-resolution</code></td><td>中</td><td>接触、分岐、方向転換、耐久減少</td><td>解決キューと優先順位</td></tr><tr><td><code>system:board-card:opponent-assist</code></td><td>高・反転</td><td>敵弾も自分の魔法陣を利用</td><td>利益と危険の予測表示</td></tr></tbody></table></div>
-<h2>三つのループ</h2>
-<h3>戦闘内ループ（秒〜分）</h3>
-<p><code>手札確認 → 配置・経路予測 → 自弾を解決 → 盤面変化を確認 → 敵弾を解決 → 次の配置判断</code></p>
-<p>判断の核は「今の最大火力」だけではない。耐久を消費して敵フェーズ前に魔法陣を消すか、敵にも作用する形で残すかがトレードオフになる。予測表示が弱い場合、この判断は奥深さではなく不可解さになる。</p>
-<h3>ラン内ループ（分〜時間）</h3>
-<p><code>部屋選択 → 戦闘・イベント → 報酬選択 → デッキ／バフ更新 → 次のリスク選択 → ボス</code></p>
-<p>ビルドの方向が早期に見え、途中で修正でき、ボスで成果を試せる構造が必要である。現仕様は部屋種別とビルド案を持つが、報酬テーブル、希少度、削除・強化、エリート報酬差が未定である。</p>
-<h3>メタループ（複数ラン）</h3>
-<p><code>発見 → 図鑑・解放 → 新しい初期条件 → 別のビルド探索</code></p>
-<p>企画目標「無限に遊べる」を支える層だが、現資料では最も薄い。単純な恒久強化は難易度を摩耗させるため、横方向の解放、チャレンジ条件、履歴・seed共有を優先する。</p>
-<h2>UX成果との対応</h2>
-<p>Ludusの情報・UI、フィードバック観点から、最低限必要な表示は次である。</p>
+<p>戦闘内ループはコードで確認できる。ラン内ループはマップ・報酬・ショップの骨格がある。複数ランの持越し規則は情報も実装も不足している。</p>
+<h2>遊びの辞書からUXへつなぐ実装</h2>
+<h3>1. 解決予告タイムライン</h3>
 <ul>
-<li>配置前に自弾と敵弾の予定経路を色分けする。</li>
-<li>魔法陣ごとの残耐久、次回接触で消えるか、破壊時効果を盤面上で読む。</li>
-<li>分岐・多重発火の解決順を番号またはタイムラインで確認できる。</li>
-<li>カード移動先を「山札／手札／捨て札／除外／盤面」で一貫表示する。</li>
-<li>ダメージ、状態、耐久変化を同時に埋もれさせず、因果のまとまりで演出する。</li>
-<li>失敗後に「どの弾が、どの魔法陣を経て、なぜ被害になったか」を短く振り返れる。</li>
+<li>辞書: <code>system:board-card:rule-resolution</code>、<code>system:puzzle:s06</code></li>
+<li>実装: 配置候補から自弾・敵弾・発火・破壊を同じイベント列で予測し、番号表示する</li>
+<li>UX接続: 操作→規則→結果の因果を予測でき、複雑さを戦略へ変える</li>
+<li>優先度: 最高</li>
 </ul>
-<h2>強み</h2>
+<h3>2. 失敗の因果リプレイ</h3>
 <ul>
-<li>盤面を自分と敵が共有するため、攻撃装置と防御上の危険が同じオブジェクトに宿る。</li>
-<li>耐久による消滅が、固定パズルではなく時系列パズルを生む。</li>
-<li>デッキ構築のシナジーを、数値だけでなく弾道の見た目として表現できる。</li>
-<li>一手の準備が多段連鎖へ変わるため、企画の「ピースがはまった時の爆発的爽快感」と整合する。</li>
+<li>辞書: <code>system:puzzle:s07</code>、挑戦と回復</li>
+<li>実装: 最後の攻撃列を短く再生し、被害へ至った魔法陣を強調する</li>
+<li>UX接続: 失敗を次の仮説へ変え、再挑戦の納得感を上げる</li>
+<li>優先度: 高</li>
 </ul>
-<h2>主なリスク</h2>
-<ol>
-<li><strong>予測不能化</strong> — 解決順、分岐、敵弾、耐久消滅が重なり、理解より先に結果が出る。</li>
-<li><strong>層の競合</strong> — パズル最適解がデッキ選択を無意味にする、またはドロー運が盤面思考を上書きする。</li>
-<li><strong>敵ターンの理不尽さ</strong> — 同一盤面の利用が魅力である一方、敵意図と射線が不明なら罰に見える。</li>
-<li><strong>ランの単調化</strong> — 部屋と報酬の差が小さい場合、同じ戦闘の反復になる。</li>
-<li><strong>恒久成長の未定義</strong> — 「無限に遊べる」を支える再訪理由がない。</li>
-</ol>
-<h2>優先して仕様化する決定</h2>
-<ol>
-<li>発火・分岐・破壊・死亡を含む単一の解決キュー。</li>
-<li>山札、手札、捨て札、除外、盤面の状態遷移。</li>
-<li>自弾と敵弾の完全予測／部分予測の境界。</li>
-<li>バフの寿命、消費契機、重複、上限、無効化順。</li>
-<li>ラン終了時に失うもの、残るもの、次のランで増える選択肢。</li>
-<li>連鎖の巧さを測るゲーム内評価と、爽快感を検証するプレイテスト指標。</li>
-</ol>
-<h2>データガバナンス</h2>
-<p>この解析はLudusの公開・汎用辞書を読み取り専用で参照した。MagicChronicle固有の設計、評価、未公開情報はLudusへ書き戻していない。汎用知見として還元する場合は、固有名詞と事例を除き、公開可否レビューを別途行う。</p></article><h3>関連HTML</h3><div class="related"><a href="ludus-analysis.html">↗ ludus-analysis.html<br><small>report/ludus-analysis.html</small></a></div></section><section class="stage" id="stage-02" data-stage><div class="stage-head"><span class="stage-no">02</span><div><h2>ゲーム内ドメインと導出コンセプト</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 入力: 仕様初版、Ludus解析、対象コード `ed9846e62728080798edf34f70237689ae807428` 目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</p><article class="document"><div class="document-title"><h3>MagicChronicle ドメインモデル初版</h3><span class="source">spec/plan/04-domain-model.md</span></div><h1>MagicChronicle ドメインモデル初版</h1>
+<h3>3. ビルドタグと変種検査</h3>
 <ul>
-<li>文書版: 0.1.0</li>
+<li>辞書: <code>system:deckbuilder:s02</code>、<code>system:roguelike:s08</code></li>
+<li>実装: カードへ経路・耐久・破壊時・状態のタグを持たせ、報酬候補の偏りを自動検査する</li>
+<li>UX接続: 報酬選択時に「何が強くなるか」を一文で示せる</li>
+<li>優先度: 中</li>
+</ul>
+<h2>配信映えへの接続</h2>
+<p>予告とリプレイはプレイヤーだけでなく視聴者の理解も助ける。連鎖数だけを大きく表示するより、「3番の破壊で進路が変わり、5番が敵へ到達」のように上手さの因果が読める方が切り抜き価値を作る。</p>
+<h2>不足情報</h2>
+<ul>
+<li>辞書対応を実プレイで裏付ける操作記録</li>
+<li>山札・捨て札・除外、同時発火、死亡、seed、持越しの正式規則</li>
+<li>既存類似作品との構造比較とプレイヤー認知</li>
+</ul>
+<h2>不足実装</h2>
+<ul>
+<li>解決キュー、予告タイムライン、因果リプレイ</li>
+<li>カードタグ、報酬分布検査、seed付きラン再現</li>
+<li>連鎖理解率と失敗後説明率の計測</li>
+</ul></article></section><section class="stage" id="stage-03" data-stage><div class="stage-head"><span class="stage-no">03</span><div><h2>ドメインモデル</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 文書版: 2.0.0 入力: 仕様初版、Ludus解析、対象コード `ed9846e62728080798edf34f70237689ae807428` 目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</p><article class="document"><div class="document-title"><h3>MagicChronicle 最終ドメインモデル</h3><span class="source">spec/plan/04-domain-model.md</span></div><h1>MagicChronicle 最終ドメインモデル</h1>
+<ul>
+<li>状態: 完了</li>
+<li>文書版: 2.0.0</li>
 <li>入力: 仕様初版、Ludus解析、対象コード <code>ed9846e62728080798edf34f70237689ae807428</code></li>
 <li>目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</li>
 </ul>
+<h2>学生・初学者向け</h2>
+<p>ゲームを画面やクラス名ではなく、「ラン進行」「戦闘」「盤面」「デッキ」「効果」「報酬」「恒久進行」「物語」の八つの責任へ分ける。重要なのは、弾道と魔法陣の結果を盤面ドメインが決め、Unityは入力と表示を担当することである。</p>
+<h2>高解像度データ</h2>
+<p>仕様上の八ドメイン名と説明を正本とし、Anatomiaの所属推定は検証データとして分離する。現在は422/424関数が何らかのドメインへ割り当たるが、264関数が重複し29件の境界ドリフト候補があるため、高い所属率だけで境界品質を判断しない。</p>
 <h2>ドメイン地図</h2>
 <pre data-language="mermaid"><code>flowchart LR
   Meta[Meta Progression] --&gt; Run[Run Progression]
@@ -459,937 +617,391 @@
 <h2>共通語彙</h2>
 <div class="table-scroll"><table><thead><tr><th>用語</th><th>定義</th></tr></thead><tbody><tr><td>魔法陣</td><td>盤面セルへ配置され、弾の接触で発火するルールオブジェクト</td></tr><tr><td>カード</td><td>魔法陣を配置する権利と定義を持つ、ゾーン間を移動するインスタンス</td></tr><tr><td>発火</td><td>接触等の契機で効果を解決キューへ登録すること</td></tr><tr><td>耐久</td><td>発火で消費され、0で魔法陣を盤面から除く回数資源</td></tr><tr><td>自弾／敵弾</td><td>所有者がプレイヤー／敵のProjectile。盤面規則は共有する</td></tr><tr><td>連鎖</td><td>一つの入力から複数の発火・分岐・破壊時効果が因果的に続くこと</td></tr><tr><td>ラン</td><td>開始デッキ選択からクリア・失敗・放棄までの一回の進行</td></tr><tr><td>恒久</td><td>ラン終了後もプロフィールへ残る状態</td></tr></tbody></table></div>
 <h2>現コードへ導入する際の境界</h2>
-<p>新しいルールを画面Managerへ追加せず、純粋なドメイン操作として実装し、Unity側はコマンド送信とイベント表示に限定する。特に<code>UIManager_Battle</code>、<code>UIManager_Boss</code>、<code>GameManager</code>へ新しい分岐を集中させない。段階移行では、まずカードゾーン、次に解決キュー、最後にラン状態を抽出する順が安全である。</p></article></section><section class="stage" id="stage-03" data-stage><div class="stage-head"><span class="stage-no">03</span><div><h2>仕様不足・矛盾点</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 判定基準: 公開資料同士の不一致、実装が先行した未承認規則、受け入れ条件を作れない空白</p><article class="document"><div class="document-title"><h3>仕様不足・矛盾・要決定事項</h3><span class="source">spec/plan/07-spec-gaps-and-contradictions.md</span></div><h1>仕様不足・矛盾・要決定事項</h1>
+<p>新しいルールを画面Managerへ追加せず、純粋なドメイン操作として実装し、Unity側はコマンド送信とイベント表示に限定する。特に<code>UIManager_Battle</code>、<code>UIManager_Boss</code>、<code>GameManager</code>へ新しい分岐を集中させない。段階移行では、まずカードゾーン、次に解決キュー、最後にラン状態を抽出する順が安全である。</p>
+<h2>不足情報</h2>
 <ul>
-<li>文書版: 0.1.0</li>
-<li>判定基準: 公開資料同士の不一致、実装が先行した未承認規則、受け入れ条件を作れない空白</li>
+<li>八ドメインごとの正式な所有者と変更承認者</li>
+<li>解決キュー、カード領域、ラン終了、恒久状態の確定規則</li>
+<li>scene/prefab/ScriptableObjectを含む実行時の境界</li>
 </ul>
-<h2>P0 — 実装・テストの正本として先に決める</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>論点</th><th>現状</th><th>推奨する決定</th><th>決めない場合の影響</th></tr></thead><tbody><tr><td>GAP-P0-001</td><td>弾・発火の解決順</td><td>分裂、同時接触、破壊時効果、死亡の順がない</td><td>安定IDを持つ単一<code>ResolutionQueue</code>、移動/発火/耐久/破壊/分岐/命中の順を例付きで固定</td><td>同じ盤面でも実装順で結果が変わり、previewとtestが成立しない</td></tr><tr><td>GAP-P0-002</td><td>カードゾーン</td><td>捨て札・除外・盤面の移動が未定。実装はexhaustを再投入</td><td>5ゾーンと全遷移を状態図で承認。各カードは同時に一ゾーン</td><td>進行停止、無限再利用、デッキ枚数不整合</td></tr><tr><td>GAP-P0-003</td><td>ターンとコスト</td><td>コスト回復、未使用分、複数配置、敵行動順がない</td><td>ターン開始時に最大まで回復、配置ごと支払い、持越しなし等を明文化</td><td>バランス値を比較できない</td></tr><tr><td>GAP-P0-004</td><td>バフ共通契約</td><td>消費契機がドロー時/敵攻撃後/毎ターン/個別で混在</td><td>各状態に式、対象、付与、重複、上限、消費契機、寿命、表示を必須化</td><td>説明と実処理が乖離する</td></tr><tr><td>GAP-P0-005</td><td>run lifecycle</td><td>新規/再開/敗北/放棄/クリアの初期化・持越しがない</td><td>immutable初期定義とruntime stateを分け、遷移ごとのreset表を承認</td><td>前runのdeck/money/buffが漏れる</td></tr><tr><td>GAP-P0-006</td><td>勝敗・死亡</td><td>HP0後のrun終了、引分、複数敵、報酬保持が未定</td><td>EncounterResultとRunResultを分け、勝利・敗北を冪等に確定</td><td>二重報酬、進行不能、物語分岐不能</td></tr><tr><td>GAP-P0-007</td><td>敵情報</td><td>共有盤面を使うが意図・射線・対象規則がない</td><td>敵弾の起点・方向・回数を原則完全予告。特殊な伏せは明示タグ化</td><td>固有の読み合いが理不尽さへ反転</td></tr><tr><td>GAP-P0-008</td><td>TGS試遊範囲</td><td>PC/iOS/AndroidとTGS 2026が併記され、優先release gateがない</td><td>TGS buildはPC横持ち・1ラン20分等、提出スコープを固定。モバイルは次ゲートに分離</td><td>3プラットフォーム対応がコア改善を圧迫</td></tr></tbody></table></div>
-<h2>公開資料内の矛盾</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>A</th><th>B</th><th>整理案</th></tr></thead><tbody><tr><td>CON-001</td><td>筋力は<code>+1</code></td><td>スタック加算または倍率として読める</td><td>加算値と倍率状態を別名にし、計算順を固定</td></tr><tr><td>CON-002</td><td>バフ回数はカードドロー時に減る</td><td>敵攻撃直後／毎ターン／個別トリガーでも減る</td><td>共通一括減少を廃止し、状態定義ごとのTriggerへ統一</td></tr><tr><td>CON-003</td><td>カウンターは被ダメージ割合返却</td><td>反射は弾の向きを反転させる案</td><td><code>反撃</code>と<code>弾反射</code>を別効果・別UIにする</td></tr><tr><td>CON-004</td><td>テクニカルはカード効果再発動</td><td>テクニカルは毒弾付与</td><td>ビルド軸名を上位タグにし、<code>再演</code>と<code>毒術</code>を別能力へ分ける</td></tr><tr><td>CON-005</td><td>コストマイナスはプレイヤーデバフ</td><td>カードの必要コスト軽減とも読める</td><td><code>最大配置力低下</code>と<code>カード軽量化</code>へ改名</td></tr><tr><td>CON-006</td><td>霊陣は破壊時だけ発火</td><td>通過時効果一覧にも混在し得る</td><td><code>OnEnter</code>を持たず<code>OnDestroyed</code>だけを持つ定義として固定</td></tr><tr><td>CON-007</td><td>拠点ショップは解放ガチャ</td><td>永続セーブ・恒久通貨・確率仕様がない</td><td>TGS版はガチャを外し、図鑑解放または固定アンロックで代替</td></tr><tr><td>CON-008</td><td>企画目標は「無限に遊べる」</td><td>メタ進行、seed、難易度、日替り、記録が未定</td><td>横方向解放 + challenge modifier + seed履歴を最小メタにする</td></tr></tbody></table></div>
-<h2>P1 — 垂直スライス完成前に決める</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>要決定</th></tr></thead><tbody><tr><td>GAP-P1-001</td><td>初期デッキ、初期手札、ドロー数、手札上限、カードプール、レアリティ</td></tr><tr><td>GAP-P1-002</td><td>魔法陣の向き変更、再配置、取り消し、配置不可、盤面上限</td></tr><tr><td>GAP-P1-003</td><td>分岐弾の生成順、同一対象への多重hit、無限連鎖安全上限</td></tr><tr><td>GAP-P1-004</td><td>ボスの大型判定、通行不能、上書き、反射が通常規則をどう拡張するか</td></tr><tr><td>GAP-P1-005</td><td>報酬候補数、スキップ価値、カード削除、強化上限、エリート差</td></tr><tr><td>GAP-P1-006</td><td>通貨初期値、戦闘/イベントの期待獲得、店価格、回復と強化の機会費用</td></tr><tr><td>GAP-P1-007</td><td>map生成seed、ノード数、部屋比率、接続保証、見える情報</td></tr><tr><td>GAP-P1-008</td><td>tutorialの学習順: 配置→方向→耐久→敵共有→分岐→ビルド</td></tr><tr><td>GAP-P1-009</td><td>eventの選択条件、失敗、キャンセル、再訪、物語フラグ</td></tr><tr><td>GAP-P1-010</td><td>Chronicle撃破、Kairos解放、裏ボス、周回での真相開示</td></tr></tbody></table></div>
-<h2>P2 — 製品化前に決める</h2>
+<h2>不足実装</h2>
 <ul>
-<li>セーブ形式、version、migration、破損復旧、クラウド同期の有無。</li>
-<li>キーボード、ゲームパッド、モバイル、入力再割当。</li>
-<li>safe area、最小タップ領域、文字サイズ、色覚、演出軽減、速度変更。</li>
-<li>対応言語、用語集、文字列外部化、フォントfallback。</li>
-<li>音量カテゴリ、BGM遷移、フォーカス喪失、振動。</li>
-<li>clean buildに必要なCRIWARE/Spine等の取得、version、checksum、license。</li>
-<li>分析、クラッシュレポート、プライバシー、課金を採用する場合の法務要件。</li>
-</ul>
-<h2>推奨する仕様決定テンプレート</h2>
-<p>各論点は次の形で承認し、実装コメントではなく仕様とテストを正本にする。</p>
-<pre data-language="text"><code>Decision ID:
-Context:
-Rule:
-Examples (normal / edge / failure):
-UI feedback:
-Persistence scope:
-Telemetry / playtest measure:
-Acceptance tests:
-Owner / approved date:</code></pre>
-<h2>仕様精査の結論</h2>
-<p>企画の核と遊びの差別化は明確だが、現在の仕様は「何が起きるか」の候補集であり、「競合した時にどの順で、どの状態を、いつまで変えるか」という実行契約が薄い。P0の8件を決めるまでは、カードや敵を増やすほど実装差分と説明差分が増える。特に解決順、カードゾーン、run lifecycleの3件を先行させる。</p></article></section><section class="stage" id="stage-04" data-stage><div class="stage-head"><span class="stage-no">04</span><div><h2>メカニクス・内部経済・循環・ルール複雑度</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 入力: 仕様、Ludus、ドメインモデル、Anatomia、仕様コード配線 注意: 数値表・実測テレメトリがないため、スコアは比較用ヒューリスティックでありバランス合否ではない</p><article class="document"><div class="document-title"><h3>メカニクス・内部経済・循環・複雑度解析</h3><span class="source">spec/plan/08-mechanics-and-economy.md</span></div><h1>メカニクス・内部経済・循環・複雑度解析</h1>
+<li>Unity非依存の<code>ResolutionQueue</code>、<code>CardZone</code>、<code>RunState</code>値オブジェクト</li>
+<li>ドメインイベントとUnity演出を接続する一方向アダプター</li>
+<li>各不変条件を検査するEditModeテスト</li>
+</ul></article></section><section class="stage" id="stage-04" data-stage><div class="stage-head"><span class="stage-no">04</span><div><h2>Anatomia Unity/C#解析</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">状態: 完了 対象コード: `ed9846e62728080798edf34f70237689ae807428` Anatomia: `12e3ee10b19c5a2292dce836b75f8f9568aa550e` 出力: `../../report/architecture-review.html`、`../data/anatomia-archi…</p><article class="document"><div class="document-title"><h3>Anatomia Unity/C#コード再解析</h3><span class="source">spec/plan/05-anatomia-analysis.md</span></div><h1>Anatomia Unity/C#コード再解析</h1>
 <ul>
-<li>文書版: 0.1.0</li>
-<li>入力: 仕様、Ludus、ドメインモデル、Anatomia、仕様コード配線</li>
-<li>注意: 数値表・実測テレメトリがないため、スコアは比較用ヒューリスティックでありバランス合否ではない</li>
-</ul>
-<h2>メカニクスの核</h2>
-<p>本作の最小プレイヤー動詞は三つである。</p>
-<ol>
-<li><strong>読む</strong> — 手札、盤面、耐久、敵意図、残資源を読む。</li>
-<li><strong>置く</strong> — カードをコストと位置・向きへ変換する。</li>
-<li><strong>確定する</strong> — 自分では直接操作しない弾道解決を見届け、次の状態を受け入れる。</li>
-</ol>
-<pre data-language="mermaid"><code>flowchart LR
-  H[手札] -- コストを払う --&gt; P[魔法陣を配置]
-  P --&gt; R[自弾ルート]
-  R --&gt; T[発火・分岐・効果]
-  T --&gt; D[耐久消費・破壊]
-  D --&gt; R2[後続弾の別ルート]
-  R2 --&gt; DMG[敵へダメージ]
-  D --&gt; ER[敵弾ルート]
-  ER --&gt; T
-  ER --&gt; HP[自分へダメージ]
-  DMG --&gt; RW[報酬]
-  RW --&gt; H</code></pre>
-<p>本作固有の面白さは<code>配置→結果</code>ではなく、<strong>一つの配置が、耐久消費を介して時間順に別の盤面へ変わる</strong>ことにある。敵弾が同じ装置を通るため、プレイヤーは火力、寿命、安全性を一つの配置で同時に最適化する。</p>
-<h2>Mechanics–Dynamics–Aesthetics</h2>
-<div class="table-scroll"><table><thead><tr><th>Mechanics</th><th>生じるDynamics</th><th>狙う体験</th></tr></thead><tbody><tr><td>5x5盤面と方向・分岐</td><td>空間的な経路設計、詰め込みの競合</td><td>ピースがはまる知的快感</td></tr><tr><td>発火ごとの耐久消費</td><td>同じターン中に盤面が変形</td><td>先読み、意外性、連鎖のドラマ</td></tr><tr><td>敵弾も同じ魔法陣を利用</td><td>攻撃装置がリスクにもなる</td><td>欲張りと安全の緊張</td></tr><tr><td>手札・コスト</td><td>毎ターンの選択制限</td><td>即興、やりくり</td></tr><tr><td>報酬デッキ構築</td><td>ラン中に解法の分布が変化</td><td>ビルドが育つ所有感</td></tr><tr><td>破壊時発火・自傷・毒</td><td>通常の「温存」を反転</td><td>発見、悪用、奥深さ</td></tr></tbody></table></div>
-<p>狙いは良く接続しているが、結果の因果が読めないと「自分が組んだ爆発」ではなく「自動で何か起きた」に変わる。予測と振り返りは装飾ではなく、メカニクス成立条件である。</p>
-<h2>内部経済の資源台帳</h2>
-<div class="table-scroll"><table><thead><tr><th>資源</th><th>スコープ</th><th>主なSource</th><th>主なSink</th><th>Converter / 保存</th><th>現状</th></tr></thead><tbody><tr><td>HP</td><td>encounter/run</td><td>回復効果、イベント、店</td><td>敵弾、自傷、毒</td><td>最大HP増加、再生</td><td>回復コード不具合。run間reset未定</td></tr><tr><td>配置コスト</td><td>turn</td><td>ターン回復、最大値buff</td><td>カード配置</td><td>最大値増減、カード軽量化案</td><td>回復周期と持越し未定</td></tr><tr><td>カード枚数</td><td>run</td><td>初期デッキ、報酬、店</td><td>exhaust、削除案</td><td>強化、複製、捨て札再構築</td><td>source優位。除外が再投入される不具合</td></tr><tr><td>手札選択肢</td><td>turn</td><td>draw、追加draw</td><td>配置、捨て、手札上限</td><td>山札再構築</td><td>空山札停止の不具合</td></tr><tr><td>魔法陣耐久</td><td>encounter</td><td>配置時基礎値、耐久回復</td><td>発火、破壊効果</td><td>周囲増減、破壊時価値へ変換</td><td>最も特徴的で閉じた資源</td></tr><tr><td>弾威力/回数</td><td>resolution</td><td>基礎攻撃、筋力、分岐、連続</td><td>命中で解決、疲労</td><td>移動距離→威力、毒付与</td><td>計算順・多重hit未定</td></tr><tr><td>状態スタック</td><td>encounter/run</td><td>カード、敵、イベント</td><td>trigger消費、時間経過</td><td>攻撃/防御/回復へ変換</td><td>寿命と重複が矛盾</td></tr><tr><td>所持金</td><td>run/meta不明</td><td>戦闘、魔法陣、イベント</td><td>店、回復、鍛冶、解放ガチャ</td><td>カード/HP/強化へ変換</td><td>通貨分離・期待値・価格なし</td></tr><tr><td>部屋機会</td><td>run</td><td>map生成</td><td>選択で他ルートを放棄</td><td>リスク→報酬へ変換</td><td>部屋比率・可視性・seed未定</td></tr><tr><td>情報</td><td>turn/run</td><td>敵意図、preview、図鑑</td><td>伏せ情報、不確実性</td><td>学習→より強い配置</td><td>必須情報の表示仕様が薄い</td></tr><tr><td>恒久解放</td><td>profile</td><td>achievement、通貨案</td><td>原則sinkでなく選択肢増加</td><td>初期条件・カードプール</td><td>ほぼ未定義</td></tr></tbody></table></div>
-<h2>主要な経済循環</h2>
-<h3>1. コスト循環</h3>
-<p><code>ターン開始で供給 → カード配置で消費 → 盤面価値へ変換 → ターン終了でリセット</code></p>
-<p>設計として最も理解しやすい短期循環になり得る。未使用分の持越し、最大コスト、軽減と最大値低下の語彙が未定なため、現時点では閉じていない。</p>
-<h3>2. 耐久循環</h3>
-<p><code>カード取得 → 配置時耐久 → 発火で消費 → 破壊または後続弾の経路変化 → ダメージ/資源へ変換</code></p>
-<p>本作で最もきれいな循環である。同じ値が「効果を何回使えるか」「いつ盤面から消えるか」「破壊時効果をいつ得るか」の三役を持つ。ただし三役を画面で同時に読めること、耐久回復が無限連鎖を作らないことが条件になる。</p>
-<h3>3. カード経済</h3>
-<p><code>戦闘勝利 → カード追加 → 選択肢/シナジー増加 → 勝ちやすくなる → さらにカード追加</code></p>
-<p>現状は正のフィードバックに偏る。カード追加が常に報酬ならデッキが肥大し、狙った連鎖を引けなくなるため、見かけ上の報酬が罰へ反転する。スキップ報酬、削除、強化、希少度、ビルドtagによる重みづけがsink/quality converterとして必要である。</p>
-<h3>4. HP・所持金・部屋選択</h3>
-<p><code>戦闘でHPを失う → 高報酬ルートか回復/店を選ぶ → 所持金をHPまたは戦力へ変換 → ボス到達</code></p>
-<p>ローグライト全体の緊張を作る循環だが、回復量、部屋比率、価格、報酬差がないため成立を評価できない。回復が安すぎればHP圧力が消え、高すぎれば店が実質回復専用になる。</p>
-<h3>5. メタ循環</h3>
-<p><code>runで発見/達成 → 横方向の選択肢解放 → 新しい初期ビルド → 別の発見</code></p>
-<p>企画目標「無限に遊べる」に必要だが未実装・未仕様である。恒久火力だけを増やすとパズルの緊張が減るため、キャラクター、初期デッキ、カードプール、challenge modifier、seed履歴を中心にする。</p>
-<h2>循環のきれいさ</h2>
-<h3>暫定スコア</h3>
-<div class="table-scroll"><table><thead><tr><th>観点</th><th>0–100</th><th>根拠</th></tr></thead><tbody><tr><td>Source–Sinkの閉鎖性</td><td>38</td><td>耐久は良いが、カード・通貨・buff・metaが未閉鎖</td></tr><tr><td>変換の読みやすさ</td><td>58</td><td>コスト→配置、耐久→発火は明快。効果順と状態式が不明</td></tr><tr><td>時間スコープの整合</td><td>34</td><td>turn/run/profileの寿命が混在しreset契約がない</td></tr><tr><td>正負フィードバックの均衡</td><td>41</td><td>HP/敵共有は負圧。カード追加と成長はsnowball寄り</td></tr><tr><td>プレイヤー制御可能性</td><td>62</td><td>配置判断は強いが、drawと敵意図の情報量が未定</td></tr><tr><td>監査・テスト可能性</td><td>25</td><td>イベント台帳、決定的resolver、自動テストがない</td></tr><tr><td><strong>総合（暫定）</strong></td><td><strong>43</strong></td><td>数値バランス未評価。構造の閉じ方だけを評価</td></tr></tbody></table></div>
-<p>43は「面白くない」ではなく、<strong>特徴的な耐久循環は強いが、それを支える周辺経済の境界がまだ閉じていない</strong>ことを表す。P0仕様を決めれば大きく上がる余地がある。</p>
-<h2>ルール複雑度</h2>
-<h3>複雑度の分解</h3>
-<div class="table-scroll"><table><thead><tr><th>層</th><th>プレイヤーが同時に追うもの</th><th>固有価値</th><th>過剰化リスク</th></tr></thead><tbody><tr><td>入力</td><td>手札、コスト、位置、向き</td><td>低〜中</td><td>ドラッグ失敗、取り消し不明</td></tr><tr><td>空間</td><td>25セル、方向、分岐、射出点</td><td>高</td><td>経路が重なり視認不能</td></tr><tr><td>時間</td><td>発火順、複数弾、耐久消滅、敵フェーズ</td><td>非常に高</td><td>一手先ではなくイベント列全体が必要</td></tr><tr><td>構築</td><td>山札、draw確率、tag、強化</td><td>高</td><td>盤面思考とdraw運が競合</td></tr><tr><td>状態</td><td>HP、buff/debuff、stack、残寿命</td><td>中〜高</td><td>trigger語彙が不統一</td></tr><tr><td>run</td><td>map、money、HP、報酬、店</td><td>中</td><td>長期最適化の根拠値不足</td></tr></tbody></table></div>
-<h3>暫定評価</h3>
-<ul>
-<li><strong>本質的複雑度: 67/100</strong> — 共有盤面と時間変化が本作の価値なので、単純化しすぎるべきではない。</li>
-<li><strong>偶発的複雑度: 78/100</strong> — 未定義の順序、語彙不一致、UIManager重複、隠れた状態遷移が理解コストを増やす。</li>
-<li><strong>望ましい到達: 本質65前後 / 偶発35以下</strong> — 奥深さを維持し、不可解さだけを落とす。</li>
-</ul>
-<p>Anatomiaで個別関数の最大cyclomaticが9に留まる一方、12循環、129 static orphan、764 unresolved callがある。これは一つの巨大ifより、イベント・Unity callback・Manager間に散った<strong>分散複雑度</strong>が主体である。</p>
-<h2>複雑度を奥深さへ変える設計</h2>
-<ol>
-<li>配置中に最終ダメージだけでなく、番号付きの発火列を表示する。</li>
-<li>自弾の完全予測を先に教え、敵共有はチュートリアルの次段で解禁する。</li>
-<li>分岐、破壊時発火、状態の各語彙を一度に増やさず、runの階層で導入する。</li>
-<li>カード本文を<code>Trigger → Effect → Lifetime</code>の定型文にする。</li>
-<li>結果後に3秒程度の因果ログを出し、想定外だけを遡れるようにする。</li>
-<li>上級者にはpreview簡略、速度変更、詳細ログを選ばせ、初心者向け支援と同居させる。</li>
-</ol>
-<h2>数値設計の最小モデル</h2>
-<p>実装前にスプレッドシートまたはシミュレータで次を持つ。</p>
-<pre data-language="text"><code>EncounterBudget = ExpectedPlayerHP * TargetLossRate
-CardValue = ExpectedDamage + SurvivalValue + DrawValue + EconomyValue
-PlacementEfficiency = CardValue / PlacementCost
-DurabilityValue = Sum(ExpectedTriggerValue at trigger n) + DestructionValue
-RoomEV = RewardEV - ExpectedHPDamageValue - OpportunityCost
-DeckQuality = DrawWeightedSynergyValue - DilutionPenalty</code></pre>
-<p>同じ尺度へ無理に全てを換金するのではなく、比較可能な仮想価値としてバランス差分を見る。特に破壊時価値を通常発火価値と別にしないと、耐久0を早めるカードを正しく評価できない。</p>
-<h2>プレイテスト指標</h2>
-<ul>
-<li>配置から確定までの中央値、取り消し回数、無操作時間。</li>
-<li>予測と実結果が違ったターンの割合と原因。</li>
-<li>1ターンの発火数、分岐数、盤面変化数、演出時間。</li>
-<li>被ダメージのうち敵意図を理解していた割合。</li>
-<li>報酬スキップ率、デッキ枚数、tag集中度、不要札率。</li>
-<li>金不足で選べなかった部屋/商品、回復への支出比率。</li>
-<li>敗北時に再挑戦したい割合、別ビルドを試した割合。</li>
-<li>「自分が連鎖を作った」と答える割合。爽快感の中心KPIとする。</li>
-</ul>
-<h2>結論</h2>
-<p>盤面耐久は、空間・時間・経済を一つの値で接続する非常に強いメカニクスである。改善の中心はルールを減らすことではなく、カードゾーン、解決順、状態寿命、run resetを閉じ、予測と因果表示でプレイヤーの所有感を守ることにある。</p></article></section><section class="stage" id="stage-05" data-stage><div class="stage-head"><span class="stage-no">05</span><div><h2>AI Formatレビュー結果</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">総合評価は**B**、Critical 0、High 9。ScriptableObjectによるデータ分離、魔法・ダメージ表示のobject pool、UI/Effect interfaceの導入は良い。一方、回復不能、exhaustカードの再投入、空山札参照というコアループ停止級の不具合があり、自動テスト、run初期化、clean build、ライセ…</p><article class="document"><div class="document-title"><h3>MagicChronicle AI Format統合レビュー</h3><span class="source">spec/plan/09-ai-format-review.md</span></div><h1>MagicChronicle AI Format統合レビュー</h1>
-<div class="table-scroll"><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>対象</td><td><code>FutoAoi/MagicChronicle</code></td></tr><tr><td>対象コミット</td><td><code>ed9846e62728080798edf34f70237689ae807428</code></td></tr><tr><td>基準日</td><td>2026-07-15</td></tr><tr><td>AI Format</td><td><code>ae8a566700fb108d225e0f2e8f7e42fb61679f7f</code></td></tr><tr><td>サービス分類</td><td><code>game</code>（Unityクライアント、バックエンドなし）</td></tr><tr><td>Anatomia</td><td>120 files / 424 functions / design strength 59.4</td></tr></tbody></table></div>
-<h2>結論</h2>
-<p>総合評価は<strong>B</strong>、Critical 0、High 9。ScriptableObjectによるデータ分離、魔法・ダメージ表示のobject pool、UI/Effect interfaceの導入は良い。一方、回復不能、exhaustカードの再投入、空山札参照というコアループ停止級の不具合があり、自動テスト、run初期化、clean build、ライセンス、プラットフォーム準備も不足している。<strong>現状はリリース保留</strong>である。</p>
-<p>既存AI Formatレビューは一つ前の<code>4afc6224...</code>を対象としていた。現コミット<code>ed9846e...</code>との差分は<code>DeckPanelManager.cs</code>の未使用<code>NUnit</code> import削除のみであり、<code>CODE-011</code>（Low）は解消済み。他の指摘に影響するコード差分はないため、High件数とカテゴリ評価を維持した。</p>
-<h2>評価一覧</h2>
-<div class="table-scroll"><table><thead><tr><th>#</th><th>観点</th><th>評価</th><th>High</th><th>今回の仕様・構造解析による補足</th></tr></thead><tbody><tr><td>1</td><td>設計強度</td><td>B</td><td>0</td><td>Anatomia 59.4。循環健全性0、God Class健全性45.8</td></tr><tr><td>2</td><td>設計思想の一貫性</td><td>B</td><td>0</td><td>データ駆動とManager直書き、serialized設定とhard-codeが混在</td></tr><tr><td>3</td><td>モジュール分割度</td><td>B</td><td>0</td><td>Battle/Boss UI重複、クラスmodularity 0.250</td></tr><tr><td>4</td><td>コード品質</td><td>C</td><td>3</td><td>回復、カードゾーン、空山札の実害</td></tr><tr><td>5</td><td>コード脆弱性</td><td>B</td><td>0</td><td>攻撃経路なし。Unity実行・動的検証は未実施</td></tr><tr><td>6</td><td>CI/CD・supply chain</td><td>B</td><td>0</td><td>依存inventory、provenance、clean build gateなし</td></tr><tr><td>7</td><td>テスト戦略</td><td>C</td><td>1</td><td>コア戦闘・deck・economy・data integrityの自動テストなし</td></tr><tr><td>8</td><td>ライセンス</td><td>C</td><td>1</td><td><code>LICENSE</code> / <code>THIRD_PARTY_NOTICES</code>不在</td></tr><tr><td>9</td><td>ドキュメント</td><td>B</td><td>0</td><td>今回spec初版を追加。ただしsetup/data/testの実装同期はこれから</td></tr><tr><td>10</td><td>LLMセキュリティ</td><td>N/A</td><td>0</td><td>LLM機能なし</td></tr><tr><td>11</td><td>AI生成コード検収</td><td>B</td><td>0</td><td>由来・検収方針なし</td></tr><tr><td>12</td><td>クライアント信頼境界</td><td>A</td><td>0</td><td>オフライン単体、外部権威値なし</td></tr><tr><td>13</td><td>チート対策</td><td>B</td><td>0</td><td>ランキングなし。要件文書なし</td></tr><tr><td>14</td><td>セーブ・課金保護</td><td>A</td><td>0</td><td>永続save/課金なし。将来導入時は再評価</td></tr><tr><td>15</td><td>マルチプレイ</td><td>N/A</td><td>0</td><td>オンライン要素なし</td></tr><tr><td>16</td><td>セーブデータ設計</td><td>C</td><td>1</td><td>run reset/carry-over境界なし</td></tr><tr><td>17</td><td>アセット管理</td><td>C</td><td>1</td><td>CRIWARE/StreamingAssets等の復元手順なし</td></tr><tr><td>18</td><td>データ駆動設計</td><td>C</td><td>1</td><td>authoring validatorなし、不正Event IDでsoftlock</td></tr><tr><td>19</td><td>パフォーマンス</td><td>B</td><td>0</td><td>pool/60fps設定はあるが計測予算なし</td></tr><tr><td>20</td><td>プラットフォーム互換</td><td>C</td><td>1</td><td>Mouse依存、safe area、product ID、build gate不足</td></tr><tr><td>21</td><td>accessibility/localization</td><td>B</td><td>0</td><td>文字列、UI scale、remap、色以外の識別が未整備</td></tr></tbody></table></div>
-<h2>High指摘</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>場所</th><th>事実と影響</th><th>修正の受け入れ条件</th></tr></thead><tbody><tr><td>CODE-001</td><td><code>CharacterBase.cs:80</code></td><td><code>Mathf.Clamp</code>戻り値を捨て、回復効果でHPが変わらない</td><td>0/通常/超過回復のtestが通る</td></tr><tr><td>CODE-003</td><td><code>UIManager_Battle.cs:115-125</code>, <code>UIManager_Boss.cs:113-123</code></td><td>exhaust/removedカードを山札へ再投入</td><td><code>RunDeckState</code>でゾーンを一意化し再構築testが通る</td></tr><tr><td>CODE-015</td><td>両UIManagerの<code>DrawCard</code></td><td>再構築後も山札0で<code>DeckCard[0]</code>を読む</td><td>no-cardを正常結果にし、全札が手札/除外でも停止しない</td></tr><tr><td>QUALITY-001</td><td><code>Assets</code>, <code>Packages</code></td><td>戦闘、deck、報酬、data integrityの自動testなし</td><td>Unity非依存rule test + Edit/PlayMode smoke + CI</td></tr><tr><td>QUALITY-002</td><td>ルート</td><td>配布権利と帰属を集約確認できない</td><td>license inventoryと<code>THIRD_PARTY_NOTICES</code>を承認</td></tr><tr><td>GAMEIMPL-001</td><td>Deck/Wallet/Game Manager</td><td>sceneを跨ぐ状態の新規run resetがない</td><td><code>StartNewRun/Resume/EndRun</code>で全状態を一括管理</td></tr><tr><td>GAMEIMPL-002</td><td><code>.gitignore</code>, CRI audio</td><td>clean cloneでvendor/runtime assetを復元できない</td><td>version/checksum/取得/配置/licenseを固定しCI build</td></tr><tr><td>GAMEIMPL-003</td><td>Event/Data/Map</td><td>将来の不正Event IDでblank panel softlock</td><td>pre-build validator + runtime fallback +復帰test</td></tr><tr><td>GAMEQUALITY-001</td><td>Input/UI/ProjectSettings</td><td><code>Mouse.current</code> null、safe area、製品設定、対象build gate不足</td><td>PC/iOS/Androidの優先gateごとに端末smokeを通す</td></tr></tbody></table></div>
-<h2>Anatomia詳細レビューの統合</h2>
-<h3>孤立関数</h3>
-<p>static fan-in 0は129件。ただしUnity lifecycle、EventSystem、Editor callback、Inspector/scene UnityEventが多数を占める。削除数として扱わず、<code>GameManager.ChangePlayerType</code>、<code>GivePlayerBuffData</code>、旧<code>AudioManager.PlayBGM</code>、CardEncyclopedia filter/sort等をscene/prefab・PlayMode到達まで確認する。<code>RewardManager.RewardSkip</code>は静的には孤立だが<code>AddListener</code>で使用中であり削除不可。</p>
-<h3>複雑度</h3>
-<ul>
-<li>最大cyclomatic: <code>AttackMagic.Attack</code> 9、<code>CardMovement.OnEndDrag</code> 9。</li>
-<li>最大級fan-out: <code>TileSlot.DecreaseTimes</code> 23、<code>AttackMagic.ActivateMagic</code> 22。</li>
-<li><code>GameManager.Update</code>はcyclomatic 7、cross-domain depth 10、shared-state fan-in 4。</li>
-</ul>
-<p>極端な単一関数より、盤面・効果・UI・Managerの相互呼び出しによる分散複雑度が主要リスクである。</p>
-<h3>設計強度</h3>
-<p>59.4/100。componentはdomain coverage 99.3、cohesion 98.6、cycle health 0、directory modularity 53.2、spec linkage 0、God Class health 45.8。coverage/cohesionは421要素が汎用<code>state-machine</code>へ集中した結果なので、良好値を過大評価しない。</p>
-<h3>ドメイン貧血度</h3>
-<p>自動値はrisk 18だが、ドメイン分類が一領域へ潰れているため意味上の貧血を捉えない。人手モデルではカード定義と各Dataは存在する一方、カード状態遷移、解決順、run lifecycle、取引不変条件をManager/UIが所有している。<code>RunDeckState</code>、<code>ResolutionQueue</code>、<code>RunState</code>、<code>RewardTransaction</code>を抽出する。</p>
-<h3>God Class</h3>
-<p>review candidateは<code>UIManager_Battle</code> 54.2、<code>UIManager_Boss</code> 54.2、<code>GameManager</code> 50.7。70以上のcritical候補はない。二つのUIManagerは同型メソッドと同一不具合を持つため、共通Presenter/HandControllerへの集約を最初に行う。</p>
-<h2>仕様入力で追加された判断</h2>
-<ol>
-<li>既存Highのdeck不具合は局所修正だけでなく、未定義のカードゾーン契約が根因である。</li>
-<li>戦闘循環は本作の連鎖メカニクスを直接表すため、単純にcallを切るのではなく決定的<code>ResolutionQueue</code>へ変換する。</li>
-<li><code>Mouse.current</code>問題は企画のPC/iOS/Android同時記載と直結する。TGS向けPC gateとモバイルgateを分離する。</li>
-<li>data integrity validatorはイベントsoftlockだけでなく、カード、buff、enemy、stage、mapのID/参照を一括検査する。</li>
-<li>「無限に遊べる」を品質要件へ変換し、run/profile reset、seed、横方向解放、履歴を仕様化する。</li>
-</ol>
-<h2>リリースゲート</h2>
-<h3>Gate 1 — コアループ修復</h3>
-<ul>
-<li>CODE-001/003/015を修正。</li>
-<li>カード保存則、空山札、回復、耐久端処理、run resetの自動test。</li>
-<li>Battle/Bossの共通カード操作。</li>
-</ul>
-<h3>Gate 2 — 決定性とデータ健全性</h3>
-<ul>
-<li><code>ResolutionQueue</code>または同等の処理順正本。</li>
-<li>同じseed・入力から同じイベント列。</li>
-<li>ScriptableObject ID、foreign key、必須参照、rangeのpre-build validator。</li>
-</ul>
-<h3>Gate 3 — 再現ビルド</h3>
-<ul>
-<li>clean cloneからUnity 6000.3.8f1 compile。</li>
-<li>vendor assetのversion/checksum/配置/license。</li>
-<li>主要scene smokeと対象プラットフォームbuild。</li>
-</ul>
-<h3>Gate 4 — TGS試遊品質</h3>
-<ul>
-<li>tutorial、敵意図、射線/発火順preview、safe input。</li>
-<li>20分等の試遊範囲と成功KPIを固定。</li>
-<li>frame time、メモリ、連鎖演出時間の実測。</li>
-</ul>
-<h2>未実施</h2>
-<p>Unity Editor compile、EditMode/PlayMode test、実機build、実プレイ、性能計測、動的脆弱性scanは未実施。サービス停止を成功扱いせず、静的レビューと文書化の範囲だけを完了とする。</p>
-<h2>最終判断</h2>
-<p><strong>Hold / 改修後再レビュー</strong>。まずコアループの3 Highとrun resetを直し、解決順・カードゾーンのテストを通す。その後にコンテンツ追加、モバイル対応、メタ進行へ進む。</p></article></section><section class="stage" id="stage-06" data-stage><div class="stage-head"><span class="stage-no">06</span><div><h2>Anatomia解析結果</h2><div class="badges"><span class="badge">5 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 入力: 仕様初版、Ludus解析、対象コード `ed9846e62728080798edf34f70237689ae807428` 目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</p><article class="document"><div class="document-title"><h3>MagicChronicle ドメインモデル初版</h3><span class="source">spec/plan/04-domain-model.md</span></div><h1>MagicChronicle ドメインモデル初版</h1>
-<ul>
-<li>文書版: 0.1.0</li>
-<li>入力: 仕様初版、Ludus解析、対象コード <code>ed9846e62728080798edf34f70237689ae807428</code></li>
-<li>目的: ゲームルールをUnityの画面・MonoBehaviourから分離して語れる共通モデルを定義する</li>
-</ul>
-<h2>ドメイン地図</h2>
-<pre data-language="mermaid"><code>flowchart LR
-  Meta[Meta Progression] --&gt; Run[Run Progression]
-  Narrative[Narrative Content] --&gt; Run
-  Run --&gt; Encounter[Combat Encounter]
-  Run --&gt; Economy[Economy &amp; Reward]
-  Economy --&gt; Deck[Deck &amp; Build]
-  Deck --&gt; Board[Board Topology]
-  Encounter --&gt; Board
-  Encounter --&gt; Effects[Effects &amp; Status]
-  Board --&gt; Effects
-  Effects --&gt; Encounter
-  Presentation[Presentation / Input] -. adapter .-&gt; Run
-  Presentation -. adapter .-&gt; Encounter
-  Presentation -. adapter .-&gt; Deck</code></pre>
-<p>Presentation / Inputはドメインではなく、入力をコマンドへ変換し、結果イベントを表示するアダプターである。音、アニメーション、ドラッグ、画面遷移がルールの正本にならないようにする。</p>
-<h2>1. Run Progression</h2>
-<p>ラン開始から終了までの状態、マップ、部屋遷移を所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>Run</code>: <code>RunId</code>、seed、難易度、現在階層、現在部屋、状態、ラン内資産。</li>
-<li><code>RunMap</code>: 階層と<code>RoomNode</code>の有向非巡回グラフ。</li>
-<li><code>RoomNode</code>: 種別、接続先、公開情報、解決状態。</li>
-<li><code>RunState</code>: <code>NotStarted / SelectingRoom / ResolvingRoom / Rewarding / Cleared / Failed / Abandoned</code>。</li>
-</ul>
-<h3>コマンドとイベント</h3>
-<ul>
-<li><code>StartRun(seed, character, startingDeck)</code> → <code>RunStarted</code></li>
-<li><code>SelectRoom(nodeId)</code> → <code>RoomEntered</code></li>
-<li><code>CompleteRoom(result)</code> → <code>RoomCompleted</code>, <code>RewardOffered</code></li>
-<li><code>FailRun(reason)</code> → <code>RunFailed</code></li>
-</ul>
-<h3>不変条件</h3>
-<ul>
-<li>現在ノードから接続された未解決ノードだけを選択できる。</li>
-<li>一つの部屋を二重に解決しない。</li>
-<li><code>Cleared / Failed / Abandoned</code>後にラン内状態を変更しない。</li>
-</ul>
-<h2>2. Combat Encounter</h2>
-<p>一回の戦闘、ターン、弾の解決、勝敗を所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>Encounter</code>: 参加者、盤面、ターン番号、フェーズ、解決キュー、結果。</li>
-<li><code>Combatant</code>: HP、最大HP、攻撃起点、状態。</li>
-<li><code>TurnPhase</code>: <code>Planning / PlayerResolution / BoardSettling / EnemyResolution / EndTurn / Reward / Finished</code>。</li>
-<li><code>Projectile</code>: 所有者、位置、方向、威力、タグ、残り分岐履歴。</li>
-<li><code>EnemyIntent</code>: 次の射出点、軌道に影響する情報、予告精度。</li>
-</ul>
-<h3>コマンドとイベント</h3>
-<ul>
-<li><code>CommitPlacement(plan)</code> → <code>PlacementCommitted</code></li>
-<li><code>ResolvePlayerProjectiles()</code> → <code>ProjectileAdvanced</code>, <code>MagicCircleTriggered</code>, <code>DamageApplied</code></li>
-<li><code>ResolveEnemyProjectiles()</code> → 同上</li>
-<li><code>AdvancePhase()</code> → <code>PhaseChanged</code></li>
-<li><code>ConcedeEncounter()</code> → <code>EncounterLost</code></li>
-</ul>
-<h3>不変条件</h3>
-<ul>
-<li>フェーズ遷移は一方向で、解決中に新しい配置を受け付けない。</li>
-<li>勝敗確定後はダメージ、回復、報酬を二重適用しない。</li>
-<li>全ての結果は決定的な解決キューから順に生成する。</li>
-</ul>
-<h2>3. Board Topology</h2>
-<p>5x5盤面、魔法陣、接触、方向変更、分岐、耐久を所有する。このドメインが本作の中核である。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>Board</code>: 幅5、高さ5の<code>Cell</code>集合。</li>
-<li><code>Cell</code>: 座標、地形、配置物。</li>
-<li><code>MagicCircleInstance</code>: 定義ID、向き、残耐久、所有、付与修正。</li>
-<li><code>Route</code>: Projectileが通った座標と発火列。</li>
-<li><code>ResolutionQueue</code>: 安定した順序を持つドメイン操作列。</li>
-</ul>
-<h3>コマンドとイベント</h3>
-<ul>
-<li><code>PlaceMagicCircle(cardInstanceId, coordinate, rotation)</code> → <code>MagicCirclePlaced</code></li>
-<li><code>EnterCell(projectileId, coordinate)</code> → <code>MagicCircleTriggered</code></li>
-<li><code>ChangeDirection</code>, <code>SplitProjectile</code>, <code>ChangePower</code></li>
-<li><code>ConsumeDurability(amount)</code> → <code>DurabilityChanged</code>, <code>MagicCircleDestroyed</code></li>
-</ul>
-<h3>解決規則の提案</h3>
-<ol>
-<li>Projectileが次セルへ入る。</li>
-<li>セル上の魔法陣を一度だけ発火予約する。</li>
-<li>発火効果をカード記載順、同順位なら安定ID順でキューへ積む。</li>
-<li>効果を一件ずつ適用し、その発火の耐久を消費する。</li>
-<li>耐久0なら破壊イベントをキュー末尾へ積む。</li>
-<li>分岐弾は親弾の直後へ、方向の安定順で積む。</li>
-<li>盤外・停止・対象命中まで繰り返す。</li>
-</ol>
-<p>正式仕様では、破壊時効果と次の弾のどちらが先か、同一魔法陣への再入場、無限ループ上限を決定する必要がある。</p>
-<h3>不変条件</h3>
-<ul>
-<li>一つのセルに置ける盤面オブジェクト数は仕様上限以下。</li>
-<li>耐久は0未満にならず、0の魔法陣は後続弾へ作用しない。</li>
-<li>同じ入力、seed、初期状態から同じイベント列を得る。</li>
-<li>一つのProjectileに発火数または移動数の安全上限を置く。</li>
-</ul>
-<h2>4. Deck &amp; Build</h2>
-<p>カードの定義とインスタンス、各ゾーン、ドロー、配置コスト、報酬によるデッキ変更を所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>DeckBuild</code>: 所有カードインスタンスとラン内修正。</li>
-<li><code>CardDefinition</code>: 表示名、コスト、タグ、魔法陣定義、基礎効果。</li>
-<li><code>CardInstance</code>: 一意ID、強化段階、ラン内修正。</li>
-<li><code>CardZone</code>: <code>DrawPile / Hand / DiscardPile / Exhausted / Board / RewardOffer</code>。</li>
-<li><code>BuildTag</code>: <code>Combo / Berserker / Technical / Spirit</code>等。</li>
-</ul>
-<h3>状態遷移</h3>
-<pre data-language="mermaid"><code>stateDiagram-v2
-  [*] --&gt; DrawPile
-  DrawPile --&gt; Hand: draw
-  Hand --&gt; Board: place and pay
-  Hand --&gt; DiscardPile: discard
-  Board --&gt; DiscardPile: combat rule
-  Board --&gt; Exhausted: exhaust rule
-  DiscardPile --&gt; DrawPile: reshuffle
-  RewardOffer --&gt; DrawPile: acquire
-  Exhausted --&gt; [*]: end of run</code></pre>
-<h3>不変条件</h3>
-<ul>
-<li>一つのカードインスタンスは同時に一つのゾーンにだけ属する。</li>
-<li>コスト不足なら配置確定しない。</li>
-<li>山札再構築は捨て札を一度だけ移し、空のままならドローを終了する。</li>
-<li>除外カードを通常の捨て札へ戻さない。</li>
-</ul>
-<h2>5. Effects &amp; Status</h2>
-<p>魔法陣効果、バフ、デバフ、トリガー、スタック、寿命を統一して所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>EffectDefinition</code>: 対象、契機、演算、優先度、タグ。</li>
-<li><code>StatusInstance</code>: 定義ID、付与先、スタック、残回数、残ターン。</li>
-<li><code>Trigger</code>: <code>OnPlace / OnProjectileEnter / OnDestroyed / OnDamage / OnDraw / OnEnemyAttack / OnTurnEnd</code>。</li>
-<li><code>Modifier</code>: 加算、乗算、置換、禁止。</li>
-</ul>
-<h3>不変条件</h3>
-<ul>
-<li>全状態に消費契機と寿命を必須とする。</li>
-<li>同名状態の重複規則を<code>Add / Refresh / Replace / Reject</code>から選ぶ。</li>
-<li>置換・禁止・乗算・加算の順を固定する。</li>
-<li>UI文言と実際の契機は同じ定義から生成する。</li>
-</ul>
-<h2>6. Economy &amp; Reward</h2>
-<p>ラン内通貨、報酬候補、店、鍛冶屋、価格、支払いを所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>RunWallet</code>: 通貨種別と残高。</li>
-<li><code>RewardOffer</code>: 候補、選択数、期限、取得済み状態。</li>
-<li><code>ShopInventory</code>: seed付き商品列、価格、売切れ状態。</li>
-<li><code>UpgradeOffer</code>: 対象カード、変化内容、価格。</li>
-</ul>
-<h3>不変条件</h3>
-<ul>
-<li>支払いと取得は一つの操作として成功または失敗する。</li>
-<li>同じ報酬を二重取得しない。</li>
-<li>価格は購入前に確定し、表示値と決済値を一致させる。</li>
-<li>通貨の発生源と消費先をイベントとして追跡できる。</li>
-</ul>
-<h2>7. Meta Progression</h2>
-<p>複数ランを跨ぐ発見、解放、図鑑、チャレンジを所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>PlayerProfile</code>: バージョン、解放、実績、設定参照。</li>
-<li><code>Collection</code>: 発見済みカード・敵・イベント。</li>
-<li><code>Unlock</code>: 条件、対象、受領状態。</li>
-<li><code>Challenge</code>: 制約、記録、報酬。</li>
-</ul>
-<p>恒久成長は数値強化より、初期デッキ、キャラクター、カードプール、チャレンジなど横方向の選択肢を優先する。これは「無限に遊べる」と難易度維持の両立に向く。</p>
-<h2>8. Narrative Content</h2>
-<p>イベント、選択肢、物語フラグ、エンディング条件を所有する。</p>
-<h3>集約・値</h3>
-<ul>
-<li><code>NarrativeEvent</code>: 出現条件、本文、選択肢、効果。</li>
-<li><code>StoryFlag</code>: ラン内／プロフィール内のスコープ。</li>
-<li><code>EndingCondition</code>: Chronicle撃破、Kairos解放、隠しボス等の判定。</li>
-</ul>
-<h3>不変条件</h3>
-<ul>
-<li>選択可能な選択肢が0件のイベントを開始しない。</li>
-<li>不正なIDでも画面を閉じられる安全なフォールバックを持つ。</li>
-<li>文言、条件、効果を同じコンテンツIDで追跡できる。</li>
-</ul>
-<h2>ドメイン間イベント</h2>
-<div class="table-scroll"><table><thead><tr><th>発行元</th><th>イベント</th><th>主な購読先</th><th>意味</th></tr></thead><tbody><tr><td>Run</td><td><code>RoomEntered</code></td><td>Combat / Narrative / Economy</td><td>部屋種別に応じた解決開始</td></tr><tr><td>Deck</td><td><code>MagicCirclePlaced</code></td><td>Board / Economy / Presentation</td><td>カード移動とコスト支払い後の配置</td></tr><tr><td>Board</td><td><code>MagicCircleTriggered</code></td><td>Effects / Presentation</td><td>効果適用と演出</td></tr><tr><td>Board</td><td><code>MagicCircleDestroyed</code></td><td>Effects / Deck / Presentation</td><td>破壊時効果とゾーン移動</td></tr><tr><td>Encounter</td><td><code>EncounterWon</code></td><td>Run / Economy / Meta</td><td>部屋完了と報酬生成</td></tr><tr><td>Encounter</td><td><code>EncounterLost</code></td><td>Run / Meta</td><td>ラン終了または例外的継続</td></tr><tr><td>Economy</td><td><code>RewardSelected</code></td><td>Deck / Run / Presentation</td><td>デッキ・資産更新</td></tr><tr><td>Narrative</td><td><code>StoryFlagChanged</code></td><td>Run / Meta</td><td>分岐・解放・結末判定</td></tr></tbody></table></div>
-<h2>共通語彙</h2>
-<div class="table-scroll"><table><thead><tr><th>用語</th><th>定義</th></tr></thead><tbody><tr><td>魔法陣</td><td>盤面セルへ配置され、弾の接触で発火するルールオブジェクト</td></tr><tr><td>カード</td><td>魔法陣を配置する権利と定義を持つ、ゾーン間を移動するインスタンス</td></tr><tr><td>発火</td><td>接触等の契機で効果を解決キューへ登録すること</td></tr><tr><td>耐久</td><td>発火で消費され、0で魔法陣を盤面から除く回数資源</td></tr><tr><td>自弾／敵弾</td><td>所有者がプレイヤー／敵のProjectile。盤面規則は共有する</td></tr><tr><td>連鎖</td><td>一つの入力から複数の発火・分岐・破壊時効果が因果的に続くこと</td></tr><tr><td>ラン</td><td>開始デッキ選択からクリア・失敗・放棄までの一回の進行</td></tr><tr><td>恒久</td><td>ラン終了後もプロフィールへ残る状態</td></tr></tbody></table></div>
-<h2>現コードへ導入する際の境界</h2>
-<p>新しいルールを画面Managerへ追加せず、純粋なドメイン操作として実装し、Unity側はコマンド送信とイベント表示に限定する。特に<code>UIManager_Battle</code>、<code>UIManager_Boss</code>、<code>GameManager</code>へ新しい分岐を集中させない。段階移行では、まずカードゾーン、次に解決キュー、最後にラン状態を抽出する順が安全である。</p></article><article class="document"><div class="document-title"><h3>Anatomia コード・ドメイン詳細解析</h3><span class="source">spec/plan/05-anatomia-analysis.md</span></div><h1>Anatomia コード・ドメイン詳細解析</h1>
-<ul>
-<li>文書版: 0.2.0</li>
+<li>状態: 完了</li>
 <li>対象コード: <code>ed9846e62728080798edf34f70237689ae807428</code></li>
-<li>生成物: <code>../../report/architecture-review.html</code>、<code>../../report/anatomia-domain-graph.html</code>、<code>../data/anatomia-architecture-review.json</code></li>
-<li>実行方式: ビルド済みAnatomiaをローカルで直接実行。常駐サービスは不使用。</li>
-<li>仕様ドメイン入力: <code>04-domain-model.md</code>を原文のまま読み、<code>../data/anatomia-domains/magic-chronicle.domain.json</code>としてmanual/lockedの権威入力へ変換。</li>
+<li>Anatomia: <code>12e3ee10b19c5a2292dce836b75f8f9568aa550e</code></li>
+<li>出力: <code>../../report/architecture-review.html</code>、<code>../data/anatomia-architecture-review.json</code></li>
 </ul>
-<h2>エグゼクティブサマリ</h2>
-<p>現コードは、遊べる縦切りをUnityのシーンとManager群へ迅速に組み上げた構造である。一方、本作固有のルールである弾道、発火、分岐、耐久、カード移動、ターン遷移がUI・MonoBehaviour・共有Managerへまたがっている。個々の関数の循環的複雑度は最大9と極端ではないが、呼び出し結合、循環、共有状態、Battle/Bossの重複が変更リスクを押し上げている。</p>
-<p>Anatomiaの設計強度は<strong>59.4/100</strong>である。ただし、99.3%のドメインカバレッジと98.6%の凝集度は、421実装要素がほぼ全て汎用<code>state-machine</code>一領域へ分類された結果であり、ゲームドメインが強く設計されていることを意味しない。実際の改善判断では、サイクル健全性0、仕様リンク0、God Class健全性45.8、ディレクトリモジュール性53.2を重く見る。</p>
-<h2>仕様ドメイン原文入力による再解析</h2>
-<p>旧解析の自動分類が本作固有の境界を捉えなかったため、仕様の8ドメインを改名・統合・要約せずAnatomiaのプロジェクト固有DomainDefへ入力した。名称と説明は<code>04-domain-model.md</code>の原文を正本とし、コードmembershipだけを<code>06-spec-code-wiring.md</code>の証拠から追加した。LLMによる再推定は行っていない。</p>
-<div class="table-scroll"><table><thead><tr><th>仕様ドメイン</th><th>所属実装</th><th>内部edge</th><th>境界edge</th><th>凝集度</th><th>孤立</th></tr></thead><tbody><tr><td>Run Progression</td><td>36</td><td>25</td><td>26</td><td>49.0%</td><td>12</td></tr><tr><td>Combat Encounter</td><td>52</td><td>35</td><td>44</td><td>44.3%</td><td>20</td></tr><tr><td>Board Topology</td><td>23</td><td>10</td><td>32</td><td>23.8%</td><td>11</td></tr><tr><td>Deck &amp; Build</td><td>96</td><td>68</td><td>32</td><td>68.0%</td><td>36</td></tr><tr><td>Effects &amp; Status</td><td>30</td><td>7</td><td>23</td><td>23.3%</td><td>21</td></tr><tr><td>Economy &amp; Reward</td><td>23</td><td>6</td><td>16</td><td>27.3%</td><td>15</td></tr><tr><td>Meta Progression</td><td>18</td><td>9</td><td>9</td><td>50.0%</td><td>5</td></tr><tr><td>Narrative Content</td><td>15</td><td>4</td><td>3</td><td>57.1%</td><td>9</td></tr></tbody></table></div>
-<p>8ドメインのmembershipは延べ293件で、重複所属を含む。重要なのは、仕様上の中核であるBoard Topologyが内部10に対して境界32、Effects &amp; Statusが内部7に対して境界23となり、ルールがドメイン内部よりManager/UI/隣接ドメインへ強く漏れている点である。Economy &amp; Rewardも凝集27.3%で、取引境界が独立していない。Deck &amp; Buildは凝集68.0%だが96実装と大きく、UI操作とカード保存則を同じ境界へ抱えている。</p>
-<p>Anatomia組込みの<code>state-machine</code>等も同時検出されるため、全体coverage/overlapは仕様8ドメインだけの指標ではない。再解析の判断には上表のドメイン別値を用い、旧59.4/100との単純な前後比較は行わない。</p>
-<h2>解析規模</h2>
-<div class="table-scroll"><table><thead><tr><th>指標</th><th>値</th></tr></thead><tbody><tr><td>ファイル</td><td>120</td></tr><tr><td>関数</td><td>424</td></tr><tr><td>解決済み呼び出し</td><td>347</td></tr><tr><td>未解決呼び出し</td><td>764</td></tr><tr><td>スキップ</td><td>0</td></tr><tr><td>旧自動検出ドメイン</td><td>2</td></tr><tr><td>仕様原文入力ドメイン</td><td>8（組込み2を除く）</td></tr><tr><td>ホットスポット</td><td>50</td></tr><tr><td>循環グループ</td><td>12</td></tr><tr><td>静的fan-in 0の関数</td><td>129</td></tr><tr><td>仕様リンク不足</td><td>120</td></tr></tbody></table></div>
-<p>未解決764件の内訳は<code>no-local-candidate</code> 659、<code>unresolved-receiver</code> 48、<code>abstract-no-impl</code> 29、<code>external-type</code> 28である。Unity API、コンポーネント取得、イベント、コルーチン等を多用するため、静的コールグラフは実行時配線を全て捉えない。</p>
-<h2>コードグラフの中心</h2>
-<pre data-language="mermaid"><code>flowchart LR
-  CM[CardMovement] --&gt; TS[TileSlot]
-  TS --&gt; AM[AttackMagic]
-  AM --&gt; TS
-  AM --&gt; EM[EffectManager]
-  EM --&gt; FX[IEffect implementations]
-  FX --&gt; AM
-  AMgr[AttackManager] --&gt; AM
-  GM[GameManager] --&gt; AMgr
-  UIB[UIManager_Battle] --&gt; GM
-  UIO[UIManager_Boss] --&gt; GM
-  DM[DeckManager] --&gt; UIB
-  DM --&gt; UIO
-  RM[RewardManager] --&gt; UIB
-  RM --&gt; UIO
-  MP[MapManager] --&gt; GM
-  WM[WalletManager] --&gt; RM</code></pre>
-<p>この中心は、ルール→表示の一方向ではなく、UI、Manager、盤面、効果が相互に呼び戻す構造である。特に盤面解決の循環と、二つのUIManagerが同じデッキ操作を持つ点が変更伝播の主因となる。</p>
-<h2>複雑度と結合</h2>
-<div class="table-scroll"><table><thead><tr><th>優先</th><th>関数</th><th>cyclomatic</th><th>fan-out</th><th>coupling</th><th>読み取り</th></tr></thead><tbody><tr><td>1</td><td><code>AttackMagic.Attack</code></td><td>9</td><td>16</td><td>19</td><td>本作の弾道ルール中心。分岐・接触・状態・終了条件を分離すべき</td></tr><tr><td>2</td><td><code>CardMovement.OnEndDrag</code></td><td>9</td><td>17</td><td>17</td><td>入力、妥当性、支払い、配置、UI更新が一つのイベントに集中</td></tr><tr><td>3</td><td><code>GameManager.Update</code></td><td>7</td><td>7</td><td>11</td><td>cross-domain depth 10、shared-state fan-in 4。フレーム更新が状態機械を兼ねる</td></tr><tr><td>4</td><td><code>CardMovement.OnBeginDrag</code></td><td>6</td><td>13</td><td>13</td><td>入力開始時に多数のゲーム状態へ依存</td></tr><tr><td>5</td><td><code>ShopManager.InitShop</code></td><td>6</td><td>9</td><td>11</td><td>在庫生成と表示初期化の境界が薄い</td></tr><tr><td>6</td><td><code>MapView.CreateMap</code></td><td>6</td><td>7</td><td>8</td><td>生成データとView構築が近接</td></tr><tr><td>7</td><td><code>TileSlot.DecreaseTimes</code></td><td>4</td><td>23</td><td>25</td><td>cyclomaticは低いがfan-out最大級。破壊が多くの副作用を起動</td></tr><tr><td>8</td><td><code>AttackMagic.ActivateMagic</code></td><td>3</td><td>22</td><td>24</td><td>効果ディスパッチと盤面変更の結節点</td></tr></tbody></table></div>
-<p>高いcyclomaticだけを分割しても十分ではない。<code>DecreaseTimes</code>と<code>ActivateMagic</code>は条件分岐よりも、変更先の多さと循環が危険である。解決キューから純粋なイベント列を返し、表示・音・オブジェクトプールを購読側へ移すことが効く。</p>
-<h2>循環</h2>
-<p>最重要の循環は次の7関数で構成される。</p>
-<pre data-language="mermaid"><code>flowchart LR
-  A[Attack] --&gt; B[ActivateMagic]
-  B --&gt; C[Split]
-  B --&gt; D[ChangeAroundDurability]
-  C --&gt; A
-  D --&gt; E[TileSlot.DecreaseTimes]
-  E --&gt; F[EffectChangeDurability.OnExcute]
-  E --&gt; G[EffectSplitAttack.OnExcute]
-  F --&gt; D
-  G --&gt; C</code></pre>
-<p>これは偶発的なUI循環ではなく、「効果が次の攻撃や耐久変化を直接呼ぶ」ルール表現そのものに由来する。再帰的な相互呼び出しを明示的な<code>ResolutionQueue</code>へ置き換えると、発火順、無限連鎖上限、リプレイ、プレビュー、テストを同時に改善できる。</p>
-<p>12循環グループには自己参照やUnity/Editor由来の小さなグループも含まれるため、全件を同じ重大度では扱わない。上記の戦闘循環を最優先とする。</p>
-<h2>God Classリスク</h2>
-<p>指標は、メソッド数30%、外部fan-out 25%、ドメイン横断25%、総cyclomatic 20%のヒューリスティックである。70以上がcritical、50以上がreview candidateであり、本対象にcriticalはない。</p>
-<div class="table-scroll"><table><thead><tr><th>クラス</th><th>リスク</th><th>methods</th><th>fields</th><th>total cyclomatic</th><th>判断</th></tr></thead><tbody><tr><td><code>UIManager_Battle</code></td><td>54.2</td><td>25</td><td>16</td><td>48</td><td>要分割。UI表示にデッキ・報酬・手札操作が混在</td></tr><tr><td><code>UIManager_Boss</code></td><td>54.2</td><td>25</td><td>16</td><td>48</td><td>Battle版とのほぼ並行実装が修正漏れを生む</td></tr><tr><td><code>GameManager</code></td><td>50.7</td><td>17</td><td>31</td><td>40</td><td>状態、シーン、入力、共有データの所有が集中</td></tr><tr><td><code>TaskManagerWindow</code></td><td>49.6</td><td>21</td><td>24</td><td>47</td><td>Editor専用。出荷ゲームの優先度は低い</td></tr><tr><td><code>CriAudioManager</code></td><td>45.2</td><td>23</td><td>7</td><td>38</td><td>インフラ。API面積は広いがドメイン中核ではない</td></tr><tr><td><code>CardMovement</code></td><td>42.2</td><td>13</td><td>28</td><td>40</td><td>入力アダプターがルール判断まで所有</td></tr><tr><td><code>AttackMagic</code></td><td>32.9</td><td>10</td><td>18</td><td>24</td><td>スコアより重要度が高い。中核ルールと演出が混在</td></tr></tbody></table></div>
-<p><code>UIManager_Battle</code>と<code>UIManager_Boss</code>は同値であり、同種の<code>ClearCard</code>、<code>CreateCard</code>、<code>DrawCard</code>、<code>HandOrganize</code>、報酬・コスト表示を別々に持つ。共通Presenter/HandControllerを抽出し、戦闘種別差は設定またはStrategyへ寄せるべきである。</p>
-<h2>ドメイン貧血度</h2>
-<p>自動分類は<code>state-machine</code>へ421要素を集約し、貧血リスク18（高信頼）、内部行動参加73.2%、凝集98.6%、孤立比26.8%と出した。しかし、この低リスク値は<strong>意味のあるゲームドメイン境界が見つかった結果ではない</strong>。分類が粗すぎるため、ほぼ全コードが一つの内部領域になり、境界支配が過小評価されている。</p>
-<p>人手で定義した8ドメインに照らすと、実装は次の意味で貧血傾向がある。</p>
+<h2>学生・初学者向け</h2>
+<p>ゲームの主要機能は実装されているが、弾の処理、魔法陣の効果、耐久値、画面演出が互いに直接呼び合っている。今のまま機能を増やすと、ある修正が別の挙動を壊しやすい。計算結果を先に作り、その結果をUnityで再生する二段構造へ分けるのが最優先である。</p>
+<h2>高解像度データ</h2>
+<h3>コードグラフ</h3>
+<div class="table-scroll"><table><thead><tr><th>指標</th><th>結果</th><th>解釈</th></tr></thead><tbody><tr><td>C#ファイル</td><td>120</td><td>EditorスクリプトとUnityTaskManagerを含む</td></tr><tr><td>関数</td><td>424</td><td>MonoBehaviourイベントを含む</td></tr><tr><td>解決呼び出し</td><td>347</td><td>静的に相手を同定できた辺</td></tr><tr><td>未解決呼び出し</td><td>764</td><td>Unityイベント、SDK、動的呼出しを含むため欠陥数ではない</td></tr><tr><td>循環</td><td>12</td><td>うち戦闘コアの7関数循環が最重要</td></tr><tr><td>静的孤立関数</td><td>129</td><td>Unityライフサイクルの偽陽性が多い</td></tr><tr><td>仕様リンクなしファイル</td><td>116</td><td>仕様IDのコード埋込みがほぼない</td></tr></tbody></table></div>
+<h3>主要ホットスポット</h3>
+<div class="table-scroll"><table><thead><tr><th>関数</th><th>結合</th><th>循環的複雑度</th><th>判断</th></tr></thead><tbody><tr><td><code>CardDataBase.GetCardData</code></td><td>35</td><td>2</td><td>高fan-inはDB窓口として自然。<code>hold</code></td></tr><tr><td><code>TileSlot.DecreaseTimes</code></td><td>25</td><td>4</td><td>耐久、破壊、効果、演出が集中。<code>improve</code></td></tr><tr><td><code>AttackMagic.ActivateMagic</code></td><td>24</td><td>3</td><td>効果呼出しと耐久更新を同時に行う。<code>improve</code></td></tr><tr><td><code>AttackMagic.Attack</code></td><td>19</td><td>9</td><td>移動、衝突、演出、状態を同一コルーチンで処理。<code>improve</code></td></tr><tr><td><code>CardMovement.OnEndDrag</code></td><td>17</td><td>9</td><td>入力、支払、配置、生成破棄が集中。<code>improve</code></td></tr><tr><td><code>GameManager.Update</code></td><td>11</td><td>7</td><td>フェーズ分岐の入口。状態遷移表へ寄せる。<code>improve</code></td></tr></tbody></table></div>
+<h3>最大循環</h3>
+<p><code>Attack → ActivateMagic → Split → ChangeAroundDurability → DecreaseTimes → EffectChangeDurability/EffectSplitAttack → Attack</code></p>
+<p>これは意図した連鎖を表す一方、計算とUnityコルーチンが同じ循環へ入るため、停止条件・再現性・テストを難しくする。平均的な改善は循環を禁止することではなく、イベント列を作る純粋処理へ閉じ込め、再生側を非循環にすることである。</p>
+<h3>ドメイン境界</h3>
+<div class="table-scroll"><table><thead><tr><th>仕様ドメイン</th><th>凝集度</th><th>判断</th></tr></thead><tbody><tr><td>Deck &amp; Build</td><td>0.680</td><td>良好、維持</td></tr><tr><td>Narrative Content</td><td>0.571</td><td>小規模のため保留</td></tr><tr><td>Meta Progression</td><td>0.500</td><td>境界確認</td></tr><tr><td>Run Progression</td><td>0.490</td><td>戦闘Managerとの重複を整理</td></tr><tr><td>Combat Encounter</td><td>0.443</td><td>盤面・効果との境界を整理</td></tr><tr><td>Economy &amp; Reward</td><td>0.273</td><td>報酬表示と経済規則を分離</td></tr><tr><td>Board Topology</td><td>0.238</td><td><code>AttackMagic</code>から盤面計算を抽出</td></tr><tr><td>Effects &amp; Status</td><td>0.233</td><td>効果の実行契約を統一</td></tr></tbody></table></div>
+<p>汎用<code>state-machine</code>は421関数を捕捉し凝集度0.986だが、ほぼ全コードを一箱へ入れた結果なので設計強度として無効である。正直な評価では、仕様ドメインの平均凝集度0.429を基準にする。</p>
+<h3>Unity固有の発見</h3>
 <ul>
-<li><code>CardData</code>、<code>DeckData</code>、<code>EnemyData</code>等は定義データで、状態遷移の多くをManager/UIが所有する。</li>
-<li>盤面セル<code>TileSlot</code>が配置、耐久、破壊副作用を持ち、独立した解決ルールモデルがない。</li>
-<li><code>GameManager</code>とUIManagerがフェーズ・ドロー・デッキ移動を直接調整する。</li>
-<li>ラン、報酬取引、イベント選択に明示的な集約と不変条件がない。</li>
+<li>画面候補10件を検出したが、ナビゲーション辺は1件。scene/prefab遷移を静的C#だけで復元できないため下限値である。</li>
+<li><code>AttackMagic.ChangeAroundDurability</code>は盤面端の一セルで範囲外になると<code>continue</code>ではなく<code>return</code>し、残り近傍の処理を打ち切る。</li>
+<li><code>RewardManager.Reward</code>は呼出しごとにスキップボタンへlistenerを追加し、解除が見えない。</li>
+<li><code>MapGenerator</code>は<code>nextCount - 1</code>を除数に使うため、1ノード階が許可される場合はゼロ除算相当の境界を持つ。</li>
+<li>コメントの一部はShift_JIS。コード解析は読めるが、共同編集とレビューのためUTF-8統一が望ましい。</li>
 </ul>
-<p>したがって「データクラスにメソッドを増やす」のではなく、<code>DeckZones</code>、<code>ResolutionQueue</code>、<code>RunState</code>、<code>RewardTransaction</code>という振る舞いと不変条件の単位を抽出する。</p>
-<h2>孤立関数の詳細レビュー</h2>
-<p>静的fan-in 0は129件だが、そのまま削除候補にはできない。</p>
-<h3>高確率の偽陽性</h3>
+<h2>再現性検証</h2>
+<p><code>review</code>、<code>domain-review</code>、<code>spec-review</code>、<code>screens</code>を各2回実行し、同一入力でバイト同一出力を確認した。旧安定版の120ファイル、424関数、764未解決呼び出し、12循環も再現した。現行<code>review</code>のホットスポット数20は上限変更であり、コード改善を意味しない。</p>
+<h2>不足情報</h2>
 <ul>
-<li>Unity lifecycle: <code>Awake</code>、<code>Start</code>、<code>Update</code>、<code>OnEnable</code>、<code>OnDisable</code>、<code>OnDestroy</code>。</li>
-<li>EventSystem: <code>OnBeginDrag</code>、<code>OnDrag</code>、<code>OnEndDrag</code>、<code>OnPointerClick</code>。</li>
-<li>Unity Editor: <code>OnGUI</code>、<code>OnInspectorGUI</code>、<code>GetPropertyHeight</code>、<code>OnValidate</code>。</li>
-<li>Scene/PrefabやInspectorのUnityEvent、コルーチン、reflectionから呼ばれるpublicメソッド。</li>
+<li>Unity scene/prefab、Inspector参照、Addressables/Resourcesの実配線</li>
+<li>実行トレース、最大同時弾数、フレーム時間、GC割当</li>
+<li>孤立関数129件のうちUnityから呼ばれるものの正式な除外規則</li>
 </ul>
-<h3>確認価値の高い候補</h3>
-<div class="table-scroll"><table><thead><tr><th>候補</th><th>観測</th><th>推奨確認</th></tr></thead><tbody><tr><td><code>GameManager.ChangePlayerType</code></td><td>C#およびテキストアセット参照を検出せず</td><td>キャラクター選択予定APIか、未使用なら削除</td></tr><tr><td><code>GameManager.GivePlayerBuffData</code></td><td>参照を検出せず</td><td>旧APIか将来用かを確認</td></tr><tr><td><code>AudioManager.PlayBGM</code></td><td><code>CriAudioManager</code>と音声責務が重複</td><td>旧AudioManagerの利用シーンを棚卸し</td></tr><tr><td><code>CriAudioManager.Stop/Pause/Resume/CrossFadeBgm</code></td><td>静的参照なし</td><td>公開APIとして意図的か、実未使用かをscene実行で確認</td></tr><tr><td><code>CardEncyclopedia.Filter/Sort</code>群</td><td>静的参照なし</td><td>runtime listenerまたは未接続UIを確認</td></tr><tr><td><code>CharacterBase.IncreaseMaxHP/RecoveryHP/AddPower</code></td><td>静的参照なし</td><td>ScriptableObject/イベント経由の有無を確認</td></tr><tr><td><code>RewardManager.RewardSkip</code></td><td>静的には孤立だが<code>AddListener</code>で自己登録</td><td><strong>使用中。削除不可</strong></td></tr></tbody></table></div>
-<p>孤立関数の受け入れ基準は、(1) C#参照なし、(2) scene/prefab/animation参照なし、(3) interface/override/lifecycleでない、(4) reflection・文字列呼び出し契約なし、(5) PlayMode到達なし、の全てを満たすこととする。</p>
-<h2>モジュール性と仕様リンク</h2>
+<h2>不足実装</h2>
 <ul>
-<li>ディレクトリ単位モジュール性: <strong>0.532</strong>（設計強度へ53.2として利用）。</li>
-<li>クラス単位モジュール性: <strong>0.250</strong>。</li>
-<li>仕様リンク: <strong>0%</strong>、120ファイル全てが未リンクとして検出。</li>
-</ul>
-<p><code>spec</code>にMarkdownがあるだけではコード要素との明示リンクにならない。受け入れ条件ID（例<code>BAT-RES-001</code>）をテスト名、主要ルール型のコメントまたはトレーサビリティ表へ接続する。全ファイルへコメントを貼るのではなく、ルールの正本となる型とテストへリンクする。</p>
-<h2>改善順序</h2>
-<ol>
-<li><code>UIManager_Battle/Boss</code>のドロー不具合と重複を止め、共通のカードゾーン操作へ集約する。</li>
-<li><code>AttackMagic ↔ TileSlot ↔ Effect</code>循環を明示的解決キューへ置換する。</li>
-<li><code>CardMovement</code>から配置妥当性、コスト支払い、カード状態遷移を分離する。</li>
-<li><code>GameManager.Update</code>の状態機械を<code>RunState</code>と<code>TurnPhase</code>へ分ける。</li>
-<li>Unity非依存のユニットテストでカード保存則、決定性、耐久、分岐上限を固定する。</li>
-<li>8ドメインと主要コード・テストのトレーサビリティをAnatomia入力へ接続する。</li>
-</ol>
-<h2>指標の限界</h2>
-<p>God Class、設計強度、ドメイン貧血度は比較と優先順位づけの補助であり、リリースゲートではない。未解決呼び出しが多いUnityプロジェクトでは、scene/prefabと実行時プロファイルを加えない限り、孤立・fan-in・ドメイン横断を過小または過大評価する。最終判断は仕様、コード読解、PlayModeテストと組み合わせる。</p></article><article class="document"><div class="document-title"><h3>仕様・ドメイン・コード配線表</h3><span class="source">spec/plan/06-spec-code-wiring.md</span></div><h1>仕様・ドメイン・コード配線表</h1>
+<li>解決イベント列とUnity再生層の分離</li>
+<li>盤面端、分岐、破壊、listener重複、1ノード階の回帰テスト</li>
+<li>仕様IDとコード所有ドメインを結ぶ明示リンク</li>
+</ul></article><h3>関連HTML</h3><div class="related"><a href="architecture-review.html">↗ architecture-review.html<br><small>report/architecture-review.html</small></a></div></section><section class="stage" id="stage-05" data-stage><div class="stage-head"><span class="stage-no">05</span><div><h2>仕様・ドメイン・コード追跡</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">状態: 完了 方針: 仕様ドメインを正本とし、Anatomiaの所属は検証値として扱う</p><article class="document"><div class="document-title"><h3>仕様・ドメイン・コード対応表</h3><span class="source">spec/plan/06-spec-domain-code-map.md</span></div><h1>仕様・ドメイン・コード対応表</h1>
 <ul>
-<li>文書版: 0.1.0</li>
-<li>対象: MagicChronicle <code>ed9846e62728080798edf34f70237689ae807428</code></li>
-<li>状態語: <code>implemented</code> / <code>partial</code> / <code>missing</code> / <code>conflict</code> / <code>defect</code></li>
+<li>状態: 完了</li>
+<li>方針: 仕様ドメインを正本とし、Anatomiaの所属は検証値として扱う</li>
 </ul>
-<h2>全体配線</h2>
-<pre data-language="mermaid"><code>flowchart TB
-  Spec[公開仕様・企画] --&gt; Model[8ドメインモデル]
-  Model --&gt; Run[Run Progression]
-  Model --&gt; Combat[Combat Encounter]
-  Model --&gt; Board[Board Topology]
-  Model --&gt; Deck[Deck &amp; Build]
-  Model --&gt; Effect[Effects &amp; Status]
-  Model --&gt; Economy[Economy &amp; Reward]
-  Model --&gt; Meta[Meta Progression]
-  Model --&gt; Story[Narrative Content]
-  Run --&gt; M1[MapGenerator / MapManager / GameManager]
-  Combat --&gt; M2[AttackManager / GameManager / Enemy / StagePlayer]
-  Board --&gt; M3[AttackMagic / TileSlot / AttackPointManager]
-  Deck --&gt; M4[DeckManager / CardMovement / UIManager_Battle &amp; Boss]
-  Effect --&gt; M5[EffectManager / IEffect / Buff classes]
-  Economy --&gt; M6[WalletManager / RewardManager / ShopManager]
-  Meta --&gt; M7[CardEncyclopedia / Camp UI]
-  Story --&gt; M8[EventPanelController / EventData / Event effects]
-  M2 --&gt; UI[Unity scenes / UI / animation / audio]
-  M3 --&gt; UI
-  M4 --&gt; UI</code></pre>
-<h2>トレーサビリティ</h2>
-<div class="table-scroll"><table><thead><tr><th>要件ID</th><th>仕様・不変条件</th><th>ドメイン</th><th>現コード</th><th>状態</th><th>検証・不足</th></tr></thead><tbody><tr><td>RUN-001</td><td>接続された次の部屋だけ選べる</td><td>Run</td><td><code>MapGenerator</code>, <code>MapManager</code>, <code>MapView</code>, <code>Room</code></td><td>partial</td><td>グラフ不変条件、seed決定性、到達不能検査がない</td></tr><tr><td>RUN-002</td><td>新規ランで全ラン状態を初期化</td><td>Run</td><td><code>GameManager</code>, <code>DeckManager</code>, <code>WalletManager</code>, <code>PlayerStatus</code></td><td>defect</td><td>deck/money/buff/mapを一括初期化する契約がない。<code>GAMEIMPL-001</code></td></tr><tr><td>RUN-003</td><td>勝利・敗北・放棄で一度だけ終了</td><td>Run</td><td><code>GameManager.SceneChange</code>, battle UI</td><td>partial</td><td>終了状態と持越し対象が明示されない</td></tr><tr><td>RUN-004</td><td>部屋結果が報酬または次遷移へ接続</td><td>Run/Economy</td><td><code>RewardManager</code>, <code>MapManager</code></td><td>partial</td><td>二重取得防止、再入場、報酬未選択時の扱いが未定</td></tr><tr><td>BAT-001</td><td>配置→自弾→敵弾→終了の順</td><td>Combat</td><td><code>GameManager.Update</code>, <code>AttackManager.AttackTurn/EnemyTurn</code></td><td>implemented</td><td>状態機械が複数Managerへ分散。順序テストなし</td></tr><tr><td>BAT-002</td><td>解決中は配置変更不可</td><td>Combat/Deck</td><td><code>CardMovement</code>, UI input state</td><td>partial</td><td>入力可否がUI状態に依存。単一フェーズガードがない</td></tr><tr><td>BAT-003</td><td>勝敗後はダメージ・報酬を二重適用しない</td><td>Combat</td><td><code>Enemy.Dead</code>, UI reward, scene change</td><td>partial</td><td>冪等なEncounterResultがない</td></tr><tr><td>BAT-004</td><td>HPは0〜最大値</td><td>Combat</td><td><code>CharacterBase</code></td><td>defect</td><td><code>Healed</code>がClamp結果を代入せず回復不能。<code>CODE-001</code></td></tr><tr><td>BRD-001</td><td>5x5盤面へ魔法陣を配置</td><td>Board</td><td><code>StageManager.CreateStage</code>, <code>TileSlot.PlaceCard</code></td><td>partial</td><td>サイズは構成依存。5x5と配置上限をルール型が保証しない</td></tr><tr><td>BRD-002</td><td>接触で効果を発火</td><td>Board/Effects</td><td><code>AttackMagic.ActivateMagic</code>, <code>EffectManager</code></td><td>implemented</td><td>発火順が相互呼出しで暗黙的</td></tr><tr><td>BRD-003</td><td>発火ごとに耐久減、0で消滅</td><td>Board</td><td><code>TileSlot.DecreaseTimes</code>, <code>AttackMagic.DestroyMagic</code></td><td>partial</td><td>破壊時効果と後続弾の順、端効果に不具合。<code>CODE-002</code></td></tr><tr><td>BRD-004</td><td>分岐弾の決定的順序と上限</td><td>Board</td><td><code>AttackMagic.Split/Attack</code></td><td>missing</td><td>明示順、無限連鎖上限、seed/replay契約がない</td></tr><tr><td>BRD-005</td><td>自弾と敵弾が同じ盤面規則を使う</td><td>Board/Combat</td><td><code>AttackManager</code>, <code>AttackMagic</code></td><td>implemented</td><td>敵意図・射線の予測仕様がない</td></tr><tr><td>DCK-001</td><td>カードは同時に一ゾーンだけ</td><td>Deck</td><td><code>DeckManager</code>, <code>UIManager_Battle/Boss</code></td><td>defect</td><td>exhaust/removedカードを再構築山札へ戻す。<code>CODE-003</code></td></tr><tr><td>DCK-002</td><td>空山札は正常にドロー終了</td><td>Deck</td><td><code>UIManager_Battle/Boss.DrawCard</code></td><td>defect</td><td>再構築後も空なら<code>DeckCard[0]</code>で停止。<code>CODE-015</code></td></tr><tr><td>DCK-003</td><td>手札配置だけがコストを消費、盤上移動は差額0</td><td>Deck/Board</td><td><code>CardMovement</code></td><td>defect</td><td>コスト最大時の盤上移動で差し引き。<code>CODE-005</code></td></tr><tr><td>DCK-004</td><td>報酬取得で一枚だけデッキへ追加</td><td>Deck/Economy</td><td><code>RewardManager</code>, <code>RewardCard</code>, <code>DeckManager</code></td><td>partial</td><td>重複・スキップ価値・上限・削除が未定</td></tr><tr><td>DCK-005</td><td>山札/手札/捨て札/除外/盤面の遷移</td><td>Deck</td><td>複数UIManager内のlist操作</td><td>conflict</td><td>仕様未決定かつコードが独自規則を実装</td></tr><tr><td>EFF-001</td><td>全状態にトリガー、寿命、スタック規則</td><td>Effects</td><td><code>BuffData</code>, <code>BuffStacks</code>, <code>IBuff</code>, 各Buff</td><td>conflict</td><td>公開資料間で消費契機と式が矛盾</td></tr><tr><td>EFF-002</td><td>状態変化とUI表示を一致</td><td>Effects/UI</td><td><code>BuffUIManager</code>, <code>BuffIcon</code>, <code>CharacterBase</code></td><td>defect</td><td>減少経路の一部でUI同期なし。<code>CODE-009</code></td></tr><tr><td>EFF-003</td><td>効果の対象・優先順位を決定的に解決</td><td>Effects</td><td><code>EffectManager</code>, 各<code>IEffect.OnExcute</code></td><td>partial</td><td>効果がManager/Boardを直接呼び、解決キューがない</td></tr><tr><td>ECO-001</td><td>支払いと取得は原子的</td><td>Economy</td><td><code>WalletManager.TrySpendMoney</code>, <code>ShopManager.Buy</code></td><td>partial</td><td>価格・在庫・購入済みを含む取引モデルがない</td></tr><tr><td>ECO-002</td><td>通貨ソースとシンクを追跡</td><td>Economy</td><td><code>EffectGetMoney</code>, <code>WalletManager</code>, shop/event</td><td>partial</td><td>初期値、期待獲得、価格曲線、run/meta分離がない</td></tr><tr><td>ECO-003</td><td>報酬候補は一度だけ生成・選択</td><td>Economy</td><td><code>RewardManager</code></td><td>partial</td><td>seed、希少度、重み、pity、二重選択防止が未定</td></tr><tr><td>META-001</td><td>発見・図鑑・解放をラン間で保存</td><td>Meta</td><td><code>CardEncyclopedia</code>, Camp UI</td><td>missing</td><td>永続プロフィール、version、migrationがない</td></tr><tr><td>META-002</td><td>恒久解放が次ランの横方向選択を増やす</td><td>Meta</td><td>キャラクター選択案、拠点ショップ案</td><td>missing</td><td>解放条件、通貨、重複、初期デッキが未定</td></tr><tr><td>NAR-001</td><td>Event IDは必ず解決し、失敗時も復帰可能</td><td>Narrative</td><td><code>EventDataBase</code>, <code>EventPanelController</code></td><td>defect</td><td>不正IDでblank panel softlock。<code>GAMEIMPL-003</code></td></tr><tr><td>NAR-002</td><td>選択肢の条件・費用・結果を一取引で適用</td><td>Narrative</td><td><code>EventChoice</code>, <code>IEventEffect</code></td><td>partial</td><td>失敗、キャンセル、再訪、フラグの仕様がない</td></tr><tr><td>NAR-003</td><td>Chronicle/Kairos分岐と結末条件</td><td>Narrative/Meta</td><td>実装対応なし</td><td>missing</td><td>公開ストーリーは筋のみ。ゲーム内提示、周回開示が未定</td></tr><tr><td>UX-001</td><td>自弾・敵弾・発火順・消滅を配置前に読む</td><td>Presentation</td><td>shadow/attack point系UI</td><td>partial</td><td>完全な時系列プレビューは未確認</td></tr><tr><td>UX-002</td><td>PC/モバイルで安全に操作</td><td>Presentation</td><td>EventSystem/InputSystem参照</td><td>defect</td><td><code>Mouse.current</code> null guard、safe area、端末release gateなし。<code>GAMEQUALITY-001</code></td></tr><tr><td>DATA-001</td><td>全ScriptableObject ID・参照をビルド前検査</td><td>Data authoring</td><td>各Database <code>Get*</code></td><td>missing</td><td>integrity validatorなし。null/softlockへ到達し得る</td></tr></tbody></table></div>
-<h2>コード所有の再配置案</h2>
-<div class="table-scroll"><table><thead><tr><th>現在</th><th>問題</th><th>移動先</th></tr></thead><tbody><tr><td><code>UIManager_Battle/Boss</code>内のdraw/reset/hand操作</td><td>表示クラスがカード保存則を所有し、二重実装</td><td>Unity非依存<code>RunDeckState</code> + 共通<code>HandController</code></td></tr><tr><td><code>CardMovement</code>内の配置・支払い判断</td><td>入力イベントがドメイン取引を所有</td><td><code>PlaceMagicCircleCommandHandler</code></td></tr><tr><td><code>AttackMagic</code>と<code>TileSlot</code>の直接相互呼出し</td><td>順序がコールスタック依存</td><td><code>ProjectileResolver</code> + <code>ResolutionQueue</code></td></tr><tr><td><code>GameManager.Update</code>のrun/phase遷移</td><td>フレームループと状態機械が結合</td><td><code>RunStateMachine</code>、<code>EncounterStateMachine</code></td></tr><tr><td><code>Effect*.OnExcute</code>から各Managerを直接操作</td><td>効果の合成・テスト・previewが困難</td><td><code>EffectResolution</code>がドメインイベントを返す</td></tr><tr><td>ScriptableObject assetのruntime mutation</td><td>次ランへの漏れ、Editor asset汚染リスク</td><td>immutable definition + runtime instance</td></tr></tbody></table></div>
+<h2>学生・初学者向け</h2>
+<p>企画の言葉とコードの置き場所を対応させる。対応が一つに決まらない箇所は、いまのコードが複数の仕事を持っている合図である。</p>
+<h2>高解像度データ</h2>
+<div class="table-scroll"><table><thead><tr><th>仕様ドメイン</th><th>主要コード</th><th>現在の配線</th><th>判断</th></tr></thead><tbody><tr><td>Run Progression</td><td><code>GameManager</code>, <code>MapManager</code>, <code>MapGenerator</code></td><td>戦闘フェーズとラン進行が<code>GameManager</code>で重複</td><td><code>improve</code>: <code>RunState</code>を抽出</td></tr><tr><td>Combat Encounter</td><td><code>GameManager</code>, <code>AttackManager</code>, <code>CharacterBase</code></td><td>Unityコルーチンでターンと勝敗を調停</td><td><code>improve</code>: 状態遷移表へ集約</td></tr><tr><td>Board Topology</td><td><code>AttackMagic</code>, <code>TileSlot</code>, <code>StageManager</code></td><td>経路、耐久、効果が循環</td><td><code>improve</code>: 純粋な解決キューへ分離</td></tr><tr><td>Deck &amp; Build</td><td><code>Card</code>, <code>CardMovement</code>, <code>DeckManager</code>, <code>CardDataBase</code></td><td>比較的まとまるが入力・支払・生成破棄が混在</td><td><code>improve</code>: 配置コマンド化</td></tr><tr><td>Effects &amp; Status</td><td><code>IEffect</code>, <code>IBuff</code>, <code>EffectManager</code>, 各Effect</td><td><code>OnExcute</code>から任意のゲーム状態へ直接到達</td><td><code>improve</code>: 効果結果型を統一</td></tr><tr><td>Economy &amp; Reward</td><td><code>WalletManager</code>, <code>RewardManager</code>, <code>ShopManager</code></td><td>表示アニメーションと残高・抽選が混在</td><td><code>improve</code>: 取引と表示を分離</td></tr><tr><td>Meta Progression</td><td><code>CardEncyclopedia</code>, <code>UIManager_Camp</code></td><td>画面案と図鑑はあるが持越し規則が薄い</td><td>情報待ち</td></tr><tr><td>Narrative Content</td><td><code>EventPanelController</code>, <code>EventDataBase</code>, Event各種</td><td>小規模で境界は比較的明瞭</td><td><code>hold</code></td></tr></tbody></table></div>
+<h2>重要な仕様リンク</h2>
+<div class="table-scroll"><table><thead><tr><th>仕様上の約束</th><th>実装根拠</th><th>追跡状態</th></tr></thead><tbody><tr><td>配置後に自弾、敵弾の順で解決</td><td><code>GameManager.UpdateAction:143</code>、<code>AttackManager.EnemyTurn:160</code></td><td>コード確認済み、例外仕様不足</td></tr><tr><td>魔法陣は耐久0で破壊</td><td><code>TileSlot.DecreaseTimes:110</code></td><td>コード確認済み、破壊順不足</td></tr><tr><td>効果が弾道・耐久・状態を変える</td><td><code>AttackMagic.ActivateMagic:337</code>、各<code>IEffect</code></td><td>コード確認済み、結果契約不足</td></tr><tr><td>報酬からカードを選ぶ</td><td><code>RewardManager.Reward:22</code></td><td>骨格確認、抽選表不足</td></tr><tr><td>分岐マップを進む</td><td><code>MapGenerator.GenerateMap:6</code>、<code>MapManager.MoveTo:50</code></td><td>骨格確認、seed/境界不足</td></tr></tbody></table></div>
 <h2>最小テスト配線</h2>
-<div class="table-scroll"><table><thead><tr><th>テストID</th><th>入力</th><th>期待</th></tr></thead><tbody><tr><td>T-BRD-001</td><td>同じseed・盤面・弾</td><td>同じイベント列・最終盤面</td></tr><tr><td>T-BRD-002</td><td>角/辺/中央の耐久周囲変更</td><td>盤内セルだけ全て処理</td></tr><tr><td>T-BRD-003</td><td>分岐と破壊時分岐の連鎖</td><td>安定順で終了し上限を超えない</td></tr><tr><td>T-DCK-001</td><td>全カードが手札/除外、山札0</td><td>例外なくno-card結果</td></tr><tr><td>T-DCK-002</td><td>exhaust後に山札再構築</td><td>exhaustカードが戻らず総数保存</td></tr><tr><td>T-DCK-003</td><td>盤上カードを再配置</td><td>コスト差分0</td></tr><tr><td>T-EFF-001</td><td>各Buffの付与・重複・消費</td><td>仕様表どおりの値とUIイベント</td></tr><tr><td>T-RUN-001</td><td>新規run→敗北→新規run</td><td>deck/money/HP/buff/mapが初期値</td></tr><tr><td>T-DATA-001</td><td>重複/欠損IDを含むasset</td><td>build前validatorが失敗理由を列挙</td></tr><tr><td>T-NAR-001</td><td>不正Event ID</td><td>fallback表示から必ずmapへ復帰可能</td></tr></tbody></table></div>
-<h2>配線上の結論</h2>
-<p>機能の「存在」は多く確認できるが、仕様ID→純粋ルール→テストの線がない。最初にカードゾーンと解決キューを正本化すると、既存High不具合、Anatomia循環、プレビュー困難、Battle/Boss重複を一つの設計変更で同時に縮小できる。</p></article><h3>関連HTML</h3><div class="related"><a href="anatomia-domain-graph.html">↗ anatomia-domain-graph.html<br><small>report/anatomia-domain-graph.html</small></a><a href="architecture-review.html">↗ architecture-review.html<br><small>report/architecture-review.html</small></a></div></section><section class="stage" id="stage-07" data-stage><div class="stage-head"><span class="stage-no">07</span><div><h2>UX確認・提案・改善</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 対象体験: TGS試遊を優先したPC版戦闘、ラン進行、初回tutorial 根拠: 公開画面遷移、仕様、Ludus、コード配線、AI Format、Anatomia</p><article class="document"><div class="document-title"><h3>UXレビュー・提案・改善資料</h3><span class="source">spec/plan/10-ux-review.md</span></div><h1>UXレビュー・提案・改善資料</h1>
-<ul>
-<li>文書版: 0.1.0</li>
-<li>対象体験: TGS試遊を優先したPC版戦闘、ラン進行、初回tutorial</li>
-<li>根拠: 公開画面遷移、仕様、Ludus、コード配線、AI Format、Anatomia</li>
-</ul>
-<h2>UXの結論</h2>
-<p>MagicChronicleのUX目標は、情報を減らすことではなく、<strong>プレイヤーが「自分の一手で連鎖を作った」と因果を所有できること</strong>である。最大の阻害要因は、弾道、発火順、耐久消滅、敵弾が一度に動き、結果だけが派手に見えることである。</p>
-<p>最優先の改善は、配置前の時系列preview、盤面上の残耐久、敵意図、解決後の短い因果ログである。これらは初心者支援であると同時に、上級者が深い最適化を行うための道具になる。</p>
-<h2>プレイヤージャーニー</h2>
-<div class="table-scroll"><table><thead><tr><th>段階</th><th>プレイヤーの問い</th><th>必要な情報/操作</th><th>現状リスク</th><th>成功状態</th></tr></thead><tbody><tr><td>発見</td><td>何が他のdeckbuilderと違う？</td><td>10〜15秒の共有盤面連鎖</td><td>ジャンル名だけでは固有性が伝わらない</td><td>敵弾も同じ魔法陣を使うと理解</td></tr><tr><td>初回起動</td><td>何をすれば遊べる？</td><td>一つの明確な開始CTA</td><td>拠点機能が多く初回目的を散らす</td><td>30秒以内にtutorial開始</td></tr><tr><td>配置</td><td>どこへ置くと何が起きる？</td><td>自弾/敵弾の色分け、発火番号、耐久</td><td>結果が予測不能</td><td>確定前に結果の大枠を説明できる</td></tr><tr><td>解決</td><td>なぜこの結果になった？</td><td>視線誘導、因果単位の演出</td><td>同時演出で情報が埋もれる</td><td>連鎖の起点と終点を追える</td></tr><tr><td>報酬</td><td>何を選ぶとビルドが伸びる？</td><td>tag、比較、deck影響</td><td>効果文の語彙・寿命が不統一</td><td>選択理由を一文で説明できる</td></tr><tr><td>map</td><td>次はどのリスクを取る？</td><td>部屋種、予想報酬、危険</td><td>数値根拠なしで見た目選択</td><td>HP/money/buildのtrade-offを読む</td></tr><tr><td>敗北</td><td>何を学び、次に何を変える？</td><td>原因要約、run build、次の選択肢</td><td>単なるリセットになる</td><td>再挑戦または別buildの意図が生まれる</td></tr></tbody></table></div>
-<h2>戦闘HUDの提案</h2>
-<pre data-language="text"><code>┌─────────────────────────────────────────────────────────────┐
-│ TURN 4  [配置]    敵: 次は左上から2発 →↘      [速度][設定] │
-├──────────────┬───────────────────────────┬──────────────────┤
-│ PLAYER       │       5 × 5 BOARD         │ ENEMY            │
-│ HP 34 / 50   │  自弾 ━━━ cyan            │ HP 72 / 100      │
-│ COST 3 / 5   │  敵弾 ┅┅┅ magenta         │ Intent: 2 shots  │
-│ Buff         │  ①方向 → ②分岐 → ③破壊   │ Status           │
-│ [筋力 2↻]    │  各魔法陣に耐久 2/3       │ [弱体 1T]        │
-│ [毒 3・終了] │                           │                  │
-├──────────────┴───────────────────────────┴──────────────────┤
-│ HAND: [card] [card] [card] [card]     Draw 5 / Discard 7   │
-│ 選択中: 分岐陣 / COST 2 / 耐久2 / OnEnter: 左右に分岐      │
-│ [取り消す]                  予測: 6 hit / 18 dmg [確定する] │
-└─────────────────────────────────────────────────────────────┘</code></pre>
-<h3>情報優先順位</h3>
 <ol>
-<li>現フェーズと確定可能性。</li>
-<li>自弾・敵弾の起点と予定経路。</li>
-<li>発火順と、次の接触で消える魔法陣。</li>
-<li>選択カードのcost、trigger、effect、lifetime。</li>
-<li>HP、状態、deck zone。</li>
-<li>予想damage等の集約値。</li>
+<li>仕様例を<code>ResolutionQueue</code>入力へ変換する。</li>
+<li>同一seed・同一入力から同じイベント列が得られることを検査する。</li>
+<li>Unityアダプターがイベント列を順番どおり表示することをPlayModeで検査する。</li>
+<li>UXの予告と振り返りが同じイベント列を使うことを検査する。</li>
 </ol>
-<p>damage予測だけを出すと学習を奪うため、必ず因果列へ展開できるようにする。</p>
-<h2>時系列preview</h2>
-<h3>表示モード</h3>
+<h2>不足情報</h2>
 <ul>
-<li><strong>簡易</strong>: 経路線、最終damage、消滅予定を表示。</li>
-<li><strong>詳細</strong>: <code>①接触 → ②分岐 → ③耐久0/破壊 → ④後続弾直進</code>をstep表示。</li>
-<li><strong>差分</strong>: ドラッグ中は配置前/後で変わった経路だけを強調。</li>
-<li><strong>不確実</strong>: randomや伏せ情報は範囲・分岐候補として表示し、確定線と混ぜない。</li>
+<li>仕様項目へ付ける安定IDと責任者</li>
+<li>scene/prefab/ScriptableObjectの対応</li>
+<li>8ドメインの変更境界と公開API</li>
 </ul>
-<h3>色と形</h3>
+<h2>不足実装</h2>
 <ul>
-<li>自弾はcyan実線、敵弾はmagenta破線。色だけに頼らず線種と起点iconを併用。</li>
-<li>発火番号は円、破壊は亀裂icon、残存は盾形耐久badge。</li>
-<li>有利/不利を赤緑だけで表現せず、<code>+ / −</code>、矢印、patternを併用。</li>
+<li>仕様IDをコード・テストへ結ぶメタデータ</li>
+<li>ドメインごとのUnity非依存テスト</li>
+<li>予告、実行、リプレイを同じイベント列へ接続するアダプター</li>
+</ul></article><article class="document"><div class="document-title"><h3>仕様不足・矛盾・要決定事項</h3><span class="source">spec/plan/07-spec-gaps.md</span></div><h1>仕様不足・矛盾・要決定事項</h1>
+<ul>
+<li>状態: 完了</li>
+<li>優先度: P0は8月末のコアループ確定前、P1は9月中旬の配布候補前、P2は製品化前</li>
 </ul>
-<h2>解決演出</h2>
-<p>連鎖の爽快感を守りながら理解可能にする。</p>
+<h2>学生・初学者向け</h2>
+<p>いま不足しているのはアイデアではなく、「同時に起きたらどちらを先に処理するか」「失敗時に何が残るか」のような裁定である。裁定がないまま演出やカードを増やすと、テストできない組合せが増える。</p>
+<h2>P0</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>不足</th><th>影響</th><th>決める内容</th></tr></thead><tbody><tr><td>GAP-P0-001</td><td>解決順</td><td>同じ配置で結果が揺れる</td><td>移動、発火、分岐、耐久、破壊、死亡のキュー規則</td></tr><tr><td>GAP-P0-002</td><td>カード領域</td><td>複製・消失の判定不能</td><td>山札、手札、盤面、捨て札、除外の遷移</td></tr><tr><td>GAP-P0-003</td><td>敵意図</td><td>敵ターンが理不尽に見える</td><td>自弾/敵弾の予告範囲と隠す情報</td></tr><tr><td>GAP-P0-004</td><td>勝敗</td><td>相打ち・途中死亡が未裁定</td><td>勝利、敗北、相打ち、中断の優先</td></tr><tr><td>GAP-P0-005</td><td>ラン状態</td><td>scene遷移で状態責任が曖昧</td><td>開始、部屋完了、失敗、放棄、クリア</td></tr><tr><td>GAP-P0-006</td><td>効果契約</td><td>効果追加で循環が増える</td><td>対象、量、寿命、重複、上限、無効化</td></tr></tbody></table></div>
+<h2>P1</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>不足</th><th>影響</th><th>決める内容</th></tr></thead><tbody><tr><td>GAP-P1-001</td><td>初回学習</td><td>面白さへ届く前に離脱</td><td>最初に教える一規則と転用課題</td></tr><tr><td>GAP-P1-002</td><td>失敗回復</td><td>再挑戦の学習が弱い</td><td>振り返り、再試行、seed保存</td></tr><tr><td>GAP-P1-003</td><td>報酬分布</td><td>ビルドが成立しない</td><td>希少度、重み、重複、救済、スキップ価値</td></tr><tr><td>GAP-P1-004</td><td>入力</td><td>PCとモバイルの誤操作差</td><td>取り消し、ドラッグ閾値、代替操作</td></tr><tr><td>GAP-P1-005</td><td>表現縮退</td><td>高密度時に読めない</td><td>演出上限、優先表示、60fps時の縮退</td></tr><tr><td>GAP-P1-006</td><td>配信表示</td><td>視聴者が上手さを読めない</td><td>連鎖番号、危険経路、結果内訳</td></tr></tbody></table></div>
+<h2>P2</h2>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>不足</th><th>影響</th><th>決める内容</th></tr></thead><tbody><tr><td>GAP-P2-001</td><td>恒久進行</td><td>反復理由が曖昧</td><td>横方向解放、持越し、リセット</td></tr><tr><td>GAP-P2-002</td><td>価格・販売</td><td>市場性を検証不能</td><td>価格、販売地域、ストア、体験版</td></tr><tr><td>GAP-P2-003</td><td>グッズ</td><td>需要を推定不能</td><td>代表記号、対象商品、製造条件</td></tr><tr><td>GAP-P2-004</td><td>IP運用</td><td>拡張で世界観が散る</td><td>アート正本、監修、権利、命名規則</td></tr><tr><td>GAP-P2-005</td><td>アクセシビリティ</td><td>参加可能性が不明</td><td>色以外の区別、字幕、入力代替、速度調整</td></tr></tbody></table></div>
+<h2>コードと仕様の不一致候補</h2>
+<ul>
+<li><code>AttackMagic.ChangeAroundDurability:402</code>は盤面外の隣接セルで処理全体を<code>return</code>する。仕様が「有効な隣接セルすべて」なら実装不一致。</li>
+<li><code>RewardManager.Reward:26</code>は表示のたびlistenerを追加する。scene再利用時の多重実行を仕様が許す根拠はない。</li>
+<li><code>MapGenerator:84</code>は次階1ノード時の除数が0になる。1ノード階を禁止する不変条件かガードが必要。</li>
+<li>画面候補10件に対して静的ナビゲーション辺1件。仕様上の画面遷移をコードだけで検証できない。</li>
+</ul>
+<h2>不足情報</h2>
+<ul>
+<li>上記IDごとの決定者、期限、受入例</li>
+<li>実プレイ・実機でのみ確認できる挙動</li>
+<li>配布対象端末、年齢、地域、価格</li>
+</ul>
+<h2>不足実装</h2>
+<ul>
+<li>P0規則の決定表と自動テスト</li>
+<li>P1の予告・回復・縮退・入力代替</li>
+<li>P2のデータ契約、計測、権利台帳</li>
+</ul></article></section><section class="stage" id="stage-06" data-stage><div class="stage-head"><span class="stage-no">06</span><div><h2>メカニクス・ゲーム内経済</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 注意: 数値表とテレメトリがないため、点数は構造評価でありバランス合否ではない</p><article class="document"><div class="document-title"><h3>メカニクスとゲーム内経済</h3><span class="source">spec/plan/08-mechanics-economy.md</span></div><h1>メカニクスとゲーム内経済</h1>
+<ul>
+<li>状態: 完了</li>
+<li>注意: 数値表とテレメトリがないため、点数は構造評価でありバランス合否ではない</li>
+</ul>
+<h2>学生・初学者向け</h2>
+<p>お金だけでなく、カード、配置コスト、魔法陣の耐久、HP、部屋選択もゲーム内の資源である。よい循環は、使った資源が次の判断を変える。このゲームでは耐久と共有盤面が強いが、報酬や恒久進行の数値が未定で、長く遊んだときの偏りはまだ判断できない。</p>
+<h2>高解像度データ</h2>
+<h3>資源台帳</h3>
+<div class="table-scroll"><table><thead><tr><th>資源</th><th>主な入手</th><th>主な消費</th><th>戦略上の役割</th><th>状態</th></tr></thead><tbody><tr><td>配置コスト</td><td>ターン開始回復</td><td>カード配置</td><td>1ターンの選択量</td><td>実装あり、上限規則不足</td></tr><tr><td>魔法陣耐久</td><td>カード初期値、回復効果</td><td>弾接触</td><td>将来の経路と敵利用リスク</td><td>コアとして強い</td></tr><tr><td>手札/デッキ</td><td>初期構成、報酬</td><td>配置、遷移</td><td>解法候補の供給</td><td>領域規則不足</td></tr><tr><td>HP</td><td>開始、回復</td><td>敵弾、効果</td><td>ラン継続可能性</td><td>実装あり</td></tr><tr><td>所持金</td><td>戦闘/効果の仮説</td><td>ショップ</td><td>ラン内選択</td><td>供給表不足</td></tr><tr><td>ジェム</td><td>不明</td><td>不明</td><td>恒久資源候補</td><td>情報・実装不足</td></tr><tr><td>部屋選択</td><td>マップ生成</td><td>一方向移動</td><td>リスクと報酬</td><td>seed/可視性不足</td></tr><tr><td>解放/図鑑</td><td>発見</td><td>原則消費なし</td><td>複数ランの横展開</td><td>規則不足</td></tr></tbody></table></div>
+<h3>循環評価</h3>
+<div class="table-scroll"><table><thead><tr><th>循環</th><th>点数</th><th>判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td>配置コスト</td><td>7.0/10</td><td>明快。複数回の確認と消費を分離できている</td><td><code>hold</code>: 数値検証まで構造維持</td></tr><tr><td>耐久と破壊</td><td>8.0/10</td><td>攻防を一つの資源へ統合</td><td><code>hold</code>: 新資源を足さず可視化</td></tr><tr><td>報酬とデッキ</td><td>5.6/10</td><td>選択骨格はあるが重み・救済がない</td><td><code>improve</code>: タグ別出現分布を検査</td></tr><tr><td>HP・所持金・部屋</td><td>6.0/10</td><td>ラン内の損得は作れる</td><td><code>improve</code>: 期待値と回復機会を明示</td></tr><tr><td>恒久進行</td><td>N/A</td><td>規則がなく採点不能。0点へ変換しない</td><td>情報が揃うまで実装を保留</td></tr></tbody></table></div>
+<h3>構造上のループ</h3>
+<p><code>配置コスト → 魔法陣配置 → 弾道/効果 → 耐久消費・敵被害 → 報酬 → デッキ変化 → 次の配置</code></p>
+<p>この循環は一貫している。余分なのは概念ではなく、<code>AttackMagic</code>、<code>TileSlot</code>、<code>Effect</code>が相互呼出しで同じ循環を実装している点である。ゲームループを保ちながらコード循環をイベント列へ置き換える。</p>
+<h2>量産性</h2>
+<p>方向、分岐、耐久、破壊時効果、状態、コスト、敵配置の直積で変種を作れる。ただし無制限な直積は組合せ爆発になる。カードタグごとに許可組合せ、数値範囲、危険相互作用を定義し、生成後に到達可能性・無限連鎖・一強構成を検査する。</p>
+<h2>最小の数値検証</h2>
+<ul>
+<li>1ターンあたり配置数、総発火数、予測と実結果の差</li>
+<li>耐久1点あたりの期待ダメージと敵利用リスク</li>
+<li>報酬3択におけるタグ重複率、無選択率、ビルド修正率</li>
+<li>部屋ごとのHP損失、所持金増減、次経路の選択率</li>
+<li>連鎖長の中央値・95パーセンタイルとフレーム時間</li>
+</ul>
+<h2>不足情報</h2>
+<ul>
+<li>初期値、上限、回復、報酬、希少度、敵成長の数値表</li>
+<li>ラン時間、部屋数、目標難易度、プレイヤー層</li>
+<li>ジェムと恒久進行の用途、実課金の有無</li>
+</ul>
+<h2>不足実装</h2>
+<ul>
+<li>seed付きシミュレーターとバランス検査</li>
+<li>カード領域・報酬抽選・取引の純粋ドメイン実装</li>
+<li>無限連鎖、到達不能、極端な資源増減の自動テスト</li>
+</ul></article></section><section class="stage" id="stage-07" data-stage><div class="stage-head"><span class="stage-no">07</span><div><h2>AI Format・設計健全性</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 AIFormat参照: Anatomia同梱 `90f2f1e7efe127b8c24c34a3c61e66a1c3023bce` 評価対象: 文書構成とUnity/C#設計を分けて採点</p><article class="document"><div class="document-title"><h3>AI Format・アーキテクチャ健全性レビュー</h3><span class="source">spec/plan/09-aiformat-architecture-review.md</span></div><h1>AI Format・アーキテクチャ健全性レビュー</h1>
+<ul>
+<li>状態: 完了</li>
+<li>AIFormat参照: Anatomia同梱 <code>90f2f1e7efe127b8c24c34a3c61e66a1c3023bce</code></li>
+<li>評価対象: 文書構成とUnity/C#設計を分けて採点</li>
+</ul>
+<h2>学生・初学者向け</h2>
+<p>資料の置き場所と索引は整った。一方、ゲームコードは「どこに何があるか」より「一つの処理が多くの仕事をする」ことが問題である。資料の高得点をコード品質の高得点として扱ってはいけない。</p>
+<h2>AIFormatスコア</h2>
+<div class="table-scroll"><table><thead><tr><th>評価項目</th><th>点数</th><th>根拠</th><th>判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td><strong>仕様資料の分類</strong></td><td>10.0/10</td><td>data/feature/interface/plan/setup/testが存在</td><td><code>hold</code></td><td>分類を増やさず維持</td></tr><tr><td><strong>仕様索引と導線</strong></td><td>10.0/10</td><td><code>spec/README.md</code>追加後、再監査A・指摘0</td><td><code>hold</code></td><td>最終ファイル名と同期</td></tr><tr><td>仕様とコードの追跡</td><td>3.0/10</td><td>116ファイルに明示仕様リンクなし、spec integrity 0</td><td><code>improve</code></td><td>P0規則から安定IDを付与</td></tr><tr><td>コードの単一責任</td><td>5.0/10</td><td>戦闘・盤面・演出の循環、複数Managerへ責任集中</td><td><code>improve</code></td><td>解決計算とUnity再生を分離</td></tr><tr><td>テスト可能性</td><td>4.5/10</td><td>Unity非依存の規則テストが確認できない</td><td><code>improve</code></td><td>seed付き決定論テスト</td></tr><tr><td>総合アーキテクチャ健全性</td><td>5.6/10</td><td>実装量は十分だが境界と追跡が弱い</td><td><code>improve</code></td><td>P0ルールだけを先に抽出</td></tr></tbody></table></div>
+<p>市場優位性を示す太字はVitia表だけに用い、この表の太字は資料形式上の強みを示す。</p>
+<h2>正直な所見</h2>
+<ul>
+<li><code>CardDataBase.GetCardData</code>の高fan-inは窓口として自然で、無理に分散しない。</li>
+<li>Unityイベント由来の静的孤立129件を削除候補129件とは解釈しない。</li>
+<li>764未解決呼び出しを欠陥数とは扱わない。</li>
+<li><code>state-machine</code>の高凝集度はほぼ全関数を捕捉した結果で、設計強度として採用しない。</li>
+<li><code>AttackMagic</code>循環は遊びの連鎖を実装しているため存在自体を悪とせず、停止・再現・可視化できる境界へ閉じ込める。</li>
+</ul>
+<h2>優先する修正</h2>
 <ol>
-<li>発射前0.2秒で起点と予定線をpulse。</li>
-<li>一つの因果まとまり（接触→分岐→hit）を視線追従可能な速度で再生。</li>
-<li>同時に多数発火しても、主要chainのdamage数字を一つに束ねる。</li>
-<li>プレイヤー入力不可時間が長い場合、1x/2x/4xを常設。</li>
-<li>想定外の被害時だけ、直前3〜5イベントを自動で残す。</li>
+<li><code>ResolutionQueue</code>の入力・出力・停止条件を仕様化する。</li>
+<li><code>AttackMagic</code>から結果計算をUnity非依存クラスへ移す。</li>
+<li>予告・本番・リプレイが同じイベント列を利用する。</li>
+<li>P0仕様IDをテスト名とコード所有へ接続する。</li>
+<li>文字コードをBOMなしUTF-8へ段階的に統一する。</li>
 </ol>
-<p>演出skipは結果を即時適用しても、因果ログと最終盤面を失わない。</p>
-<h2>カード文面の標準</h2>
-<pre data-language="text"><code>[Trigger] 魔法弾が入った時
-[Effect] 左右へ1発ずつ分岐する
-[Lifetime] 発火後、耐久を1失う（現在 2）
-[Tag] コンボ / 分岐</code></pre>
-<p>状態は<code>効果量・対象・消費契機・残寿命・stack上限</code>を同じ順で書く。<code>テクニカル</code>等のビルド名を効果名の代わりに使わない。</p>
-<h2>Tutorial設計</h2>
-<h3>7ステップ</h3>
-<div class="table-scroll"><table><thead><tr><th>Step</th><th>新しく教えるもの</th><th>成功条件</th><th>まだ隠すもの</th></tr></thead><tbody><tr><td>1</td><td>一枚置いて直進弾を曲げる</td><td>指定マスへ配置しhit</td><td>敵弾、deck、buff</td></tr><tr><td>2</td><td>costと複数配置</td><td>cost内で2枚chain</td><td>状態、破壊時効果</td></tr><tr><td>3</td><td>耐久と消滅</td><td>1枚を消し後続弾を通す</td><td>敵共有</td></tr><tr><td>4</td><td>敵も同じ盤面を使う</td><td>自分は通し敵を逸らす</td><td>分岐</td></tr><tr><td>5</td><td>分岐と発火順</td><td>2 targetまたは多段hit</td><td>複雑なbuff</td></tr><tr><td>6</td><td>報酬とbuild tag</td><td>既存2枚と相乗する一枚を選ぶ</td><td>meta</td></tr><tr><td>7</td><td>小さな自由戦闘</td><td>3連鎖を自力で作る</td><td>なし</td></tr></tbody></table></div>
-<p>説明を読ませるのではなく、一つの安全な失敗と即時undoで学ばせる。tutorial終了時に「敵も使う」「耐久で途中から道が変わる」の二点を再確認する。</p>
-<h2>報酬・deck UX</h2>
+<h2>不足情報</h2>
 <ul>
-<li>新カード単体だけでなく、現在deckのtag数と相乗候補を表示。</li>
-<li>取得後のdeck枚数と引く確率の変化を簡潔に示す。</li>
-<li>Skip、削除、強化を同じ価値選択にし、常に枚数増加を強制しない。</li>
-<li>山札、捨て札、除外を異なるicon・語彙で一貫させる。</li>
-<li>報酬比較中に現在の代表chainをside panelで確認可能にする。</li>
+<li>scene/prefab、外部SDK、ScriptableObjectを含む完全依存グラフ</li>
+<li>テスト実行結果、カバレッジ、ビルド再現条件</li>
+<li>チームの変更頻度と障害実績</li>
 </ul>
-<h2>Map・長期UX</h2>
+<h2>不足実装</h2>
 <ul>
-<li>ノーマル/エリート/イベント/店/鍛冶/ボスをshape + labelで区別。</li>
-<li>未訪問部屋の報酬は確定/範囲/不明を明示。</li>
-<li>選択前に「回復機会まで2部屋」「所持金不足」等、既知情報だけを要約。</li>
-<li>敗北画面では最終build、最大chain、主な被害原因、発見したカードを表示。</li>
-<li>「もう一度」だけでなく「別の初期deck」「同じseed」の再挑戦を用意。</li>
-</ul>
-<h2>PC・モバイル入力</h2>
-<h3>TGS/PC優先</h3>
+<li>仕様リンク、ドメイン境界、決定論テスト</li>
+<li>高密度連鎖の性能計測と縮退動作</li>
+<li>全テキストのUTF-8検査を行うCI</li>
+</ul></article></section><section class="stage" id="stage-08" data-stage><div class="stage-head"><span class="stage-no">08</span><div><h2>UX・配信映え</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 Vitiaソース: `../data/vitia-ux-source-manifest.json` 体験監査: `../data/vitia-game-experience-audit.json` 方法: 仕様・静的コード観察とAI平均反応シミュレーション。実ユーザー評価ではない</p><article class="document"><div class="document-title"><h3>UX・オンボーディング再解析</h3><span class="source">spec/plan/10-ux-review.md</span></div><h1>UX・オンボーディング再解析</h1>
 <ul>
-<li>hoverを補助に限定し、click/keyboardだけで全情報へ到達。</li>
-<li>drag失敗時は元位置へ戻し、costを変えない。</li>
-<li><code>Esc</code>で戻る、右clickで取り消す等を画面に常時hint。</li>
-<li>pointerが無い環境で<code>Mouse.current</code>を直接前提にしない。</li>
+<li>状態: 完了</li>
+<li>Vitiaソース: <code>../data/vitia-ux-source-manifest.json</code></li>
+<li>体験監査: <code>../data/vitia-game-experience-audit.json</code></li>
+<li>方法: 仕様・静的コード観察とAI平均反応シミュレーション。実ユーザー評価ではない</li>
 </ul>
-<h3>Mobile gate</h3>
-<ul>
-<li>safe area、横持ち/縦持ち、最小44〜48px相当のtouch targetを端末別検証。</li>
-<li>指で隠れるため、drag中のcard説明と配置先を上部へmirror。</li>
-<li>長押し詳細、tap選択→tap配置というdrag代替を用意。</li>
-<li>hover説明、右click、細い線だけに依存しない。</li>
-</ul>
-<h2>Accessibility</h2>
-<ul>
-<li>font size/UI scale、色覚preset、flash軽減、screen shake、animation速度。</li>
-<li>効果音だけ/色だけで状態を伝えず、text/icon/patternを併用。</li>
-<li>連鎖の自動再生にpause、step、skipを提供。</li>
-<li>keyboard/gamepad navigation順とfocus表示。</li>
-<li>日本語hard-codeを外部化し、可変長文でlayout検証。</li>
-</ul>
-<h2>UX優先度</h2>
-<div class="table-scroll"><table><thead><tr><th>優先</th><th>改善</th><th>理由</th></tr></thead><tbody><tr><td>P0</td><td>敵意図 + 自/敵弾経路 + 耐久消滅preview</td><td>本作固有の判断を成立させる</td></tr><tr><td>P0</td><td>card zoneとcostの操作不具合修正</td><td>誤操作・進行停止をなくす</td></tr><tr><td>P0</td><td>発火順を番号化し因果ログへ接続</td><td>爽快感を自分の成果にする</td></tr><tr><td>P1</td><td>7段階tutorial</td><td>複雑さを段階公開する</td></tr><tr><td>P1</td><td>card本文標準とbuild tag表示</td><td>報酬判断を理解可能にする</td></tr><tr><td>P1</td><td>Battle/Boss共通HUD</td><td>同じ操作の挙動差をなくす</td></tr><tr><td>P2</td><td>defeat/run recap</td><td>学習と再挑戦を作る</td></tr><tr><td>P2</td><td>mobile代替操作と端末matrix</td><td>PC版の後に独立gateで品質確保</td></tr></tbody></table></div>
-<h2>検証計画</h2>
-<div class="table-scroll"><table><thead><tr><th>仮説</th><th>指標</th><th>成功基準案</th></tr></thead><tbody><tr><td>previewで因果理解が上がる</td><td>予測と実結果の不一致率</td><td>tutorial後20%以下</td></tr><tr><td>tutorialが初回価値を早める</td><td>初3連鎖までの時間</td><td>中央値8分以内</td></tr><tr><td>敵意図で理不尽感が減る</td><td>被damage理由を説明できる割合</td><td>80%以上</td></tr><tr><td>card標準文で報酬判断が速くなる</td><td>選択時間と理解正答</td><td>時間短縮かつ正答低下なし</td></tr><tr><td>演出速度選択で待ちを減らす</td><td>入力不能時間比、skip率</td><td>長期runで待ち20%以下</td></tr><tr><td>UXが企画価値を届ける</td><td>「自分がchainを作った」同意</td><td>5段階4以上が70%</td></tr></tbody></table></div>
-<p>数値は初期目標であり、5〜8人のformative testで問題箇所を直した後、TGS想定条件で定量確認する。</p></article></section><section class="stage" id="stage-08" data-stage><div class="stage-head"><span class="stage-no">08</span><div><h2>Vitiaマーケティング分析・評価・提案</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">文書版: 0.1.0 採点入力: `../data/vitia-input.json` 採点結果: `../data/vitia-output.json` 用途: TGS 2026試遊、Steam store/trailerを想定した仮説 5x5盤面へ魔法陣を配置し、弾の方向、分岐、効果、耐久を操作する企画である。 プレイヤー弾の後に敵弾が同じ盤面・魔…</p><article class="document"><div class="document-title"><h3>Vitia マーケティング・セールスポイント分析</h3><span class="source">spec/plan/11-vitia-market-review.md</span></div><h1>Vitia マーケティング・セールスポイント分析</h1>
-<ul>
-<li>文書版: 0.1.0</li>
-<li>採点入力: <code>../data/vitia-input.json</code></li>
-<li>採点結果: <code>../data/vitia-output.json</code></li>
-<li>用途: TGS 2026試遊、Steam store/trailerを想定した仮説</li>
-</ul>
-<h2>1. Truth ledger</h2>
-<h3>Verified</h3>
-<ul>
-<li>5x5盤面へ魔法陣を配置し、弾の方向、分岐、効果、耐久を操作する企画である。</li>
-<li>プレイヤー弾の後に敵弾が同じ盤面・魔法陣を利用する。</li>
-<li>耐久0で魔法陣が消え、後続弾の経路が変わる。</li>
-<li>deckbuilder、puzzle、rogueliteの三層を持つ。</li>
-<li>企画書は18〜35歳のroguelike fan、PC/iOS/Android、一人用を想定する。</li>
-<li>TGS 2026出展を目標とし、動作するUnityコードと画面案が存在する。</li>
-</ul>
-<h3>Assumed / hypothesis</h3>
-<ul>
-<li>当面の獲得地点はTGS boothとSteam wishlistである。</li>
-<li>連鎖の視覚演出は10〜15秒の動画でも固有価値を伝えられる。</li>
-<li>roguelike/deckbuilder経験者は、数値synergyより空間的に見えるsynergyへ新規性を感じる。</li>
-<li>TGS版ではPCを第一gateとし、短い試遊へ絞る。</li>
-</ul>
-<h3>Unknown</h3>
-<ul>
-<li>価格、販売日、publisher、Steam page、demo配布条件。</li>
-<li>実プレイ映像の品質、完成asset、音、frame rate、実機build。</li>
-<li>playtestによる爽快感、理解度、継続率、wishlist転換。</li>
-<li>競合作品との直接比較、検索需要、市場規模。</li>
-<li>拠点ガチャ、課金、恒久通貨を製品へ含めるか。</li>
-</ul>
-<h2>2. Diagnosis</h2>
-<h3>Objective</h3>
-<p>TGS/短尺動画で、適合するプレイヤーに「この連鎖を自分で作ってみたい」と思わせ、試遊完了またはSteam wishlistへつなげる。</p>
-<h3>Bottleneck</h3>
-<p><code>roguelike puzzle deckbuilder</code>という分類だけでは混雑した市場で固有性が出ない。一方、本当の差別化である「敵も同じ魔法陣を使う」「耐久で解決途中に盤面が変わる」は文章だけだと複雑である。<strong>理解より先に、短い体験episodeとして見せる</strong>必要がある。</p>
-<h3>Audience context</h3>
-<p>対象仮説は、Slay the Spire等のbuild構築と、盤面/自動解決の先読みを好む成人player。短い会場接触では説明を読む余裕がなく、最初の一手から結果までの距離が重要になる。</p>
-<h2>3. Domain selection</h2>
-<div class="table-scroll"><table><thead><tr><th>Domain</th><th>score</th><th>coverage</th><th>判定</th></tr></thead><tbody><tr><td>Luxuria</td><td><strong>0.768</strong></td><td>1.00</td><td><strong>Primary</strong> — 連鎖の視覚・音・即時体験をdemoで届ける</td></tr><tr><td>Gula</td><td>0.597</td><td>1.00</td><td>不採用 — primaryとの差0.171。繰返し価値はmeta仕様/retention証拠がない</td></tr><tr><td>Acedia</td><td>0.483</td><td>0.80</td><td>marketing主軸ではなく、試遊activation friction改善に使う</td></tr><tr><td>Superbia</td><td>0.447</td><td>1.00</td><td>閾値未満。masteryは適合するが公開signal/proofが弱い</td></tr><tr><td>Invidia</td><td>0.345</td><td>0.30</td><td>peer比較の証拠なし</td></tr><tr><td>Avaritia</td><td>0.213</td><td>0.10</td><td>価格・価値証拠なし</td></tr><tr><td>Ira</td><td>0.000</td><td>0.00</td><td>blocked goal訴求は不要</td></tr></tbody></table></div>
-<p>Primaryは<strong>Luxuria（anticipated experience）</strong>。ここでの意味は性的・人格的な分類ではなく、商品の価値が感覚的な実演と即時feedbackで最も伝わるというroutingである。</p>
-<p>Gulaを副軸にしない理由は、<code>無限に遊べる</code>、多様性、collectionをまだ証明できないためである。現時点でretentionを強調すると、未完成のmeta progressionを誇張し、compulsion寄りの表現にもなり得る。</p>
-<h2>セールスポイント評価</h2>
-<div class="table-scroll"><table><thead><tr><th>優先</th><th>セールスポイント</th><th>真実との接続</th><th>見せ方</th></tr></thead><tbody><tr><td>S</td><td><strong>敵もあなたの魔法陣を使う共有盤面</strong></td><td>企画・実装の中心</td><td>同じ盤面で自弾成功→敵弾が逆利用する15秒clip</td></tr><tr><td>S</td><td><strong>耐久で連鎖の途中に道が変わる</strong></td><td>本作固有の時系列puzzle</td><td>一枚が砕け後続弾が別経路へ抜けるbefore/after</td></tr><tr><td>S</td><td><strong>一手が多段連鎖へ爆発する</strong></td><td>企画conceptと一致</td><td>入力1回→発火番号→大きなhitの音/画面feedback</td></tr><tr><td>A</td><td>deck synergyを盤面で「見える形」に組む</td><td>deck + boardの接続</td><td>card三枚が一本のrouteになる短いbuild story</td></tr><tr><td>A</td><td>強い装置ほど敵にも危険なrisk/reward</td><td>共有盤面から導出</td><td>最大damage案と安全案をside-by-side</td></tr><tr><td>B</td><td>rogueliteでbuildを育てる</td><td>room/reward案あり</td><td>meta/varietyが実装・計測後に昇格</td></tr><tr><td>C</td><td>古代遺跡×幾何学魔法技術</td><td>art direction案</td><td>最終asset品質が整ってから補強</td></tr></tbody></table></div>
-<h3>現時点で使わない主張</h3>
-<ul>
-<li>「無限に遊べる」— seed、meta、content量、retentionの証拠がない。</li>
-<li>「PC/iOS/Android対応」— 実機release gateがない。</li>
-<li>「戦略は無限大」「毎回全く違う」— 定量根拠がない。</li>
-<li>「誰でも簡単」— ルールcomplexityとtutorial未検証。</li>
-<li>ガチャ、希少性、期間限定 — 仕様・法務・倫理・確率が未定。</li>
-</ul>
-<h2>4. Strategy card</h2>
-<p><strong>Audience hypothesis:</strong> build構築と先読みを好む成人playerは、カードの数値説明より、自分の一手が盤面を変形させて大連鎖になる短い実演に反応する。</p>
-<p><strong>Bottleneck:</strong> 共有盤面と時系列変化を文章で理解する前に離脱する。</p>
-<p><strong>Primary domain / job:</strong> Luxuria — 最初の10〜15秒で「置く→連鎖→砕ける→敵弾で反転」のepisodeを体験させる。</p>
-<p><strong>Verified feature → outcome → mechanism:</strong> 敵味方が同じ魔法陣を発火し耐久で消滅する → 一手が火力とriskを同時に作る → 予測線と連鎖演出を含む短いplayable demoでmental simulationを起こす。</p>
-<p><strong>Proposition:</strong></p>
-<blockquote>その一手は、最強の連鎖にも、敵の罠にもなる。5×5の魔法陣ローグライト。</blockquote>
-<p><strong>Message variants:</strong></p>
-<ul>
-<li><code>置いた魔法陣を、敵の弾まで使ってくる。</code></li>
-<li><code>道を組め。連鎖させろ。壊れる順まで読み切れ。</code></li>
-<li><code>カードのコンボを、盤面に描く。</code></li>
-</ul>
-<p><strong>Proof:</strong> 実gameplayの未編集15秒、入力から最終結果までの一続き。自/敵弾、発火順、耐久が読めるUIを含める。</p>
-<p><strong>CTA:</strong> <code>3分で、一本の連鎖を完成させる</code>。試遊後は任意の<code>Steamでフォロー / wishlist</code>。拒否・離脱を容易にする。</p>
-<p><strong>Channel and moment:</strong> TGS boothのattract loop、試遊待機画面、Steam trailer冒頭、短尺SNS。長いworld説明は後段。</p>
-<p><strong>Boundary condition:</strong> previewが読めず結果が偶然に見えるbuild、未実装platform、未検証の無限性は訴求に使わない。</p>
-<h2>5. Experiment</h2>
-<h3>TGS/online動画テスト</h3>
-<ul>
-<li><strong>Control:</strong> genre、5x5盤面、deckbuildingを事実として説明する静止/通常動画。</li>
-<li><strong>Treatment:</strong> 同じofferで、共有盤面の15秒episode + 上記proposition。価格や特典は変えない。</li>
-<li><strong>対象:</strong> 18歳以上、roguelike/deckbuilderへ関心を自己申告した来場者/視聴者。未成年や脆弱性によるtargetingをしない。</li>
-<li><strong>Primary metric:</strong> qualified demo start率。Steam上ではtrailer 15秒到達→wishlist率。</li>
-<li><strong>Guardrail:</strong> demo後の「映像どおりのgameplayだった」trust rating、途中離脱、混乱率、誤期待自由記述。</li>
-<li><strong>補助:</strong> time-to-first-value、3連鎖達成率、「敵も使う」を説明できる割合。</li>
-<li><strong>Stopping rule:</strong> 各cell最低200 qualified exposureを目安に事前固定し、会場日/導線差を記録。無作為割当できない会場比較は因果と呼ばない。</li>
-<li><strong>Disconfirming result:</strong> start/wishlistが上がっても、因果理解が下がる、trustが悪化する、実playの早期離脱が増える場合は不採用。</li>
-</ul>
-<h3>Copy test</h3>
-<ul>
-<li>A: <code>カードのコンボを、盤面に描く。</code></li>
-<li>B: <code>その一手は、最強の連鎖にも、敵の罠にもなる。</code></li>
-<li>主指標: 適合者のdemo start。</li>
-<li>Guardrail: 内容理解quizと誤認率。</li>
-</ul>
-<h2>6. Ethics check</h2>
-<ul>
-<li>blocked conditionは現入力にない。七domainは人の人格診断に使っていない。</li>
-<li>fake scarcity、countdown、人気捏造、shame、hidden defaultを使わない。</li>
-<li><code>無限に遊べる</code>や対応platformを、証拠が揃う前に事実として広告しない。</li>
-<li>Gula的なrepeat訴求、ガチャ、variable rewardはretentionだけで最適化せず、疲労、後悔、過剰利用、停止容易性をguardrailにする。</li>
-<li>demo/wishlistは任意で、decline、途中退出、後から解除を容易にする。</li>
-<li>gameplay映像は実buildから取り、演出用mockなら明示する。</li>
-<li>取得dataは必要最小限にし、protected/sensitive traitを推定しない。</li>
-</ul>
-<h2>提案の要点</h2>
-<p>売るべきものは「カードが多い」ことでも「無限」でもなく、<strong>自分で描いた魔法陣が、時間と敵の介入で予想外の連鎖へ変わる瞬間</strong>である。まずその瞬間が読めるUXと実映像を作り、短いtrialで証明する。</p></article></section><section class="stage" id="stage-09" data-stage><div class="stage-head"><span class="stage-no">09</span><div><h2>Di議論結果</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">`accepted-omission` — 今回はDiによる実AI議論を行わない。</p><article class="document"><div class="document-title"><h3>09. Diの議論結果</h3><span class="source">spec/plan/09-di-result.md</span></div><h1>09. Diの議論結果</h1>
-<h2>今回の状態</h2>
-<p><code>accepted-omission</code> — 今回はDiによる実AI議論を行わない。</p>
-<p>工程01〜08を圧縮したディスカッションペーパーは<code>12-discussion-paper.md</code>として作成済みである。将来、Discutereへディスカッションペーパーから自動議論を開始する入口を追加した後に再利用する。</p>
-<h2>議論予定だった三問</h2>
+<h2>学生・初学者向け</h2>
+<p>カードを置いて魔法が連鎖する中心体験はコードに存在する。ただし、置く前の予想と、終わった後の理由説明が弱い。プレイヤーが「これでいいんだ」と納得できるよう、同じ情報を予告・演出・振り返りで一貫して見せる必要がある。</p>
+<h2>高解像度データ</h2>
+<h3>ラベル中立性</h3>
+<p>評価前に <code>[作品名] [ジャンル名] [Vitia領域名]</code> を文脈専用ラベルとして除外した。観察した規則、操作、フィードバック、反復価値を中立IDへ置換して再評価しても、弱点と点数は変わらなかった。反実仮想の名称変更テストは合格。</p>
+<h3>証拠台帳</h3>
+<div class="table-scroll"><table><thead><tr><th>種類</th><th>内容</th><th>確度</th></tr></thead><tbody><tr><td>観察</td><td>配置フェーズ、自弾→敵弾、魔法陣耐久、カード報酬、分岐マップがコードにある</td><td>高</td></tr><tr><td>観察</td><td>発火・耐久・分岐が循環し、予告専用モデルは確認できない</td><td>高</td></tr><tr><td>推論</td><td>中心体験と実装方向は一致するが、因果説明が不足する</td><td>中〜高</td></tr><tr><td>推論</td><td>高密度連鎖は配信映えするが、視聴者理解を失う可能性がある</td><td>中</td></tr><tr><td>未知</td><td>初見行動、誤操作、理解率、感情反応、実機性能</td><td>未測定</td></tr></tbody></table></div>
+<h2>AI平均反応シミュレーション</h2>
+<p>対象は、デッキ構築やパズルを知るが本作を初めて見る一般プレイヤー。完成した代表戦闘をPCで体験し、開発者の説明を受けないと仮定する。</p>
+<div class="table-scroll"><table><thead><tr><th>評価</th><th>点数</th><th>根拠</th><th>判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td>体験設計のコアと実装の方向一致</td><td>7.2/10</td><td>共有盤面、配置、耐久、両陣営弾道は実装済み</td><td><code>hold</code>寄り</td><td>コアを増やさず予告モデルを接続</td></tr><tr><td>表現の納得性・パフォーマンス</td><td>5.8/10</td><td>因果表示、失敗回復、実測性能が弱い</td><td><code>improve</code></td><td>成功/失敗を同じイベント列で説明</td></tr></tbody></table></div>
+<p>制限: 実ユーザー、販売、レビュー、テレメトリを測定していない。点数は大衆評価の予測ではなく、平均的な反応を仮定した設計診断である。</p>
+<h2>行動発見</h2>
+<div class="table-scroll"><table><thead><tr><th>目標</th><th>可能な行動</th><th>手掛かり</th><th>現フィードバック</th><th>回復</th><th>所見</th></tr></thead><tbody><tr><td>魔法陣を置く</td><td>カードを盤面へドラッグ</td><td>カード・スロット</td><td>配置とコスト表示</td><td>元へ戻す分岐はある</td><td>占有、コスト不足、最終耐久時の理由表示が必要</td></tr><tr><td>弾道を作る</td><td>方向・効果を組合せる</td><td>魔法陣画像・説明</td><td>発火演出</td><td>事前取り消し不明</td><td>経路と発火順を予告する</td></tr><tr><td>敵攻撃へ備える</td><td>共有盤面を読む</td><td>敵と盤面</td><td>敵ターン演出</td><td>失敗後説明なし</td><td>敵意図と危険経路を区別する</td></tr><tr><td>報酬を選ぶ</td><td>3候補またはスキップ</td><td>報酬カード</td><td>カード追加</td><td>スキップあり</td><td>ビルドへの寄与を一文で示す</td></tr></tbody></table></div>
+<h2>オンボーディングと転用</h2>
 <ol>
-<li>共有盤面と時系列連鎖は、面白さ・奥深さになるか。</li>
-<li>roguelike/deckbuilder市場で売れる固有価値を持つか。</li>
-<li>TGSまでに何を残し、何を削り、どの順で改善するか。</li>
+<li>空盤面で一枚を置き、弾が一度曲がる最小単位を体験する。</li>
+<li>同じ魔法陣の耐久が減り、次回に消えることを予測させる。</li>
+<li>敵弾も同じ魔法陣を使うことを、損失の小さい例で体験する。</li>
+<li>表示を薄くし、別の配置で同じ三規則を自力転用させる。</li>
+<li>誤答時は正解を出す前に、予測と実結果の違う箇所を示す。</li>
 </ol>
-<h2>暫定統合仮説</h2>
-<p>Diによる合議結果ではなく、工程01〜08から導いた分析仮説である。</p>
+<p>完了率だけでなく、後の戦闘における無介助配置と理由説明を測る。</p>
+<h2>最初の体験と最高価値の連続性</h2>
+<div class="table-scroll"><table><thead><tr><th>次元</th><th>最初の意味ある戦闘</th><th>最高価値の戦闘</th><th>差</th></tr></thead><tbody><tr><td>目標</td><td>1本の弾を敵へ通す</td><td>多段連鎖を組み敵ターンも管理</td><td>同じ文法、量だけ増やす</td></tr><tr><td>行動</td><td>1枚配置</td><td>複数配置・報酬ビルド</td><td>段階的に組合せる</td></tr><tr><td>判断</td><td>方向と耐久</td><td>発火順、破壊、敵利用</td><td>タイムライン予告が必要</td></tr><tr><td>フィードバック</td><td>軌道とダメージ</td><td>連鎖・状態・破壊の同時進行</td><td>因果のまとまりが必要</td></tr><tr><td>失敗回復</td><td>やり直し</td><td>ラン損失</td><td>振り返りと再試行境界が必要</td></tr></tbody></table></div>
+<h2>Vitiaゲーム体験監査</h2>
+<div class="table-scroll"><table><thead><tr><th>レンズ</th><th>調整後点</th><th>生点</th><th>信号網羅</th><th>解釈</th></tr></thead><tbody><tr><td>反復価値</td><td>0.540</td><td>0.661</td><td>0.90</td><td>変種と将来状態の変化は強み</td></tr><tr><td>プレイヤー主体性・公平性</td><td>0.321</td><td>0.650</td><td>0.15</td><td>ソロ中心で証拠不足、探索的</td></tr><tr><td>遊びの約束</td><td>0.208</td><td>0.622</td><td>0.90</td><td>規則曖昧ペナルティで低下</td></tr><tr><td>挑戦と学習</td><td>0.000</td><td>0.373</td><td>0.65</td><td>失敗説明・回復・転用証拠が不足</td></tr></tbody></table></div>
+<p>0.000は面白さ0点ではない。<code>rule_ambiguity</code>リスクを含む監査上の調整値であり、規則確定と観察テストを最優先にする。</p>
+<h2>配信映え</h2>
+<p>独立評価: 6.8/10。準備した盤面が高速連鎖へ変わる前後差は強い。共有盤面により「この配置が敵ターンで裏目に出る」という物語も生まれる。一方、視聴者にはカード文面と耐久の細部が読めず、エフェクトが因果を隠す危険がある。連鎖番号、危険線、結果内訳を配信レイアウトでも残す。</p>
+<h2>アクセシビリティ・密度・疲労・回復</h2>
 <ul>
-<li>resolverの薄い正本化とpreviewを同じvertical sliceで行う。</li>
-<li>architectureだけ、UXだけ、contentだけを先行させない。</li>
-<li>3 Highとカード保存則を直した後、共有盤面の15秒proofを作る。</li>
-<li>proofの理解度と試遊転換が弱ければ、大量contentへ投資する前にrule/positioningを見直す。</li>
+<li>自弾/敵弾は色だけでなく線種・アイコン・音型も変える。</li>
+<li>耐久、発火順、危険度を色覚に依存しない形で示す。</li>
+<li>高速連鎖は一時停止・速度変更・要約表示を用意する。</li>
+<li>ドラッグ以外に選択→配置の操作を用意する。</li>
+<li>点滅、画面振動、音量を個別に下げても因果情報を失わない。</li>
+<li>失敗後に再試行、終了、振り返りを同じ階層で提示する。</li>
 </ul>
-<p>実AI議論がないため、反対意見の収束、ペルソナ間投票、Di由来の結論は記載しない。</p></article><article class="document"><div class="document-title"><h3>MagicChronicle ディスカッションペーパー</h3><span class="source">spec/plan/12-discussion-paper.md</span></div><h1>MagicChronicle ディスカッションペーパー</h1>
+<h2>有料境界</h2>
+<p>実課金、価格、広告、ランダム有料報酬は確認できず、課金UXは採点しない。ジェムとショップが実課金へ接続する場合は、総額、確率、重複、保証、上限、履歴、非ランダム代替を別途監査する。未知を0点へ変換しない。</p>
+<h2>提案</h2>
+<div class="table-scroll"><table><thead><tr><th>提案</th><th>影響</th><th>リスク</th><th>費用</th><th>検証</th><th>害の防止</th></tr></thead><tbody><tr><td>解決予告タイムライン</td><td>理解・戦略・配信</td><td>情報過多</td><td>中</td><td>予測一致率、選択時間</td><td>簡略/詳細を切替</td></tr><tr><td>因果リプレイ</td><td>学習・再挑戦</td><td>テンポ低下</td><td>中</td><td>失敗説明率、再試行率</td><td>スキップ可能</td></tr><tr><td>報酬タグ説明</td><td>ビルド理解</td><td>最適解固定</td><td>小</td><td>選択理由、無選択率</td><td>数値断定を避ける</td></tr><tr><td>表現縮退</td><td>性能・可読性</td><td>派手さ低下</td><td>中</td><td>95%フレーム時間、理解率</td><td>情報を演出より優先</td></tr></tbody></table></div>
+<h2>不足情報</h2>
 <ul>
-<li>Paper version: 0.1.0</li>
-<li>Date: 2026-07-15</li>
-<li>Intended engine: Discutere headless discussion</li>
-<li>Evidence policy: <code>source / code / analysis / hypothesis / unknown</code>を区別し、未実測を事実扱いしない</li>
+<li>初見・経験者別の無介入プレイと後日転用</li>
+<li>scene/prefabを含む実画面、入力端末、配信解像度</li>
+<li>光刺激、色覚、字幕、操作代替の実機検証</li>
 </ul>
-<h2>Theme</h2>
-<p>MagicChronicleは、共有盤面・耐久消滅・deck構築を組み合わせることで「面白く奥深く、売れるゲーム」になり得るか。TGS 2026へ向けて、何を残し、何を削り、何を最初に改善すべきか。</p>
-<h2>議論する三問</h2>
-<ol>
-<li><strong>面白さ/奥深さ</strong> — 共有盤面と時系列連鎖は、理解可能な深さになるか、それとも予測不能な複雑さになるか。</li>
-<li><strong>売れるか</strong> — 競争の激しいroguelike/deckbuilder市場で、短時間に固有価値を証明できるか。</li>
-<li><strong>どう改善するか</strong> — TGSまでの限られた期間で、bug、rule、UX、content、marketingのどれを優先すべきか。</li>
-</ol>
-<h2>1. 企画・仕様の要約</h2>
+<h2>不足実装</h2>
 <ul>
-<li><code>source</code>: 一人用roguelike puzzle。5x5盤面へ手札の魔法陣をcostで配置する。</li>
-<li><code>source</code>: 自弾が左から進み、接触した魔法陣が方向変更、分岐、damage、状態等を発火する。</li>
-<li><code>source</code>: 発火で耐久が減り、0で消滅。後続弾は変化後の盤面を通る。</li>
-<li><code>source</code>: player攻撃後、敵弾も同じ魔法陣を発火する。</li>
-<li><code>source</code>: 企画conceptは「ピースがはまった時の爆発的な爽快感」「無限に遊べる」。TGS 2026出展を目標とする。</li>
-<li><code>source</code>: deckbuilding、分岐map、戦闘/event/shop/鍛冶/elite/boss、三つのbuild軸を想定する。</li>
-<li><code>unknown</code>: 完全な解決順、card zone、buff式、run reset、economy値、meta progression、platform gate。</li>
-</ul>
-<h2>2. Ludus解析の要約</h2>
+<li>予告、因果リプレイ、敵意図、入力代替</li>
+<li>表現縮退とアクセシビリティ設定</li>
+<li>理解・回復・性能を同時に測るテレメトリ</li>
+</ul></article></section><section class="stage" id="stage-09" data-stage><div class="stage-head"><span class="stage-no">09</span><div><h2>Vitia市場性・グッズ・IP戦略</h2><div class="badges"><span class="badge">1 artifacts</span></div></div></div><p class="summary">状態: 完了 入力: `../data/vitia-scoring-input.json` 決定論的出力: `../data/vitia-scoring-output.json` 注意: 点数は戦略の経路選択用であり、販売本数や人の心理を予測しない</p><article class="document"><div class="document-title"><h3>Vitia市場性・訴求再解析</h3><span class="source">spec/plan/11-vitia-marketability.md</span></div><h1>Vitia市場性・訴求再解析</h1>
 <ul>
-<li><code>analysis</code>: 遊びは盤面puzzle、deckbuilder、roguelite runの三層。</li>
-<li><code>analysis</code>: 差別化の中心は、解決途中で盤面が変わる時系列puzzleと、敵も同じ装置を使うrisk/reward。</li>
-<li><code>analysis</code>: 強みはsynergyが数値だけでなく弾道として見えること。</li>
-<li><code>analysis</code>: 最大riskは予測不能化、draw運と盤面最適解の競合、敵turnの理不尽さ、runの単調化、meta不在。</li>
+<li>状態: 完了</li>
+<li>入力: <code>../data/vitia-scoring-input.json</code></li>
+<li>決定論的出力: <code>../data/vitia-scoring-output.json</code></li>
+<li>注意: 点数は戦略の経路選択用であり、販売本数や人の心理を予測しない</li>
 </ul>
-<h2>3. ドメイン整理の要約</h2>
-<p>人手モデルはRun Progression、Combat Encounter、Board Topology、Deck &amp; Build、Effects &amp; Status、Economy &amp; Reward、Meta Progression、Narrative Contentの8領域。Presentation/Inputはadapterとした。</p>
-<p><code>analysis</code>: 中心となる不変条件は、決定的ResolutionQueue、一card一zone、支払いと取得の原子性、run終了後の不変性、全状態のtrigger/lifetime、同じseed/inputから同じ結果である。</p>
-<h2>4. Anatomia・コード配線の要約</h2>
+<h2>学生・初学者向け</h2>
+<p>このゲームは説明文より、魔法陣へ弾が連鎖する短い実演で魅力を伝えやすい。その次に「同じ盤面でもカードと敵で違う問題になる」と示す。機能や世界観を大量に並べるより、中心の一場面を正直に見せる方が強い。</p>
+<h2>1. 中立性確認</h2>
+<p><code>[作品名] [ジャンル] [事前のVitia分類]</code>を隠し、観察可能な体験、反復、摩擦、証拠だけを採点した。名称を中立IDへ置換しても順位・注意事項・提案は変わらず、反実仮想の名称変更テストは合格した。</p>
+<h2>2. 真実台帳</h2>
+<h3>確認済み</h3>
 <ul>
-<li><code>code</code>: 120 files、424 functions、347 resolved calls、764 unresolved、12 cycle groups、129 static fan-in 0。</li>
-<li><code>analysis</code>: design strength 59.4。ただし421要素が汎用<code>state-machine</code>へ集中し、domain coverage 99.3/cohesion 98.6は過大評価しやすい。</li>
-<li><code>code</code>: <code>AttackMagic.Attack</code>と<code>CardMovement.OnEndDrag</code>はcyclomatic 9。<code>TileSlot.DecreaseTimes</code>はfan-out 23。</li>
-<li><code>code</code>: <code>AttackMagic ↔ TileSlot ↔ Effect</code>に7関数の中核cycle。</li>
-<li><code>analysis</code>: God Class候補は<code>UIManager_Battle/Boss</code>各54.2、<code>GameManager</code>50.7。</li>
-<li><code>analysis</code>: ルールはdata objectよりManager/UIへ置かれ、意味上のdomain anemiaがある。</li>
+<li>5×5共有盤面、カード配置、魔法陣耐久、自弾と敵弾、連鎖効果がコードにある。</li>
+<li>分岐マップ、カード報酬、ショップ、図鑑の骨格がある。</li>
+<li>戦闘コアは短い動画で見せられる視覚的変化を持つ。</li>
 </ul>
-<h2>5. 仕様不足・矛盾の要約</h2>
+<h3>仮説</h3>
 <ul>
-<li>P0: 解決順、card zone、turn/cost、buff契約、run lifecycle、勝敗、敵情報、TGS scope。</li>
-<li>矛盾: 筋力式、buff消費契機、counter/反射、technicalの意味、cost minus、霊陣、拠点ガチャ、無限性。</li>
-<li><code>analysis</code>: content追加より、解決順・card zone・run lifecycleの承認が先。</li>
+<li>対象は、盤面の最適化とデッキ構築の組合せを好むプレイヤー。</li>
+<li>最初の獲得点は短尺動画、体験版、ストアページ。</li>
+<li>共有攻防盤面の因果が読めれば、配信・観戦にも価値がある。</li>
 </ul>
-<h2>6. Mechanics・内部経済の要約</h2>
+<h3>未知</h3>
 <ul>
-<li><code>analysis</code>: 最小動詞は読む、置く、確定する。</li>
-<li><code>analysis</code>: 耐久は発火回数、盤面寿命、破壊時価値の三役を接続する最も強い資源。</li>
-<li><code>analysis</code>: card経済はreward追加のsource優位でdeck肥大とsnowball risk。削除、強化、skipが必要。</li>
-<li><code>analysis</code>: 暫定循環清浄度43/100。本質的complexity 67、偶発的complexity 78。数値balanceは未評価。</li>
-<li><code>hypothesis</code>: 本質的complexityを保ち、偶発的complexityを35以下へ落とすと奥深さに変わる。</li>
+<li>価格、発売日、販売地域、年齢、比較作品、ウィッシュリスト実績</li>
+<li>実プレイ品質、アート完成度、音響、体験版範囲</li>
+<li>キャラクター・魔法陣・世界観の認知と商品購買意向</li>
 </ul>
-<h2>7. AI Format統合レビューの要約</h2>
+<h2>3. 診断</h2>
 <ul>
-<li><code>code</code>: 総合B、Critical 0、High 9、release hold。</li>
-<li><code>code</code>: 回復不能、exhaust card再投入、空山札indexの3 core bug。</li>
-<li><code>code</code>: core自動testなし、run resetなし、不正Event ID softlock、clean build/vendor/license/platform gateなし。</li>
-<li><code>analysis</code>: 最初のrelease gateは3 bug + card保存則 + run reset + deterministic resolution。</li>
+<li>目的: 適合する人へ「自分でこの連鎖を組んでみたい」と思わせ、体験版開始またはウィッシュリストへつなげる。</li>
+<li>障害: 中心場面は強いが、発火順と上手さの因果が初見では読みづらい。</li>
+<li>対象文脈: 短い接触では世界観説明よりプレイの前後差が有利。長い接触では反復価値の証明が必要。</li>
 </ul>
-<h2>8. UX提案の要約</h2>
+<h2>4. 体験・収益監査</h2>
+<p>Vitia体験監査では反復価値0.540が最も高く、遊びの約束0.208、挑戦と学習0.000が低い。これは実プレイ未測定と規則曖昧の影響である。実課金は確認できず、価格・収益品質は評価不能。ショップやジェムを現金へ接続する場合は別監査が必要。</p>
+<h2>5. Vitiaスコア</h2>
+<p>高い順。太字は現時点で市場優位性として使えるもの。</p>
+<div class="table-scroll"><table><thead><tr><th>領域</th><th>点数</th><th>網羅</th><th>市場上の意味</th><th>判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td><strong>Luxuria（鮮明な体験）</strong></td><td><strong>6.46/10</strong></td><td>1.00</td><td><strong>連鎖が盤面を走る具体的な一場面で価値を示せる</strong></td><td>主軸</td><td><code>hold</code>: 場面を増やさず因果を明瞭化</td></tr><tr><td><strong>Gula（反復価値）</strong></td><td><strong>5.74/10</strong></td><td>1.00</td><td><strong>カード・敵・経路の組合せが次の問題を作る</strong></td><td>補助軸</td><td><code>improve</code>: 変種の意思決定差を実証</td></tr><tr><td>Acedia（開始摩擦）</td><td>5.31/10</td><td>0.75</td><td>複雑さが初回価値到達を遅らせる</td><td>近接課題</td><td><code>improve</code>: 最小実演と一手CTA</td></tr><tr><td>Superbia（習熟・自己表現）</td><td>4.31/10</td><td>0.75</td><td>上手さを見せる余地はあるが証拠不足</td><td>探索</td><td><code>improve</code>: 因果リプレイで技能を可視化</td></tr><tr><td>Ira（阻害・回復）</td><td>4.23/10</td><td>0.65</td><td>不可解な失敗を回復する余地</td><td>探索</td><td><code>improve</code>: 失敗原因と再試行を接続</td></tr><tr><td>Invidia（比較）</td><td>3.54/10</td><td>0.30</td><td>比較・対戦・社会的証拠が不足</td><td><code>hold</code></td><td>人気やランキングを捏造しない</td></tr><tr><td>Avaritia（経済価値）</td><td>2.84/10</td><td>0.20</td><td>価格と所有価値が不明</td><td>採点保留寄り</td><td>価格決定まで価値主張を作らない</td></tr></tbody></table></div>
+<p>主軸と補助軸の組合せは強制反復の監査が必須。変動報酬や終わりのない消費を利用せず、各ランの完了・休止・終了を明瞭にする。</p>
+<h2>6. 支援機構監査</h2>
+<div class="table-scroll"><table><thead><tr><th>機構</th><th>機会</th><th>準備度</th><th>状態</th><th>用途</th></tr></thead><tbody><tr><td>具体的なプレイ場面の想起</td><td>0.733</td><td>0.490</td><td>証拠待ち</td><td>15秒で配置→連鎖→結果を見せる</td></tr><tr><td>情報処理の整理</td><td>0.729</td><td>0.341</td><td>証拠待ち</td><td>経路、発火順、結果を一階層にする</td></tr><tr><td>注意の階層</td><td>0.669</td><td>0.252</td><td>証拠待ち</td><td>ブランド、遊び、CTAの役割を分ける</td></tr><tr><td>自律的な習熟</td><td>0.585</td><td>0.444</td><td>証拠待ち</td><td>強制せず、上達を具体的に返す</td></tr></tbody></table></div>
+<h2>7. 戦略カード</h2>
 <ul>
-<li><code>analysis</code>: UX目標は「自分の一手でchainを作った」と因果を所有できること。</li>
-<li>P0: 自/敵弾の色・線種分離、敵意図、発火番号、耐久消滅preview、因果log。</li>
-<li><code>hypothesis</code>: tutorialを方向→cost→耐久→敵共有→分岐→buildの7段階で公開する。</li>
-<li><code>hypothesis</code>: 結果damageだけでなくevent列を見せると、初心者支援と上級最適化を両立する。</li>
+<li>対象仮説: 複雑な説明より、結果を予測して組み立てる体験を求める人。</li>
+<li>障害: 上手さの原因がエフェクトに埋もれる。</li>
+<li>主軸: Luxuria — 最初の価値を具体的な連鎖場面で示す。</li>
+<li>補助軸: Gula — 毎回異なる意思決定が生まれる証拠を示す。</li>
+<li>検証済み機能→結果→機構: 共有盤面と耐久崩壊 → 一手が後の攻防を変える → 配置から結果までを一続きで実演。</li>
+<li>提案文: 「置いた魔法陣が、あなたの弾も敵の弾も曲げる。」</li>
+<li>証拠: 同じ盤面で自弾成功と敵弾の反転危機を連続表示する実プレイ。</li>
+<li>行動: 同じ盤面を自分で解く短い体験版。</li>
+<li>境界: 実装されていないカード、無限の内容量、未測定の販売評価を主張しない。</li>
 </ul>
-<h2>9. Vitia市場仮説の要約</h2>
+<h2>8. 配信映え</h2>
+<p>動画の前半に「置く」、後半に「予想外だが説明できる結果」を置けるため、構造上は強い。改善対象はエフェクト量でなく、視聴者が原因を追える情報階層。観戦表示あり/なしを比較し、無音・小画面でも「何が起きたか」と「何が上手かったか」を説明できる率を測る。</p>
+<h2>9. グッズが売れるかどうか</h2>
+<p>現段階の判断は4.2/10、<code>improve</code>。商品化できる単位はカード、魔法陣、キャラクターだが、購買を生む人気証拠がない。市場優位性とはしない。平均的な改善は大量の商品案ではなく、代表魔法陣3種と主人公1体をゲーム内・動画・仮商品画像で同じ記号として反復し、認知・好意・希望商品を調べること。</p>
+<h2>10. IP戦略</h2>
+<p>現段階の判断は6.0/10、<code>hold</code>寄り。IPの中心文法を「共有盤面で魔法陣を組み、弾道の因果が物語になる」と定義すれば、カード、短編、配信、グッズへ一貫展開できる。設定やキャラクター数を増やす改善は行わない。代表記号の所有関係、命名、色・形、禁止変形をアートガイドへ固定し、人気証拠が得られた要素だけを展開する。</p>
+<h2>11. 実験</h2>
 <ul>
-<li><code>analysis</code>: Vitia scoreはLuxuria 0.768がprimary。Gula 0.597はsecondary不採用。</li>
-<li><code>analysis</code>: 売るべきepisodeは「置く→連鎖→砕ける→敵弾が逆利用」。<code>無限</code>は未証明なので使わない。</li>
-<li><code>hypothesis</code>: Propositionは「その一手は、最強の連鎖にも、敵の罠にもなる。5×5の魔法陣ローグライト。」</li>
-<li><code>hypothesis</code>: 実gameplay 15秒 + 3分試遊でgeneric genre説明よりqualified demo start/wishlistが上がる。</li>
+<li>対照: 機能説明中心の15秒動画。</li>
+<li>処置: 配置→自弾連鎖→敵弾反転を因果番号付きで見せる15秒動画。</li>
+<li>主指標: 視聴後に「プレイヤーが何を決めるゲームか」を正しく説明できる率。</li>
+<li>行動指標: 適格視聴者の体験版開始率。</li>
+<li>防止指標: 誇張と感じた率、眩しさ・情報過多、体験版との不一致。</li>
+<li>反証: 開始率が上がっても理解率・信頼・体験版継続が悪化すれば不採用。</li>
+<li>停止: 事前に必要標本と期間を決め、途中の好結果だけで終了しない。</li>
 </ul>
-<h2>Tensions</h2>
-<h3>T1 深さ vs 可読性</h3>
+<h2>12. 倫理確認</h2>
+<p>捏造した人気、希少性、緊急性を使わない。子どもや脆弱性を狙わない。実課金ランダム報酬、損失直後の販売、強制反復は最適化しない。停止、返金、確率、総額が関係する場合は、体験価値と同時に後悔・苦情・過使用を測る。</p>
+<h2>不足情報</h2>
 <ul>
-<li>Thesis: 共有盤面と耐久消滅は、空間と時間を同時に読む独自の深さを作る。</li>
-<li>Antithesis: 分岐、複数弾、状態、敵turnが重なると、previewが答えを表示するか、無ければ運に見える。</li>
-<li>Evidence needed: 予測不一致率、発火列理解、3連鎖到達時間、preview有無の比較。</li>
+<li>実プレイ映像、対象市場、比較作品、価格、販売導線</li>
+<li>動画理解率、体験版開始・完了、ウィッシュリスト、返品・後悔</li>
+<li>キャラクター/魔法陣別の認知、人気、商品希望</li>
 </ul>
-<h3>T2 deckbuilding vs board puzzle</h3>
+<h2>不足実装</h2>
 <ul>
-<li>Thesis: 引いたcardから毎turn別の経路を作る即興性がreplay価値を作る。</li>
-<li>Antithesis: 強いboard最適解がcard差を消すか、draw luckがboard思考を上書きする。</li>
-<li>Evidence needed: card選択多様性、tag集中度、drawによる勝敗寄与、同盤面の解法数。</li>
-</ul>
-<h3>T3 spectacle vs agency</h3>
+<li>因果番号付き短尺デモと同内容の体験版</li>
+<li>代表記号のアートガイドとIP権利台帳</li>
+<li>理解・信頼・継続・害を同時に測る実験基盤</li>
+</ul></article></section><section class="stage" id="stage-10" data-stage><div class="stage-head"><span class="stage-no">10</span><div><h2>ソース・再現条件</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">状態: 完了 分類: public 対象リポジトリ: `FutoAoi/MagicChronicle` コード基準: `ed9846e62728080798edf34f70237689ae807428` 出力文字コード: BOMなしUTF-8</p><article class="document"><div class="document-title"><h3>MagicChronicle 解析ソース台帳</h3><span class="source">spec/plan/00-source-manifest.md</span></div><h1>MagicChronicle 解析ソース台帳</h1>
 <ul>
-<li>Thesis: 多段連鎖の派手な自動解決はTGS/動画で強い。</li>
-<li>Antithesis: 長い自動演出はplayer agencyを奪い、「自分が作った」感覚を弱める。</li>
-<li>Evidence needed: 入力不能時間比、speed利用、chain所有感、映像理解。</li>
+<li>状態: 完了</li>
+<li>分類: public</li>
+<li>対象リポジトリ: <code>FutoAoi/MagicChronicle</code></li>
+<li>コード基準: <code>ed9846e62728080798edf34f70237689ae807428</code></li>
+<li>出力文字コード: BOMなしUTF-8</li>
 </ul>
-<h3>T4 differentiation vs scope</h3>
-<ul>
-<li>Thesis: puzzle + deckbuilder + roguelite + story + metaは市場上の厚みになる。</li>
-<li>Antithesis: 8 domainと3 platformを同時に完成させると、最も売れる共有盤面の質が薄まる。</li>
-<li>Evidence needed: TGS vertical sliceの成功KPI、残日数、team throughput、feature cut候補。</li>
-</ul>
-<h3>T5 content量 vs rule engine</h3>
-<ul>
-<li>Thesis: 敵、card、event、bossが多いほどrun varietyが上がる。</li>
-<li>Antithesis: 今contentを増やすと、未定義ruleとManager cycleが指数的にtest matrixを増やす。</li>
-<li>Evidence needed: 新card一枚当たりのregression工数、rule coverage、content使用率。</li>
-</ul>
-<h3>T6 marketable moment vs durable product</h3>
-<ul>
-<li>Thesis: 15秒のchain clipで試遊獲得は可能。</li>
-<li>Antithesis: clipが売れても、meta progression、economy、run varietyが弱ければretentionとreviewは続かない。</li>
-<li>Evidence needed: trailer→demo、demo→wishlist、first run→second run、build variety、fatigue。</li>
-</ul>
-<h2>Positions for debate</h2>
-<ol>
-<li><strong>Core-first:</strong> TGS版はPC、短いrun、共有盤面に絞り、meta/story/mobileを後ろへ送る。</li>
-<li><strong>Content-first:</strong> 多様なcard/enemy/bossを優先し、見栄えとreplayを先に作る。</li>
-<li><strong>UX-first:</strong> resolverは現状を保ち、preview/tutorial/演出で理解可能にする。</li>
-<li><strong>Architecture-first:</strong> contentを止め、ResolutionQueue/RunDeckState/RunStateとtestを先に作る。</li>
-<li><strong>Market-first:</strong> 15秒proofを先に作り、反応が弱ければ大規模改修前にpositioningを変える。</li>
-</ol>
-<h2>Decision criteria</h2>
-<ul>
-<li>Unique value: 他作品で代替しにくいか。</li>
-<li>Player agency: playerが結果を自分の判断として説明できるか。</li>
-<li>Learnability: TGSの短時間で最初の価値へ届くか。</li>
-<li>Reliability: core loopが停止せず決定的か。</li>
-<li>Scope efficiency: 一つの改善がbug、UX、content速度、marketing proofを同時に改善するか。</li>
-<li>Evidence: 実測可能で、反証条件を持つか。</li>
-</ul>
-<h2>Initial synthesis hypothesis</h2>
-<p><code>hypothesis</code>: 最も効率がよい順は、(1) 3 core bugとcard保存則、(2) deterministic ResolutionQueueの最小版、(3) 発火列preview/tutorial、(4) 15秒proofのplaytest、(5) 反応を見てcontent、(6) meta/mobileである。Architecture-first単独では遅く、UX-first単独では暗黙ruleを固定できないため、<strong>resolverの薄い正本化とpreviewを同じvertical sliceで行う</strong>。</p>
-<h2>Requested conclusion format</h2>
-<p>Discutereは次を分けて結論する。</p>
-<ol>
-<li>面白さの核と、それが壊れる条件。</li>
-<li>奥深さとして残すcomplexity、削る偶発的complexity。</li>
-<li>売れる可能性を支持/反証する証拠と、誇張してはいけないclaim。</li>
-<li>TGSまでのP0/P1/P2改善順。</li>
-<li>最初の2週間で作る検証可能なvertical slice。</li>
-<li>未解決の反対意見と、次に取るdata。</li>
-</ol></article></section><section class="stage" id="stage-10" data-stage><div class="stage-head"><span class="stage-no">10</span><div><h2>引用元・使用ツール</h2><div class="badges"><span class="badge">2 artifacts</span></div></div></div><p class="summary">Magic Chronicle公開Notion: 企画、仕様、game system、story、魔法陣、敵、buff、event案。 公開Notion添付`Magic Chronicle企画書.pdf`全10ページ。 MagicChronicle repository commit `ed9846e62728080798edf34f70237689a…</p><article class="document"><div class="document-title"><h3>10. 引用元・使用ツール</h3><span class="source">spec/plan/10-sources-and-tools.md</span></div><h1>10. 引用元・使用ツール</h1>
+<h2>入力ゲート</h2>
+<div class="table-scroll"><table><thead><tr><th>項目</th><th>結果</th></tr></thead><tbody><tr><td>フェーズ</td><td>source-read</td></tr><tr><td>状態</td><td>passed</td></tr><tr><td>検査ファイル</td><td>1,053</td></tr><tr><td>検査テキスト</td><td>896</td></tr><tr><td>バイナリ除外</td><td>157</td></tr><tr><td>除外ディレクトリ</td><td>0</td></tr><tr><td>大容量上限</td><td>3 MiB</td></tr><tr><td>文字コード</td><td>UTF-8を優先し、妥当な日本語Shift_JISだけを読み取り時に復号</td></tr></tbody></table></div>
+<p>元ソースの一部はShift_JISだが、解析成果物へ原文コメントを転記せず、すべてUTF-8で記録した。</p>
 <h2>一次資料</h2>
-<ul>
-<li>Magic Chronicle公開Notion: 企画、仕様、game system、story、魔法陣、敵、buff、event案。</li>
-<li>公開Notion添付<code>Magic Chronicle企画書.pdf</code>全10ページ。</li>
-<li>MagicChronicle repository commit <code>ed9846e62728080798edf34f70237689ae807428</code>。</li>
-</ul>
-<p>公開Notionはユーザ指定どおり通常のWebページとbrowser-loaded public resourceとして取得した。Notion workspace connectorは使用していない。一時署名URL、個人情報、秘密情報は保存していない。</p>
-<h2>使用ツール</h2>
-<div class="table-scroll"><table><thead><tr><th>Tool</th><th>Pin / hash</th><th>用途</th></tr></thead><tbody><tr><td>Ludus</td><td><code>b949cfa136fa27de101ace324f99a715f17e6846</code></td><td>遊びの辞書、genre/system/domain照合</td></tr><tr><td>Anatomia</td><td><code>2b09de8f79f4c205f6cb797a3135316e764ef56e</code></td><td>code graph、cycle、complexity、domain指標</td></tr><tr><td>AI Format</td><td><code>ae8a566700fb108d225e0f2e8f7e42fb61679f7f</code></td><td>21観点のgame review形式</td></tr><tr><td>Vitia</td><td>skill SHA256 <code>CD4613...A8C2</code></td><td>market mechanism routingと倫理監査</td></tr><tr><td>Vitia scorer</td><td>SHA256 <code>9982...64EB</code></td><td>7 domainの決定的採点</td></tr><tr><td>Discutere</td><td><code>5640fda49e1759a1ce07cfa677e39c5b5379563d</code></td><td>discussion paper形式の参照。実議論は省略</td></tr><tr><td>Omnipotens</td><td>local reusable skill</td><td>工程統合、HTML packaging、hash manifest</td></tr></tbody></table></div>
+<div class="table-scroll"><table><thead><tr><th>ID</th><th>資料</th><th>用途</th></tr></thead><tbody><tr><td>SRC-WEB-001</td><td><a href="https://mulberry-magazine-1bd.notion.site/Magic-Chronicle-285e692c74fd80b5b588e025135f52ad">Magic Chronicle 公開Notion</a></td><td>企画・仕様・世界観の正本候補</td></tr><tr><td>SRC-PDF-001</td><td>公開Notion添付「Magic Chronicle企画書.pdf」</td><td>企画概要、対象、コアループ、開発目標</td></tr><tr><td>SRC-CODE-001</td><td>固定コミットのUnityソース・アセット</td><td>実装、コードグラフ、仕様配線</td></tr><tr><td>SRC-LUDUS-001</td><td>Ludus公開OKF辞書 <code>b949cfa...</code></td><td>遊びの語彙と新規性比較</td></tr><tr><td>SRC-VITIA-001</td><td>Vitia <code>3fa33c9e...</code></td><td>UX・市場性のラベル中立監査</td></tr></tbody></table></div>
+<p>署名付き添付URL、個人情報、非公開会話、生テレメトリは保存していない。今回の作業で外部AIサービスへプロジェクトデータを送信していない。</p>
 <h2>証拠ラベル</h2>
 <ul>
 <li><code>source</code>: 公開企画・仕様に明記。</li>
-<li><code>code</code>: 固定commitのcode/assetから観測。</li>
-<li><code>analysis</code>: 複数証拠から導出。</li>
-<li><code>hypothesis</code>: 未検証の提案。</li>
-<li><code>question</code>: 仕様決定者の承認が必要。</li>
-</ul>
-<h2>制限</h2>
-<ul>
-<li>Unity compile、EditMode/PlayMode test、実機build、実play、性能計測は未実施。</li>
-<li>市場規模、競合比較、価格、wishlist/retentionの実測は未取得。</li>
-<li>Di実AI議論は今回省略。</li>
-<li>最終HTMLはEdge headless（1440×1100）で目視確認済み。UTF-8、hash、local link、決定性も静的検証済み。</li>
-</ul>
-<p>完全なURL、取得時刻、tool status、全hashは<code>00-source-manifest.md</code>、<code>../data/tool-manifest.json</code>、<code>report/omnipotens-final.manifest.json</code>を正本とする。</p></article><article class="document"><div class="document-title"><h3>MagicChronicle 解析ソース台帳</h3><span class="source">spec/plan/00-source-manifest.md</span></div><h1>MagicChronicle 解析ソース台帳</h1>
-<ul>
-<li>文書版: 0.1.0</li>
-<li>取得日時: 2026-07-15 22:55 JST</li>
-<li>対象リポジトリ: <code>FutoAoi/MagicChronicle</code></li>
-<li>対象ブランチ: <code>docs/magicchronicle-analysis-review</code></li>
-<li>対象コミット: <code>ed9846e62728080798edf34f70237689ae807428</code></li>
-<li>取得方針: 公開Notionを通常のWebページとして取得。Notionワークスペースコネクタは不使用。</li>
-</ul>
-<h2>一次資料</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>資料</th><th>取得方法</th><th>用途</th></tr></thead><tbody><tr><td>SRC-WEB-001</td><td><a href="https://mulberry-magazine-1bd.notion.site/Magic-Chronicle-285e692c74fd80b5b588e025135f52ad">Magic Chronicle 公開Notion</a></td><td>公開HTMLと、ページが利用する公開Web APIを読み取り</td><td>企画・仕様・世界観・ゲームシステムの正本候補</td></tr><tr><td>SRC-PDF-001</td><td><code>Magic Chronicle企画書.pdf</code>（公開Notion添付、10ページ）</td><td>公開ページが発行する一時署名URLから取得し、PyMuPDFでテキスト抽出・全ページ画像確認</td><td>企画概要、ターゲット、コアループ、開発目標、体制</td></tr><tr><td>SRC-SPEC-001</td><td>Notion「仕様書」および画面別子ページ</td><td>公開Web APIを読み取り</td><td>画面遷移、タイトル、拠点、ステージセレクト、インゲーム等</td></tr><tr><td>SRC-SYS-001</td><td>Notion「ゲームシステム」</td><td>公開Web APIを読み取り</td><td>5x5盤面、魔法陣、攻撃、耐久、敵ターン、バフ</td></tr><tr><td>SRC-WORLD-001</td><td>Notion「ストーリー」</td><td>公開Web APIを読み取り</td><td>世界観、表設定、裏設定、ボス構造</td></tr><tr><td>SRC-CONTENT-001</td><td>Notion「魔法陣案」「敵案」「バフ」「イベント案」</td><td>公開Web APIを読み取り</td><td>コンテンツ案、ビルド軸、状態効果、敵数目標</td></tr><tr><td>SRC-CODE-001</td><td>MagicChronicle ソースとUnityアセット</td><td>Git commitを固定して読み取り</td><td>実装観測、仕様との配線、コード解析</td></tr><tr><td>SRC-LUDUS-001</td><td>Ludus OKF bundle</td><td><code>b949cfa136fa27de101ace324f99a715f17e6846</code></td><td>遊びの語彙、システム、UX、ドメインの参照辞書</td></tr></tbody></table></div>
-<p>署名付き添付URLは有効期限を持つため保存しない。個人の連絡先、非公開会話、生テレメトリも成果物へ保存しない。</p>
-<h2>二次資料・解析結果</h2>
-<div class="table-scroll"><table><thead><tr><th>ID</th><th>資料</th><th>ピン</th><th>状態</th></tr></thead><tbody><tr><td>ANA-AIFORMAT-001</td><td>Ars <code>Review/MagicChronicle/2026-07-15</code></td><td>AIFormat <code>ae8a566700fb108d225e0f2e8f7e42fb61679f7f</code>、対象コード <code>4afc6224...</code></td><td>現コミットへ差分監査。差は未使用import削除のみ</td></tr><tr><td>ANA-ANATOMIA-001</td><td><code>../../report/architecture-review.html</code>、<code>../data/anatomia-architecture-review.json</code></td><td>Anatomia <code>2b09de8f79f4c205f6cb797a3135316e764ef56e</code>、対象 <code>ed9846e...</code></td><td>現コミットへ再実行済み。決定的グラフ指標とヒューリスティックを分離して評価</td></tr><tr><td>ANA-LUDUS-001</td><td>Ludus OKF bundle</td><td><code>b949cfa136fa27de101ace324f99a715f17e6846</code></td><td>実行済み。<code>03-ludus-analysis.md</code> と <code>../../report/ludus-analysis.html</code></td></tr><tr><td>ANA-VITIA-001</td><td>Vitia</td><td><code>SKILL.md</code> SHA256 <code>CD4613...A8C2</code>、score script <code>9982...64EB</code></td><td>Luxuria primary 0.768。入力/出力JSONと解釈を保存</td></tr><tr><td>ANA-DI-001</td><td>Di / Discutere</td><td><code>5640fda49e1759a1ce07cfa677e39c5b5379563d</code></td><td>paper作成済み。今回の実AI議論はユーザ判断で省略</td></tr></tbody></table></div>
-<h2>証拠ラベル</h2>
-<ul>
-<li><code>source</code>: 公開企画・仕様に明記された内容。</li>
-<li><code>code</code>: 固定コミットのコードまたはアセットから観測した内容。</li>
-<li><code>analysis</code>: 複数の証拠から導いた分析。</li>
-<li><code>hypothesis</code>: 検証前の提案または仮説。</li>
-<li><code>question</code>: 仕様決定者へ確認が必要な事項。</li>
+<li><code>code</code>: 固定コミットから観察。</li>
+<li><code>analysis</code>: 複数証拠から導いた解釈。</li>
+<li><code>hypothesis</code>: 実験前の予測。</li>
+<li><code>question</code>: 決定者または実測が必要。</li>
 </ul>
 <h2>工程状態</h2>
-<div class="table-scroll"><table><thead><tr><th>工程</th><th>状態</th><th>備考</th></tr></thead><tbody><tr><td>仕様・企画初版</td><td>complete</td><td>本ディレクトリの0.1.0</td></tr><tr><td>Ludus解析</td><td>complete</td><td>固定コミットのOKF bundleと照合。固有評価は本プロジェクト内にのみ保存</td></tr><tr><td>ドメイン整理</td><td>pending</td><td>仕様初版を入力に実施</td></tr><tr><td>Anatomia解析</td><td>complete</td><td>ビルド済みAnatomiaを現コミットへ再実行。HTML/JSONと解釈資料を保存</td></tr><tr><td>仕様・ドメイン・コード配線</td><td>complete</td><td>8ドメインと主要コード、未実装・不具合・テストを追跡表へ接続</td></tr><tr><td>メカニクス・経済解析</td><td>complete</td><td>ルールグラフ、内部経済、循環清浄度、複雑度を仕様・コード根拠で暫定評価</td></tr><tr><td>AI Format・詳細指標レビュー</td><td>complete</td><td>AIFormat固定版で差分監査し、現コミットのAnatomia詳細指標と統合</td></tr><tr><td>UX</td><td>complete</td><td>戦闘HUD、情報階層、tutorial、入力・accessibility、検証指標を提案</td></tr><tr><td>Vitia</td><td>complete</td><td>公式score scriptでLuxuriaを主軸選定。truth ledgerと実験・倫理監査を保存</td></tr><tr><td>Di</td><td>accepted-omission</td><td>ディスカッションペーパーまで作成し、今回は実AI議論なしで完了扱い</td></tr><tr><td>統合HTML</td><td>complete</td><td><code>report/</code>へ指定の00〜10構成・専門成果物をhash manifest付きでpackaging。Edge headless（1440×1100）で目視確認済み</td></tr></tbody></table></div></article></section></main></div></div><script>const r=document.documentElement;const s=localStorage.getItem('omnipotens-theme');if(s)r.dataset.theme=s;document.querySelector('button[data-theme]').onclick=()=>{r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';localStorage.setItem('omnipotens-theme',r.dataset.theme)};document.querySelector('button[data-print]').onclick=()=>print();const q=document.querySelector('.search'),ss=[...document.querySelectorAll('[data-stage]')],empty=document.querySelector('.empty-search');q.oninput=()=>{const n=q.value.trim().toLocaleLowerCase();let shown=0;for(const s of ss){const hit=!n||s.textContent.toLocaleLowerCase().includes(n);s.hidden=!hit;if(hit)shown++}empty.style.display=shown?'none':'block'};</script></body></html>
+<div class="table-scroll"><table><thead><tr><th>工程</th><th>状態</th><th>成果</th></tr></thead><tbody><tr><td>仕様基準化</td><td>complete</td><td><code>feature/</code></td></tr><tr><td>Ludus</td><td>complete</td><td><code>03-ludus-analysis.md</code></td></tr><tr><td>ドメイン</td><td>complete</td><td><code>04-domain-model.md</code></td></tr><tr><td>Anatomia</td><td>complete</td><td><code>05-anatomia-analysis.md</code>、HTML/JSON</td></tr><tr><td>仕様追跡</td><td>complete</td><td><code>06-spec-domain-code-map.md</code>、<code>07-spec-gaps.md</code></td></tr><tr><td>メカニクス・経済</td><td>complete</td><td><code>08-mechanics-economy.md</code></td></tr><tr><td>AIFormat・設計</td><td>complete</td><td><code>09-aiformat-architecture-review.md</code></td></tr><tr><td>UX</td><td>complete</td><td><code>10-ux-review.md</code></td></tr><tr><td>Vitia市場性</td><td>complete</td><td><code>11-vitia-marketability.md</code></td></tr><tr><td>Di</td><td>not-requested</td><td>外部サービス工程は今回選択していない</td></tr><tr><td>HTML</td><td>complete</td><td><code>report/omnipotens-final.html</code>、11ステージHTML、安定JSON</td></tr></tbody></table></div>
+<h2>不足情報</h2>
+<ul>
+<li>公開Notion各子ページの版管理と正式な仕様承認日</li>
+<li>Unity scene/prefabと実行時アセットの完全な参照台帳</li>
+</ul>
+<h2>不足実装</h2>
+<ul>
+<li>仕様版とコードcommitを自動照合するrelease receipt</li>
+</ul></article><article class="document"><div class="document-title"><h3>MagicChronicle 仕様・解析索引</h3><span class="source">spec/README.md</span></div><h1>MagicChronicle 仕様・解析索引</h1>
+<p>このディレクトリはMagicChronicleの仕様正本候補とOmnipotens再解析の最終成果を、BOMなしUTF-8で整理する。</p>
+<h2>企画・仕様</h2>
+<ul>
+<li><code>feature/product-brief.md</code>: 企画意図、対象体験、成功条件</li>
+<li><code>feature/game-spec.md</code>: ゲームルールと未決定事項</li>
+<li><code>interface/runtime-boundaries.md</code>: Unity実装の境界</li>
+<li><code>data/game-data-contracts.md</code>: ゲームデータ契約</li>
+</ul>
+<h2>解析結果</h2>
+<ul>
+<li><code>plan/00-executive-summary.md</code>: 方向別の要約と優先順位</li>
+<li><code>plan/03-ludus-analysis.md</code>: 遊びの辞書、新規性、遊びの構造</li>
+<li><code>plan/04-domain-model.md</code>: 仕様を基準にしたドメイン定義</li>
+<li><code>plan/05-anatomia-analysis.md</code>: Unity/C#コードグラフ解析</li>
+<li><code>plan/06-spec-domain-code-map.md</code>: 仕様・ドメイン・コード対応</li>
+<li><code>plan/07-spec-gaps.md</code>: 不足・矛盾・未決定事項</li>
+<li><code>plan/08-mechanics-economy.md</code>: メカニクスとゲーム内経済</li>
+<li><code>plan/09-aiformat-architecture-review.md</code>: 文書形式と設計健全性</li>
+<li><code>plan/10-ux-review.md</code>: UX、配信映え、学習・回復</li>
+<li><code>plan/11-vitia-marketability.md</code>: 市場性、グッズ、IP戦略</li>
+</ul>
+<h2>機械可読データ</h2>
+<p><code>data/omnipotens-run-plan.json</code> が解析範囲、<code>data/omnipotens-summary.json</code> が表示用の意味契約、<code>data/tool-manifest.json</code> が再現条件を保持する。外部サービスを使うDi工程は今回の範囲外である。</p></article></section></main></div></div><script>const r=document.documentElement;const s=localStorage.getItem('omnipotens-theme');if(s)r.dataset.theme=s;document.querySelector('button[data-theme]').onclick=()=>{r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';localStorage.setItem('omnipotens-theme',r.dataset.theme)};document.querySelector('button[data-print]').onclick=()=>print();const q=document.querySelector('.search'),ss=[...document.querySelectorAll('[data-stage]')],empty=document.querySelector('.empty-search');q.oninput=()=>{const n=q.value.trim().toLocaleLowerCase();let shown=0;for(const s of ss){const hit=!n||s.textContent.toLocaleLowerCase().includes(n);s.hidden=!hit;if(hit)shown++}empty.style.display=shown?'none':'block'};const bs=[...document.querySelectorAll('[data-profile-button]')],ps=[...document.querySelectorAll('[data-profile]')];for(const b of bs)b.onclick=()=>{for(const x of bs)x.setAttribute('aria-selected',String(x===b));for(const p of ps)p.hidden=p.dataset.profile!==b.dataset.profileButton};</script></body></html>

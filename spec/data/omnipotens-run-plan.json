@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-19T12:38:04.7968815+09:00",
+  "catalogVersion": "2026.07.17.3",
+  "catalogSha256": "8b0b1818092453c7683a51d5c1b15d2fc16a0c73ead4e2860476d20ef72c0dd3",
+  "catalogPath": ".claude/skills/omnipotens/references/service-analysis-catalog.json",
+  "classification": "public",
+  "projectRoot": ".",
+  "presetId": "core-full-no-discussion",
+  "selectedAnalysisIds": [
+    "core.specification",
+    "core.play",
+    "core.domain",
+    "core.code",
+    "core.traceability",
+    "core.mechanics-economy",
+    "core.architecture",
+    "core.ux",
+    "core.marketability",
+    "core.report"
+  ],
+  "resolvedAnalysisIds": [
+    "core.specification",
+    "core.play",
+    "core.domain",
+    "core.code",
+    "core.traceability",
+    "core.mechanics-economy",
+    "core.architecture",
+    "core.ux",
+    "core.marketability",
+    "core.report"
+  ],
+  "requiredDependencyIds": [],
+  "omittedRecommendationIds": [],
+  "externalServiceAnalysisIds": [],
+  "notRequestedAnalysisIds": [
+    "core.discussion",
+    "service.feasibility",
+    "service.qa-release",
+    "service.operations",
+    "service.data-experiments",
+    "service.security",
+    "service.liveops",
+    "service.business",
+    "service.legal-region",
+    "service.regional-ratings",
+    "service.console-certification",
+    "service.sbom",
+    "service.vendor-risk",
+    "service.child-safety",
+    "service.generative-ai-governance"
+  ],
+  "analyses": [
+    { "id": "core.specification", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.play", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.domain", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.code", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.traceability", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.mechanics-economy", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.architecture", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.ux", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.marketability", "scopeStatus": "selected", "executionStatus": "complete" },
+    { "id": "core.report", "scopeStatus": "selected", "executionStatus": "complete" }
+  ],
+  "warnings": [
+    "Diは外部サービスを使う独立工程であり、今回の再解析指示には明示されていないためnot-requestedとした。",
+    "市場性とUXの点数は公開仕様・静的コード・AI平均診断に基づく仮説であり、実プレイテストや販売実績を代替しない。"
+  ]
+}

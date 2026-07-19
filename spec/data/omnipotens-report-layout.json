@@ -1,62 +1,18 @@
 {
-  "generatedAt": "2026-07-16 (JST)",
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-19T13:20:00+09:00",
+  "encoding": "UTF-8",
   "sections": [
-    {
-      "id": "00",
-      "title": "00. エグゼクティブサマリ（まとめ）",
-      "sources": ["spec/plan/00-executive-summary.md"]
-    },
-    {
-      "id": "01",
-      "title": "01. 仕様書・Ludusゲーム内容解析",
-      "sources": ["spec/feature/game-spec.md", "spec/plan/03-ludus-analysis.md"],
-      "artifacts": ["report/ludus-analysis.html"]
-    },
-    {
-      "id": "02",
-      "title": "02. ゲーム内ドメインと導出コンセプト",
-      "sources": ["spec/plan/04-domain-model.md"]
-    },
-    {
-      "id": "03",
-      "title": "03. 仕様不足・矛盾点",
-      "sources": ["spec/plan/07-spec-gaps-and-contradictions.md"]
-    },
-    {
-      "id": "04",
-      "title": "04. メカニクス・内部経済・循環・ルール複雑度",
-      "sources": ["spec/plan/08-mechanics-and-economy.md"]
-    },
-    {
-      "id": "05",
-      "title": "05. AI Formatレビュー結果",
-      "sources": ["spec/plan/09-ai-format-review.md"]
-    },
-    {
-      "id": "06",
-      "title": "06. Anatomia解析結果",
-      "sources": ["spec/plan/04-domain-model.md", "spec/plan/05-anatomia-analysis.md", "spec/plan/06-spec-code-wiring.md"],
-      "artifacts": ["report/anatomia-domain-graph.html", "report/architecture-review.html"]
-    },
-    {
-      "id": "07",
-      "title": "07. UX確認・提案・改善",
-      "sources": ["spec/plan/10-ux-review.md"]
-    },
-    {
-      "id": "08",
-      "title": "08. Vitiaマーケティング分析・評価・提案",
-      "sources": ["spec/plan/11-vitia-market-review.md"]
-    },
-    {
-      "id": "09",
-      "title": "09. Di議論結果",
-      "sources": ["spec/plan/09-di-result.md", "spec/plan/12-discussion-paper.md"]
-    },
-    {
-      "id": "10",
-      "title": "10. 引用元・使用ツール",
-      "sources": ["spec/plan/10-sources-and-tools.md", "spec/plan/00-source-manifest.md"]
-    }
+    {"id":"00","title":"エグゼクティブサマリ","sources":["spec/plan/00-executive-summary.md"]},
+    {"id":"01","title":"企画・仕様","sources":["spec/feature/product-brief.md","spec/feature/game-spec.md"]},
+    {"id":"02","title":"Ludus・遊びの構造","sources":["spec/plan/03-ludus-analysis.md"]},
+    {"id":"03","title":"ドメインモデル","sources":["spec/plan/04-domain-model.md"]},
+    {"id":"04","title":"Anatomia Unity/C#解析","sources":["spec/plan/05-anatomia-analysis.md"],"artifacts":["report/architecture-review.html"]},
+    {"id":"05","title":"仕様・ドメイン・コード追跡","sources":["spec/plan/06-spec-domain-code-map.md","spec/plan/07-spec-gaps.md"]},
+    {"id":"06","title":"メカニクス・ゲーム内経済","sources":["spec/plan/08-mechanics-economy.md"]},
+    {"id":"07","title":"AI Format・設計健全性","sources":["spec/plan/09-aiformat-architecture-review.md"]},
+    {"id":"08","title":"UX・配信映え","sources":["spec/plan/10-ux-review.md"]},
+    {"id":"09","title":"Vitia市場性・グッズ・IP戦略","sources":["spec/plan/11-vitia-marketability.md"]},
+    {"id":"10","title":"ソース・再現条件","sources":["spec/plan/00-source-manifest.md","spec/README.md"]}
   ]
 }

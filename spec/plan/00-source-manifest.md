@@ -1,57 +1,67 @@
 # MagicChronicle 解析ソース台帳
 
-- 文書版: 0.1.0
-- 取得日時: 2026-07-15 22:55 JST
+- 状態: 完了
+- 分類: public
 - 対象リポジトリ: `FutoAoi/MagicChronicle`
-- 対象ブランチ: `docs/magicchronicle-analysis-review`
-- 対象コミット: `ed9846e62728080798edf34f70237689ae807428`
-- 取得方針: 公開Notionを通常のWebページとして取得。Notionワークスペースコネクタは不使用。
+- コード基準: `ed9846e62728080798edf34f70237689ae807428`
+- 出力文字コード: BOMなしUTF-8
+
+## 入力ゲート
+
+| 項目 | 結果 |
+|---|---|
+| フェーズ | source-read |
+| 状態 | passed |
+| 検査ファイル | 1,053 |
+| 検査テキスト | 896 |
+| バイナリ除外 | 157 |
+| 除外ディレクトリ | 0 |
+| 大容量上限 | 3 MiB |
+| 文字コード | UTF-8を優先し、妥当な日本語Shift_JISだけを読み取り時に復号 |
+
+元ソースの一部はShift_JISだが、解析成果物へ原文コメントを転記せず、すべてUTF-8で記録した。
 
 ## 一次資料
 
-| ID | 資料 | 取得方法 | 用途 |
-|---|---|---|---|
-| SRC-WEB-001 | [Magic Chronicle 公開Notion](https://mulberry-magazine-1bd.notion.site/Magic-Chronicle-285e692c74fd80b5b588e025135f52ad) | 公開HTMLと、ページが利用する公開Web APIを読み取り | 企画・仕様・世界観・ゲームシステムの正本候補 |
-| SRC-PDF-001 | `Magic Chronicle企画書.pdf`（公開Notion添付、10ページ） | 公開ページが発行する一時署名URLから取得し、PyMuPDFでテキスト抽出・全ページ画像確認 | 企画概要、ターゲット、コアループ、開発目標、体制 |
-| SRC-SPEC-001 | Notion「仕様書」および画面別子ページ | 公開Web APIを読み取り | 画面遷移、タイトル、拠点、ステージセレクト、インゲーム等 |
-| SRC-SYS-001 | Notion「ゲームシステム」 | 公開Web APIを読み取り | 5x5盤面、魔法陣、攻撃、耐久、敵ターン、バフ |
-| SRC-WORLD-001 | Notion「ストーリー」 | 公開Web APIを読み取り | 世界観、表設定、裏設定、ボス構造 |
-| SRC-CONTENT-001 | Notion「魔法陣案」「敵案」「バフ」「イベント案」 | 公開Web APIを読み取り | コンテンツ案、ビルド軸、状態効果、敵数目標 |
-| SRC-CODE-001 | MagicChronicle ソースとUnityアセット | Git commitを固定して読み取り | 実装観測、仕様との配線、コード解析 |
-| SRC-LUDUS-001 | Ludus OKF bundle | `b949cfa136fa27de101ace324f99a715f17e6846` | 遊びの語彙、システム、UX、ドメインの参照辞書 |
+| ID | 資料 | 用途 |
+|---|---|---|
+| SRC-WEB-001 | [Magic Chronicle 公開Notion](https://mulberry-magazine-1bd.notion.site/Magic-Chronicle-285e692c74fd80b5b588e025135f52ad) | 企画・仕様・世界観の正本候補 |
+| SRC-PDF-001 | 公開Notion添付「Magic Chronicle企画書.pdf」 | 企画概要、対象、コアループ、開発目標 |
+| SRC-CODE-001 | 固定コミットのUnityソース・アセット | 実装、コードグラフ、仕様配線 |
+| SRC-LUDUS-001 | Ludus公開OKF辞書 `b949cfa...` | 遊びの語彙と新規性比較 |
+| SRC-VITIA-001 | Vitia `3fa33c9e...` | UX・市場性のラベル中立監査 |
 
-署名付き添付URLは有効期限を持つため保存しない。個人の連絡先、非公開会話、生テレメトリも成果物へ保存しない。
-
-## 二次資料・解析結果
-
-| ID | 資料 | ピン | 状態 |
-|---|---|---|---|
-| ANA-AIFORMAT-001 | Ars `Review/MagicChronicle/2026-07-15` | AIFormat `ae8a566700fb108d225e0f2e8f7e42fb61679f7f`、対象コード `4afc6224...` | 現コミットへ差分監査。差は未使用import削除のみ |
-| ANA-ANATOMIA-001 | `../../report/architecture-review.html`、`../data/anatomia-architecture-review.json` | Anatomia `2b09de8f79f4c205f6cb797a3135316e764ef56e`、対象 `ed9846e...` | 現コミットへ再実行済み。決定的グラフ指標とヒューリスティックを分離して評価 |
-| ANA-LUDUS-001 | Ludus OKF bundle | `b949cfa136fa27de101ace324f99a715f17e6846` | 実行済み。`03-ludus-analysis.md` と `../../report/ludus-analysis.html` |
-| ANA-VITIA-001 | Vitia | `SKILL.md` SHA256 `CD4613...A8C2`、score script `9982...64EB` | Luxuria primary 0.768。入力/出力JSONと解釈を保存 |
-| ANA-DI-001 | Di / Discutere | `5640fda49e1759a1ce07cfa677e39c5b5379563d` | paper作成済み。今回の実AI議論はユーザ判断で省略 |
+署名付き添付URL、個人情報、非公開会話、生テレメトリは保存していない。今回の作業で外部AIサービスへプロジェクトデータを送信していない。
 
 ## 証拠ラベル
 
-- `source`: 公開企画・仕様に明記された内容。
-- `code`: 固定コミットのコードまたはアセットから観測した内容。
-- `analysis`: 複数の証拠から導いた分析。
-- `hypothesis`: 検証前の提案または仮説。
-- `question`: 仕様決定者へ確認が必要な事項。
+- `source`: 公開企画・仕様に明記。
+- `code`: 固定コミットから観察。
+- `analysis`: 複数証拠から導いた解釈。
+- `hypothesis`: 実験前の予測。
+- `question`: 決定者または実測が必要。
 
 ## 工程状態
 
-| 工程 | 状態 | 備考 |
+| 工程 | 状態 | 成果 |
 |---|---|---|
-| 仕様・企画初版 | complete | 本ディレクトリの0.1.0 |
-| Ludus解析 | complete | 固定コミットのOKF bundleと照合。固有評価は本プロジェクト内にのみ保存 |
-| ドメイン整理 | pending | 仕様初版を入力に実施 |
-| Anatomia解析 | complete | ビルド済みAnatomiaを現コミットへ再実行。HTML/JSONと解釈資料を保存 |
-| 仕様・ドメイン・コード配線 | complete | 8ドメインと主要コード、未実装・不具合・テストを追跡表へ接続 |
-| メカニクス・経済解析 | complete | ルールグラフ、内部経済、循環清浄度、複雑度を仕様・コード根拠で暫定評価 |
-| AI Format・詳細指標レビュー | complete | AIFormat固定版で差分監査し、現コミットのAnatomia詳細指標と統合 |
-| UX | complete | 戦闘HUD、情報階層、tutorial、入力・accessibility、検証指標を提案 |
-| Vitia | complete | 公式score scriptでLuxuriaを主軸選定。truth ledgerと実験・倫理監査を保存 |
-| Di | accepted-omission | ディスカッションペーパーまで作成し、今回は実AI議論なしで完了扱い |
-| 統合HTML | complete | `report/`へ指定の00〜10構成・専門成果物をhash manifest付きでpackaging。Edge headless（1440×1100）で目視確認済み |
+| 仕様基準化 | complete | `feature/` |
+| Ludus | complete | `03-ludus-analysis.md` |
+| ドメイン | complete | `04-domain-model.md` |
+| Anatomia | complete | `05-anatomia-analysis.md`、HTML/JSON |
+| 仕様追跡 | complete | `06-spec-domain-code-map.md`、`07-spec-gaps.md` |
+| メカニクス・経済 | complete | `08-mechanics-economy.md` |
+| AIFormat・設計 | complete | `09-aiformat-architecture-review.md` |
+| UX | complete | `10-ux-review.md` |
+| Vitia市場性 | complete | `11-vitia-marketability.md` |
+| Di | not-requested | 外部サービス工程は今回選択していない |
+| HTML | complete | `report/omnipotens-final.html`、11ステージHTML、安定JSON |
+
+## 不足情報
+
+- 公開Notion各子ページの版管理と正式な仕様承認日
+- Unity scene/prefabと実行時アセットの完全な参照台帳
+
+## 不足実装
+
+- 仕様版とコードcommitを自動照合するrelease receipt

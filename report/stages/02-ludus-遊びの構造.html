@@ -1,0 +1,64 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>MagicChronicle — Ludus・遊びの構造</title><style>
+:root{color-scheme:light;--bg:#f3f0e8;--paper:#fffdf8;--ink:#22231f;--muted:#6f716a;--line:#ded9cd;--gold:#9a6b1f;--gold-soft:#f6ead2;--red:#a33a31;--green:#2f714f;--shadow:0 15px 45px rgba(56,45,27,.10)}[data-theme=dark]{color-scheme:dark;--bg:#151511;--paper:#1e1e19;--ink:#f2eee4;--muted:#aaa79e;--line:#3b3930;--gold:#e0ae59;--gold-soft:#342b1d;--red:#ff8f84;--green:#7dd3a5;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;line-height:1.7}.shell{max-width:1440px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:var(--shadow)}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px)}.brand{font-family:Georgia,serif;font-weight:800;letter-spacing:.12em;color:var(--gold)}.grow{flex:1}button,.button{border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:6px 10px;text-decoration:none;cursor:pointer;font:inherit}.hero{padding:34px 38px 26px;background:linear-gradient(135deg,var(--gold-soft),transparent 58%);border-bottom:1px solid var(--line)}.hero h1{font:800 clamp(28px,4vw,48px)/1.15 Georgia,"Yu Mincho",serif;margin:0}.hero p{max-width:850px;color:var(--muted)}.meta,.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:12px;background:var(--paper)}.layout{display:grid;grid-template-columns:250px minmax(0,1fr)}.nav{position:sticky;top:49px;align-self:start;height:calc(100vh - 49px);overflow:auto;padding:18px 14px;border-right:1px solid var(--line)}.nav a{display:block;color:var(--ink);text-decoration:none;padding:7px 9px;border-radius:6px;font-size:13px}.nav a:hover{background:var(--gold-soft)}.content{padding:26px 34px 60px;min-width:0}.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:25px}.card{border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--paper)}.card .label{font-size:12px;color:var(--muted)}.card .value{font-size:27px;font-weight:800;color:var(--gold)}.stage{scroll-margin-top:65px;border-top:3px double var(--line);padding-top:22px;margin-top:34px}.stage-head{display:flex;align-items:flex-start;gap:12px}.stage-no{font:700 13px Georgia,serif;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 8px}.stage h2{font:750 26px/1.3 Georgia,"Yu Mincho",serif;margin:0}.summary{border-left:3px solid var(--gold);padding:8px 13px;background:var(--gold-soft);margin:12px 0 20px}.document{margin:22px 0}.document-title{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:7px}.document-title h3{margin:0}.source{font-size:11px;color:var(--muted)}h1,h2,h3,h4{line-height:1.35}h1{font-size:28px}h2{font-size:23px}h3{font-size:19px}h4{font-size:16px}p{margin:8px 0}code{font-family:"Cascadia Code",Consolas,monospace;background:var(--gold-soft);padding:1px 4px;border-radius:3px}pre{background:#252720;color:#f4f1e8;border-radius:8px;padding:12px;overflow:auto;font-size:12px}pre code{background:none;padding:0}blockquote{border-left:3px solid var(--gold);margin:12px 0;padding:8px 13px;background:var(--gold-soft)}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--gold-soft)}a{color:var(--gold)}.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px}.related a{display:block;border:1px solid var(--line);border-radius:8px;padding:11px;text-decoration:none}.related a:hover{background:var(--gold-soft)}.empty-search{display:none;color:var(--muted);padding:20px}.search{width:min(420px,48vw);border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:7px 10px}.profiles{margin:18px 0 30px}.profile-switch{display:flex;gap:8px;margin:10px 0}.profile-switch button[aria-selected=true]{border-color:var(--gold);background:var(--gold-soft);font-weight:700}.profile-panel[hidden]{display:none}.direction{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:9px}.direction h3{margin-top:0}.missing{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line)}.missing h4{margin:8px 0 3px}.advantage{font-weight:800;background:var(--gold-soft)}
+@media(max-width:800px){.hero{padding:24px 17px}.layout{display:block}.nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto;gap:4px;padding:8px}.nav a{white-space:nowrap}.content{padding:20px 15px 45px}.top{padding:8px 10px}.brand{font-size:13px}}
+@media print{body{background:#fff}.shell{box-shadow:none;max-width:none}.top,.nav{display:none}.layout{display:block}.hero{padding:0 0 15px}.content{padding:0}.stage{break-before:page}.stage:first-of-type{break-before:auto}.document{break-inside:avoid-page}.related a{color:#000}}
+</style></head><body><div class="shell"><header class="top"><span class="brand">OMNIPOTENS</span><span class="grow"></span><button data-theme type="button">◐ テーマ</button><button data-print type="button">⎙ 印刷</button></header><section class="hero"><div class="badges"><span class="badge">Stage 02</span><span class="badge">2026-07-19T13:20:00+09:00</span></div><h1>Ludus・遊びの構造</h1><p>MagicChronicle — 状態: 完了 Ludus: `b949cfa136fa27de101ace324f99a715f17e6846` 対象: `product-brief.md`、`game-spec.md`、Unity/C#コード データ方針: 公開・汎用辞書を読み取り専用で参照し、MagicChronicle固有データは書き戻さない</p></section><main class="content"><article class="document"><div class="document-title"><h3>Ludus 遊びの辞書による再解析</h3><span class="source">spec/plan/03-ludus-analysis.md</span></div><h1>Ludus 遊びの辞書による再解析</h1>
+<ul>
+<li>状態: 完了</li>
+<li>Ludus: <code>b949cfa136fa27de101ace324f99a715f17e6846</code></li>
+<li>対象: <code>product-brief.md</code>、<code>game-spec.md</code>、Unity/C#コード</li>
+<li>データ方針: 公開・汎用辞書を読み取り専用で参照し、MagicChronicle固有データは書き戻さない</li>
+</ul>
+<h2>学生・初学者向け</h2>
+<p>このゲームは「盤面へカードを置く」「弾の通り道を考える」「次のカードを選ぶ」「分岐したマップを進む」という複数の遊びを重ねている。珍しさは各部品ではなく、自分と敵が同じ魔法陣を使い、魔法陣が途中で壊れるため、攻撃の道が時間とともに変わる組み合わせにある。</p>
+<h2>高解像度データ</h2>
+<h3>辞書対応</h3>
+<div class="table-scroll"><table><thead><tr><th>Ludus安定項目</th><th>適合</th><th>実装・仕様の根拠</th><th>判断</th></tr></thead><tbody><tr><td><code>genre:puzzle</code> / <code>system:puzzle:s01</code></td><td>高</td><td>5×5盤面、位置・方向・耐久による経路構成</td><td>維持</td></tr><tr><td><code>genre:deckbuilder</code> / <code>system:deckbuilder:s02</code></td><td>高</td><td>手札配置、コスト、報酬選択、ビルド軸</td><td>維持</td></tr><tr><td><code>genre:roguelike</code> / <code>system:roguelike:s01</code></td><td>中</td><td>分岐マップとラン内報酬</td><td>seed、死亡、持越しが不足</td></tr><tr><td><code>genre:board-card</code> / <code>system:board-card:rule-resolution</code></td><td>中〜高</td><td>カードが共有盤面の規則を変更</td><td>解決順の仕様化が必要</td></tr><tr><td><code>system:puzzle:s06</code></td><td>低</td><td>ヒント・予告は十分に確認できない</td><td>UXへ接続して改善</td></tr><tr><td><code>system:puzzle:s07</code></td><td>低</td><td>連鎖の巧さを示す評価が未定義</td><td>結果説明へ接続して改善</td></tr><tr><td><code>system:roguelike:s08</code></td><td>高</td><td>カード効果、破壊、バフの組合せ</td><td>数値・タグ規則は不足</td></tr><tr><td><code>system:board-card:opponent-assist</code></td><td>高・反転</td><td>敵弾も自分の魔法陣を利用</td><td>独自性の核として維持</td></tr></tbody></table></div>
+<h3>遊びの構造スコア</h3>
+<div class="table-scroll"><table><thead><tr><th>項目</th><th>点数</th><th>正直な判断</th><th>平均的な改善</th></tr></thead><tbody><tr><td>発想</td><td>7.8/10</td><td>共有攻防盤面×時間で壊れる経路は類似性が薄い。部品自体は辞書内</td><td><code>hold</code>: 新機能を足さず核を実証する</td></tr><tr><td>構造</td><td>6.4/10</td><td>配置→自弾→敵弾→報酬は成立。解決規則と失敗回復が弱い</td><td><code>improve</code>: 単一の解決キューを導入する</td></tr><tr><td>量産性</td><td>6.8/10</td><td>カード効果・方向・耐久・敵配置で変種を作れるが、データ契約が薄い</td><td><code>improve</code>: タグと数値範囲から組合せを生成・検査する</td></tr></tbody></table></div>
+<h3>新規性</h3>
+<p>新規性は7.6/10。新規性を上げるための追加機能は不要である。現在の組合せは説明可能な上限へ近く、さらにシステムを足すと予測不能性が増す。改善判断は<code>hold</code>とし、共有盤面・耐久崩壊・敵利用の三点を一つの短いプレイで証明する。</p>
+<h2>ループ</h2>
+<ol>
+<li>戦闘内: <code>手札確認 → 配置 → 自弾解決 → 盤面変化 → 敵弾解決 → 次の判断</code></li>
+<li>ラン内: <code>部屋選択 → 戦闘/イベント → 報酬 → ビルド更新 → 次のリスク</code></li>
+<li>複数ラン: <code>発見 → 図鑑/解放 → 別構成の探索</code></li>
+</ol>
+<p>戦闘内ループはコードで確認できる。ラン内ループはマップ・報酬・ショップの骨格がある。複数ランの持越し規則は情報も実装も不足している。</p>
+<h2>遊びの辞書からUXへつなぐ実装</h2>
+<h3>1. 解決予告タイムライン</h3>
+<ul>
+<li>辞書: <code>system:board-card:rule-resolution</code>、<code>system:puzzle:s06</code></li>
+<li>実装: 配置候補から自弾・敵弾・発火・破壊を同じイベント列で予測し、番号表示する</li>
+<li>UX接続: 操作→規則→結果の因果を予測でき、複雑さを戦略へ変える</li>
+<li>優先度: 最高</li>
+</ul>
+<h3>2. 失敗の因果リプレイ</h3>
+<ul>
+<li>辞書: <code>system:puzzle:s07</code>、挑戦と回復</li>
+<li>実装: 最後の攻撃列を短く再生し、被害へ至った魔法陣を強調する</li>
+<li>UX接続: 失敗を次の仮説へ変え、再挑戦の納得感を上げる</li>
+<li>優先度: 高</li>
+</ul>
+<h3>3. ビルドタグと変種検査</h3>
+<ul>
+<li>辞書: <code>system:deckbuilder:s02</code>、<code>system:roguelike:s08</code></li>
+<li>実装: カードへ経路・耐久・破壊時・状態のタグを持たせ、報酬候補の偏りを自動検査する</li>
+<li>UX接続: 報酬選択時に「何が強くなるか」を一文で示せる</li>
+<li>優先度: 中</li>
+</ul>
+<h2>配信映えへの接続</h2>
+<p>予告とリプレイはプレイヤーだけでなく視聴者の理解も助ける。連鎖数だけを大きく表示するより、「3番の破壊で進路が変わり、5番が敵へ到達」のように上手さの因果が読める方が切り抜き価値を作る。</p>
+<h2>不足情報</h2>
+<ul>
+<li>辞書対応を実プレイで裏付ける操作記録</li>
+<li>山札・捨て札・除外、同時発火、死亡、seed、持越しの正式規則</li>
+<li>既存類似作品との構造比較とプレイヤー認知</li>
+</ul>
+<h2>不足実装</h2>
+<ul>
+<li>解決キュー、予告タイムライン、因果リプレイ</li>
+<li>カードタグ、報酬分布検査、seed付きラン再現</li>
+<li>連鎖理解率と失敗後説明率の計測</li>
+</ul></article></main></div><script>const r=document.documentElement;const s=localStorage.getItem('omnipotens-theme');if(s)r.dataset.theme=s;document.querySelector('button[data-theme]').onclick=()=>{r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';localStorage.setItem('omnipotens-theme',r.dataset.theme)};document.querySelector('button[data-print]').onclick=()=>print();</script></body></html>

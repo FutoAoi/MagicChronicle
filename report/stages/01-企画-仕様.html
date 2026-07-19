@@ -1,0 +1,255 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>MagicChronicle — 企画・仕様</title><style>
+:root{color-scheme:light;--bg:#f3f0e8;--paper:#fffdf8;--ink:#22231f;--muted:#6f716a;--line:#ded9cd;--gold:#9a6b1f;--gold-soft:#f6ead2;--red:#a33a31;--green:#2f714f;--shadow:0 15px 45px rgba(56,45,27,.10)}[data-theme=dark]{color-scheme:dark;--bg:#151511;--paper:#1e1e19;--ink:#f2eee4;--muted:#aaa79e;--line:#3b3930;--gold:#e0ae59;--gold-soft:#342b1d;--red:#ff8f84;--green:#7dd3a5;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;line-height:1.7}.shell{max-width:1440px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:var(--shadow)}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px)}.brand{font-family:Georgia,serif;font-weight:800;letter-spacing:.12em;color:var(--gold)}.grow{flex:1}button,.button{border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:6px 10px;text-decoration:none;cursor:pointer;font:inherit}.hero{padding:34px 38px 26px;background:linear-gradient(135deg,var(--gold-soft),transparent 58%);border-bottom:1px solid var(--line)}.hero h1{font:800 clamp(28px,4vw,48px)/1.15 Georgia,"Yu Mincho",serif;margin:0}.hero p{max-width:850px;color:var(--muted)}.meta,.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:12px;background:var(--paper)}.layout{display:grid;grid-template-columns:250px minmax(0,1fr)}.nav{position:sticky;top:49px;align-self:start;height:calc(100vh - 49px);overflow:auto;padding:18px 14px;border-right:1px solid var(--line)}.nav a{display:block;color:var(--ink);text-decoration:none;padding:7px 9px;border-radius:6px;font-size:13px}.nav a:hover{background:var(--gold-soft)}.content{padding:26px 34px 60px;min-width:0}.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:25px}.card{border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--paper)}.card .label{font-size:12px;color:var(--muted)}.card .value{font-size:27px;font-weight:800;color:var(--gold)}.stage{scroll-margin-top:65px;border-top:3px double var(--line);padding-top:22px;margin-top:34px}.stage-head{display:flex;align-items:flex-start;gap:12px}.stage-no{font:700 13px Georgia,serif;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 8px}.stage h2{font:750 26px/1.3 Georgia,"Yu Mincho",serif;margin:0}.summary{border-left:3px solid var(--gold);padding:8px 13px;background:var(--gold-soft);margin:12px 0 20px}.document{margin:22px 0}.document-title{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:7px}.document-title h3{margin:0}.source{font-size:11px;color:var(--muted)}h1,h2,h3,h4{line-height:1.35}h1{font-size:28px}h2{font-size:23px}h3{font-size:19px}h4{font-size:16px}p{margin:8px 0}code{font-family:"Cascadia Code",Consolas,monospace;background:var(--gold-soft);padding:1px 4px;border-radius:3px}pre{background:#252720;color:#f4f1e8;border-radius:8px;padding:12px;overflow:auto;font-size:12px}pre code{background:none;padding:0}blockquote{border-left:3px solid var(--gold);margin:12px 0;padding:8px 13px;background:var(--gold-soft)}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--gold-soft)}a{color:var(--gold)}.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px}.related a{display:block;border:1px solid var(--line);border-radius:8px;padding:11px;text-decoration:none}.related a:hover{background:var(--gold-soft)}.empty-search{display:none;color:var(--muted);padding:20px}.search{width:min(420px,48vw);border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:7px 10px}.profiles{margin:18px 0 30px}.profile-switch{display:flex;gap:8px;margin:10px 0}.profile-switch button[aria-selected=true]{border-color:var(--gold);background:var(--gold-soft);font-weight:700}.profile-panel[hidden]{display:none}.direction{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:9px}.direction h3{margin-top:0}.missing{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line)}.missing h4{margin:8px 0 3px}.advantage{font-weight:800;background:var(--gold-soft)}
+@media(max-width:800px){.hero{padding:24px 17px}.layout{display:block}.nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto;gap:4px;padding:8px}.nav a{white-space:nowrap}.content{padding:20px 15px 45px}.top{padding:8px 10px}.brand{font-size:13px}}
+@media print{body{background:#fff}.shell{box-shadow:none;max-width:none}.top,.nav{display:none}.layout{display:block}.hero{padding:0 0 15px}.content{padding:0}.stage{break-before:page}.stage:first-of-type{break-before:auto}.document{break-inside:avoid-page}.related a{color:#000}}
+</style></head><body><div class="shell"><header class="top"><span class="brand">OMNIPOTENS</span><span class="grow"></span><button data-theme type="button">◐ テーマ</button><button data-print type="button">⎙ 印刷</button></header><section class="hero"><div class="badges"><span class="badge">Stage 01</span><span class="badge">2026-07-19T13:20:00+09:00</span></div><h1>企画・仕様</h1><p>MagicChronicle — 文書版: 0.1.0 基準日: 2026-07-15 状態: 初版。公開Notionと添付企画書の統合整理であり、承認済み製品要件ではない。</p></section><main class="content"><article class="document"><div class="document-title"><h3>MagicChronicle 企画書 初版</h3><span class="source">spec/feature/product-brief.md</span></div><h1>MagicChronicle 企画書 初版</h1>
+<ul>
+<li>文書版: 0.1.0</li>
+<li>基準日: 2026-07-15</li>
+<li>状態: 初版。公開Notionと添付企画書の統合整理であり、承認済み製品要件ではない。</li>
+</ul>
+<h2>1. 製品定義</h2>
+<p>MagicChronicle（略称: マジクロ）は、5x5盤面に魔法陣カードを配置し、魔法弾の経路・分裂・強化・状態効果を設計して戦う、一人用の「魔法陣連鎖ローグライク」である。</p>
+<div class="table-scroll"><table><thead><tr><th>項目</th><th>現在の定義</th><th>根拠</th></tr></thead><tbody><tr><td>ジャンル</td><td>ローグライクパズル／連鎖構築型ローグライク</td><td><code>source</code>: SRC-PDF-001、SRC-SYS-001</td></tr><tr><td>コンセプト</td><td>ピースが噛み合った瞬間の爆発的な爽快感</td><td><code>source</code>: Notionトップ、SRC-PDF-001</td></tr><tr><td>プレイヤー価値</td><td>魔法の通り道を設計し、分裂と連鎖が想定以上に広がる快感と、敵にも同じ盤面を利用される緊張</td><td><code>analysis</code>: SRC-SYS-001</td></tr><tr><td>プラットフォーム</td><td>PC / iOS / Android</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>プレイ人数</td><td>1人</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>想定ターゲット</td><td>18〜35歳のローグライク好き</td><td><code>source</code>: SRC-PDF-001</td></tr><tr><td>ハイレベルゴール</td><td>繰り返し長く遊べること</td><td><code>source</code>: Notionトップ</td></tr><tr><td>マイルストーン</td><td>東京ゲームショウ2026への出展</td><td><code>source</code>: SRC-PDF-001</td></tr></tbody></table></div>
+<h2>2. コア体験</h2>
+<ol>
+<li>分岐マップから次の部屋を選ぶ。</li>
+<li>手札からコスト内で魔法陣を5x5盤面へ配置する。</li>
+<li>プレイヤーの魔法弾が左側から進み、通過した魔法陣を即時発動する。</li>
+<li>方向転換、分裂、威力上昇、状態効果などが連鎖する。</li>
+<li>発動のたびに魔法陣の耐久が減り、破壊によって同一ターン内でも経路が変化する。</li>
+<li>敵の攻撃も同じ盤面と魔法陣を利用する。</li>
+<li>勝利後にカード等の報酬を選び、デッキを成長させる。</li>
+</ol>
+<p>核となる面白さは、静的な最適配置ではなく「発動順と破壊によって途中から盤面の意味が変わる連鎖設計」にある。強い配置を敵にも使われるため、最大火力と防御上の安全が同じ解にならないことが本作固有の駆け引き候補である。</p>
+<h2>3. 世界観と進行動機</h2>
+<ul>
+<li>表設定: プレイヤーは探検者となり、古代文明の魔法陣研究施設である巨大な塔を攻略する。</li>
+<li>景観: 神秘的な古代遺跡と、幾何学的に発光する魔法技術を組み合わせる。</li>
+<li>通常の到達点: 塔の最奥で魔法陣の創造者クロニクルと対峙する。</li>
+<li>真相: クロニクル撃破で封印が解け、兵器利用を望んだカイロスが復活する。</li>
+<li>追加到達点: 裏ボスのカイロスへ挑む。</li>
+</ul>
+<p><code>question</code>: この物語が1ラン内で完結するのか、複数ランの恒久進行で開示されるのかは未定義である。</p>
+<h2>4. コンテンツとビルド軸</h2>
+<h3>4.1 ラン内コンテンツ</h3>
+<ul>
+<li>部屋: ノーマル、エリート、ボス、イベント、ショップ、鍛冶。</li>
+<li>報酬: カード／魔法陣を中心とする選択報酬。</li>
+<li>資源候補: HP、配置コスト、手札・山札、カード耐久、所持金、各種バフスタック。</li>
+</ul>
+<h3>4.2 ビルド軸候補</h3>
+<ul>
+<li>コンボ: 移動マス数に応じた威力増加、方向転換、分裂、霊陣破壊。</li>
+<li>バーサーカー: 自傷、疲労、筋力、カウンター、回復。</li>
+<li>テクニカル: 毒、バフ操作、効果再発動、高耐久の霊陣。</li>
+<li>基礎: 固定ダメージ、ドロー、回復、加速、通貨獲得。</li>
+</ul>
+<h3>4.3 敵コンテンツ目標</h3>
+<ul>
+<li>TGS版目標: 雑魚5、エリート2、ボス1。</li>
+<li>製品版理想: 追加の雑魚10、エリート6、ボス3〜4。</li>
+<li>敵行動候補: 通常攻撃、自己強化、弱い魔法陣の配置、盤面の上書き・遮断、反射、大型当たり判定。</li>
+</ul>
+<h2>5. メタゲーム候補</h2>
+<p>拠点には図鑑、ショップ、出撃準備があり、ショップにはキャラクター解放とカード解放ガチャが記載されている。現資料では、以下が未決定である。</p>
+<ul>
+<li>ラン終了後に残る通貨・カード・キャラクター。</li>
+<li>ガチャの確率、重複、救済、価格、課金の有無。</li>
+<li>「無限に遊べる」を支える難易度上昇、シード、チャレンジ、スコア、アンロック。</li>
+<li>新規ラン開始時に何を初期化し、何を保持するか。</li>
+</ul>
+<h2>6. 企画上の強み</h2>
+<ol>
+<li>経路設計とデッキ構築を同一の魔法陣カードへ統合している。</li>
+<li>分裂による画面上の増殖が、短時間で視覚的な見せ場を作れる。</li>
+<li>魔法陣の耐久破壊により、事前計画と実行中の予想外が共存する。</li>
+<li>敵も同じ魔法陣を使うため、盤面構築が攻撃と防御の両方になる。</li>
+<li>1ターンの連鎖を映像で説明しやすく、展示・動画・ストア素材へ転用しやすい。</li>
+</ol>
+<h2>7. 主要リスク</h2>
+<div class="table-scroll"><table><thead><tr><th>リスク</th><th>影響</th><th>現時点の対処案</th></tr></thead><tbody><tr><td>連鎖結果が読めない</td><td>爽快感より理不尽さが勝つ</td><td>経路プレビュー、発動順表示、危険経路の敵色表示</td></tr><tr><td>配置・デッキ・耐久・バフが同時に増える</td><td>初回理解負荷が高い</td><td>チュートリアルを概念ごとの短い実戦へ分割</td></tr><tr><td>敵も盤面を使うルールが罰に見える</td><td>良い配置を作る動機が下がる</td><td>敵射線の事前提示、回避・逆利用の明確な成功演出</td></tr><tr><td>メタ進行が未定義</td><td>「無限に遊べる」を支えられない</td><td>ラン内／恒久進行の契約を先に決める</td></tr><tr><td>PCとモバイル同時展開</td><td>UI・入力・性能・safe areaの負担が増える</td><td>TGS版の主要プラットフォームと製品ロードマップを分離</td></tr><tr><td>コンテンツ量目標が大きい</td><td>品質と調整が分散する</td><td>敵数よりビルド間相互作用とボス固有盤面を優先</td></tr></tbody></table></div>
+<h2>8. 成功指標案</h2>
+<p><code>hypothesis</code>: 企画書にKPIはないため、以下は検証用の仮置きである。</p>
+<ul>
+<li>初見プレイヤーが説明後3分以内に、方向転換と分裂を用いた連鎖を自力で成立させる。</li>
+<li>10分試遊で「敵も同じ盤面を使う」ことを理解し、それを利用または回避する判断を1回以上行う。</li>
+<li>1ラン内で少なくとも2つの異なるビルド方針が成立し、報酬選択の理由を説明できる。</li>
+<li>TGS試遊後に、プレイヤーが本作を「魔法陣の経路を組むローグライク」と再説明できる。</li>
+</ul></article><article class="document"><div class="document-title"><h3>MagicChronicle ゲーム仕様書 初版</h3><span class="source">spec/feature/game-spec.md</span></div><h1>MagicChronicle ゲーム仕様書 初版</h1>
+<ul>
+<li>文書版: 0.1.0</li>
+<li>基準日: 2026-07-15</li>
+<li>状態: 公開資料から再構成した初版。<code>question</code>項目は実装判断に使用しない。</li>
+</ul>
+<h2>1. 用語</h2>
+<div class="table-scroll"><table><thead><tr><th>用語</th><th>定義</th><th>状態</th></tr></thead><tbody><tr><td>魔法陣</td><td>盤面へ配置するカード由来の装置。魔法弾が接触すると効果を発動する</td><td><code>source</code></td></tr><tr><td>魔法弾</td><td>盤面を移動し、魔法陣の効果を受け、対象へ作用する実行単位</td><td><code>analysis</code></td></tr><tr><td>耐久</td><td>魔法陣が発動可能な残り回数に相当する値。発動時に減少し、0で消滅する</td><td><code>source</code></td></tr><tr><td>霊陣</td><td>通過時ではなく破壊時に効果が発動する魔法陣</td><td><code>source</code></td></tr><tr><td>コスト</td><td>1配置ターンに魔法陣を置くための制約値</td><td><code>source</code>。回復周期は未定</td></tr><tr><td>バフスタック</td><td>効果量または継続回数を表す値</td><td><code>source</code>。効果ごとの意味が不統一</td></tr><tr><td>ラン</td><td>拠点から出撃し、分岐マップを進み、終了して拠点へ戻る一連のプレイ</td><td><code>analysis</code></td></tr></tbody></table></div>
+<h2>2. シーンと画面遷移</h2>
+<p>公開仕様の遷移図には、タイトル、拠点、チュートリアル、ステージセレクト、インゲーム、イベント、エンドシーンに加え、オプション、クレジット、図鑑、ショップ、デッキ、山札等のパネルがある。</p>
+<h3>2.1 タイトル</h3>
+<ul>
+<li>画面クリックまたはタップで拠点へ移る。</li>
+<li>右上にオプションとクレジットを置き、対応パネルを開く。</li>
+</ul>
+<h3>2.2 拠点</h3>
+<ul>
+<li>古代遺跡が点在する背景を用いる。</li>
+<li>タイトル、図鑑、ショップ、出撃準備へ移動できる。</li>
+<li>図鑑はカードとキャラクター／敵の一覧を表示する。</li>
+<li>ショップはキャラクター解放とカード解放ガチャを扱う案がある。</li>
+<li>出撃準備からキャラクター選択、チュートリアル、ステージセレクトへ進む。</li>
+</ul>
+<h3>2.3 ステージセレクト</h3>
+<ul>
+<li>分岐マップで接続済みの次ルームを選ぶ。</li>
+<li>ルーム種別はノーマル、エリート、ボス、イベント、ショップ、鍛冶。</li>
+<li>ショップは回復・カード購入、鍛冶はカード強化を提供する案がある。</li>
+<li>現在地にキャラクターアイコンを表示する。</li>
+<li>オプションと魔法陣デッキ確認パネルを開ける。</li>
+</ul>
+<h3>2.4 インゲーム</h3>
+<p>公開仕様にはドロー、配置、攻撃、報酬、カード周りの見出しだけがあり、詳細はゲームシステム資料と実装観測から補う。</p>
+<h3>2.5 イベント／チュートリアル／エンドロール</h3>
+<p>画面別仕様は未記載である。イベント題材の候補だけが存在するため、選択肢、コスト、結果、再訪、ラン状態への反映を決める必要がある。</p>
+<h2>3. 戦闘盤面</h2>
+<ul>
+<li>中央に5x5の配置マスを持つ。</li>
+<li>プレイヤーは手札から魔法陣をドラッグして配置する。</li>
+<li>配置はコスト制であり、無制限には置けない。</li>
+<li>プレイヤーの魔法弾は盤面左側から直進を開始する。</li>
+<li>魔法弾が魔法陣へ触れた瞬間に、その魔法陣の効果を適用する。</li>
+<li>効果は方向転換、分裂、ダメージ、状態異常、ドロー、回復、通貨、耐久操作等を含む。</li>
+<li>魔法陣は発動ごとに耐久を消費し、0になった時点で消える。</li>
+<li>破壊後、その位置は後続の魔法弾へ影響しない。</li>
+<li>プレイヤー攻撃後に敵が攻撃し、敵の魔法弾でも同じ魔法陣が発動する。</li>
+</ul>
+<h2>4. ターン進行</h2>
+<p>現資料から確定できる最小フローは次のとおり。</p>
+<ol>
+<li>ターン開始・ドロー。</li>
+<li>魔法陣の配置。</li>
+<li>配置終了を確定。</li>
+<li>プレイヤーの魔法弾を解決。</li>
+<li>敵の魔法弾を解決。</li>
+<li>ターン終了効果と継続状態を更新。</li>
+<li>勝敗未決なら次ターンへ進む。</li>
+<li>勝利なら報酬を選び、ステージセレクトへ戻る。</li>
+</ol>
+<p><code>question</code>: 複数弾の同時性、分裂弾の順序、同一魔法陣への同フレーム接触、霊陣と耐久0の処理順、敵が複数いる時の行動順は未定義である。</p>
+<h2>5. カードとデッキ</h2>
+<ul>
+<li>カードは魔法陣の配置に用いる。</li>
+<li>ステージクリア報酬で新しいカードを獲得し、ラン内デッキを構築する。</li>
+<li>カードにはコスト、効果、耐久、方向や分裂等のパラメータがある。</li>
+<li>報酬は複数候補から選ぶ画面案がある。</li>
+<li>鍛冶でカードを強化する案がある。</li>
+</ul>
+<h3>未決定のデッキ契約</h3>
+<ul>
+<li>初期手札、毎ターンドロー数、手札上限。</li>
+<li>山札切れ時の再構築と、捨て札・消滅札の区別。</li>
+<li>配置済みカードがいつどこへ移るか。</li>
+<li>報酬スキップの価値、カード削除、レアリティ、強化上限。</li>
+<li>ラン終了時のデッキ初期化と恒久アンロックの関係。</li>
+</ul>
+<p><code>code</code>: 既存AI Formatレビューは、消耗済みカードの再投入と空山札参照をHighとして報告している。仕様決定と回帰テストを同時に行う必要がある。</p>
+<h2>6. 魔法陣効果カテゴリ</h2>
+<div class="table-scroll"><table><thead><tr><th>カテゴリ</th><th>例</th><th>設計上の役割</th></tr></thead><tbody><tr><td>経路</td><td>上下左右、分割2〜4方向、スキップ、加速</td><td>経路構築</td></tr><tr><td>攻撃</td><td>単体、範囲、全体、高火力、移動距離参照</td><td>勝利手段</td></tr><tr><td>維持</td><td>耐久回復、周囲耐久変更、破壊</td><td>連鎖寿命の管理</td></tr><tr><td>資源</td><td>ドロー、コスト、通貨、回復</td><td>行動・経済</td></tr><tr><td>状態</td><td>筋力、疲労、弱体、毒、再生、カウンター</td><td>ビルド差別化</td></tr><tr><td>霊陣</td><td>破壊時攻撃、回復、バフ、通貨等</td><td>破壊順パズル</td></tr></tbody></table></div>
+<h2>7. バフ・デバフ</h2>
+<h3>7.1 効果候補</h3>
+<ul>
+<li>筋力: 魔法の攻撃力を上げる。</li>
+<li>疲労: 魔法の攻撃力を50%下げる。</li>
+<li>弱体: 被ダメージを50%増やす。</li>
+<li>毒: ターン終了時にスタック分のダメージを与える。</li>
+<li>再生: ターン終了時に回復する。</li>
+<li>カウンター／反射: 受けた攻撃の一部を返す案、または弾を跳ね返す案が併存する。</li>
+<li>コスト増減: 使用可能コスト最大値を変える。</li>
+<li>追加カード: ターン開始時ドロー数を増やす。</li>
+<li>連続: 魔法弾の発射回数を増やす。</li>
+<li>コンボ: 移動マスごとに攻撃力を増やす。</li>
+<li>バーサーカー: 自傷をトリガーに筋力または怒りを得る。</li>
+<li>テクニカル: カード効果の再発動案と、毒弾付与案が併存する。</li>
+</ul>
+<h3>7.2 仕様矛盾</h3>
+<ol>
+<li>消費型バフの回数減少が「カードドロー時」「敵攻撃直後」「毎ターン」「特定トリガー」と資料ごとに異なる。</li>
+<li>筋力は <code>+1</code>、<code>スタック分加算</code>、<code>倍率</code>の読み方が混在する。</li>
+<li>カウンターはダメージ割合返却、反射は弾反転として分離すべきか不明である。</li>
+<li>テクニカルは効果再発動と毒付与で別能力として記述されている。</li>
+<li>コストマイナスはプレイヤーへのデバフか、カードコスト軽減か名称から誤読しやすい。</li>
+</ol>
+<p>承認されるまで、これらを実装の正本として扱わない。</p>
+<h2>8. 敵と勝敗</h2>
+<ul>
+<li>敵は通常攻撃、自己バフ、盤面干渉を行う。</li>
+<li>ノーマル敵は弱い魔法陣を盤面へ置く案がある。</li>
+<li>ボスは落石による上書き・通行不能、反射、大型当たり判定等の固有ルールを持つ案がある。</li>
+<li>通常戦、エリート戦、ボス戦を区別する。</li>
+</ul>
+<h3>未決定</h3>
+<ul>
+<li>プレイヤーHPが0になった際のラン終了、復帰、報酬保持。</li>
+<li>敵全滅以外の勝利条件、ターン制限、引き分け。</li>
+<li>敵の意図表示とターゲット規則。</li>
+<li>大型敵の複数マス当たり判定と分裂弾の命中回数。</li>
+</ul>
+<h2>9. ランと内部経済</h2>
+<h3>9.1 想定ソース</h3>
+<ul>
+<li>戦闘報酬のカード。</li>
+<li>魔法陣効果またはイベントからの所持金。</li>
+<li>ショップ・イベント・報酬からの回復、バフ、強化。</li>
+</ul>
+<h3>9.2 想定シンク</h3>
+<ul>
+<li>ショップのカード購入と回復。</li>
+<li>鍛冶のカード強化。</li>
+<li>拠点ショップの解放／ガチャ。</li>
+</ul>
+<h3>9.3 未決定</h3>
+<ul>
+<li>通貨の種類、初期値、戦闘ごとの期待獲得量、価格曲線。</li>
+<li>ラン内通貨と恒久通貨の分離。</li>
+<li>カード獲得が常に強化になることによるデッキ肥大への対策。</li>
+<li>回復と強化の機会費用、難易度別の資源供給。</li>
+<li>ガチャと有料課金の有無、確率表示、救済、重複処理。</li>
+</ul>
+<h2>10. 世界・物語</h2>
+<ul>
+<li>塔は古代文明の魔法陣研究施設である。</li>
+<li>クロニクルは魔法陣を平和利用しようとし、カイロスは兵器利用を望んだ。</li>
+<li>クロニクルはカイロスを封印し、塔へ守護者を配置した。</li>
+<li>プレイヤーは事情を知らずクロニクルを倒し、結果としてカイロスを復活させる。</li>
+<li>カイロスが裏ボスとなる。</li>
+</ul>
+<p><code>question</code>: プレイヤーの選択可能性、周回での真相開示、エンディング分岐は未定義である。</p>
+<h2>11. 入力・表示・アクセシビリティ</h2>
+<ul>
+<li>PCではクリックとドラッグ、モバイルではタップとドラッグを前提とする。</li>
+<li>方向、敵経路、発動順、耐久、コスト、対象、ダメージ予測を視覚的に区別する必要がある。</li>
+<li>色だけで魔法陣や敵味方を区別しない。</li>
+<li>モバイルsafe area、最小タップ領域、文字サイズ、横持ち／縦持ちは未決定。</li>
+<li>キーボード・ゲームパッド操作、入力再割当、振動、演出軽減、速度変更は未決定。</li>
+<li>ローカライズ対象言語と文字列管理方式は未決定。</li>
+</ul>
+<h2>12. データと保存</h2>
+<ul>
+<li>カード、バフ、敵、ステージ、イベントはデータ駆動のUnityアセットとして実装観測されている。</li>
+<li>ID重複、欠損参照、無効なイベントID、カード効果と説明文の不一致をビルド前に検証する必要がある。</li>
+<li>ラン状態、恒久解放、設定、図鑑の保存単位・バージョン・破損復旧は未定義である。</li>
+<li>タイトルから新規ランを開始した時のデッキ、所持金、HP、マップ、バフの初期化契約を明文化する。</li>
+</ul>
+<h2>13. 初版の受け入れ条件</h2>
+<p>次版へ進む前に、少なくとも以下を決定する。</p>
+<ol>
+<li>ターン内の完全な処理順と同時接触規則。</li>
+<li>山札・手札・捨て札・消滅札・配置済みカードの状態遷移。</li>
+<li>バフごとの効果式、減少トリガー、上限、表示。</li>
+<li>ラン開始／勝利／敗北／中断／新規開始の初期化と保持。</li>
+<li>通貨ソース・シンクと拠点ガチャの位置づけ。</li>
+<li>チュートリアル、イベント、エンドロールの最小仕様。</li>
+<li>PC・iOS・Androidの優先順位と入力・UI・性能のrelease gate。</li>
+<li>コアループの自動テスト対象と、TGS試遊の成功指標。</li>
+</ol></article></main></div><script>const r=document.documentElement;const s=localStorage.getItem('omnipotens-theme');if(s)r.dataset.theme=s;document.querySelector('button[data-theme]').onclick=()=>{r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';localStorage.setItem('omnipotens-theme',r.dataset.theme)};document.querySelector('button[data-print]').onclick=()=>print();</script></body></html>

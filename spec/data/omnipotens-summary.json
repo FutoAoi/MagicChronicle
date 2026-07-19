@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 2,
+  "project": "MagicChronicle",
+  "generatedAt": "2026-07-19T13:25:00+09:00",
+  "executiveSummary": {
+    "play-logic": {
+      "id": "play-logic",
+      "title": "遊びのロジック",
+      "beginner": "カードを5×5盤面へ置き、自分と敵の弾が通る道と魔法陣の壊れる順を組み立てる。強い配置が敵ターンでは危険にもなる点が中心の面白さである。",
+      "highResolution": "盤面パズル、デッキ構築、ローグライトを、耐久で時間変化する共有攻防盤面へ統合している。発想7.8/10に対して構造6.4/10であり、新機能より解決順・カード領域・失敗回復の確定を優先する。",
+      "missingInformation": ["同時発火・破壊・死亡の優先順位", "実プレイの予測誤りと再挑戦行動"],
+      "missingImplementation": ["単一の解決キュー", "自弾・敵弾・破壊の予告と振り返り"]
+    },
+    "code": {
+      "id": "code",
+      "title": "コード内容",
+      "beginner": "主要機能は実装済みだが、弾、魔法効果、耐久、演出が互いを直接呼び、変更の影響が広い。結果計算とUnity演出を分ける必要がある。",
+      "highResolution": "Anatomiaは120ファイル、424関数、347解決呼び出し、764未解決呼び出し、12循環、29境界ドリフト候補を検出した。最大循環は戦闘コア7関数。汎用state-machineの高凝集度は421関数を捕捉した偽の高値として除外した。",
+      "missingInformation": ["scene/prefab/ScriptableObjectの実配線", "実機フレーム時間とGC割当"],
+      "missingImplementation": ["Unity非依存の結果計算", "盤面端・分岐・listener重複・マップ境界の回帰テスト"]
+    },
+    "ux": {
+      "id": "ux",
+      "title": "UX",
+      "beginner": "配置して連鎖を見る方向は企画と実装で一致するが、なぜその結果になったかを予測・説明する支援が弱い。派手さより因果の読みやすさを優先する。",
+      "highResolution": "AI平均反応シミュレーションはコアと実装の方向一致7.2/10、表現の納得性・パフォーマンス5.8/10。Vitia体験監査の挑戦と学習0.000は面白さ0点ではなく、規則曖昧ペナルティと失敗回復証拠の不足を示す。",
+      "missingInformation": ["初見5〜8人の無介入プレイ", "入力・色覚・光刺激・配信解像度の実機確認"],
+      "missingImplementation": ["解決予告タイムライン", "因果リプレイと入力代替", "演出縮退とアクセシビリティ設定"]
+    },
+    "market": {
+      "id": "market",
+      "title": "市場分析",
+      "beginner": "最も伝わりやすい売りは、自分で置いた魔法陣を弾が連鎖する一場面である。世界観や機能数より、短い実演を先に見せる。",
+      "highResolution": "Vitiaは鮮明な体験6.46/10を主軸、反復価値5.74/10を補助軸とした。共有盤面の連鎖表現は市場優位性候補だが、内容量・価格・販売実績がないため『無限に遊べる』『売れる』とは断定しない。",
+      "missingInformation": ["価格、比較対象、対象地域、販売導線", "動画理解率、体験版完了率、ウィッシュリスト転換"],
+      "missingImplementation": ["因果が読める短尺デモと同内容の体験版", "理解・信頼・継続を測る実験導線"]
+    }
+  },
+  "additionalAnalyses": [
+    {
+      "id": "streamability",
+      "title": "配信映え",
+      "beginner": "準備した盤面が高速連鎖へ変わる前後差は配信向き。ただし、視聴者が上手さの理由を追える表示が必要である。",
+      "highResolution": "独立評価6.8/10。連鎖番号、危険経路、結果内訳を小画面・無音でも残し、視聴者の因果説明率で検証する。エフェクト量の追加は平均的改善にならない。",
+      "missingInformation": ["配信画面での理解率と離脱", "配信者・視聴者の希望情報"],
+      "missingImplementation": ["観戦用因果表示", "安全なクリップ出力と演出縮退"]
+    },
+    {
+      "id": "merchandise",
+      "title": "グッズが売れるかどうか",
+      "beginner": "カードや魔法陣は商品にできるが、欲しい人がいる証拠はまだない。大量生産より代表記号を絞って需要を調べる。",
+      "highResolution": "独立評価4.2/10。識別可能なシルエット、反復露出、キャラクター人気、購買意向が未測定で市場優位性とはしない。代表魔法陣3種と主人公1体を仮商品で比較する。",
+      "missingInformation": ["要素別認知・好意・購買意向", "価格帯、製造数量、販路、原価"],
+      "missingImplementation": ["代表記号のアートガイド", "仮商品画像を用いた需要検証"]
+    },
+    {
+      "id": "ip-strategy",
+      "title": "IP戦略",
+      "beginner": "作品の核をキャラクター数ではなく、共有盤面へ魔法陣を組んで弾道の物語を作る文法に置く。",
+      "highResolution": "独立評価6.0/10。カード、短編、配信、グッズを同じ魔法陣記号へ接続できる。人気証拠が得られるまで設定と登場人物の大規模追加を保留し、命名・色・形・禁止変形を正本化する。",
+      "missingInformation": ["IP利用範囲、商標、アート正本、監修者", "物語・キャラクター別の人気証拠"],
+      "missingImplementation": ["IP権利台帳とアートガイド", "アセットIDとゲーム内露出計画"]
+    },
+    {
+      "id": "development-approach",
+      "title": "8月末から9月中旬の開発アプローチ",
+      "beginner": "8月末までに解決順と説明表示を固め、9月中旬までに理解・性能・短い体験の一致を検証する。",
+      "highResolution": "8月末は解決キュー、予告/本番/リプレイ共通イベント列、1戦闘・1報酬・1分岐、形成的テスト2巡を完了する。9月中旬は理解率、再挑戦率、因果説明率、60fps縮退、動画と体験版の一致をrelease gateにする。",
+      "missingInformation": ["チーム人数、担当、実働日、締切、対象端末", "各時点の配布条件"],
+      "missingImplementation": ["release checklist", "理解・性能・信頼を記録するテレメトリ"]
+    }
+  ],
+  "aiFormatScores": [
+    {
+      "label": "仕様資料の分類",
+      "score": 10.0,
+      "maxScore": 10,
+      "rationale": "AIFormatのdata、feature、interface、plan、setup、testが揃い、再監査A・指摘0。",
+      "sourceRefs": ["spec/plan/09-aiformat-architecture-review.md"],
+      "averageImprovement": {"decision":"hold","proposal":"分類を増やさず索引と最終ファイル名だけを同期する。","rationale":"満点であり、追加階層は探索コストを増やすため。"},
+      "missingInformation": [],
+      "missingImplementation": []
+    },
+    {
+      "label": "仕様とコードの追跡",
+      "score": 3.0,
+      "maxScore": 10,
+      "rationale": "116ファイルに明示仕様リンクがなく、Anatomiaのspec integrityは0。",
+      "sourceRefs": ["spec/plan/06-spec-domain-code-map.md", "spec/data/anatomia-architecture-review.json"],
+      "averageImprovement": {"decision":"improve","proposal":"P0仕様だけへ安定IDを付け、テスト名と所有ドメインへ接続する。","rationale":"低得点で影響が大きいが、全コード一括付与より小さく始める方が安全。"},
+      "missingInformation": ["仕様IDの命名規則と責任者"],
+      "missingImplementation": ["仕様IDメタデータと自動照合"]
+    },
+    {
+      "label": "アーキテクチャ健全性",
+      "score": 5.6,
+      "maxScore": 10,
+      "rationale": "主要機能はあるが、戦闘コア7関数循環と低い仕様ドメイン凝集度が変更リスクを作る。",
+      "sourceRefs": ["spec/plan/05-anatomia-analysis.md", "spec/plan/09-aiformat-architecture-review.md"],
+      "averageImprovement": {"decision":"improve","proposal":"解決計算をUnity演出から分離し、同じイベント列を予告と再生へ使う。","rationale":"中位点で、コア体験を変えずにテスト性とUXを同時改善できる。"},
+      "missingInformation": ["実行時依存と性能"],
+      "missingImplementation": ["ResolutionQueueと回帰テスト"]
+    }
+  ],
+  "vitiaScores": [
+    {
+      "label": "Luxuria（鮮明な体験）",
+      "score": 6.46,
+      "maxScore": 10,
+      "rationale": "連鎖を具体的な短い場面で示せ、試遊可能性と視覚的即時性が高い。",
+      "sourceRefs": ["spec/plan/11-vitia-marketability.md", "spec/data/vitia-scoring-output.json"],
+      "marketAdvantage": true,
+      "averageImprovement": {"decision":"hold","proposal":"場面を増やさず、配置から結果までの因果を明瞭にする。","rationale":"最高点で市場優位性候補。機能追加は中心場面を薄める。"},
+      "missingInformation": ["完成映像の初見理解率"],
+      "missingImplementation": ["因果番号付き短尺デモ"]
+    },
+    {
+      "label": "Gula（反復価値）",
+      "score": 5.74,
+      "maxScore": 10,
+      "rationale": "カード、敵、経路の組合せで次の意思決定を変えられる。",
+      "sourceRefs": ["spec/plan/11-vitia-marketability.md", "spec/data/vitia-scoring-output.json"],
+      "marketAdvantage": true,
+      "averageImprovement": {"decision":"improve","proposal":"二回目以降に何が変わるかを体験版で実証する。","rationale":"市場優位性候補だが、内容量と反復行動の実測がない。"},
+      "missingInformation": ["複数ランの構成多様性と飽和"],
+      "missingImplementation": ["seed・履歴・変種テレメトリ"]
+    },
+    {
+      "label": "Acedia（開始摩擦）",
+      "score": 5.31,
+      "maxScore": 10,
+      "rationale": "選択複雑性と予測負荷が初回価値到達を遅らせる。",
+      "sourceRefs": ["spec/plan/10-ux-review.md", "spec/data/vitia-scoring-output.json"],
+      "marketAdvantage": false,
+      "averageImprovement": {"decision":"improve","proposal":"最初の戦闘を一つの曲がりと敵利用へ限定する。","rationale":"中位以上だが、摩擦は訴求と学習の双方を阻害する。"},
+      "missingInformation": ["初回価値到達時間"],
+      "missingImplementation": ["段階的チュートリアル"]
+    },
+    {
+      "label": "Superbia（習熟・自己表現）",
+      "score": 4.31,
+      "maxScore": 10,
+      "rationale": "上手さを見せる余地はあるが、技能の可視化と社会的証拠が不足。",
+      "sourceRefs": ["spec/plan/11-vitia-marketability.md"],
+      "marketAdvantage": false,
+      "averageImprovement": {"decision":"improve","proposal":"結果内訳でプレイヤーの判断を具体的に称える。","rationale":"低めの点数で、虚偽のランキングを使わず改善できる。"},
+      "missingInformation": ["プレイヤーが誇りに感じる行動"],
+      "missingImplementation": ["技能を示す因果リプレイ"]
+    },
+    {
+      "label": "Ira（阻害・回復）",
+      "score": 4.23,
+      "maxScore": 10,
+      "rationale": "不可解な失敗を回復へ変える余地があるが、現状は原因説明が弱い。",
+      "sourceRefs": ["spec/plan/10-ux-review.md", "spec/plan/11-vitia-marketability.md"],
+      "marketAdvantage": false,
+      "averageImprovement": {"decision":"improve","proposal":"失敗直後に原因、再試行、終了を同格で示す。","rationale":"低めの点数で、主体性を回復する小さな改善が可能。"},
+      "missingInformation": ["失敗時の感情と再試行理由"],
+      "missingImplementation": ["失敗原因表示と回復導線"]
+    },
+    {
+      "label": "Invidia（比較）",
+      "score": 3.54,
+      "maxScore": 10,
+      "rationale": "比較対象、対戦、検証済み社会的証拠がなく、信号網羅も0.30。",
+      "sourceRefs": ["spec/data/vitia-scoring-output.json"],
+      "marketAdvantage": false,
+      "averageImprovement": {"decision":"hold","proposal":"人気・ランキング・比較訴求を導入しない。","rationale":"低点の原因は欠陥ではなく非該当と証拠不足で、無理な改善は不誠実。"},
+      "missingInformation": ["関連する比較行動の有無"],
+      "missingImplementation": []
+    },
+    {
+      "label": "Avaritia（経済価値）",
+      "score": 2.84,
+      "maxScore": 10,
+      "rationale": "価格、総費用、所有条件、販売形態が不明で、信号網羅は0.20。",
+      "sourceRefs": ["spec/data/vitia-scoring-output.json"],
+      "marketAdvantage": false,
+      "averageImprovement": {"decision":"hold","proposal":"価格と販売条件が決まるまで経済価値訴求を作らない。","rationale":"低点を機能追加で埋めると根拠のない価値主張になる。"},
+      "missingInformation": ["価格、所有、返金、販売地域"],
+      "missingImplementation": []
+    }
+  ],
+  "uxEvaluation": {
+    "publicResponseSimulation": {
+      "audienceModel": "デッキ構築または盤面パズルを知るがMagicChronicleを初めて見る一般プレイヤー",
+      "assumptions": ["完成した代表戦闘をPCで体験する", "開発者の説明を受けない", "主要演出は仕様どおり再生される"],
+      "limitations": ["実ユーザー調査、販売、レビュー、テレメトリではなくAI平均反応シミュレーション", "scene/prefabと実機性能を未確認"]
+    },
+    "scores": [
+      {
+        "id": "core-implementation-alignment",
+        "label": "体験設計のコアと実装の方向一致",
+        "score": 7.2,
+        "maxScore": 10,
+        "rationale": "共有盤面、配置、耐久、自弾と敵弾のコアが実コードに存在する。",
+        "sourceRefs": ["spec/plan/10-ux-review.md", "spec/plan/05-anatomia-analysis.md"],
+        "averageImprovement": {"decision":"hold","proposal":"コア機能を増やさず解決予告を接続する。","rationale":"高めの点数で方向は正しい。追加システムは焦点を弱める。"},
+        "missingInformation": ["実プレイでの中心体験到達率"],
+        "missingImplementation": ["予告モデル"]
+      },
+      {
+        "id": "expression-conviction-performance",
+        "label": "表現の納得性・パフォーマンス",
+        "score": 5.8,
+        "maxScore": 10,
+        "rationale": "連鎖表現の可能性は高いが、因果表示、失敗回復、実機性能が未確認。",
+        "sourceRefs": ["spec/plan/10-ux-review.md"],
+        "averageImprovement": {"decision":"improve","proposal":"予告・演出・リプレイを同じイベント列で一貫させる。","rationale":"中位点で、納得性と性能縮退を同時に改善できる。"},
+        "missingInformation": ["95%フレーム時間と初見理解"],
+        "missingImplementation": ["表現縮退、因果リプレイ、アクセシビリティ設定"]
+      }
+    ]
+  },
+  "playStructureScores": [
+    {
+      "id": "idea",
+      "label": "発想",
+      "score": 7.8,
+      "maxScore": 10,
+      "rationale": "辞書内要素を使うが、共有攻防盤面と耐久崩壊の組合せ距離がある。",
+      "sourceRefs": ["spec/plan/03-ludus-analysis.md"],
+      "averageImprovement": {"decision":"hold","proposal":"発想を追加せず現在の核を一戦闘で証明する。","rationale":"高得点で、追加は予測不能性を増やす。"},
+      "missingInformation": ["類似作品比較とプレイヤー認知"],
+      "missingImplementation": ["核を示す短い代表戦闘"]
+    },
+    {
+      "id": "structure",
+      "label": "構造",
+      "score": 6.4,
+      "maxScore": 10,
+      "rationale": "配置→自弾→敵弾→報酬は成立するが、解決規則と失敗回復が弱い。",
+      "sourceRefs": ["spec/plan/03-ludus-analysis.md", "spec/plan/08-mechanics-economy.md"],
+      "averageImprovement": {"decision":"improve","proposal":"単一の解決キューと失敗の因果表示を導入する。","rationale":"中位点で、遊びの核を変えず冗長な相互呼出しを整理できる。"},
+      "missingInformation": ["同時解決とラン終了規則"],
+      "missingImplementation": ["ResolutionQueueと回帰テスト"]
+    },
+    {
+      "id": "scalability",
+      "label": "量産性",
+      "score": 6.8,
+      "maxScore": 10,
+      "rationale": "方向、耐久、破壊時効果、状態、敵配置から変種を作れるが、データ契約と検査が不足。",
+      "sourceRefs": ["spec/plan/08-mechanics-economy.md"],
+      "averageImprovement": {"decision":"improve","proposal":"カードタグと許可組合せから変種を生成・検査する。","rationale":"中位以上で、新システムなしに安全な量産性を上げられる。"},
+      "missingInformation": ["カードプール、数値範囲、敵成長"],
+      "missingImplementation": ["タグ、seedシミュレーター、無限連鎖検査"]
+    }
+  ],
+  "ludus": {
+    "novelty": {
+      "score": 7.6,
+      "maxScore": 10,
+      "rationale": "盤面パズル・デッキ構築・ローグライト自体は既知だが、敵も利用する共有魔法陣が耐久で解決途中に崩れる組合せは距離がある。",
+      "sourceRefs": ["spec/plan/03-ludus-analysis.md"],
+      "averageImprovement": {"decision":"hold","proposal":"新規性を足さず共有盤面・耐久崩壊・敵利用の三点を実証する。","rationale":"高得点で、追加機能は説明可能性を損なう。"},
+      "missingInformation": ["類似作品の構造比較と市場認知"],
+      "missingImplementation": ["三点を一つの戦闘で示す垂直スライス"]
+    },
+    "recommendedImplementations": [
+      {
+        "title": "解決予告タイムライン",
+        "dictionaryEntries": ["system:board-card:rule-resolution", "system:puzzle:s06"],
+        "proposal": "自弾、敵弾、発火、破壊を同じイベント列で番号表示する。",
+        "uxConnection": "操作から結果までを予測可能にし、複雑さを不可解さではなく戦略へ変える。",
+        "priority": "最高",
+        "missingInformation": ["完全予告と部分予告の境界"],
+        "missingImplementation": ["予測器とタイムラインUI"]
+      },
+      {
+        "title": "失敗の因果リプレイ",
+        "dictionaryEntries": ["system:puzzle:s07", "challenge-recovery"],
+        "proposal": "最後の攻撃列を短く再生し、被害へ至った魔法陣を強調する。",
+        "uxConnection": "失敗を次の仮説へ変え、再挑戦と配信視聴者の理解を助ける。",
+        "priority": "高",
+        "missingInformation": ["振り返りを望む失敗種別"],
+        "missingImplementation": ["イベント履歴と短縮再生"]
+      },
+      {
+        "title": "ビルドタグと変種検査",
+        "dictionaryEntries": ["system:deckbuilder:s02", "system:roguelike:s08"],
+        "proposal": "カードへ経路・耐久・破壊時・状態タグを持たせ、報酬偏りを検査する。",
+        "uxConnection": "報酬が現在のビルドをどう変えるかを一文で説明できる。",
+        "priority": "中",
+        "missingInformation": ["正式なカードプールと相乗効果規則"],
+        "missingImplementation": ["タグスキーマと報酬分布検査"]
+      }
+    ]
+  }
+}

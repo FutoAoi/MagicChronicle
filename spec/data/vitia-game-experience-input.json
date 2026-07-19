@@ -1,0 +1,32 @@
+{
+  "signals": {
+    "experience_promise_observable": 0.75,
+    "player_goal_clear": 0.55,
+    "core_action_available": 0.85,
+    "rule_obstacle_coherent": 0.55,
+    "action_feedback_traceable": 0.45,
+    "measurable_outcome_clear": 0.6,
+    "challenge_skill_adjustable": 0.55,
+    "goal_and_feedback_clear": 0.45,
+    "failure_informs_next_strategy": 0.2,
+    "recovery_path_available": 0.35,
+    "meaningful_choice_preserved": 0.65,
+    "strategic_variety_present": 0.75,
+    "choices_change_future_state": 0.65,
+    "opponent_or_system_variation_meaningful": 0.55,
+    "counterplay_or_alternative_paths": 0.5,
+    "repeat_value_without_obligation": 0.8,
+    "stopping_cues_and_exit_easy": 0.7
+  },
+  "confidence": {
+    "global": 0.65
+  },
+  "risk_flags": [
+    "rule_ambiguity"
+  ],
+  "label_context": {
+    "artifact_name": "MagicChronicle",
+    "category_name": "盤面パズル・デッキ構築・ローグライト",
+    "declared_domain": "未指定"
+  }
+}

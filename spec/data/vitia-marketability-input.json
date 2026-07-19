@@ -1,0 +1,41 @@
+{
+  "signals": {
+    "visual_ad": 0.9,
+    "competing_elements": 0.8,
+    "low_exposure_time": 0.9,
+    "brand_recall_bottleneck": 0.65,
+    "cta_detection_bottleneck": 0.55,
+    "element_roles_defined": 0.35,
+    "brand_message_linked": 0.45,
+    "legibility_preserved": 0.35,
+    "experiential_offer": 0.95,
+    "sensory_attributes": 0.85,
+    "use_context_important": 0.8,
+    "psychological_distance": 0.7,
+    "demo_possible": 0.9,
+    "scenario_truthful": 0.75,
+    "feature_outcome_traceable": 0.75,
+    "trial_or_demo_matches": 0.6,
+    "comprehension_bottleneck": 0.85,
+    "dense_information": 0.9,
+    "unfamiliar_terms": 0.75,
+    "visual_complexity": 0.9,
+    "rapid_decision_context": 0.8,
+    "readability_baseline": 0.35,
+    "message_hierarchy_defined": 0.4,
+    "semantic_coherence": 0.5,
+    "accuracy_preserved": 0.8,
+    "sustained_engagement_goal": 0.8,
+    "autonomy_relevance": 0.75,
+    "competence_relevance": 0.9,
+    "internalization_required": 0.7,
+    "meaningful_choice_available": 0.7,
+    "competence_feedback_truthful": 0.45,
+    "opt_out_easy": 0.75,
+    "no_dependency_design": 0.8
+  },
+  "confidence": {
+    "global": 0.65
+  },
+  "risk_flags": []
+}
