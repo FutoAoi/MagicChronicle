@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CostMinus
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 9
-  _icon: {fileID: 21300000, guid: d469c26137963a742b295925e9affa0f, type: 3}
+  _icon: {fileID: 419782712125705634, guid: 6ee01333f3390114ca01790f215cd91b, type: 3}
   _name: "\u30B3\u30B9\u30C8\u30DE\u30A4\u30CA\u30B9"
   _description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30FC\u30B9\u30BF\u30C3\u30AF\u6570\u3055\u308C\u308B"
   _isDecreaseTurn: 0

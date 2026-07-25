@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 83d463cf3d7830b429dbb33404e71b54
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3148023741636074461
+    second: "image_500\xD7500_UI_Reflectionicon_0"
+  - first:
+      213: 1514955575856056939
+    second: "image_500\xD7500_UI_Reflectionicon_1"
+  - first:
+      213: -4531667546361206629
+    second: "image_500\xD7500_UI_Reflectionicon_2"
+  - first:
+      213: -4366348800607173541
+    second: "image_500\xD7500_UI_Reflectionicon_3"
+  - first:
+      213: -4834745354299491787
+    second: "image_500\xD7500_UI_Reflectionicon_4"
+  - first:
+      213: -617390546867633688
+    second: "image_500\xD7500_UI_Reflectionicon_5"
+  - first:
+      213: 3969476987992710016
+    second: "image_500\xD7500_UI_Reflectionicon_6"
+  - first:
+      213: 182429769184887056
+    second: "image_500\xD7500_UI_Reflectionicon_7"
+  - first:
+      213: -800663815966639633
+    second: "image_500\xD7500_UI_Reflectionicon_8"
+  - first:
+      213: -4040186784938564700
+    second: "image_500\xD7500_UI_Reflectionicon_9"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_0"
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 21
+        width: 427
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbd6b00ae600bb20800000000000000
+      internalID: 3148023741636074461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_1"
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 367
+        width: 55
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ac565d114360510800000000000000
+      internalID: 1514955575856056939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_2"
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 367
+        width: 57
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9869fa50684c11c0800000000000000
+      internalID: -4531667546361206629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_3"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 9
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b544b5656ec9763c0800000000000000
+      internalID: -4366348800607173541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_4"
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 241
+        width: 66
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a328147b887ecb0800000000000000
+      internalID: -4834745354299491787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_5"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 119
+        width: 35
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e1454691969e67f0800000000000000
+      internalID: -617390546867633688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_6"
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 87
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b94651a4a661730800000000000000
+      internalID: 3969476987992710016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_7"
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 108
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011c8b498ee188200800000000000000
+      internalID: 182429769184887056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_8"
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 79
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe9bcc0608873e4f0800000000000000
+      internalID: -800663815966639633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "image_500\xD7500_UI_Reflectionicon_9"
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 68
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a36281668f5ee7c0800000000000000
+      internalID: -4040186784938564700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "image_500\xD7500_UI_Reflectionicon_0": 3148023741636074461
+      "image_500\xD7500_UI_Reflectionicon_1": 1514955575856056939
+      "image_500\xD7500_UI_Reflectionicon_2": -4531667546361206629
+      "image_500\xD7500_UI_Reflectionicon_3": -4366348800607173541
+      "image_500\xD7500_UI_Reflectionicon_4": -4834745354299491787
+      "image_500\xD7500_UI_Reflectionicon_5": -617390546867633688
+      "image_500\xD7500_UI_Reflectionicon_6": 3969476987992710016
+      "image_500\xD7500_UI_Reflectionicon_7": 182429769184887056
+      "image_500\xD7500_UI_Reflectionicon_8": -800663815966639633
+      "image_500\xD7500_UI_Reflectionicon_9": -4040186784938564700
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

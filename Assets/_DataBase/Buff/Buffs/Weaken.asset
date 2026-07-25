@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weaken
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 5
-  _icon: {fileID: 21300000, guid: 67ccdb37b8202194497cc6fb2e7d007c, type: 3}
+  _icon: {fileID: 6940269598164701586, guid: d3770d78c2e3b0f46aa9ae86310041f3, type: 3}
   _name: "\u5F31\u4F53"
   _description: "\u9632\u5FA1\u529B\u304C50%\u4E0B\u304C\u308B"
   _isDecreaseTurn: 1
