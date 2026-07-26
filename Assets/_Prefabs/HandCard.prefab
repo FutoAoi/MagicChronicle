@@ -1290,8 +1290,8 @@ MonoBehaviour:
   _costText: {fileID: 6095012120660692815}
   _timeText: {fileID: 755535331337219961}
   _rt: {fileID: 6860116754971427196}
-  _arrowColor: {r: 0.6709677, g: 1, b: 0, a: 1}
-  _defaultColor: {r: 0.024919847, g: 0.3773585, b: 0.024919847, a: 1}
+  _arrowColor: {r: 0.1619575, g: 1, b: 0, a: 1}
+  _defaultColor: {r: 0.28822535, g: 0.32639256, b: 0.4811321, a: 1}
   _up: {fileID: 7146199805700952630}
   _right: {fileID: 988975504462410489}
   _left: {fileID: 5572823336184254821}

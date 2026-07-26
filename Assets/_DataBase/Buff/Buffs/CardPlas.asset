@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardPlas
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 11
-  _icon: {fileID: 3549787769471415488, guid: 2df5f56892db95c47ba5e40763121bdf, type: 3}
+  _icon: {fileID: -855298285791758126, guid: 79ac19633750b2943942b5c44fbb63b9, type: 3}
   _name: "\u30AB\u30FC\u30C9\u30D7\u30E9\u30B9"
   _description: 
   _isDecreaseTurn: 0
