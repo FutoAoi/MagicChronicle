@@ -27,6 +27,7 @@ public class Enemy : CharacterBase
     private EnemyData _enemy;
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
+    private bool _isBoss = false;
     private int _currentSAT;
     private SkeletonAnimation _skeletonAnimation;
     private GameObject _spineEnemy;
@@ -42,6 +43,7 @@ public class Enemy : CharacterBase
         SetStatus(_enemy.EnemyHP, _enemy.EnemyHP);
         _attackPower = _enemy.EnemyAP;
         _enemyAT = _enemy.EnemyAT;
+        _isBoss = _enemy.IsBoss;
         if (_enemy.IsSpecialAttack)
         {
             _currentSAT = _enemy.EnemySAT;
@@ -51,6 +53,12 @@ public class Enemy : CharacterBase
         {
             _specialTMP.text = null;
         }
+
+        if (_isBoss)
+        {
+            //HPÉoÅ[ÇÃèâä˙âªÇµÇΩÇ¢
+        }
+
         _enemyImage.sprite = _enemy.Sprite;
         _attackTurnTMP.text = _enemyAT.ToString();
         if (enemyID == 0)

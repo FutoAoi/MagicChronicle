@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
     public int EnemyAP => _enemyAP;
     public int EnemyAttackTime => _enemyAttackTime;
     public int EnemyAT => _enemyAT;
+    public bool IsBoss => _isBoss;
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemySAT => _enemySAT;
     public bool CanBoardInterference => _canBoardInterference;
@@ -27,6 +28,7 @@ public class EnemyData : ScriptableObject
     [SerializeField, Tooltip("UŒ‚—Í")] private int _enemyAP;
     [SerializeField, Tooltip("UŒ‚‰ñ”")] private int _enemyAttackTime;
     [SerializeField, Tooltip("UŒ‚ƒ^[ƒ“")] private int _enemyAT;
+    [SerializeField, Tooltip("ƒ{ƒX")] private bool _isBoss = false;
 
     [Header("-----“ÁêUŒ‚-----")]
     [SerializeField, Tooltip("“ÁêUŒ‚ƒtƒ‰ƒO")] private bool _isSpecialAttack;
