@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PoinzonBuff
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 3
-  _icon: {fileID: 21300000, guid: d469c26137963a742b295925e9affa0f, type: 3}
+  _icon: {fileID: -3561712704590414516, guid: 33f32e4409d6f2641b2b2cd21d9ff30c, type: 3}
   _name: "\u6BD2"
   _description: 
   _isDecreaseTurn: 1
