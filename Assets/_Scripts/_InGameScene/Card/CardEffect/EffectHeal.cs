@@ -8,5 +8,6 @@ public class EffectHeal : IEffect
     {
         _player = GameManager.Instance.Player;
         _player.Healed(_healAmount);
+        CriAudioManager.Instance.PlaySe("SE_Heal");
     }
 }
