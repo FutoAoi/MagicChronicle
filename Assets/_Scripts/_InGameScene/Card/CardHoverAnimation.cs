@@ -96,6 +96,7 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     public void OnPointerEnter(PointerEventData eventData)
     {
         IsSelected = true;
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
     }
     public void OnPointerExit(PointerEventData eventData)
     {

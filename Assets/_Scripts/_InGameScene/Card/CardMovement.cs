@@ -73,6 +73,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
 
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
         _trOriginalParent = transform.parent;
 
         if (eventData.button != PointerEventData.InputButton.Left) return;
@@ -167,6 +168,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             }
             _uiManager.HandCard.Remove(gameObject);
             Destroy(gameObject,0.05f);
+            CriAudioManager.Instance.PlaySe("SE_MagicCirclePut");
         }
         else if(_isBoardCard)
         {

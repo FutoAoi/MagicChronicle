@@ -300,6 +300,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     /// <returns></returns>
     public int DrawCard()
     {
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
         if (DeckCard.Count == 0)
         {
             ResetDeck();

@@ -50,6 +50,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardMovement
   ID: 0
+  _moveCardView: {fileID: 0}
+  _nameT: {fileID: 0}
+  _costT: {fileID: 0}
+  _timeT: {fileID: 0}
+  _illustImg: {fileID: 0}
+  _magicCircleView: {fileID: 0}
+  _magicCircleImage: {fileID: 0}
+  _magicTimeText: {fileID: 0}
+  _upArrowImage: {fileID: 0}
+  _rightArrowImage: {fileID: 0}
+  _leftArrowImage: {fileID: 0}
+  _downArrowImage: {fileID: 0}
+  Gauge: {fileID: 0}
+  _offset: {x: 0, y: 250}
 --- !u!1001 &583134220077429743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +72,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 172645214748552992}
     m_Modifications:
+    - target: {fileID: 5090449935821325211, guid: 6ed34bb43a259d747b9c8609f3c8f72f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129339635678019685, guid: 6ed34bb43a259d747b9c8609f3c8f72f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3516235422905818384, guid: 8e22fd87bc9143049b5a3d3354cc8f9c, type: 3}
     - target: {fileID: 6069071008966391876, guid: 6ed34bb43a259d747b9c8609f3c8f72f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

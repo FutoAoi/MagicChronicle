@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,7 @@ public class PhaseChangeButton : MonoBehaviour
         _rt = GetComponent<RectTransform>();
     }
     private void PushButton()
+
     {
         if (_gamemanager.CurrentPhase != BattlePhase.Set) return;
 
