@@ -142,3 +142,9 @@ public enum DescriptionWindowType : byte
     Buff,
     KeyWord
 }
+
+public enum BossType : byte
+{
+    None,
+    Guardian
+}

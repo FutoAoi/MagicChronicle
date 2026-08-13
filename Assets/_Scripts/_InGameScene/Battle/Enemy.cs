@@ -11,8 +11,8 @@ public class Enemy : CharacterBase
     public bool IsAttackTurn => _isAttackTurn;
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemyID => _enemyID;
+    public bool IsBoss => _isBoss;
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
-
 
     [Header("エネミー詳細")]
     [SerializeField, Tooltip("エネミーの画像")] private Image _enemyImage;
@@ -40,6 +40,7 @@ public class Enemy : CharacterBase
     {
         _enemyID = enemyID;
         _enemy = GameManager.Instance.EnemyDataBase.GetEnemyData(enemyID);
+
         SetStatus(_enemy.EnemyHP, _enemy.EnemyHP);
         _attackPower = _enemy.EnemyAP;
         _enemyAT = _enemy.EnemyAT;
@@ -57,6 +58,13 @@ public class Enemy : CharacterBase
         if (_isBoss)
         {
             //HPバーの初期化したい
+            //既存プレハブのHPバーの削除したい
+
+            //参照HPバーを画面上の方に切り替え
+            if(GameManager.Instance.CurrentUIManager.TryGetComponent<UIManager_Boss>(out var manager))
+            {
+                _hpBarContller = manager.BossHP;
+            }
         }
 
         _enemyImage.sprite = _enemy.Sprite;
@@ -72,8 +80,12 @@ public class Enemy : CharacterBase
         }
         else
         {
-            _spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
-            _skeletonAnimation = _spineEnemy.GetComponent<SkeletonAnimation>();
+            if(_enemy.SpineEnemy != null)
+            {
+                _spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
+                _skeletonAnimation = _spineEnemy.GetComponent<SkeletonAnimation>();
+            }
+
             HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
     }
@@ -85,8 +97,12 @@ public class Enemy : CharacterBase
     {
         if (IsDead) return;
         base.Damaged(damage);
-        _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
-        _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+
+        if (_skeletonAnimation != null)
+        {
+            _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
+            _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+        }
         CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
     }
 

@@ -11,6 +11,9 @@ public class EnemyData : ScriptableObject
     public int EnemyAttackTime => _enemyAttackTime;
     public int EnemyAT => _enemyAT;
     public bool IsBoss => _isBoss;
+    public bool IsShadow => _isShadow;
+    public BossType BossType => _bossType;
+    public GameObject ShadowPrefab => _shadowPrefab;
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemySAT => _enemySAT;
     public bool CanBoardInterference => _canBoardInterference;
@@ -29,6 +32,9 @@ public class EnemyData : ScriptableObject
     [SerializeField, Tooltip("攻撃回数")] private int _enemyAttackTime;
     [SerializeField, Tooltip("攻撃ターン")] private int _enemyAT;
     [SerializeField, Tooltip("ボス")] private bool _isBoss = false;
+    [SerializeField, ShowIf("_isBoss"),Tooltip("ボスのシャドウ")] private bool _isShadow = false;
+    [SerializeField, ShowIf("_isBoss"), Tooltip("ボスの種類")] private BossType _bossType;
+    [SerializeField, ShowIf("_isBoss"), Tooltip("判定オブジェクト")] private GameObject _shadowPrefab;
 
     [Header("-----特殊攻撃-----")]
     [SerializeField, Tooltip("特殊攻撃フラグ")] private bool _isSpecialAttack;

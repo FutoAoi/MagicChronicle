@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class UIManager_Boss : UIManagerBase, IBattleUI
 {
+    public HpBarController BossHP => _bossHp;
+
     [Header("-----数値設定-----")]
     [SerializeField, Tooltip("手札の数")] private int _handRange = 5;
     [SerializeField, Tooltip("ドロー間隔")] private float _distance = 0.1f;
@@ -25,6 +27,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
     [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
+    [SerializeField, Tooltip("ボスHP")] private HpBarController _bossHp;
 
     [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;

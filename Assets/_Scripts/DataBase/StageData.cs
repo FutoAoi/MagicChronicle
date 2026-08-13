@@ -9,12 +9,14 @@ public class StageData : ScriptableObject
     [SerializeField, Tooltip("‰¡•")] private int _width;
     [SerializeField, Tooltip("c•")] private int _height;
     [SerializeField] private Enemies[] _enemies;
+    [SerializeField] private bool _isBossStage = false;
 
     public int StageID => _stageID;
     public Sprite Background => _background;
     public int Width => _width;
     public int Height => _height;
     public Enemies[] Enemies => _enemies;
+    public bool IsBossStage => _isBossStage;
 }
 
 [Serializable]
