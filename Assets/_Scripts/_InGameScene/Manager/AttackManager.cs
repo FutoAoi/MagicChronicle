@@ -188,11 +188,24 @@ public class AttackManager : MonoBehaviour
             //í èÌçUåÇ
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
+                if (_stageManager.EnemyList[count].IsBoss)
+                {
+                    if (_stageManager.BossPos != count)
+                    {
+                        count++;
+                        continue;
+                    }
+                }
                 if (enemy.IsAttackTurn)
                 {
                     CriAudioManager.Instance.PlaySe("SE_MagicShot");
-                    enemy.SkeletonAnimation.AnimationState.SetAnimation(0, "attack_motion", false);
-                    enemy.SkeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+
+                    if(enemy.SkeletonAnimation != null)
+                    {
+                        enemy.SkeletonAnimation.AnimationState.SetAnimation(0, "attack_motion", false);
+                        enemy.SkeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+                    }
+
                     _enemyPos = new Vector2Int(count, _width - 1);
                     _enemyRectTr = enemy.GetComponent<RectTransform>();
                     StartCoroutine(AttackTurn(false));

@@ -7,6 +7,7 @@ public class StageManager : MonoBehaviour
     public List<List<GameObject>> SlotList => _slotList;
     public List<Enemy> EnemyList => _enemyList;
     public StageData Stage => _stage;
+    public int? BossPos => _bossPos;
 
     [Header("ステージの情報")]
     [SerializeField, Tooltip("ステージのタイルリスト")] private List<List<GameObject>> _slotList = new List<List<GameObject>>();
@@ -30,6 +31,7 @@ public class StageManager : MonoBehaviour
     private Transform _enemyParent;
     private GameObject _slot;
     private GameObject _enemy,_button;
+    private int? _bossPos = null;
 
 
     private void Awake()
@@ -53,6 +55,7 @@ public class StageManager : MonoBehaviour
         SlotList.Clear();
         AdjustCellSize();
         
+        //タイルの生成
         for (int i = 0; i < _stage.Height; i++)
         {
             List<GameObject> slotListH = new();
@@ -83,13 +86,30 @@ public class StageManager : MonoBehaviour
         for (int i = 0; i < _stage.Enemies.Length; i++)
         {
             _enemyList[_stage.Enemies[i].EnemyPosition].SetEnemyStatus(_stage.Enemies[i].EnemyID);
+
+            if (GameManager.Instance.EnemyDataBase.GetEnemyData(_stage.Enemies[i].EnemyID).IsBoss)
+            {
+                _bossPos = _stage.Enemies[i].EnemyPosition;
+            }
+        }
+
+        if(_bossPos != null)
+        {
+            Enemy boss = _enemyList[(int)_bossPos];
+
+            _enemyList[(int)_bossPos - 1] = boss;
+            _enemyList[(int)_bossPos + 1] = boss;
+
         }
 
         //空の敵を設置
         for(int i = 0; i < _enemyList.Count; i++)
         {
             if (IsEnemy(i)) continue;
+
             _enemyList[i].SetEnemyStatus(0);
+
+            Debug.Log(i);
         }
     }
 
@@ -103,6 +123,10 @@ public class StageManager : MonoBehaviour
         for(int i = 0; i < _stage.Enemies.Length; i++)
         {
             if(index == _stage.Enemies[i].EnemyPosition)return true;
+
+            if (_bossPos == null) continue;
+
+            if(index == _bossPos - 1 || index == _bossPos + 1)return true;
         }
         return false;
     }

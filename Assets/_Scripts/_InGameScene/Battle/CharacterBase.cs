@@ -10,7 +10,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public HpBarController HpBarContller => _hpBarContller;
     public RectTransform Rect => _rect;
     [SerializeField, Tooltip("çUåÇóÕ")] protected int _attackPower;
-    [SerializeField] private HpBarController _hpBarContller;
+    [SerializeField] protected HpBarController _hpBarContller;
 
     private RectTransform _rect;
     private int _maxHP;
