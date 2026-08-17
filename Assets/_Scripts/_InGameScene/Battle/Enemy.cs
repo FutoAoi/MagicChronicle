@@ -89,6 +89,15 @@ public class Enemy : CharacterBase
             HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
     }
+
+    public void InvisibleAttackTurn()
+    {
+        _attackTurnTMP.text = null;
+        _specialTMP.text = null;
+        _enemyImage.color = new Color(1f, 1f, 1f, 0f);
+        _attackImage.gameObject.SetActive(false);
+        _specialImage.gameObject.SetActive(false);
+    }
     /// <summary>
     /// エネミーに攻撃
     /// </summary>
@@ -215,7 +224,8 @@ public class Enemy : CharacterBase
         _specialImage.gameObject.SetActive(false);
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
-        _spineEnemy.SetActive(false);
+        if(_spineEnemy != null)
+            _spineEnemy.SetActive(false);
         
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());

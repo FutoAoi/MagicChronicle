@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
 {
     [Header("-----éQè∆-----")]
-    [SerializeField] private Image _img;
     [SerializeField] private Image _highLightImg;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private RectTransform _rect;
@@ -63,7 +62,6 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
                 _rectTween?.Kill();
                 _rectTween = _rect.DOAnchorPos(new Vector2(0, _upper), _duration)
                     .SetEase(Ease.OutQuad);
-                _highLightImg.gameObject.SetActive(true);
             }
             else
             {
@@ -76,7 +74,6 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
                 _rectTween?.Kill();
                 _rectTween = _rect.DOAnchorPos(Vector2.zero, _duration)
                     .SetEase(Ease.OutQuad);
-                _highLightImg.gameObject.SetActive(false);
             }
 
             //ñÓàÛï\é¶
@@ -89,7 +86,7 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     private void Awake()
     {
         _defaultScale = _rect.localScale;
-        _img.color = new Color(0f, 0f, 0f, 0f);
+        _highLightImg.gameObject.SetActive(true);
         _canvas.overrideSorting = false;
         _arrowParent.SetActive(false);
     }
@@ -105,9 +102,10 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
 
     public void ColorAnimation(bool canSelect)
     {
-        float bloom = canSelect ? 0f : _bloom;
+        float bloom = canSelect ? _bloom : 0f;
+        _highLightImg.gameObject.SetActive(canSelect);
         _colorTween?.Kill();
-        _colorTween = _img.DOFade(bloom, _duration)
+        _colorTween = _highLightImg.DOFade(bloom, _duration)
             .SetEase(Ease.OutBack);
     }
 

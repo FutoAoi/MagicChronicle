@@ -14,6 +14,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [NonSerialized] public int ID;
     [SerializeField] private SlotMagicCircleShadow _slotMagicCircleShadow;
     [SerializeField] private RectTransform _windowRt;
+    [SerializeField] private GameObject _attackMark;
     public bool IsLastTimeCard = false;//前のフェーズで置かれたものかどうか
     /// <summary>
     /// すでに置かれているかのフラグ。
@@ -71,6 +72,10 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             _battleUI = manager;
         }
+    }
+    public void DisplayMark(bool isShow = true)
+    {
+        _attackMark.SetActive(isShow);
     }
     /// <summary>
     /// カードを置く

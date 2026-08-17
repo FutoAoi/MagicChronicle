@@ -16,11 +16,17 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField, Tooltip("矢印色")] private Color _arrowColor = Color.yellowGreen;
     [SerializeField, Tooltip("矢印デフォルト色")] private Color _defaultColor = Color.darkGreen;
 
-    [Header("矢印")]
+    [Header("矢印(上部)")]
     [SerializeField] private Image _up;
     [SerializeField] private Image _right;
     [SerializeField] private Image _left;
     [SerializeField] private Image _down;
+
+    [Header("矢印(左下)")]
+    [SerializeField] private Image _upArrow;
+    [SerializeField] private Image _rightArrow;
+    [SerializeField] private Image _leftArrow;
+    [SerializeField] private Image _downArrow;
 
     [Header("数値設定")]
     //[SerializeField,Tooltip("表示アニメーション時間")] private float _duration = 0.2f;
@@ -49,12 +55,17 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         if(_up != null)
         {
             _up.color = _defaultColor;
+            _upArrow.color = _defaultColor;
             _down.color = _defaultColor;
+            _downArrow.color = _defaultColor;
             _left.color = _defaultColor;
+            _leftArrow.color = _defaultColor;
+            _rightArrow.color = _defaultColor;
             _right.color = _defaultColor;
             foreach(MagicVector vector in data.DisplayArrowVector)
             {
                 GetArrowImage(vector).color = _arrowColor;
+                GetDownArrowImage(vector).color = _arrowColor;
             }
         }
 
@@ -108,6 +119,17 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             MagicVector.Right => _right,
             MagicVector.Left => _left,
             MagicVector.Down => _down,
+            _ => null
+        };
+    }
+    private Image GetDownArrowImage(MagicVector vector)
+    {
+        return vector switch
+        {
+            MagicVector.UP => _upArrow,
+            MagicVector.Right => _rightArrow,
+            MagicVector.Left => _leftArrow,
+            MagicVector.Down => _downArrow,
             _ => null
         };
     }
