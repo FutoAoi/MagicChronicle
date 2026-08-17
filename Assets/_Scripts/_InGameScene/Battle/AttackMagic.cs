@@ -32,7 +32,7 @@ public class AttackMagic : MonoBehaviour
     private Vector2Int _currentSlot, _speedInt;
     private Vector2 _outPos, _goalPos;
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
-        _combo = false,_firstParticle = true;
+        _combo = false,_firstParticle = true,_isBreak = false;
     private int _width, _height,_comboStack, _attackIndex = 0;
 
     #endregion
@@ -59,6 +59,7 @@ public class AttackMagic : MonoBehaviour
         _onDisable = onDisable;
         AttackPower = 1;
         _combo = false;
+        _isBreak = false;
     }
     #endregion
     #region äÓñ{ãììÆ
@@ -294,9 +295,17 @@ public class AttackMagic : MonoBehaviour
             if (_currentSlot.x > _height - 1) _outPos = new Vector2(0, -1);
             if (_currentSlot.y < 0) _outPos = new Vector2(-1, 0);
             if (_currentSlot.y >= _width) _outPos = new Vector2(1, 0);
-            _goalPos = (Vector2)_attackRectTr.position + _outPos * 3f;
-            _attackRectTr.DOMove(_goalPos, currentInterval)
-                .SetEase(Ease.Linear);
+            _goalPos = _attackRectTr.position;
+            if (!_isBreak)
+            {
+                _goalPos += _outPos * 3f;
+            }
+            else
+            {
+                //âÛÇÍÇÈââèoÇ¢ÇÍÇÈÇ»ÇÁÇ±Ç±Ç©Ç‡
+            }
+                _attackRectTr.DOMove(_goalPos, currentInterval)
+                        .SetEase(Ease.Linear);
         }
         if (_isSelfHarm)
         {
@@ -411,6 +420,12 @@ public class AttackMagic : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AttackMagicBreak()
+    {
+        _finish = true;
+        _isBreak = true;
     }
     #endregion
 }

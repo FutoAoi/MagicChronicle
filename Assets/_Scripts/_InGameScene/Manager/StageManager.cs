@@ -97,7 +97,9 @@ public class StageManager : MonoBehaviour
         {
             Enemy boss = _enemyList[(int)_bossPos];
 
+            _enemyList[(int)_bossPos - 1].InvisibleAttackTurn();
             _enemyList[(int)_bossPos - 1] = boss;
+            _enemyList[(int)_bossPos + 1].InvisibleAttackTurn();
             _enemyList[(int)_bossPos + 1] = boss;
 
         }
@@ -105,11 +107,16 @@ public class StageManager : MonoBehaviour
         //ãÛÇÃìGÇê›íu
         for(int i = 0; i < _enemyList.Count; i++)
         {
-            if (IsEnemy(i)) continue;
+            if (IsEnemy(i))
+            {
+                if(_slotList[i][_stage.Width - 1].TryGetComponent<TileSlot>(out var tile))
+                {
+                    tile.DisplayMark();
+                }
+                continue;
+            }
 
             _enemyList[i].SetEnemyStatus(0);
-
-            Debug.Log(i);
         }
     }
 
