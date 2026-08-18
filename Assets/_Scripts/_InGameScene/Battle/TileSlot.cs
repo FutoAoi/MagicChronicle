@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private GameObject _tileBoardPrefab;
-    [SerializeField] private Sprite[] _tileSprites;
     [NonSerialized] public int ID;
     [SerializeField] private SlotMagicCircleShadow _slotMagicCircleShadow;
     [SerializeField] private RectTransform _windowRt;
@@ -56,15 +55,13 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Image _img,_gauge;
     private RectTransform _rt;
     private Tween _tween;
-    private int _index,_currentnumber,_max;
+    private int _currentnumber,_max;
     private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
 
     private void Start()
     {
         _img = GetComponent<Image>();
         _rt = GetComponent<RectTransform>();
-        _index = UnityEngine.Random.Range(0, _tileSprites.Length - 1);
-        _img.sprite = _tileSprites[_index];
         IsLastTimeCard = false;
         _gameManager = GameManager.Instance;
         _uiManager = _gameManager.CurrentUIManager;

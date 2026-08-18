@@ -63,6 +63,10 @@ public class StageManager : MonoBehaviour
             {
                 _slot = Instantiate(_tailPrefab, Vector3.zero, Quaternion.identity, _parent);
                 _slot.name = ($"Slot{i},{j}");
+                if(_slot.TryGetComponent<Image>(out var slot))
+                {
+                    slot.sprite = _stage.SlotSprites[Random.Range(0,_stage.SlotSprites.Length)];
+                }
                 slotListH.Add(_slot);
             }
             _slotList.Add(slotListH);
