@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b5c9365ae3188439cab3a7b12ca065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioTest
-  BGM: 
+  BGM: BGM_Boss1
 --- !u!4 &690786711
 Transform:
   m_ObjectHideFlags: 0
@@ -2765,7 +2765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4130,6 +4130,7 @@ GameObject:
   - component: {fileID: 1154090790}
   - component: {fileID: 1154090791}
   - component: {fileID: 1154090792}
+  - component: {fileID: 1154090794}
   m_Layer: 0
   m_Name: '[MG]UIManager'
   m_TagString: Untagged
@@ -4271,6 +4272,21 @@ MonoBehaviour:
   _discardConutText: {fileID: 1864157328}
   _bossHp: {fileID: 817046110}
   _stagePlayer: {fileID: 460636253}
+--- !u!114 &1154090794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154090787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe889eef20f78f448a2425ea09d98db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardHighLightController
+  _duration: 0.6
+  _start: {r: 1, g: 0.925502, b: 0.7201257, a: 0}
+  _end: {r: 1, g: 0.9620725, b: 0, a: 1}
 --- !u!1 &1163386060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,6 +4491,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 909821937386771294, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2124423703365915960, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4482,6 +4502,38 @@ PrefabInstance:
     - target: {fileID: 2124423703365915960, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658086534501633934, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658086534501633934, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_CellSize.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_CellSize.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372146518033431389, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3372804648359647376, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4498,6 +4550,10 @@ PrefabInstance:
     - target: {fileID: 5366663816483505418, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_SizeDelta.x
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676067699118704376, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7779703178515671384, guid: cb1fa79de54bbdd4296afc5a01884249, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5398,7 +5454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6552,7 +6608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6863,7 +6919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7054,7 +7110,7 @@ RectTransform:
   m_GameObject: {fileID: 1906802088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1293538817}
@@ -7062,7 +7118,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 749, y: -441}
-  m_SizeDelta: {x: 1530, y: 720}
+  m_SizeDelta: {x: 1810, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906802090
 MonoBehaviour:
@@ -7128,7 +7184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2882609780152541739, guid: 9a8e3036f45c46846be4eeba52a71d6d, type: 3}
+  m_Sprite: {fileID: -7713940250513898652, guid: 8313a04271ee4574496d57c65222d240, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7674,7 +7730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
