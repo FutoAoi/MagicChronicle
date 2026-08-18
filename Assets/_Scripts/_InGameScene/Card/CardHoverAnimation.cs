@@ -104,9 +104,9 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     {
         float bloom = canSelect ? _bloom : 0f;
         _highLightImg.gameObject.SetActive(canSelect);
-        _colorTween?.Kill();
-        _colorTween = _highLightImg.DOFade(bloom, _duration)
-            .SetEase(Ease.OutBack);
+        //_colorTween?.Kill();
+        //_colorTween = _highLightImg.DOFade(bloom, _duration)
+        //    .SetEase(Ease.OutBack);
     }
 
     public void OnPointerClick(PointerEventData eventData)

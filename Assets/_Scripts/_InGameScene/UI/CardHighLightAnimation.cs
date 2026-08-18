@@ -11,15 +11,11 @@ public class CardHighLightAnimation : MonoBehaviour
     private Tween _tween;
     private void OnEnable()
     {
-        _img.color = _start;
-        _tween?.Kill();
-        _tween = _img.DOColor(_end, _duration)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetLink(gameObject);
+        CardHighLightController.Register(_img);
     }
 
     private void OnDisable()
     {
-        _tween.Kill() ;
+        CardHighLightController.Unregister(_img);
     }
 }
