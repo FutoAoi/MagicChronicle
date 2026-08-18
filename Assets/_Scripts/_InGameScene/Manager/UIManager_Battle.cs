@@ -166,6 +166,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     {
         if (_stagePlayer == null) Debug.Log("playerinai");
         _currentNumber = _stagePlayer.MaxCost;
+        _costText.text = _currentNumber.ToString();
     }
     /// <summary>
     /// コストテキストの更新
