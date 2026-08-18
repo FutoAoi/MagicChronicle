@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10_1stBoss
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   _stageID: 10
-  _background: {fileID: 5952809498166784564, guid: a8e44803a1ee28d48891194d717b67b6, type: 3}
+  _background: {fileID: 6915817129602299949, guid: 33b261ee861c69c459c21d45a0c64759, type: 3}
   _width: 5
   _height: 5
   _enemies:

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,16 +10,28 @@ public class Room : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Room[] _nextroom;
     [SerializeField] private Image _roomImage;
 
+    [Header("-----選択可能演出-----")]
+    [SerializeField] private float _pulseScale = 1.15f;
+    [SerializeField] private float _pulseDuration = 0.6f;
+
     private MapManager _mapManager;
     private int _floorIndex;
     private int _roomIndex;
+    private Vector3 _defaultScale;
+    private Tween _pulseTween;
+    private bool _isSelectable;
+
+    public Room[] NextRooms => _nextroom;
+
+    private void Awake()
+    {
+        _defaultScale = transform.localScale;
+    }
 
     /// <summary>
     /// ルーム情報セット
     /// </summary>
-    /// <param name="roomData"></param>
-    /// <param name="mapManager"></param>
-    public void SetRoomData(GenerateRoomData roomData,MapManager mapManager)
+    public void SetRoomData(GenerateRoomData roomData, MapManager mapManager)
     {
         _roomType = roomData.RoomType;
         _stageID = roomData.StageID;
@@ -33,43 +46,75 @@ public class Room : MonoBehaviour, IPointerClickHandler
         _nextroom = nextRoom;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    /// <summary>
+    /// 選択可能かどうかを設定し、見た目(拡大縮小アニメーション)にも反映する
+    /// </summary>
+    public void SetSelectable(bool selectable)
     {
-        if (_floorIndex == _mapManager.MapData.CurrentFloorIndex + 1)
+        _isSelectable = selectable;
+        _pulseTween?.Kill();
+
+        if (selectable)
         {
-            if(_roomType == RoomType.Event)
-            {
-                FadeManager.Instance.FadePanel(false, () =>
-                {
-                    _mapManager.OpenEventPanel(_roomIndex, _stageID);
-                    FadeManager.Instance.FadePanel(true);
-                });
-            }
-            else if(_roomType == RoomType.Shop)
-            {
-                FadeManager.Instance.FadePanel(false, () =>
-                {
-                    _mapManager.OpenShopPanel(_roomIndex);
-                    FadeManager.Instance.FadePanel(true);
-                });
-            }
-            else if(_roomType == RoomType.Boss)
-            {
-                FadeManager.Instance.FadePanel(false, () =>
-                {
-                    _mapManager.OpenEndPanel();
-                    FadeManager.Instance.FadePanel(true);
-                });
-            }
-            else
-            {
-                _mapManager.MoveTo(_roomIndex);
-                GameManager.Instance.StageID = _stageID;
-            }
+            _pulseTween = transform.DOScale(_defaultScale * _pulseScale, _pulseDuration)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo);
         }
         else
         {
-            Debug.Log("今は選択できない部屋");
+            transform.localScale = _defaultScale;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!_isSelectable)
+        {
+            Debug.Log("今は選択できない部屋");
+            return;
+        }
+
+        if (_roomType == RoomType.Event)
+        {
+            FadeManager.Instance.FadePanel(false, () =>
+            {
+                _mapManager.OpenEventPanel(_roomIndex, _stageID);
+                FadeManager.Instance.FadePanel(true);
+            });
+        }
+        else if (_roomType == RoomType.Shop)
+        {
+            FadeManager.Instance.FadePanel(false, () =>
+            {
+                _mapManager.OpenShopPanel(_roomIndex);
+                FadeManager.Instance.FadePanel(true);
+            });
+        }
+        else if (_roomType == RoomType.Boss)
+        {
+            FadeManager.Instance.FadePanel(false, () =>
+            {
+                _mapManager.OpenEndPanel();
+                FadeManager.Instance.FadePanel(true);
+            });
+        }
+        else if (_roomType == RoomType.Rest)
+        {
+            FadeManager.Instance.FadePanel(false, () =>
+            {
+                _mapManager.OpenEnhancePanel(_roomIndex);
+                FadeManager.Instance.FadePanel(true);
+            });
+        }
+        else
+        {
+            _mapManager.MoveTo(_roomIndex);
+            GameManager.Instance.StageID = _stageID;
+        }
+    }
+
+    private void OnDisable()
+    {
+        _pulseTween?.Kill();
     }
 }

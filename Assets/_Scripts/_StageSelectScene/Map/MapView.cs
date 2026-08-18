@@ -31,15 +31,15 @@ public class MapView : MonoBehaviour
         int floorCount = mapData.Floors.Length;
         _roomViews = new Room[floorCount][];
 
-        for (int f  = 0; f < floorCount; f++)
+        for (int f = 0; f < floorCount; f++)
         {
             GenerateFloorData floorData = mapData.Floors[f];
             int roomCount = floorData.Rooms.Length;
             _roomViews[f] = new Room[roomCount];
-            for (int r  = 0; r < roomCount; r++)
+            for (int r = 0; r < roomCount; r++)
             {
-                Room room = Instantiate(_roomPrefab,transform);
-                room.SetRoomData(floorData.Rooms[r],_mapManager);
+                Room room = Instantiate(_roomPrefab, transform);
+                room.SetRoomData(floorData.Rooms[r], _mapManager);
 
                 RectTransform rt = room.GetComponent<RectTransform>();
 
@@ -49,16 +49,16 @@ public class MapView : MonoBehaviour
             }
         }
 
-        for (int f = 0;f < floorCount - 1; f++)
+        for (int f = 0; f < floorCount - 1; f++)
         {
             for (int r = 0; r < _roomViews[f].Length; r++)
             {
                 GenerateRoomData roomData = mapData.Floors[f].Rooms[r];
                 List<Room> nextRooms = new();
-                
+
                 foreach (int nextIndex in roomData.NextRoomIndices)
                 {
-                    nextRooms.Add(_roomViews[f+1][nextIndex]);
+                    nextRooms.Add(_roomViews[f + 1][nextIndex]);
                 }
 
                 _roomViews[f][r].SetNextRoom(nextRooms.ToArray());
@@ -82,6 +82,7 @@ public class MapView : MonoBehaviour
         }
 
         UpdataPlayerPosition();
+        RefreshSelectableRooms();
     }
 
     /// <summary>
@@ -135,5 +136,25 @@ public class MapView : MonoBehaviour
     public void UpdataPlayerPosition()
     {
         _circle.transform.localPosition = _roomViews[GameManager.Instance.GenerateMapData.CurrentFloorIndex][GameManager.Instance.GenerateMapData.CurrentRoomIndex].transform.localPosition;
+        _circle.transform.SetAsLastSibling();
+        RefreshSelectableRooms();
+    }
+
+    private void RefreshSelectableRooms()
+    {
+        int currentFloor = GameManager.Instance.GenerateMapData.CurrentFloorIndex;
+        int currentIndex = GameManager.Instance.GenerateMapData.CurrentRoomIndex;
+
+        Room currentRoom = _roomViews[currentFloor][currentIndex];
+        Room[] nextRooms = currentRoom.NextRooms;
+
+        foreach (var floor in _roomViews)
+        {
+            foreach (var room in floor)
+            {
+                bool selectable = nextRooms != null && System.Array.IndexOf(nextRooms, room) >= 0;
+                room.SetSelectable(selectable);
+            }
+        }
     }
 }
