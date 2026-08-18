@@ -6,6 +6,7 @@ public class StageData : ScriptableObject
 {
     [SerializeField, Tooltip("ステージID")] private int _stageID;
     [SerializeField, Tooltip("ステージ背景")] private Sprite _background;
+    [SerializeField, Tooltip("台座のイメージ")] private Sprite[] _slotSprites;
     [SerializeField, Tooltip("横幅")] private int _width;
     [SerializeField, Tooltip("縦幅")] private int _height;
     [SerializeField, Tooltip("お邪魔魔法陣")] private int _obstacleID;
@@ -15,6 +16,7 @@ public class StageData : ScriptableObject
 
     public int StageID => _stageID;
     public Sprite Background => _background;
+    public Sprite[] SlotSprites => _slotSprites;
     public int Width => _width;
     public int Height => _height;
     public int ObstacleID => _obstacleID;

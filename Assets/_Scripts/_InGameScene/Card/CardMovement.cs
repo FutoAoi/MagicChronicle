@@ -265,6 +265,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _magicCircleImage.sprite = data.MagicSprite;
         _magicTimeText.text = data.MaxTimes.ToString();
 
+        if(data.DisplayArrowVector != null)
         foreach(MagicVector vector in data.DisplayArrowVector)
         {
             GetArrowImage(vector).gameObject.SetActive(true);
