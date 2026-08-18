@@ -8,6 +8,8 @@ public class StageData : ScriptableObject
     [SerializeField, Tooltip("ƒXƒe[ƒW”wŒi")] private Sprite _background;
     [SerializeField, Tooltip("‰¡•")] private int _width;
     [SerializeField, Tooltip("c•")] private int _height;
+    [SerializeField, Tooltip("‚¨Ž×–‚–‚–@w")] private int _obstacleID;
+    [SerializeField, Tooltip("‚¨Ž×–‚ƒ}ƒX")] private Vector2Int[] _obstaclePos;
     [SerializeField] private Enemies[] _enemies;
     [SerializeField] private bool _isBossStage = false;
 
@@ -15,6 +17,8 @@ public class StageData : ScriptableObject
     public Sprite Background => _background;
     public int Width => _width;
     public int Height => _height;
+    public int ObstacleID => _obstacleID;
+    public Vector2Int[] ObstaclePos => _obstaclePos;
     public Enemies[] Enemies => _enemies;
     public bool IsBossStage => _isBossStage;
 }
