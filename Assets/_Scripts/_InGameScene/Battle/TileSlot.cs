@@ -28,6 +28,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             _isOccupied = value;
 
+            if(_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
+
             if (_isOccupied)
             {
                 _img.DOColor(_uiManager.SelectColor, 0.1f);
@@ -81,6 +83,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void PlaceCard(int id)
     {
         if(IsOccupied)return;
+
+        if(_gameManager == null) _gameManager = GameManager.Instance;
         ID = id;
         _newCard = Instantiate(_tileBoardPrefab,transform);
         _tileMovement = _newCard.GetComponent<CardMovement>();
