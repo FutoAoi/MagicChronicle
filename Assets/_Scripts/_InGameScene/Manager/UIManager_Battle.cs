@@ -27,6 +27,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
     [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
+    [SerializeField] private TextMeshProUGUI _costText;
 
     [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;
@@ -49,9 +50,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         RemoveCard.Clear();
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
-        UpdateMaxCostImage(_stagePlayer.MaxCost);
+        UpdateMaxCostImage(GameManager.Instance.PlayerStatus.PlayerMaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
+        _costText.text = GameManager.Instance.PlayerStatus.PlayerMaxCost.ToString();
     }
     protected override void Start()
     {
@@ -176,6 +178,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
             {
                 _currentNumber = x;
                 UpdateCostImage(x);
+                _costText.text = x.ToString();
             },
             targetValue,
             _valueDuration
