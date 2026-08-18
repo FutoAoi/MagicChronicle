@@ -68,6 +68,14 @@ public class StageManager : MonoBehaviour
             _slotList.Add(slotListH);
         }
 
+        foreach (Vector2Int pos in _stage.ObstaclePos)
+        {
+            if(_slotList[pos.x][pos.y].TryGetComponent<TileSlot>(out var slot))
+            {
+                slot.PlaceCard(_stage.ObstacleID);
+            }
+        }
+
         AttackPointManager attackPointManager = FindAnyObjectByType<AttackPointManager>();
 
         for (int i = 0; i < _stage.Height; i++)
