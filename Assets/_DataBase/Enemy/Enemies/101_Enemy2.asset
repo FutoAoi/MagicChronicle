@@ -19,10 +19,14 @@ MonoBehaviour:
   _enemyAP: 1
   _enemyAttackTime: 0
   _enemyAT: 1
+  _isBoss: 0
+  _isShadow: 0
+  _bossType: 0
+  _shadowPrefab: {fileID: 0}
   _isSpecialAttack: 1
   _enemySAT: 1
   _canBoardInterference: 1
   _effectTime: 1
-  _cardEffectID: c9000000ca000000
+  _cardEffectID: cb000000
   _canBuff: 0
   _rewardAmount: c8000000fa000000

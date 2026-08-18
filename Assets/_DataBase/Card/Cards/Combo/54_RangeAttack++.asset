@@ -17,11 +17,11 @@ MonoBehaviour:
   _type: 1
   _cardSprite: {fileID: -5831933074187562700, guid: 8667e24f9e3c2ad44aa564d0dff3fa29, type: 3}
   _magicSprite: {fileID: 5986244224761071404, guid: 78522292b63a74c4cba915a418062388, type: 3}
-  _name: "\u5168\u4F53\u653B\u6483++"
-  _description: "(\u970A\u9663)\u6575\u5168\u4F53\u306B20\u30C0\u30E1\u30FC\u30B8"
-  _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u6575\u5168\u4F53\u306B20\u30C0\u30E1\u30FC\u30B8"
+  _name: "\u30CE\u30F4\u30A1++"
+  _description: "(\u970A\u9663)\u6575\u5168\u4F53\u306B10\u30C0\u30E1\u30FC\u30B8"
+  _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u6575\u5168\u4F53\u306B10\u30C0\u30E1\u30FC\u30B8"
   _cost: 2
-  _maxTimes: 10
+  _maxTimes: 5
   _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
@@ -41,5 +41,5 @@ MonoBehaviour:
     - rid: 5748720758077521924
       type: {class: EffectDamageEnemy, ns: , asm: Assembly-CSharp}
       data:
-        _effectDamege: 20
+        _effectDamege: 10
         _canRangeAttack: 1
