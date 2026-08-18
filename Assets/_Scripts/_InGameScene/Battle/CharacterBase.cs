@@ -77,7 +77,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     {
         if (IsDead) return;
 
-        Mathf.Clamp(_currentHP + heal, 0, MaxHP);
+        _currentHP = Mathf.Clamp(_currentHP + heal, 0, MaxHP);
 
         DamagePopUpObjectPool.Instance.Get(Rect.anchoredPosition + new Vector2(Random.Range(-50f, 50f), 0f), heal, Color.green);
         _hpBarContller.HpBarUpdate(CurrentHP, MaxHP);
