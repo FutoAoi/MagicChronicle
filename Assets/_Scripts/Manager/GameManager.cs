@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         _generateMapData = MapGenerator.GenerateMap(_mapData);
         _fadeManager = FadeManager.Instance;
+        TrySetPlayerStatus(true);
     }
 
     private void Awake()
@@ -224,6 +225,7 @@ public class GameManager : MonoBehaviour
             {
                 InitializeBool();
                 TrySetPlayerStatus(false);
+                DeckManager.Instance.ResetDeck();
             }
         });
     }

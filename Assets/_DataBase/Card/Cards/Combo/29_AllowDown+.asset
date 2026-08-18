@@ -26,7 +26,7 @@ MonoBehaviour:
   _isDestruction: 0
   _isPlayerMagic: 1
   _canEvolution: 1
-  _evolutionID: 0
+  _evolutionID: 30
   _displayArrowVector: 01
   _moveEffect:
     rid: 5748720707591208961

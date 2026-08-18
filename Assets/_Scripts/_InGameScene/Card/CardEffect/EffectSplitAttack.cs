@@ -20,7 +20,7 @@ public class EffectSplitAttack : IEffect
                 attack = pool.GetAttackMagic();
             }
 
-            attack.AttackPower = Mathf.Max(1, magic.AttackPower / _vector.Length);
+            //attack.AttackPower = Mathf.Max(1, magic.AttackPower / _vector.Length);
 
             Vector2Int vector = new();
             switch (_vector[i])

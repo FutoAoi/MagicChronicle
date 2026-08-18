@@ -10,6 +10,8 @@ public class MapManager : MonoBehaviour
     [SerializeField] EventPanelController _eventPanelController;
     [SerializeField] ShopManager _shopManager;
     [SerializeField] GameObject _gameObject;
+    [SerializeField] GameObject _cardEnhanceUI;
+
 
     private void Start()
     {
@@ -92,6 +94,21 @@ public class MapManager : MonoBehaviour
         CurrentRoom.IsCleared = true;
 
         _shopManager.InitShop();
+
+        MapData.CurrentFloorIndex++;
+        MapData.CurrentRoomIndex = nextRoomIndex;
+    }
+
+    public void OpenEnhancePanel(int nextRoomIndex)
+    {
+        if (!CanMoveTo(nextRoomIndex))
+        {
+            Debug.LogWarning("ˆÚ“®‚Å‚«‚È‚¢•”‰®‚Å‚·");
+            return;
+        }
+        CurrentRoom.IsCleared = true;
+
+        _cardEnhanceUI.SetActive(true);
 
         MapData.CurrentFloorIndex++;
         MapData.CurrentRoomIndex = nextRoomIndex;

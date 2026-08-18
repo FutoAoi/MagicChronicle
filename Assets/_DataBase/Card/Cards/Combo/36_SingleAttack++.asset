@@ -17,7 +17,7 @@ MonoBehaviour:
   _type: 1
   _cardSprite: {fileID: -5691287078767768056, guid: a20416b3c6e1b71499374264aec5274a, type: 3}
   _magicSprite: {fileID: 5986244224761071404, guid: 78522292b63a74c4cba915a418062388, type: 3}
-  _name: "\u5358\u4F53\u653B\u6483++"
+  _name: "\u30D5\u30A1\u30A4\u30A2++"
   _description: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002\u30E9\u30F3\u30C0\u30E0\u306A\u6575\u306B5\u30C0\u30E1\u30FC\u30B8\u3002"
   _colorDescription: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002\u30E9\u30F3\u30C0\u30E0\u306A\u6575\u306B5\u30C0\u30E1\u30FC\u30B8\u3002"
   _cost: 1

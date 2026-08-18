@@ -13,5 +13,6 @@ public class SceneChangeButton : MonoBehaviour
     private void SceneChange()
     {
         GameManager.Instance.SceneChange(_sceneName);
+        CriAudioManager.Instance.PlaySe("SE_ButtonCharaOK");
     }
 }

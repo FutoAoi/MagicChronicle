@@ -25,8 +25,8 @@ MonoBehaviour:
   _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
+  _canEvolution: 1
+  _evolutionID: 57
   _displayArrowVector: 
   _moveEffect:
     rid: -2
