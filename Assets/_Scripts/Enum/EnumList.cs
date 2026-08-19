@@ -50,7 +50,8 @@ public enum SceneType : byte
     InGameScene,
     StageSerectScene,
     CampScene,
-    CharacterSerectScene
+    CharacterSerectScene,
+    InGameScene_Boss,
 }
 /// <summary>
 /// カードのタイプ

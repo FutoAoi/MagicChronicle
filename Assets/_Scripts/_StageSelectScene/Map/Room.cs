@@ -93,14 +93,11 @@ public class Room : MonoBehaviour, IPointerClickHandler
                 FadeManager.Instance.FadePanel(true);
             });
         }
-        //else if (_roomType == RoomType.Boss)
-        //{
-        //    FadeManager.Instance.FadePanel(false, () =>
-        //    {
-        //        _mapManager.OpenEndPanel();
-        //        FadeManager.Instance.FadePanel(true);
-        //    });
-        //}
+        else if (_roomType == RoomType.Boss)
+        {
+            GameManager.Instance.StageID = _stageID;
+            _mapManager.MoveTo(_roomIndex, true);
+        }
         else if (_roomType == RoomType.Rest)
         {
             FadeManager.Instance.FadePanel(false, () =>
@@ -114,8 +111,8 @@ public class Room : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            _mapManager.MoveTo(_roomIndex);
             GameManager.Instance.StageID = _stageID;
+            _mapManager.MoveTo(_roomIndex);
         }
     }
 

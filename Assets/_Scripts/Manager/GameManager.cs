@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_currentScene != SceneType.InGameScene) return;
+        if (_currentScene != SceneType.InGameScene && _currentScene != SceneType.InGameScene_Boss) return;
 
         switch (CurrentPhase)
         {
