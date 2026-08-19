@@ -15,6 +15,7 @@ public class CardEnhanceUI : MonoBehaviour
     [SerializeField] private NomalCardView _currentCardView;
     [SerializeField] private NomalCardView _enhancedCardView;
     [SerializeField] private Button _enhanceButton;
+    [SerializeField] private GameObject _obj;
 
     /// <summary>
     /// 強化が実行されたときに発火。引数は(デッキ内インデックス, 強化後のCardData)
@@ -26,6 +27,10 @@ public class CardEnhanceUI : MonoBehaviour
     private readonly List<EnhanceCard> _spawnedItems = new();
     private int _selectedDeckIndex = -1;
 
+    private void OnDisable()
+    {
+        _obj.SetActive(false);
+    }
     private void Start()
     {
         _enhanceButton.onClick.AddListener(OnEnhanceButtonClicked);
@@ -102,5 +107,10 @@ public class CardEnhanceUI : MonoBehaviour
             _mapView.UpdataPlayerPosition();
             FadeManager.Instance.FadePanel(true);
         });
+    }
+
+    public void TextAnimation()
+    {
+        _obj.SetActive(true);
     }
 }
