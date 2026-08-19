@@ -27,7 +27,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("コストのバックグラウンド")] private List<Image> _costBackGround = new();
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
     [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
-    [SerializeField] private TextMeshProUGUI _costText;
+    [SerializeField, Tooltip("コストのテキスト")] private TextMeshProUGUI _costText;
 
     [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;

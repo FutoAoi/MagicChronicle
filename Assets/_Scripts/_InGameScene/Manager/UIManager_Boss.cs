@@ -28,6 +28,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("山札の枚数テキスト")] private TextMeshProUGUI _deckCountText;
     [SerializeField, Tooltip("捨て札の枚数テキスト")] private TextMeshProUGUI _discardConutText;
     [SerializeField, Tooltip("ボスHP")] private HpBarController _bossHp;
+    [SerializeField, Tooltip("コストのテキスト")] private TextMeshProUGUI _costText;
 
     [SerializeField] private StagePlayer _stagePlayer;
     private DeckManager _deckManager;
@@ -50,9 +51,10 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
         RemoveCard.Clear();
         _enemyAttackPanel.SetActive(false);
         _fadePanel.gameObject.SetActive(false);
-        UpdateMaxCostImage(_stagePlayer.MaxCost);
+        UpdateMaxCostImage(GameManager.Instance.PlayerStatus.PlayerMaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
+        _costText.text = GameManager.Instance.PlayerStatus.PlayerMaxCost.ToString();
     }
     protected override void Start()
     {
@@ -165,6 +167,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
     {
         if (_stagePlayer == null) Debug.Log("playerinai");
         _currentNumber = _stagePlayer.MaxCost;
+        _costText.text = _currentNumber.ToString();
     }
     /// <summary>
     /// コストテキストの更新
@@ -177,6 +180,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
             {
                 _currentNumber = x;
                 UpdateCostImage(x);
+                _costText.text = x.ToString();
             },
             targetValue,
             _valueDuration

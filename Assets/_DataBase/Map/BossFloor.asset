@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloorData
   _roomDatas:
   - _roomType: 6
-    _stageID: 1
+    _stageID: 10
   _minNodes: 1
   _maxNodes: 1
