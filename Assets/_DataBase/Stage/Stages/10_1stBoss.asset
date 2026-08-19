@@ -15,11 +15,11 @@ MonoBehaviour:
   _stageID: 10
   _background: {fileID: 6915817129602299949, guid: 33b261ee861c69c459c21d45a0c64759, type: 3}
   _slotSprites:
-  - {fileID: 2491605280719466173, guid: 0b6949ffbfc75034eba6864337ddf7b2, type: 3}
-  - {fileID: 6914287752625601546, guid: bb91f786afe67fa4bb879415a96a1ea5, type: 3}
-  - {fileID: -8342696951940668329, guid: adad2f645329e9d48a58420d044e81df, type: 3}
-  - {fileID: 5885764433889751652, guid: 394c218753594074ba67468a20656843, type: 3}
-  - {fileID: -8645835677812769639, guid: 1178eb536e4023744a5d139ee7c2fa67, type: 3}
+  - {fileID: -6134627673231468249, guid: eaf41ae66f6a7f945a3b9b49eaa8b41c, type: 3}
+  - {fileID: 7302556056183302062, guid: f166cd8191d6fb5439a6c7948e86e88e, type: 3}
+  - {fileID: -4933487921599028924, guid: 00e9260bb80d7144fbcdd0ad247d54a7, type: 3}
+  - {fileID: 3374548275958145595, guid: 17f554e18f7e3a842b5e6b3fcae6cfd0, type: 3}
+  - {fileID: -9076172043808879977, guid: ddbe3c72bafb13a4b9fe5e413bdc1791, type: 3}
   _width: 5
   _height: 5
   _obstacleID: 0
