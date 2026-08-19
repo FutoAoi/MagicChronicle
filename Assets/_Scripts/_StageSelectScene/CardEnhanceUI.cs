@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,13 @@ public class CardEnhanceUI : MonoBehaviour
     [SerializeField] private NomalCardView _enhancedCardView;
     [SerializeField] private Button _enhanceButton;
     [SerializeField] private GameObject _obj;
+    [SerializeField] private TextMeshProUGUI _costBefore;
+    [SerializeField] private TextMeshProUGUI _costAfter;
+    [SerializeField] private TextMeshProUGUI _durabilityBefore;
+    [SerializeField] private TextMeshProUGUI _durabilityAfter;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
+    [SerializeField] private Color _updateColor = Color.orange;
+    [SerializeField] private float _updateScale = 1.2f;
 
     /// <summary>
     /// 強化が実行されたときに発火。引数は(デッキ内インデックス, 強化後のCardData)
@@ -33,7 +42,21 @@ public class CardEnhanceUI : MonoBehaviour
     }
     private void Start()
     {
-        _enhanceButton.onClick.AddListener(OnEnhanceButtonClicked);
+        _enhanceButton.onClick.AddListener(() =>
+        {
+            OnEnhanceButtonClicked();
+
+            //強化時の演出
+            if(_enhanceButton.TryGetComponent<RectTransform>(out var rt))
+            {
+                Vector3 scale = rt.localScale;
+                rt.DOScale(scale * 1.05f, 0.1f)
+                .OnComplete(() =>
+                {
+                    rt.DOScale(scale, 0.15f);
+                });
+            }
+        });
         _cardDataBase = GameManager.Instance.CardDataBase;
         _deckManager = DeckManager.Instance;
         RefreshList();
@@ -79,6 +102,30 @@ public class CardEnhanceUI : MonoBehaviour
         bool canEnhance = currentCard.CanEvolution;
         _enhancedCardView.Setup(canEnhance ? _cardDataBase.GetCardData(currentCard.EvolutionID) : null);
 
+        if (canEnhance)
+        {
+            CardData before = _currentCardView.CardData;
+            CardData after = _enhancedCardView.CardData;
+            _costBefore.text = before.Cost.ToString();
+            _costAfter.text = after.Cost.ToString();
+            _durabilityBefore.text = before.MaxTimes.ToString();
+            _durabilityAfter.text = after.MaxTimes.ToString();
+            _descriptionText.text = after.Description.ToString();
+            _costAfter.rectTransform.localScale = Vector3.one;
+            _durabilityAfter.rectTransform.localScale = Vector3.one;
+
+            if (before.Cost < after.Cost)
+            {
+                _costAfter.color = _updateColor;
+                _costAfter.rectTransform.localScale *= _updateScale;
+            }
+
+            if(before.MaxTimes < after.MaxTimes)
+            {
+                _durabilityAfter.color = _updateColor;
+                _durabilityAfter.rectTransform.localScale *= _updateScale;
+            }
+        }
         _enhanceButton.interactable = canEnhance;
     }
 
@@ -96,7 +143,7 @@ public class CardEnhanceUI : MonoBehaviour
         if (!_deckManager.EnhanceCard(deckIndex)) return;
 
         RefreshList();
-        ShowEnhancePanel(deckIndex); // 強化後の内容でパネルを更新
+        //ShowEnhancePanel(deckIndex); // 強化後の内容でパネルを更新
 
         CardData enhancedResult = _cardDataBase.GetCardData(_deckManager.DeckMain[deckIndex]);
         OnCardEnhanced?.Invoke(deckIndex, enhancedResult);
