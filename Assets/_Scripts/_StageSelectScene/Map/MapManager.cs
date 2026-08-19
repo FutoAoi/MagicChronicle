@@ -50,7 +50,7 @@ public class MapManager : MonoBehaviour
         return false;
     }
     
-    public void MoveTo(int nextRoomIndex)
+    public void MoveTo(int nextRoomIndex, bool isBoss = false)
     {
         if(!CanMoveTo(nextRoomIndex))
         {
@@ -62,8 +62,11 @@ public class MapManager : MonoBehaviour
 
         MapData.CurrentFloorIndex++;
         MapData.CurrentRoomIndex = nextRoomIndex;
-
-        Debug.Log($"à⁄ìÆêÊ Floor:{MapData.CurrentFloorIndex} Room:{nextRoomIndex}");
+        if(isBoss)
+        {
+            GameManager.Instance.SceneChange(SceneType.InGameScene_Boss);
+            return;
+        }
 
         GameManager.Instance.SceneChange(SceneType.InGameScene);
     }
