@@ -67,6 +67,11 @@ public class Enemy : CharacterBase
             }
         }
 
+        foreach (var buff in _enemy.DefaultBuffs)
+        {
+            AddBuff(buff.BuffType, buff.Amount, false);
+        }
+
         _enemyImage.sprite = _enemy.Sprite;
         _attackTurnTMP.text = _enemyAT.ToString();
         if (enemyID == 0)
