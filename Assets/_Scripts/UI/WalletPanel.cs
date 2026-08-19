@@ -24,7 +24,7 @@ public class WalletPanel : MonoBehaviour
     void Start()
     {
         _rt = GetComponent<RectTransform>();
-        _rt.anchoredPosition = new Vector2(_startPos, _posY);
+       // _rt.anchoredPosition = new Vector2(_startPos, _posY);
         _manager = WalletManager.Instance;
         _manager.CurrentWalletPanel = this;
         _moneyText.text = _manager.CurrentMoney.ToString();
