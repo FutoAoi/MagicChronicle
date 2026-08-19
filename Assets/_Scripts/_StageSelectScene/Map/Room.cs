@@ -79,7 +79,10 @@ public class Room : MonoBehaviour, IPointerClickHandler
             FadeManager.Instance.FadePanel(false, () =>
             {
                 _mapManager.OpenEventPanel(_roomIndex, _stageID);
-                FadeManager.Instance.FadePanel(true);
+                FadeManager.Instance.FadePanel(true, () =>
+                {
+                    _mapManager.EventTextAnimation();
+                });
             });
         }
         else if (_roomType == RoomType.Shop)
@@ -103,7 +106,10 @@ public class Room : MonoBehaviour, IPointerClickHandler
             FadeManager.Instance.FadePanel(false, () =>
             {
                 _mapManager.OpenEnhancePanel(_roomIndex);
-                FadeManager.Instance.FadePanel(true);
+                FadeManager.Instance.FadePanel(true,() =>
+                {
+                    _mapManager.EnhanceTextAnimation();
+                });
             });
         }
         else

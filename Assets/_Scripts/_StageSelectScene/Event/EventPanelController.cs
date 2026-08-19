@@ -31,7 +31,10 @@ public class EventPanelController : MonoBehaviour
         _closeButton.gameObject.SetActive(false);
         _resultText.gameObject.SetActive(false);
     }
-
+    private void OnDisable()
+    {
+        _descriptionText.gameObject.SetActive(false);
+    }
     /// <summary>
     /// イベントIDによるイベントを表示
     /// </summary>
@@ -47,7 +50,8 @@ public class EventPanelController : MonoBehaviour
         _descriptionText.text = _currentEventData.Description;
         _closeButton.gameObject.SetActive(false);
         _resultText.gameObject.SetActive(false);
-        foreach(Transform child in _choiceButtonParent)
+        _descriptionText.gameObject.SetActive(false);
+        foreach (Transform child in _choiceButtonParent)
         {
             Destroy(child.gameObject);
         }
@@ -82,5 +86,10 @@ public class EventPanelController : MonoBehaviour
             _mapView.UpdataPlayerPosition();
             FadeManager.Instance.FadePanel(true);
         });
+    }
+
+    public void EventTextAnimation()
+    {
+        _descriptionText.gameObject.SetActive(true);
     }
 }

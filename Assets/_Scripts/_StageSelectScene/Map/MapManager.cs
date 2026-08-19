@@ -9,6 +9,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] RoomIconData _roomIconData;
     [SerializeField] EventPanelController _eventPanelController;
     [SerializeField] ShopManager _shopManager;
+    [SerializeField] CardEnhanceUI _enhanceUI;
     [SerializeField] GameObject _gameObject;
     [SerializeField] GameObject _cardEnhanceUI;
 
@@ -117,5 +118,15 @@ public class MapManager : MonoBehaviour
     public void OpenEndPanel()
     {
         _gameObject.SetActive(true);
+    }
+
+    public void EnhanceTextAnimation()
+    {
+        _enhanceUI.TextAnimation();
+    }
+
+    public void EventTextAnimation()
+    {
+        _eventPanelController.EventTextAnimation();
     }
 }
