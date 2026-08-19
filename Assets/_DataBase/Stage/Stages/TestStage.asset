@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: -8645835677812769639, guid: 1178eb536e4023744a5d139ee7c2fa67, type: 3}
   _width: 5
   _height: 5
-  _obstacleID: 0
+  _obstacleID: 280
   _obstaclePos: []
   _enemies:
   - _enemyID: 103
