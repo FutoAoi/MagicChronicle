@@ -19,6 +19,16 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField, Tooltip("カードの裏面")] private GameObject _cardBackObj;
     [SerializeField, Tooltip("説明パネル表示")] private RectTransform _rt;
 
+    [Header("矢印")]
+    [SerializeField] private Image _up;
+    [SerializeField] private Image _right;
+    [SerializeField] private Image _left;
+    [SerializeField] private Image _down;
+
+    [Header("-----カードの見た目-----")]
+    [SerializeField, Tooltip("矢印色")] private Color _arrowColor = Color.yellowGreen;
+    [SerializeField, Tooltip("矢印デフォルト色")] private Color _defaultColor = Color.darkGreen;
+
     [Header("-----アニメーション-----")]
     [SerializeField] private float _hoverScale = 1.1f;
     [SerializeField] private float _durationScale = 0.2f;
@@ -56,7 +66,16 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _maxTimes.text = $"{_data.MaxTimes}";
         _defaultScale = _tf.localScale;
 
-        if(GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
+        _up.color = _defaultColor;
+        _down.color = _defaultColor;
+        _right.color = _defaultColor;
+        _left.color = _defaultColor;
+        foreach (MagicVector vector in _data.DisplayArrowVector)
+        {
+            GetArrowImage(vector).color = _arrowColor;
+        }
+
+        if (GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
             _battleUI = battleUI;
     }
 
@@ -118,5 +137,17 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         DeckManager.Instance.AddDeck(_cardID);
         gameObject.SetActive(false);
         GameManager.Instance.SceneChange(SceneType.StageSerectScene);
+    }
+
+    private Image GetArrowImage(MagicVector vector)
+    {
+        return vector switch
+        {
+            MagicVector.UP => _up,
+            MagicVector.Right => _right,
+            MagicVector.Left => _left,
+            MagicVector.Down => _down,
+            _ => null
+        };
     }
 }
