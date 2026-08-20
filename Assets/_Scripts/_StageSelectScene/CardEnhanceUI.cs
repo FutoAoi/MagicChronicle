@@ -113,14 +113,16 @@ public class CardEnhanceUI : MonoBehaviour
             _descriptionText.text = after.Description.ToString();
             _costAfter.rectTransform.localScale = Vector3.one;
             _durabilityAfter.rectTransform.localScale = Vector3.one;
+            _costAfter.color = Color.white;
+            _durabilityAfter.color = Color.white;
 
-            if (before.Cost < after.Cost)
+            if (before.Cost != after.Cost)
             {
                 _costAfter.color = _updateColor;
                 _costAfter.rectTransform.localScale *= _updateScale;
             }
 
-            if(before.MaxTimes < after.MaxTimes)
+            if(before.MaxTimes != after.MaxTimes)
             {
                 _durabilityAfter.color = _updateColor;
                 _durabilityAfter.rectTransform.localScale *= _updateScale;
