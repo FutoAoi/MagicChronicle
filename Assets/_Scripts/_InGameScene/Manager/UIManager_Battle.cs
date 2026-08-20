@@ -20,7 +20,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     [SerializeField, Tooltip("カットインパネル")] private GameObject _enemyAttackPanel;
     [SerializeField, Tooltip("リザルトパネル")] private GameObject _resultPanel;
     [SerializeField, Tooltip("攻撃場所選択パネル")] private GameObject _attackPosPanel;
-    [SerializeField, Tooltip("フェード用のパネル")] private Image _fadePanel;
     [SerializeField, Tooltip("デッキ確認用パネル")] private GameObject _deckPanel;
     [SerializeField, Tooltip("ゲームオーバー用パネル")] private GameObject _gameoverPanel;
     [SerializeField, Tooltip("コストのイメージ")] private List<Image> _costImages = new();
@@ -49,7 +48,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         DiscardCard.Clear();
         RemoveCard.Clear();
         _enemyAttackPanel.SetActive(false);
-        _fadePanel.gameObject.SetActive(false);
         UpdateMaxCostImage(GameManager.Instance.PlayerStatus.PlayerMaxCost);
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);

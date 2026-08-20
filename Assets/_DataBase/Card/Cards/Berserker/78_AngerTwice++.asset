@@ -18,8 +18,8 @@ MonoBehaviour:
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}
   _name: "\u30C7\u30E5\u30A2\u30EB\u30EC\u30A4\u30B8++"
-  _description: 
-  _colorDescription: 
+  _description: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
+  _colorDescription: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(<color=#FFF300>\u970A\u9663</color>)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
   _cost: 0
   _maxTimes: 0
   _isGhost: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   _moveEffect:
     rid: -2
   _effect: []
-  _keywords: 
+  _keywords: 00
   references:
     version: 2
     RefIds:
