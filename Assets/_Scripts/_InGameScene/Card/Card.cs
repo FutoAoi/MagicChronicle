@@ -93,6 +93,11 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (eventData is UnityEngine.InputSystem.UI.ExtendedPointerEventData extended
+        && extended.pointerType == UnityEngine.InputSystem.UI.UIPointerType.Touch)
+        {
+            return;
+        }
         _battleUI.DisplayDescriptionPanel(false);
     }
 

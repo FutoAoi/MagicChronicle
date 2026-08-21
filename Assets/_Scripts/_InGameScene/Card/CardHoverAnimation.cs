@@ -3,10 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.UI;
 /// <summary>
 /// カードにカーソル重なったときの拡大縮小アニメーション
 /// </summary>
-public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
+public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,
+    IPointerExitHandler,IPointerClickHandler, IPointerDownHandler
 {
     [Header("-----参照-----")]
     [SerializeField] private Image _highLightImg;
@@ -97,7 +99,11 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        IsSelected= false;
+        if (eventData is ExtendedPointerEventData extended && extended.pointerType == UIPointerType.Touch)
+        {
+            return; // タッチの自動Exitでは選択解除しない
+        }
+        IsSelected = false;
     }
 
     public void ColorAnimation(bool canSelect)
@@ -115,5 +121,11 @@ public class CardHoverAnimation : MonoBehaviour,IPointerEnterHandler,IPointerExi
         {
             IsSelected = true;
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+        IsSelected = true;
     }
 }

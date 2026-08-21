@@ -85,7 +85,7 @@ public abstract class UIManagerBase : MonoBehaviour
     }
     public bool IsMouseOverUI(RectTransform rect)
     {
-        Vector2 mouse = Mouse.current.position.ReadValue();
+        Vector2 mouse = Pointer.current?.position.ReadValue() ?? Vector2.zero;
 
         Camera cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
             ? null

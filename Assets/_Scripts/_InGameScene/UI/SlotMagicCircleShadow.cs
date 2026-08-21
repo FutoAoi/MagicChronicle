@@ -16,6 +16,7 @@ public class SlotMagicCircleShadow : MonoBehaviour
     void Start()
     {
         _gameManager = GameManager.Instance;
+        _parent.SetActive(false);
     }
 
     public void DisplayShadow(bool isDisplay = false,int id = 0)
