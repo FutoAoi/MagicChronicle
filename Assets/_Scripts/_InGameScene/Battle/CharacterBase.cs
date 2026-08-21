@@ -116,7 +116,18 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     }
     public void DecreaseAll(int amount = 1)
     {
-        _buffs.DecreaseAll(_gameManager.BuffDataBase,amount);
+        _buffs.DecreaseAll(_gameManager.BuffDataBase,amount,(type, newStack) =>
+        {
+            if(newStack <= 0)
+            {
+                _buffUIManager.FalseIcon(type);
+            }
+            else
+            {
+                UpdateBuffImage(_gameManager.BuffDataBase.GetBuffData(type), newStack);
+            }
+        });
+        
     }
     public bool HasBuff(BuffType type) => _buffs.Has(type);
 

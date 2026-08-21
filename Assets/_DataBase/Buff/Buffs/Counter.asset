@@ -16,7 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 3148023741636074461, guid: 83d463cf3d7830b429dbb33404e71b54, type: 3}
   _name: "\u53CD\u5C04"
   _description: 
-  _isDecreaseTurn: 1
+  _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
   _keywords: 09

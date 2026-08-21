@@ -205,23 +205,9 @@ public class AttackMagic : MonoBehaviour
             }
 
             //スロット内部の現在地移動
-            switch (_currentVector)
-            {
-                case MagicVector.UP:
-                    _speedInt = new Vector2Int(-1, 0);
-                    break;
-                case MagicVector.Down:
-                    _speedInt = new Vector2Int(1, 0);
-                    break;
-                case MagicVector.Left:
-                    _speedInt = new Vector2Int(0, -1);
-                    break;
-                case MagicVector.Right:
-                    _speedInt = new Vector2Int(0, 1);
-                    break;
-            }
-
+            _speedInt = GetSpeed(_currentVector);
             _currentSlot += _speedInt;
+
             //加速処理
             if (_isAccelerate)
             {
@@ -233,8 +219,19 @@ public class AttackMagic : MonoBehaviour
             {
                 if (_currentSlot.y >= _width)//プレイヤー攻撃成功時
                 {
-                    _finish = true;
-                    _isAttack = true;
+                    if (!HasCounterBuff(!isPlayer))
+                    {
+                        _finish = true;
+                        _isAttack = true;
+                    }
+                    else
+                    {
+                        Enemy target = _stageManager.EnemyList[_currentSlot.x];
+                        _attackRectTr.DOMove(target.transform.position, currentInterval)
+                            .SetEase(Ease.Linear);
+                        yield return new WaitForSeconds(currentInterval);
+                        _currentSlot += GetSpeed(_currentVector);
+                    }
                 }
                 else if (_currentSlot.x < 0 || _currentSlot.x > _height - 1)
                 {
@@ -244,17 +241,37 @@ public class AttackMagic : MonoBehaviour
                 }
                 else if (_currentSlot.y < 0)
                 {
-                    _finish = true;
-                    _isAttack = false;
-                    _isSelfHarm = true;
+                    if (!HasCounterBuff(isPlayer))
+                    {
+                        _finish = true;
+                        _isAttack = false;
+                        _isSelfHarm = true;
+                    }
+                    else
+                    {
+                        _attackRectTr.DOMove(_player.transform.position, currentInterval)
+                            .SetEase(Ease.Linear);
+                        yield return new WaitForSeconds(currentInterval);
+                        _currentSlot += GetSpeed(_currentVector);
+                    }
                 }
             }
             else
             {
                 if (_currentSlot.y < 0)//エネミー攻撃成功時
                 {
-                    _finish = true;
-                    _isAttack = true;
+                    if (!HasCounterBuff(!isPlayer))
+                    {
+                        _finish = true;
+                        _isAttack = true;
+                    }
+                    else
+                    {
+                        _attackRectTr.DOMove(_player.transform.position, currentInterval)
+                            .SetEase(Ease.Linear);
+                        yield return new WaitForSeconds(currentInterval);
+                        _currentSlot += GetSpeed(_currentVector);
+                    }
                 }
                 else if (_currentSlot.x < 0 || _currentSlot.x > _height - 1)
                 {
@@ -264,9 +281,20 @@ public class AttackMagic : MonoBehaviour
                 }
                 else if (_currentSlot.y >= _width)
                 {
-                    _finish = true;
-                    _isAttack = false;
-                    _isSelfHarm = true;
+                    if (!HasCounterBuff(isPlayer))
+                    {
+                        _finish = true;
+                        _isAttack = false;
+                        _isSelfHarm = true;
+                    }
+                    else
+                    {
+                        Enemy target = _stageManager.EnemyList[_currentSlot.x];
+                        _attackRectTr.DOMove(target.transform.position, currentInterval)
+                            .SetEase(Ease.Linear);
+                        yield return new WaitForSeconds(currentInterval);
+                        _currentSlot += GetSpeed(_currentVector);
+                    }
                 }
             }
             yield return new WaitForSeconds(currentInterval * 0.3f);
@@ -366,6 +394,49 @@ public class AttackMagic : MonoBehaviour
         }
 
         slot.DecreaseTimes(decreaseCount);
+    }
+    /// <summary>
+    /// 反射バフを持っているか確認する。
+    /// 結果をbool型で返し、trueならば反射処理を行う。
+    /// </summary>
+    /// <param name="isPlayer"></param>
+    /// <returns></returns>
+    private bool HasCounterBuff(bool isPlayer)
+    {
+        bool hasBuff = false;
+        if (isPlayer)
+        {
+            hasBuff = _player.HasBuff(BuffType.Counter);
+            if(hasBuff)
+            {
+                _currentVector = MagicVector.Right;
+                _player.AddBuff(BuffType.Counter, -1, false);
+                //反射SE入れるならここ
+            }
+        }
+        else
+        {
+            hasBuff = _stageManager.EnemyList[_currentSlot.x].HasBuff(BuffType.Counter);
+            if(hasBuff)
+            {
+                _currentVector = MagicVector.Left;
+                _stageManager.EnemyList[_currentSlot.x].AddBuff(BuffType.Counter, -1, false);
+                //反射SE入れるならここ
+            }
+        }
+        return hasBuff;
+    }
+
+    private Vector2Int GetSpeed(MagicVector vector)
+    {
+        switch (vector)
+        {
+            case MagicVector.UP: return new Vector2Int(-1, 0);
+            case MagicVector.Down: return new Vector2Int(1, 0);
+            case MagicVector.Left: return new Vector2Int(0, -1);
+            case MagicVector.Right: return new Vector2Int(0, 1);
+        }
+        return Vector2Int.zero;
     }
     #endregion
     #region エフェクト

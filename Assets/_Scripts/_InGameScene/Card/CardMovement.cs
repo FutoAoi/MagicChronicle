@@ -88,6 +88,10 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _cost = _gameManager.CardDataBase.GetCardData(ID).Cost;
         if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
+        if (TryGetComponent<CardHoverAnimation>(out var hoverAnim))
+        {
+            hoverAnim.IsSelected = false;
+        }
         IsDragging = true;
         _battleUIManager.RegisterCardMovement(true, this);
         transform.SetParent(_uiManager.DragLayer.transform);

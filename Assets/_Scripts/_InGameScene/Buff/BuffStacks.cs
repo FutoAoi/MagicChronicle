@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 /// <summary>
 /// バフの残数データを管理
@@ -29,7 +30,7 @@ public struct BuffStacks
     /// 全てのバフターンを減らす
     /// </summary>
     /// <param name="amount">減る量</param>
-    public void DecreaseAll(BuffDataBase buffDataBase,int amount = 1)
+    public void DecreaseAll(BuffDataBase buffDataBase,int amount,Action<BuffType,int> onChanged)
     {
         for(int i = 0; i < _counts.Length; i++)
         {
@@ -38,6 +39,7 @@ public struct BuffStacks
             if (!buffDataBase.GetBuffData((BuffType)i).IsDecreaseTurn) continue;
 
             _counts[i] = Mathf.Max(0, _counts[i] - amount);
+            onChanged?.Invoke((BuffType)i, _counts[i]);
         }
     }
 }
