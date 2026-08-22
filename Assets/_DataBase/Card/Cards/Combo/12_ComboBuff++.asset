@@ -18,8 +18,8 @@ MonoBehaviour:
   _cardSprite: {fileID: 69230263392265266, guid: 9ed314f58b4898b48b67a9e7613136fe, type: 3}
   _magicSprite: {fileID: -4093987921198194536, guid: dbe9e1930d1bf4f43ba9b074bbe568dd, type: 3}
   _name: "\u30B0\u30EA\u30D5\u30FB\u30EA\u30F3\u30AF++"
-  _description: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(\u970A\u9663)\u30B3\u30F3\u30DC+1"
-  _colorDescription: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002(<color=#FFF300>\u970A\u9663</color>)<color=#00E5FF>\u30B3\u30F3\u30DC</color>+1"
+  _description: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(\u970A\u9663)\u30B3\u30F3\u30DC+1"
+  _colorDescription: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(<color=#FFF300>\u970A\u9663</color>)<color=#00E5FF>\u30B3\u30F3\u30DC</color>+1"
   _cost: 3
   _maxTimes: 10
   _isGhost: 1
