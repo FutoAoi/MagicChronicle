@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BackgroundDeselector : MonoBehaviour
+public class BackgroundDeselector : MonoBehaviour, IPointerClickHandler
 {
     private IBattleUI _battleUI;
     private UIManagerBase _uiManager;
@@ -19,5 +19,6 @@ public class BackgroundDeselector : MonoBehaviour
     {
         if (_uiManager.CardMovement != null) return; // ƒhƒ‰ƒbƒO’†‚Ì“¯‰Ÿ‚µ‘Îô
         _battleUI.ChangeSelectHandCard(null);
+        _uiManager.DisplayDescriptionPanel(false);
     }
 }

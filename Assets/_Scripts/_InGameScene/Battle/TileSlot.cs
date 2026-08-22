@@ -42,10 +42,10 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (_uiManager.IsMouseOverUI(_rt))
             {
-                _battleUI.DisplayDescriptionPanel(_isOccupied);
+                _uiManager.DisplayDescriptionPanel(_isOccupied);
 
                 if(_isOccupied)
-                    _battleUI.UpdateDescriptionPanel(true, _windowRt, ID);
+                    _uiManager.UpdateDescriptionPanel(true, _windowRt, ID);
             }
         }
     }
@@ -53,7 +53,6 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private GameObject _newCard;
     private CardMovement _tileMovement;
     private UIManagerBase _uiManager;
-    private IBattleUI _battleUI;
     private Image _img,_gauge;
     private RectTransform _rt;
     private Tween _tween;
@@ -67,10 +66,6 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         IsLastTimeCard = false;
         _gameManager = GameManager.Instance;
         _uiManager = _gameManager.CurrentUIManager;
-        if (_gameManager.CurrentUIManager.TryGetComponent<IBattleUI>(out var manager))
-        {
-            _battleUI = manager;
-        }
     }
     public void DisplayMark(bool isShow = true)
     {
@@ -207,8 +202,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (IsOccupied)
         {
-            _battleUI.DisplayDescriptionPanel(true);
-            _battleUI.UpdateDescriptionPanel(true,_windowRt,ID);
+            _uiManager.DisplayDescriptionPanel(true);
+            _uiManager.UpdateDescriptionPanel(true,_windowRt,ID);
         }
         else
         {
@@ -224,7 +219,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (IsOccupied)
         {
-            _battleUI.DisplayDescriptionPanel(false);
+            _uiManager.DisplayDescriptionPanel(false);
         }
         else
         {

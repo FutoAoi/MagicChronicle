@@ -22,6 +22,7 @@ public class DescriptionPanel : MonoBehaviour
     [Header("キーワード")]
     [SerializeField] private GameObject _keywordPrefab;
 
+    [SerializeField] private bool _isBattleScene = true;
     private GameManager _gameManager;
     private Dictionary<DescriptionKeyWord, DescriptionWindow> _keywordWindowDic = new();
     private void Start()
@@ -49,6 +50,8 @@ public class DescriptionPanel : MonoBehaviour
                 description.gameObject.SetActive(false);
             }
         }
+
+        gameObject.SetActive(_isBattleScene);
     }
 
     

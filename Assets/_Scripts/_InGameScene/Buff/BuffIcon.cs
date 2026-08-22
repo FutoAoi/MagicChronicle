@@ -12,22 +12,24 @@ public class BuffIcon : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     private bool _isDisplayCount = true;
     private GameManager _gameManager;
+    private UIManagerBase _uiManager;
     private BuffType _type;
 
     private void Start()
     {
         _gameManager = GameManager.Instance;
+        _uiManager = _gameManager.CurrentUIManager;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ((IBattleUI)_gameManager.CurrentUIManager)?.DisplayDescriptionPanel(true);
-        ((IBattleUI)_gameManager.CurrentUIManager)?.UpdateDescriptionPanel(false,_rt,0,_type);
+        _uiManager.DisplayDescriptionPanel(true);
+        _uiManager.UpdateDescriptionPanel(false,_rt,0,_type);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ((IBattleUI)_gameManager.CurrentUIManager)?.DisplayDescriptionPanel(false);
+        _uiManager.DisplayDescriptionPanel(false);
     }
 
     public void SetIconData(BuffData data)

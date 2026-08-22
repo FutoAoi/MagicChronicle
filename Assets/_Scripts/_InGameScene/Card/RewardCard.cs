@@ -38,7 +38,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private CardData _data;
     private Transform _tf;
-    private IBattleUI _battleUI;
+    private UIManagerBase _uiManager;
     private Vector3 _defaultScale;
     private float _selectedScale = 1.1f;
     private float _animationTime = 0.2f;
@@ -75,8 +75,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             GetArrowImage(vector).color = _arrowColor;
         }
 
-        if (GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
-            _battleUI = battleUI;
+        _uiManager = GameManager.Instance.CurrentUIManager;
     }
 
     /// <summary>
@@ -112,10 +111,10 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _tf.DOKill();
         _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
 
-        if(_battleUI != null)
+        if(_uiManager != null)
         {
-            _battleUI.DisplayDescriptionPanel(true);
-            _battleUI.UpdateDescriptionPanel(true, _rt, _cardID);
+            _uiManager.DisplayDescriptionPanel(true);
+            _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
 
             //‚Å‚©‚­‚³‚¹‚é
         }
@@ -128,8 +127,8 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
 
-        if (_battleUI != null)
-            _battleUI.DisplayDescriptionPanel(false);
+        if (_uiManager != null)
+            _uiManager.DisplayDescriptionPanel(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)

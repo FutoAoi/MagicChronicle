@@ -46,16 +46,6 @@ public interface IBattleUI
     /// </summary>
     void ShuffleDeck();
     /// <summary>
-    /// 説明パネルを更新
-    /// </summary>
-    /// <param name="data"></param>
-    void UpdateDescriptionPanel(bool isCard, RectTransform rect, int id = 0, BuffType buff = BuffType.Combo);
-    /// <summary>
-    /// 説明パネル表示
-    /// </summary>
-    /// <param name="isDisplay"></param>
-    void DisplayDescriptionPanel(bool isDisplay);
-    /// <summary>
     /// ゲームオーバー表示
     /// </summary>
     void DisplayGameOverPanel();
