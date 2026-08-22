@@ -240,6 +240,14 @@ public class Enemy : CharacterBase
         if(stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var tile))
         {
             tile.DisplayMark(false);
+            if (_isBoss)
+            {
+                if (stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom1))
+                    phantom1.DisplayMark(false);
+
+                if (stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom2))
+                    phantom2.DisplayMark(false);
+            }
         }
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
