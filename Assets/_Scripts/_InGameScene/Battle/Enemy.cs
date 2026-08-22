@@ -231,7 +231,9 @@ public class Enemy : CharacterBase
         _specialTMP.text = null;
         if(_spineEnemy != null)
             _spineEnemy.SetActive(false);
-        
+
+        //ƒoƒtA”»’èíœ
+        RemoveAllBuff();
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
 

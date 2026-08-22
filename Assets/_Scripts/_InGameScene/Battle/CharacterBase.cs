@@ -145,5 +145,13 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
         _attackPower = Mathf.Max(1, _attackPower + delta);
     }
 
+    public void RemoveAllBuff()
+    {
+        for(int i = 0; i < (int)BuffType.End; i++)
+        {
+            BuffType buff = (BuffType)i;
+            AddBuff(buff, -GetBuffCount(buff), false);
+        }
+    }
     #endregion
 }
