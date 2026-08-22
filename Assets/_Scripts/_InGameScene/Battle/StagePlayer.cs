@@ -17,7 +17,6 @@ public class StagePlayer : CharacterBase
         base.Start();
 
         _gameManager.Player = this;
-        AddBuff(BuffType.Counter);
     }
 
 
