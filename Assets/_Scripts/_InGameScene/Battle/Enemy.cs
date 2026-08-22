@@ -29,6 +29,7 @@ public class Enemy : CharacterBase
     private bool _isSpecialAttack = false;
     private bool _isBoss = false;
     private int _currentSAT;
+    private int _heightPos;
     private SkeletonAnimation _skeletonAnimation;
     private GameObject _spineEnemy;
 
@@ -36,12 +37,13 @@ public class Enemy : CharacterBase
     /// エネミーにステータスをセット
     /// </summary>
     /// <param name="enemyID"></param>
-    public void SetEnemyStatus(int enemyID)
+    public void SetEnemyStatus(int enemyID,int pos = 0)
     {
         _enemyID = enemyID;
         _enemy = GameManager.Instance.EnemyDataBase.GetEnemyData(enemyID);
 
         SetStatus(_enemy.EnemyHP, _enemy.EnemyHP);
+        _heightPos = pos;
         _attackPower = _enemy.EnemyAP;
         _enemyAT = _enemy.EnemyAT;
         _isBoss = _enemy.IsBoss;
@@ -234,6 +236,11 @@ public class Enemy : CharacterBase
 
         //バフ、判定削除
         RemoveAllBuff();
+        StageManager stageManager = _gameManager.StageManager;
+        if(stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var tile))
+        {
+            tile.DisplayMark(false);
+        }
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
 
