@@ -5054,8 +5054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardHighLightController
   _duration: 0.6
-  _start: {r: 1, g: 0.925502, b: 0.7201257, a: 0}
-  _end: {r: 1, g: 0.9620725, b: 0, a: 1}
+  _start: {r: 0, g: 1, b: 0.36862746, a: 0.9490196}
+  _end: {r: 0.7882353, g: 1, b: 0.8392157, a: 1}
 --- !u!1 &1163386060
 GameObject:
   m_ObjectHideFlags: 0
