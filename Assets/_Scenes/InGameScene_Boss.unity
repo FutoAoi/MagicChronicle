@@ -1441,7 +1441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214, y: 4.1}
+  m_AnchoredPosition: {x: 214, y: 4.0999985}
   m_SizeDelta: {x: 300, y: 342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365831976
@@ -5382,6 +5382,7 @@ GameObject:
   - component: {fileID: 1254527067}
   - component: {fileID: 1254527069}
   - component: {fileID: 1254527068}
+  - component: {fileID: 1254527070}
   m_Layer: 5
   m_Name: '[IMG]BackgroundImage'
   m_TagString: Untagged
@@ -5428,7 +5429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1208040086343421634, guid: e2731a1c2036c35469702b533c409763, type: 3}
+  m_Sprite: {fileID: 6915817129602299949, guid: 33b261ee861c69c459c21d45a0c64759, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5446,6 +5447,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254527066}
   m_CullTransparentMesh: 1
+--- !u!114 &1254527070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254527066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6527803d4b1d45905508f41494ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundDeselector
 --- !u!1 &1283760494
 GameObject:
   m_ObjectHideFlags: 0
@@ -9121,6 +9134,10 @@ PrefabInstance:
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127301660057713163, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
+      propertyPath: _isBattleScene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -41,7 +41,6 @@ public class BuffUIManager : MonoBehaviour
         {
             icon.gameObject.SetActive(true);
             SetTurn(type, turn);
-            Debug.Log(type);
         }
     }
 

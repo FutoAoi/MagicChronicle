@@ -97,11 +97,12 @@ public class StageManager : MonoBehaviour
 
         for (int i = 0; i < _stage.Enemies.Length; i++)
         {
-            _enemyList[_stage.Enemies[i].EnemyPosition].SetEnemyStatus(_stage.Enemies[i].EnemyID);
+            Enemies enemy = _stage.Enemies[i];
+            _enemyList[enemy.EnemyPosition].SetEnemyStatus(enemy.EnemyID, enemy.EnemyPosition);
 
-            if (GameManager.Instance.EnemyDataBase.GetEnemyData(_stage.Enemies[i].EnemyID).IsBoss)
+            if (GameManager.Instance.EnemyDataBase.GetEnemyData(enemy.EnemyID).IsBoss)
             {
-                _bossPos = _stage.Enemies[i].EnemyPosition;
+                _bossPos = enemy.EnemyPosition;
             }
         }
 

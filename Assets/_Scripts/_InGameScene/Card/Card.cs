@@ -34,7 +34,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     public int CardID;
 
-    private IBattleUI _battleUI;
+    private UIManagerBase _uiManager;
     private CardDataBase _cardDataBase;
     //private bool _ignorePointer = false,_isGhostCircle;
 
@@ -69,10 +69,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             }
         }
 
-        if (GameManager.Instance.CurrentUIManager.TryGetComponent<IBattleUI>(out var battleUI))
-        {
-            _battleUI = battleUI;
-        }
+        _uiManager = GameManager.Instance.CurrentUIManager;
 
         if (isDraw)
         {
@@ -87,8 +84,8 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _battleUI.DisplayDescriptionPanel(true);
-        _battleUI.UpdateDescriptionPanel(true,_rt,CardID);
+        _uiManager.DisplayDescriptionPanel(true);
+        _uiManager.UpdateDescriptionPanel(true,_rt,CardID);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -98,7 +95,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         {
             return;
         }
-        _battleUI.DisplayDescriptionPanel(false);
+        _uiManager.DisplayDescriptionPanel(false);
     }
 
     /// <summary>
