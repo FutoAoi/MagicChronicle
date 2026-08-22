@@ -23,6 +23,9 @@ MonoBehaviour:
   _isShadow: 0
   _bossType: 0
   _shadowPrefab: {fileID: 0}
+  _defaultBuffs:
+  - _type: 8
+    _amount: 1
   _isSpecialAttack: 1
   _enemySAT: 3
   _canBoardInterference: 0
