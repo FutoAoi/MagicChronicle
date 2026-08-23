@@ -4926,7 +4926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 0, y: -300.00003}
   m_SizeDelta: {x: -1400, y: -800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102094986
@@ -5060,6 +5060,7 @@ GameObject:
   - component: {fileID: 1154090791}
   - component: {fileID: 1154090792}
   - component: {fileID: 1154090793}
+  - component: {fileID: 1154090794}
   m_Layer: 0
   m_Name: '[MG]UIManager'
   m_TagString: Untagged
@@ -5215,6 +5216,21 @@ MonoBehaviour:
   _duration: 0.6
   _start: {r: 0, g: 1, b: 0.37010098, a: 0.9490196}
   _end: {r: 0.7882353, g: 1, b: 0.83865935, a: 1}
+--- !u!114 &1154090794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154090787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c5bc5fab960ce4e87d76d2787e92fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlotAnimationController
+  _duration: 0.8
+  _start: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
+  _end: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1163386060
 GameObject:
   m_ObjectHideFlags: 0
