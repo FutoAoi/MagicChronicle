@@ -74,4 +74,10 @@ public class AttackPointSelectButton : MonoBehaviour
         _img.sprite = _dark;
         _img.DOColor(new Color(1f,1f,1f,_alpha),_duration);
     }
+
+    public void DisplayAnimation(bool isDisplay)
+    {
+        float alpha = isDisplay? 1f : 0f;
+        _img.DOFade(alpha, 0.2f);
+    }
 }

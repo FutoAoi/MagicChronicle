@@ -4810,6 +4810,7 @@ MonoBehaviour:
   _stageManager: {fileID: 655437304}
   _uiManager: {fileID: 1154090793}
   _playerPos: {fileID: 460636252}
+  _attackPointManager: {fileID: 349422008}
   _interval: 0.2
   _duration: 3
   _rapidInterval: 0.5
@@ -7922,6 +7923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PhaseChangeButton
   _canvas: {fileID: 1293538816}
   _cutIn: {fileID: 509165558}
+  _attackPointManager: {fileID: 349422008}
   _duration: 3
 --- !u!114 &1906802094
 MonoBehaviour:
