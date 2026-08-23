@@ -8,6 +8,7 @@ public class PhaseChangeButton : MonoBehaviour
     [Header("コンポーネント設定")]
     [SerializeField, Tooltip("メインキャンバス")] private Canvas _canvas;
     [SerializeField] private CutInPanel _cutIn;
+    [SerializeField] private AttackPointManager _attackPointManager;
 
     [Header("数値設定")]
     [SerializeField, Tooltip("カットインアニメーション時間")] private float _duration = 3f;
@@ -30,6 +31,7 @@ public class PhaseChangeButton : MonoBehaviour
 
         _gamemanager.CurrentPhase = BattlePhase.Direction;
 
+        _attackPointManager.DisplayAttackButton(false);
         Vector3 scale = _rt.localScale;
         Sequence seq = DOTween.Sequence();
         seq.Append(_rt.DOScale(scale * 0.95f,0.05f));

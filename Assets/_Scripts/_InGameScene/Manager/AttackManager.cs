@@ -10,6 +10,7 @@ public class AttackManager : MonoBehaviour
     [SerializeField] private StageManager _stageManager;
     [SerializeField] private UIManagerBase _uiManager;
     [SerializeField] private RectTransform _playerPos;
+    [SerializeField] private AttackPointManager _attackPointManager;
 
     [Header("”’lİ’è")]
     [SerializeField, Tooltip("ƒ^ƒCƒ‹ŠÔ‚ÌˆÚ“®ŠÔ")] private float _interval = 2.0f;
@@ -239,6 +240,8 @@ public class AttackManager : MonoBehaviour
             {
                 _gameManager.Reset = true;
             }
+
+            _attackPointManager.DisplayAttackButton();
         }
         
     }

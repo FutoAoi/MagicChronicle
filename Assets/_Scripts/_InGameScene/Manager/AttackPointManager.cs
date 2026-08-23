@@ -20,4 +20,12 @@ public class AttackPointManager : MonoBehaviour
     {
         AttackPointButtonList[AttackPointButtonList.Count/2].RegisterAttackPosition();
     }
+
+    public void DisplayAttackButton(bool isDisplay = true)
+    {
+        foreach(var button in AttackPointButtonList)
+        {
+            button.DisplayAnimation(isDisplay);
+        }
+    }
 }
