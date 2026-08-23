@@ -436,7 +436,7 @@ MonoBehaviour:
   _slotMagicCircleShadow: {fileID: 530415975510857271}
   _windowRt: {fileID: 6241241297481629640}
   _attackMark: {fileID: 1075522144662379102}
-  IsLastTimeCard: 0
+  _slotAnimImg: {fileID: 2064584961028540009}
 --- !u!114 &530415975510857271
 MonoBehaviour:
   m_ObjectHideFlags: 0

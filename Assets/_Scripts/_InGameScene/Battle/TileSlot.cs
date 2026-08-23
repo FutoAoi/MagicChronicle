@@ -14,7 +14,19 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private SlotMagicCircleShadow _slotMagicCircleShadow;
     [SerializeField] private RectTransform _windowRt;
     [SerializeField] private GameObject _attackMark;
-    public bool IsLastTimeCard = false;//前のフェーズで置かれたものかどうか
+    [SerializeField] private Image _slotAnimImg;
+    public bool IsLastTimeCard
+    {
+        get => _isLastTimeCard;
+        set
+        {
+            if (_isLastTimeCard == value) return;
+
+            _isLastTimeCard = value;
+
+            SlotAnimationController.Unregister(_slotAnimImg);
+        }
+    }
     /// <summary>
     /// すでに置かれているかのフラグ。
     /// set時にタイルの色変更を行う
@@ -33,11 +45,18 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (_isOccupied)
             {
                 _img.DOColor(_uiManager.SelectColor, 0.1f);
+
+                if (!IsLastTimeCard)
+                {
+                    SlotAnimationController.Register(_slotAnimImg);
+                }
             }
             else
             {
                 _slotMagicCircleShadow.DisplayShadow();
                 _img.DOColor(Color.white, 0.1f);
+
+                SlotAnimationController.Unregister(_slotAnimImg);
             }
 
             if (_uiManager.IsMouseOverUI(_rt))
@@ -57,7 +76,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private RectTransform _rt;
     private Tween _tween;
     private int _currentnumber,_max;
-    private bool _isDestroy = false,_isColorChange = false,_isOccupied = false;
+    private bool _isDestroy = false,_isColorChange = false,_isOccupied = false,_isLastTimeCard = false;
 
     private void Start()
     {
