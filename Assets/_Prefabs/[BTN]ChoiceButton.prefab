@@ -273,3 +273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EventChoiceButton
   _button: {fileID: 7258842583554460122}
   _choiceText: {fileID: 762558249491009434}
+  _img: {fileID: 6196250639026137526}
+  _duration: 0.2
+  _textDuration: 0.3
