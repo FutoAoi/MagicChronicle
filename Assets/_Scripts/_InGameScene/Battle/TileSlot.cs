@@ -24,7 +24,12 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             _isLastTimeCard = value;
 
-            SlotAnimationController.Unregister(_slotAnimImg);
+
+            if (_isLastTimeCard)
+            {
+                SlotAnimationController.Unregister(_slotAnimImg);
+                _img.DOColor(_uiManager.SelectColor, 0.1f);
+            }
         }
     }
     /// <summary>
