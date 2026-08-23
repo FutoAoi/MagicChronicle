@@ -15,6 +15,7 @@ public class AttackPointSelectButton : MonoBehaviour
 
     public int AttackNumber;
     public bool IsSelect = false;
+    private bool _isTrandparent = false;
 
     AttackPointManager _attackPointManager;
     Image _img;
@@ -46,6 +47,8 @@ public class AttackPointSelectButton : MonoBehaviour
     /// </summary>
     public void RegisterAttackPosition()
     {
+        if (_isTrandparent) return;
+
         //UŒ‚êŠ•ÏXˆ—
         if (_gameManager == null)
         {
@@ -79,5 +82,6 @@ public class AttackPointSelectButton : MonoBehaviour
     {
         float alpha = isDisplay? 1f : 0f;
         _img.DOFade(alpha, 0.2f);
+        _isTrandparent = !isDisplay;
     }
 }
