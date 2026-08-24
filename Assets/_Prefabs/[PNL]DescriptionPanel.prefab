@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 212, y: 305}
-  m_SizeDelta: {x: 470, y: 1262.625}
+  m_AnchoredPosition: {x: 212, y: 1533.7225}
+  m_SizeDelta: {x: 470, y: 3720.069}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8240854076114463786
 MonoBehaviour:
@@ -54,9 +54,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 100
   m_ChildAlignment: 6
-  m_Spacing: 1
+  m_Spacing: 97
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -236,8 +236,8 @@ RectTransform:
   m_GameObject: {fileID: 1537301605241018600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5908849316185083993}
   - {fileID: 3756715282358226644}
@@ -1184,3 +1184,4 @@ MonoBehaviour:
   _cardDescription: {fileID: 7000499861871443561}
   _buffPrefab: {fileID: 2974825051653994846, guid: 303a83a090513f34f88fa7ae1dc499c2, type: 3}
   _keywordPrefab: {fileID: 5177920733628154992, guid: d81bf4ab6c903f14185a729a3cb9d87e, type: 3}
+  _isBattleScene: 1
