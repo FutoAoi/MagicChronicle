@@ -3884,7 +3884,7 @@ MonoBehaviour:
   IsEnemyAction: 0
   DecreaseBuff: 0
   Player: {fileID: 460636253}
-  _currentScene: 1
+  _currentScene: 5
 --- !u!4 &975691466
 Transform:
   m_ObjectHideFlags: 0

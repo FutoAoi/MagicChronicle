@@ -4926,7 +4926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300.00003}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: -1400, y: -800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102094986
@@ -5231,7 +5231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlotAnimationController
   _duration: 0.8
   _start: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
-  _end: {r: 1, g: 1, b: 1, a: 1}
+  _end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1163386060
 GameObject:
   m_ObjectHideFlags: 0

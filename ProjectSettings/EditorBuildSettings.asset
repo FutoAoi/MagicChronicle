@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/CharacterSerectScene.unity
     guid: c141eb9ddac00104d9bde5bb2621baf5
+  - enabled: 1
+    path: Assets/_Scenes/ClearScene.unity
+    guid: 0e7df1640d0fef444be3eaee6bfa5ba6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
