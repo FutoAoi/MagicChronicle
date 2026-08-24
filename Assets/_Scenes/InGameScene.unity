@@ -5231,7 +5231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlotAnimationController
   _duration: 0.8
   _start: {r: 0.64779866, g: 0.64779866, b: 0.64779866, a: 1}
-  _end: {r: 1, g: 0, b: 0, a: 1}
+  _end: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1163386060
 GameObject:
   m_ObjectHideFlags: 0
