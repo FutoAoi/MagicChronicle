@@ -188,6 +188,11 @@ public class GameManager : MonoBehaviour
 
     void UpdateReward()
     {
+        if( _currentScene == SceneType.InGameScene_Boss)
+        {
+            SceneChange(SceneType.ClearScene);
+            return;
+        }
         if (!_isReward)
         {
             _uiManagerButtle.DisplayReward();
