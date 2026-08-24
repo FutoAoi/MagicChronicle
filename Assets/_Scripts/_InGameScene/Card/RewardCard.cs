@@ -42,6 +42,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Vector3 _defaultScale;
     private float _selectedScale = 1.1f;
     private float _animationTime = 0.2f;
+    private bool _isSerect = false;
 
     private void Awake()
     {
@@ -106,18 +107,16 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!IsFinish) return;
+    //    if (!IsFinish) return;
 
-        _tf.DOKill();
-        _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
+    //    _tf.DOKill();
+    //    _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
 
-        if(_uiManager != null)
-        {
-            _uiManager.DisplayDescriptionPanel(true);
-            _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
-
-            //‚Å‚©‚­‚³‚¹‚é
-        }
+    //    if(_uiManager != null)
+    //    {
+    //        _uiManager.DisplayDescriptionPanel(true);
+    //        _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+    //    }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -127,15 +126,36 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
 
+        _isSerect = false;
+
         if (_uiManager != null)
             _uiManager.DisplayDescriptionPanel(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        DeckManager.Instance.AddDeck(_cardID);
-        gameObject.SetActive(false);
-        GameManager.Instance.SceneChange(SceneType.StageSerectScene);
+        if(!_isSerect)
+        {
+            if (!IsFinish) return;
+            _isSerect = true;
+
+            _tf.DOKill();
+            _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
+
+            if (_uiManager != null)
+            {
+                _uiManager.DisplayDescriptionPanel(true);
+                _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+            }
+            return;
+        }
+
+        if(_isSerect)
+        {
+            DeckManager.Instance.AddDeck(_cardID);
+            gameObject.SetActive(false);
+            GameManager.Instance.SceneChange(SceneType.StageSerectScene);
+        }
     }
 
     private Image GetArrowImage(MagicVector vector)
