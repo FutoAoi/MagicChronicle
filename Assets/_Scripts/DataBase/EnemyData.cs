@@ -23,7 +23,7 @@ public class EnemyData : ScriptableObject
     public int EffectTime => _effectTime;
     public int[] CardEffectID => _cardEffectID;
     public bool CanBuff => _canBuff;
-    public IBuff[] Buffs => _buffs;
+    public BuffType[] Buffs => _buffs;
     public int[] RewardAmount => _rewardAmount;
 
 
@@ -53,7 +53,7 @@ public class EnemyData : ScriptableObject
 
     [Header("-----バフ-----"), ShowIf("_isSpecialAttack")]
     [SerializeField, Tooltip("エネミーのバフ攻撃フラグ")] private bool _canBuff;
-    [SerializeField, ShowIf("_canBuff"), Tooltip("エネミーのバフ攻撃のターン")] private IBuff[] _buffs;
+    [SerializeField, ShowIf("_canBuff"), Tooltip("エネミーのバフ攻撃のターン")] private BuffType[] _buffs;
 
     [Header("-----報酬-----")]
     [SerializeField, Tooltip("報酬量")] private int[] _rewardAmount = new int[2];

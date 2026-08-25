@@ -44,23 +44,23 @@ MonoBehaviour:
   - Type: 7
     KeyName: "\u75B2\u52B4"
     Description: "\u653B\u6483\u529B\u304C50%\u4E0B\u304C\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 1, g: 0.7220161, b: 0.56289303, a: 0}
   - Type: 8
     KeyName: "\u30EA\u30B8\u30A7\u30CD"
-    Description: "\u56DE\u5FA9"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    Description: "\u6BCE\u30BF\u30FC\u30F3\u56DE\u5FA9\u3059\u308B"
+    KeywordColor: {r: 1, g: 0.5943395, b: 0.97044444, a: 0}
   - Type: 9
     KeyName: "\u53CD\u5C04"
-    Description: "\u30B9\u30BF\u30C3\u30AF\u5206\u653B\u6483\u3092\u8DF3\u306D\u8FD4\u3059"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    Description: "\u653B\u6483\u3092\u8DF3\u306D\u8FD4\u3059"
+    KeywordColor: {r: 0.26729542, g: 0.91634774, b: 1, a: 0}
   - Type: 13
     KeyName: "\u9023\u767A"
     Description: "\u653B\u6483\u56DE\u6570\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
     KeywordColor: {r: 0.3050313, g: 1, b: 0.560802, a: 1}
   - Type: 11
     KeyName: "\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9"
-    Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4F4E\u4E0B\u3059\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u5897\u52A0\u3059\u308B"
+    KeywordColor: {r: 0, g: 0.07926512, b: 1, a: 0}
   - Type: 10
     KeyName: "\u30B3\u30B9\u30C8\u30DE\u30A4\u30CA\u30B9"
     Description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u304C\u30B9\u30BF\u30C3\u30AF\u5206\u4F4E\u4E0B\u3059\u308B"
