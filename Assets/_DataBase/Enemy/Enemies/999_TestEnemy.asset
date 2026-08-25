@@ -16,9 +16,14 @@ MonoBehaviour:
   _sprite: {fileID: -6393953091253504009, guid: 3114f275a66737b4693f866287f6c5fa, type: 3}
   _spineEnemy: {fileID: 6285623933888752181, guid: 09dd6be3f21d1c744a1f06f64edab190, type: 3}
   _enemyHP: 25
-  _enemyAP: 1
+  _enemyAP: 3
   _enemyAttackTime: 1
   _enemyAT: 1
+  _isBoss: 0
+  _isShadow: 0
+  _bossType: 0
+  _shadowPrefab: {fileID: 0}
+  _defaultBuffs: []
   _isSpecialAttack: 1
   _enemySAT: 1
   _canBoardInterference: 1

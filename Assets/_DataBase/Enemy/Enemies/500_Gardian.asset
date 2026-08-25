@@ -16,7 +16,7 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: d7fd1366f858fd848a895b461706de31, type: 3}
   _spineEnemy: {fileID: 0}
   _enemyHP: 100
-  _enemyAP: 10
+  _enemyAP: 5
   _enemyAttackTime: 1
   _enemyAT: 1
   _isBoss: 1
@@ -28,8 +28,9 @@ MonoBehaviour:
     _amount: 1
   _isSpecialAttack: 1
   _enemySAT: 3
-  _canBoardInterference: 0
+  _canBoardInterference: 1
   _effectTime: 0
   _cardEffectID: 
-  _canBuff: 0
+  _canBuff: 1
+  _buffs: 08
   _rewardAmount: e8030000dc050000

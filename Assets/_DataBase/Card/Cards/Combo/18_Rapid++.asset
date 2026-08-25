@@ -20,8 +20,8 @@ MonoBehaviour:
   _name: "\u30E9\u30D4\u30C3\u30C9++"
   _description: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(\u970A\u9663)\u9023\u767A+1"
   _colorDescription: "\u9B54\u6CD5\u9663\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(<color=#FFF300>\u970A\u9663</color>)<color=#4EFF8F>\u9023\u767A</color>+1"
-  _cost: 2
-  _maxTimes: 10
+  _cost: 1
+  _maxTimes: 6
   _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1

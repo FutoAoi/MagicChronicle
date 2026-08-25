@@ -176,6 +176,11 @@ public class AttackManager : MonoBehaviour
             //ƒoƒt
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
+                if (enemy.IsBoss && _stageManager.BossPos != count)
+                {
+                    count++;
+                    continue;
+                }
                 enemy.ContractionAttackTurn(1);
                 if (enemy.IsSpecialAttack)
                 {
@@ -183,8 +188,10 @@ public class AttackManager : MonoBehaviour
 
                     yield return new WaitUntil(() => _isFinishEnemyBuff);
                     _isFinishEnemyBuff = false;
-                }   
+                }
+                count++;
             }
+            count = 0;
 
             //’ÊíUŒ‚
             foreach (Enemy enemy in _stageManager.EnemyList)
@@ -217,18 +224,25 @@ public class AttackManager : MonoBehaviour
                 }
                 count++;
             }
+            count = 0;
 
             //”Õ–ÊŠ±Â
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
                 if (enemy.IsSpecialAttack)
                 {
+                    if (enemy.IsBoss && _stageManager.BossPos != count)
+                    {
+                        count++;
+                        continue;
+                    }
                     StartCoroutine(enemy.SpecialAttack());
 
                     yield return new WaitUntil(() => _isFinishSpecialAttack);
                     _isFinishSpecialAttack = false;
                     enemy.FinishAttack();
                 }
+                count++;
             }
 
             if (CheckEnemy())

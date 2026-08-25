@@ -114,7 +114,6 @@ public class StageManager : MonoBehaviour
             _enemyList[(int)_bossPos - 1] = boss;
             _enemyList[(int)_bossPos + 1].InvisibleAttackTurn();
             _enemyList[(int)_bossPos + 1] = boss;
-
         }
 
         //‹ó‚Ì“G‚ğİ’u

@@ -6,7 +6,7 @@ public abstract class CharacterBase : MonoBehaviour, IBuffable
     public bool IsDead;
     public int MaxHP => _maxHP;
     public int CurrentHP => _currentHP;
-
+    public int AttackPower => _attackPower;
     public HpBarController HpBarContller => _hpBarContller;
     public RectTransform Rect => _rect;
     [SerializeField, Tooltip("UŒ‚—Í")] protected int _attackPower;

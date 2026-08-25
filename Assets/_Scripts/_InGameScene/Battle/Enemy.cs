@@ -134,11 +134,13 @@ public class Enemy : CharacterBase
         if (_enemy.IsSpecialAttack)
         {
             _currentSAT -= reductionTurn;
+            Debug.Log($"[{_enemyID}] SAT after decrement={_currentSAT}");
             _specialTMP.text = _currentSAT.ToString();
             
             if(_currentSAT <= 0)
             {
                 _isSpecialAttack = true;
+                Debug.Log($"[{_enemyID}] Special triggered! reset to {_enemy.EnemySAT}");
                 _currentSAT = _enemy.EnemySAT;
             }
         }
@@ -157,9 +159,9 @@ public class Enemy : CharacterBase
     {
         if (_enemy.CanBuff && !IsDead)
         {
-            foreach (IBuff buff in _enemy.Buffs)
+            foreach (var buff in _enemy.Buffs)
             {
-                buff.Excute(this);
+                AddBuff(buff);
                 yield return null;
             }
         }
@@ -217,11 +219,11 @@ public class Enemy : CharacterBase
     public void FinishAttack()
     {
         _isAttackTurn = false;
+        if (_isSpecialAttack)
+            _specialTMP.text = _enemy.EnemySAT.ToString();
         _isSpecialAttack = false;
         if(IsDead)return ;
         _attackTurnTMP.text = _enemyAT.ToString();
-        if(_enemy.IsSpecialAttack)
-            _specialTMP.text = _currentSAT.ToString();
     }
 
     public override void Dead()
