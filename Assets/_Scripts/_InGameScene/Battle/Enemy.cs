@@ -134,13 +134,11 @@ public class Enemy : CharacterBase
         if (_enemy.IsSpecialAttack)
         {
             _currentSAT -= reductionTurn;
-            Debug.Log($"[{_enemyID}] SAT after decrement={_currentSAT}");
             _specialTMP.text = _currentSAT.ToString();
             
             if(_currentSAT <= 0)
             {
                 _isSpecialAttack = true;
-                Debug.Log($"[{_enemyID}] Special triggered! reset to {_enemy.EnemySAT}");
                 _currentSAT = _enemy.EnemySAT;
             }
         }
@@ -244,10 +242,10 @@ public class Enemy : CharacterBase
             tile.DisplayMark(false);
             if (_isBoss)
             {
-                if (stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom1))
+                if (stageManager.SlotList[_heightPos - 1][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom1))
                     phantom1.DisplayMark(false);
 
-                if (stageManager.SlotList[_heightPos][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom2))
+                if (stageManager.SlotList[_heightPos + 1][stageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var phantom2))
                     phantom2.DisplayMark(false);
             }
         }
