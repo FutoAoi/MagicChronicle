@@ -94,8 +94,6 @@ public class Enemy : CharacterBase
             }
 
             HpBarContller.ShowUI(CurrentHP, MaxHP);
-            AddBuff(BuffType.Weaken);
-            AddBuff(BuffType.Counter);
         }
     }
 
