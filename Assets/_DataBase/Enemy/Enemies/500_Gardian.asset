@@ -28,7 +28,7 @@ MonoBehaviour:
     _amount: 1
   _isSpecialAttack: 1
   _enemySAT: 3
-  _canBoardInterference: 1
+  _canBoardInterference: 0
   _effectTime: 0
   _cardEffectID: 
   _canBuff: 1
