@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// 基本UIManagerクラス
@@ -73,6 +74,9 @@ public abstract class UIManagerBase : MonoBehaviour
                 _description.DisplayKeyWordWindow(key);
             }
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_rt);
+        PositionPanelWithFlip(rect);
     }
 
     public void DisplayDescriptionPanel(bool isDisplay)
@@ -96,5 +100,43 @@ public abstract class UIManagerBase : MonoBehaviour
             mouse,
             cam
         );
+    }
+
+    private void PositionPanelWithFlip(RectTransform target)
+    {
+        _rt.position = target.position;
+        RectTransform canvasRect = _canvas.transform as RectTransform;
+        Vector3[] canvasCorners = new Vector3[4];
+        canvasRect.GetWorldCorners(canvasCorners);
+        Vector3[] panelCorners = new Vector3[4];
+        _rt.GetWorldCorners(panelCorners);
+        Vector3 offset = Vector3.zero;
+
+        // 上端がCanvasをはみ出すとき、パネル1個分下にずらして反転
+        if (panelCorners[1].y > canvasCorners[1].y)
+        {
+            float panelHeight = panelCorners[1].y - panelCorners[0].y;
+            offset.y -= panelHeight;
+        }
+
+        // 反転させた結果、今度は下端がはみ出す場合のフォールバック
+        if (panelCorners[0].y + offset.y < canvasCorners[0].y)
+        {
+            offset.y = canvasCorners[0].y - panelCorners[0].y;
+        }
+
+        // 右端がはみ出す時に左にずらす
+        if (panelCorners[2].x > canvasCorners[2].x)
+        {
+            offset.x -= (panelCorners[2].x - canvasCorners[2].x);
+        }
+
+        // 左端がはみ出す時に右にずらす
+        if (panelCorners[0].x < canvasCorners[0].x)
+        {
+            offset.x += (canvasCorners[0].x - panelCorners[0].x);
+        }
+
+        _rt.position += offset;
     }
 }
