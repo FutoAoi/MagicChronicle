@@ -40,9 +40,10 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Transform _tf;
     private UIManagerBase _uiManager;
     private Vector3 _defaultScale;
-    private float _selectedScale = 1.1f;
-    private float _animationTime = 0.2f;
-    private bool _isSerect = false;
+    private bool _isSelect = false;
+
+    private static RewardCard _selectedCard;
+
 
     private void Awake()
     {
@@ -107,55 +108,40 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-    //    if (!IsFinish) return;
 
-    //    _tf.DOKill();
-    //    _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
-
-    //    if(_uiManager != null)
-    //    {
-    //        _uiManager.DisplayDescriptionPanel(true);
-    //        _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
-    //    }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!IsFinish) return;
 
-        _tf.DOKill();
-        _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
-
-        _isSerect = false;
-
-        if (_uiManager != null)
-            _uiManager.DisplayDescriptionPanel(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!_isSerect)
+        if(!_isSelect)
         {
-            if (!IsFinish) return;
-            _isSerect = true;
+            // 以前選んでいた別カードを解除
+            if (_selectedCard != null && _selectedCard != this)
+                _selectedCard.Deselect();
+
+            _selectedCard = this;
+            _isSelect = true;
 
             _tf.DOKill();
-            _tf.DOScale(_defaultScale * _hoverScale, _durationScale).SetEase(Ease.OutBack);
+            _tf.DOScale(_defaultScale * _hoverScale, _durationScale)
+                .SetEase(Ease.OutBack);
 
             if (_uiManager != null)
             {
                 _uiManager.DisplayDescriptionPanel(true);
                 _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
             }
+
             return;
         }
-
-        if(_isSerect)
-        {
-            DeckManager.Instance.AddDeck(_cardID);
-            gameObject.SetActive(false);
-            GameManager.Instance.SceneChange(SceneType.StageSerectScene);
-        }
+        DeckManager.Instance.AddDeck(_cardID);
+        gameObject.SetActive(false);
+        GameManager.Instance.SceneChange(SceneType.StageSerectScene);
     }
 
     private Image GetArrowImage(MagicVector vector)
@@ -168,5 +154,13 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             MagicVector.Down => _down,
             _ => null
         };
+    }
+
+    public void Deselect()
+    {
+        _isSelect = false;
+
+        _tf.DOKill();
+        _tf.DOScale(_defaultScale, _durationScale).SetEase(Ease.OutQuad);
     }
 }
