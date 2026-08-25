@@ -64,11 +64,23 @@ public class MapManager : MonoBehaviour
         MapData.CurrentRoomIndex = nextRoomIndex;
         if(isBoss)
         {
+            if(Platform.IsAndroid)
+            {
+                GameManager.Instance.SceneChange(SceneType.InGameScene_Boss_Android);
+                return;
+            }
             GameManager.Instance.SceneChange(SceneType.InGameScene_Boss);
             return;
         }
-
-        GameManager.Instance.SceneChange(SceneType.InGameScene);
+        else
+        {
+            if(Platform.IsAndroid)
+            {
+                GameManager.Instance.SceneChange(SceneType.InGameScene_Android);
+                return;
+            }
+            GameManager.Instance.SceneChange(SceneType.InGameScene);
+        }
     }
 
     public void OpenEventPanel(int nextRoomIndex, int eventID)

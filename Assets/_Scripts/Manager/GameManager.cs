@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("エネミー")] private EnemyDataBase _enemyDataBase;
     [SerializeField, Tooltip("マップデータ")] private MapData _mapData;
     [SerializeField, Tooltip("プレイヤーデータ")] private PlayerDataBase _playerDataBase;
-    [SerializeField, Tooltip("生成マップデータ")] private GenerateMapData _generateMapData;
+    [SerializeField, Tooltip("生成マップデータ")] private GenerateMapData? _generateMapData;
     [SerializeField, Tooltip("キーワードデータ")] private KeywordDataBase _keywordDataBase;
 
     [Header("ID")]
@@ -46,8 +46,10 @@ public class GameManager : MonoBehaviour
     private PlayerType _playerType = PlayerType.Combo;
     private PlayerStatus _playerStatus = null;
     private bool _isOrganize = false, _isDraw = false, _isAction = false, _isReward = false, _isBattleUIManager, _isGameover = false;
+    private bool _isChangeScene = false;
 
     [SerializeField] private SceneType _currentScene;
+    
 
     private void Start()
     {
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_currentScene != SceneType.InGameScene && _currentScene != SceneType.InGameScene_Boss) return;
+        if (_currentScene != SceneType.InGameScene && _currentScene != SceneType.InGameScene_Boss && _currentScene != SceneType.InGameScene_Android && _currentScene != SceneType.InGameScene_Boss_Android) return;
 
         switch (CurrentPhase)
         {
@@ -98,7 +100,7 @@ public class GameManager : MonoBehaviour
     void UpdateBuildStage()
     {
         if (StageManager == null) return;
-
+        _isChangeScene = false;
         TrySetPlayerStatus(true);
         Player.StagePlayerInit(_playerStatus);
         StageManager.CreateStage(StageID);
@@ -188,9 +190,14 @@ public class GameManager : MonoBehaviour
 
     void UpdateReward()
     {
-        if( _currentScene == SceneType.InGameScene_Boss)
+        if( _currentScene == SceneType.InGameScene_Boss || _currentScene == SceneType.InGameScene_Boss_Android)
         {
-            SceneChange(SceneType.ClearScene);
+            if(!_isChangeScene)
+            {
+                SceneChange(SceneType.TitleScene);
+                InitializeData();
+                _isChangeScene = true;
+            }
             return;
         }
         if (!_isReward)
@@ -230,6 +237,7 @@ public class GameManager : MonoBehaviour
             {
                 InitializeBool();
                 TrySetPlayerStatus(false);
+                InitializeData();
                 DeckManager.Instance.ResetDeck();
             }
         });
@@ -243,6 +251,15 @@ public class GameManager : MonoBehaviour
         _isAction = false;
         DecreaseBuff = false;
         IsEnemyAction = false;
+    }
+
+    private void InitializeData()
+    {
+        _generateMapData = null;
+        _generateMapData = MapGenerator.GenerateMap(_mapData);
+        StageID = 1;
+        TrySetPlayerStatus(true);
+        WalletManager.Instance.ClearMoney();
     }
 
     private void TrySetPlayerStatus(bool isSet)

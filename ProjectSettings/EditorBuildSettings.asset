@@ -20,14 +20,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/InGameScene_Boss.unity
     guid: 0bd55ff01ce680042b8ec93d9d0054c0
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/InGameScene_Android.unity
-    guid: 8fc85632ae8b9204eb9440d13a698c5f
+    guid: c2dfc17b6ebd38e43b8ee3fdb8777e26
   - enabled: 1
     path: Assets/_Scenes/CharacterSerectScene.unity
     guid: c141eb9ddac00104d9bde5bb2621baf5
   - enabled: 1
     path: Assets/_Scenes/ClearScene.unity
     guid: 0e7df1640d0fef444be3eaee6bfa5ba6
+  - enabled: 1
+    path: Assets/_Scenes/InGameScene_Boss_Android.unity
+    guid: 0783b7f1923ac3b4ab28d7464c057443
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
