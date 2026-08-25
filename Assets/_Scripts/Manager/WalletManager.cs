@@ -118,4 +118,9 @@ public class WalletManager : MonoBehaviour
         //ƒpƒlƒ‹ˆÚ“®‰‰o
         CurrentWalletPanel.PanelMoveAnimation(false);
     }
+
+    public void ClearMoney()
+    {
+        _currentMoney = 0;
+    }
 }

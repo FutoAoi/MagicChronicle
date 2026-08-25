@@ -12,7 +12,12 @@ public class SceneChangeButton : MonoBehaviour
     }
     private void SceneChange()
     {
-        GameManager.Instance.SceneChange(_sceneName);
         CriAudioManager.Instance.PlaySe("SE_ButtonCharaOK");
+        if ( _sceneName == SceneType.InGameScene && Platform.IsAndroid)
+        {
+            GameManager.Instance.SceneChange(SceneType.InGameScene_Android);
+            return;
+        }
+        GameManager.Instance.SceneChange(_sceneName);
     }
 }

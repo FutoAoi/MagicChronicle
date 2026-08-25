@@ -33,6 +33,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ShopManager _shopManager;
     private Transform _tf;
 
+    private bool _isSerect = false;
+
     /// <summary>
     /// カードデータセット
     /// </summary>
@@ -87,6 +89,12 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <exception cref="System.NotImplementedException"></exception>
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(!_isSerect)
+        {
+            _isSerect = true;
+            _tf.DOKill();
+            _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+        }
         _shopManager.Buy(_cardPrice, _cardID, this.gameObject);
     }
 

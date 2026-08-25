@@ -52,7 +52,9 @@ public enum SceneType : byte
     CampScene,
     CharacterSerectScene,
     InGameScene_Boss,
-    ClearScene
+    ClearScene,
+    InGameScene_Android,
+    InGameScene_Boss_Android
 }
 /// <summary>
 /// カードのタイプ

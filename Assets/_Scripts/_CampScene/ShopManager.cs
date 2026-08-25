@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ショップの機能をまとめているクラス
@@ -11,6 +12,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private MapView _mapView;
     [Header("ショップカードリスト")]
     [SerializeField] private List<ShopCardData> _ShopCards = new();
+    [SerializeField] private Button _healButton;
 
     [Header("-----レアリティ別の金額設定-----")]
     [SerializeField] private int _minComonPrice;
