@@ -5341,7 +5341,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1537301605241018600, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722887659558330665, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1503
       objectReference: {fileID: 0}
     - target: {fileID: 5206268379426040331, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_Pivot.x
@@ -5349,7 +5353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206268379426040331, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5206268379426040331, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5421,7 +5425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206268379426040331, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.0092468
+      value: 1020
       objectReference: {fileID: 0}
     - target: {fileID: 5206268379426040331, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5461,11 +5465,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_LocalScale.x
@@ -5481,11 +5485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 235
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8502930928027688857, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3455.069
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127301660057713163, guid: cc3df947360001446bcc0d79c7c31124, type: 3}
       propertyPath: _isBattleScene
