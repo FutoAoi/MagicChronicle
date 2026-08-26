@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IShopSelectable 
 {
     [Header("-----参照-----")]
     [SerializeField, Tooltip("名前")] private TextMeshProUGUI _name;
@@ -33,7 +33,9 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ShopManager _shopManager;
     private Transform _tf;
 
-    private bool _isSerect = false;
+    private static ShopCard _selectedCard;
+    private bool _isSelect = false;
+
 
     /// <summary>
     /// カードデータセット
@@ -78,6 +80,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="eventData"></param>
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (_isSelect) return;
+
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
     }
@@ -89,13 +93,19 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <exception cref="System.NotImplementedException"></exception>
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!_isSerect)
+        bool isConfirmed = _shopManager.SelectOrConfirm(this);
+
+        if (!isConfirmed)
         {
-            _isSerect = true;
+            _isSelect = true;
+
             _tf.DOKill();
-            _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+            _tf.DOScale(_defaultScale * _hoverScale, _duration)
+                .SetEase(Ease.OutBack);
+            return;
         }
-        _shopManager.Buy(_cardPrice, _cardID, this.gameObject);
+
+        _shopManager.Buy(_cardPrice, _cardID, gameObject);
     }
 
     private Image GetArrowImage(MagicVector vector)
@@ -108,5 +118,19 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             MagicVector.Down => _down,
             _ => null
         };
+    }
+
+    public void Deselect()
+    {
+        _isSelect= false;
+
+        _tf.DOKill();
+        _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+    }
+
+    private void OnDisable()
+    {
+        if (_selectedCard == this)
+            _selectedCard = null;
     }
 }
