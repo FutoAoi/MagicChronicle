@@ -148,7 +148,6 @@ public class GameManager : MonoBehaviour
         if (!_isAction)
         {
             _uiManagerButtle.ResetDrawCount();
-            _uiManagerButtle.ClearCard();
             CurrentUIManager.DisplayDescriptionPanel(false);
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
