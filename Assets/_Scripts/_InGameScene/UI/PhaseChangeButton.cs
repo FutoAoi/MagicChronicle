@@ -31,6 +31,8 @@ public class PhaseChangeButton : MonoBehaviour
 
         _gamemanager.CurrentPhase = BattlePhase.Direction;
 
+        if(_gamemanager.CurrentUIManager.TryGetComponent<IBattleUI>(out var manager))
+            manager.ClearCard();
         _attackPointManager.DisplayAttackButton(false);
         Vector3 scale = _rt.localScale;
         Sequence seq = DOTween.Sequence();
