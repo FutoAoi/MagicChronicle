@@ -75,6 +75,7 @@ public abstract class UIManagerBase : MonoBehaviour
             }
         }
 
+        Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_rt);
         PositionPanelWithFlip(rect);
     }
@@ -112,29 +113,36 @@ public abstract class UIManagerBase : MonoBehaviour
         _rt.GetWorldCorners(panelCorners);
         Vector3 offset = Vector3.zero;
 
-        // 上端がCanvasをはみ出すとき、パネル1個分下にずらして反転
-        if (panelCorners[1].y > canvasCorners[1].y)
-        {
-            float panelHeight = panelCorners[1].y - panelCorners[0].y;
-            offset.y -= panelHeight;
-        }
+        Vector3 ownerPos = target.parent.position;
+        float mirroredX = 2f * ownerPos.x - target.position.x;
+        float shiftX = mirroredX - target.position.x;
 
-        // 反転させた結果、今度は下端がはみ出す場合のフォールバック
-        if (panelCorners[0].y + offset.y < canvasCorners[0].y)
-        {
-            offset.y = canvasCorners[0].y - panelCorners[0].y;
-        }
-
-        // 右端がはみ出す時に左にずらす
         if (panelCorners[2].x > canvasCorners[2].x)
         {
-            offset.x -= (panelCorners[2].x - canvasCorners[2].x);
+            offset.x = shiftX;
+        }
+        else if (panelCorners[0].x < canvasCorners[0].x)
+        {
+            offset.x = shiftX;
         }
 
-        // 左端がはみ出す時に右にずらす
-        if (panelCorners[0].x < canvasCorners[0].x)
+        if (panelCorners[2].x + offset.x > canvasCorners[2].x)
         {
-            offset.x += (canvasCorners[0].x - panelCorners[0].x);
+            offset.x = canvasCorners[2].x - panelCorners[2].x;
+        }
+
+        if (panelCorners[0].x + offset.x < canvasCorners[0].x)
+        {
+            offset.x = canvasCorners[0].x - panelCorners[0].x;
+        }
+
+        if (panelCorners[1].y > canvasCorners[1].y)
+        {
+            offset.y -= (panelCorners[1].y - canvasCorners[1].y);
+        }
+        else if (panelCorners[0].y + offset.y < canvasCorners[0].y)
+        {
+            offset.y += (canvasCorners[0].y - (panelCorners[0].y + offset.y));
         }
 
         _rt.position += offset;
