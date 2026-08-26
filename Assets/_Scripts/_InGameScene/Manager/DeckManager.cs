@@ -85,6 +85,18 @@ public class DeckManager : MonoBehaviour
         _runtimeDeckData = Instantiate(_deckData);
     }
 
+    /// <summary>
+    /// デッキ内の指定インデックスのカードを1枚削除する
+    /// </summary>
+    public bool RemoveDeckAt(int deckIndex)
+    {
+        if (deckIndex < 0 || deckIndex >= DeckMain.Count)
+            return false;
+
+        _runtimeDeckData.Cards.RemoveAt(deckIndex);
+        return true;
+    }
+
     private void OnDestroy()
     {
         if (_runtimeDeckData != null)

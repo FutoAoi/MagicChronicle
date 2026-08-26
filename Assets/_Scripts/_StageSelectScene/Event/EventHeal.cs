@@ -10,7 +10,7 @@ public class EventHeal : IEventEffect
 
         int amount = (int)(_status.PlayerMaxHp * ((float)_healAmount / 100));
         _status.HealHp(amount);
-        
 
+        CriAudioManager.Instance.PlaySe("SE_Heal");
     }
 }

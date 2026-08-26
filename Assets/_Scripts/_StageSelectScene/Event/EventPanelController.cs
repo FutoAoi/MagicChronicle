@@ -12,6 +12,7 @@ public class EventPanelController : MonoBehaviour
     [SerializeField, Tooltip("選択肢の場所")] private Transform _choiceButtonParent;
     [SerializeField, Tooltip("選択ボタンのプレハブ")] private EventChoiceButton _choiceButtonPrehab;
     [SerializeField, Tooltip("結果後にとじるボタン")] private Button _closeButton;
+    [SerializeField] private HpBarController _hpBarController;
 
     [Header("データ")]
     [SerializeField, Tooltip("イベントのデータベース")] private EventDataBase _eventDataBase;
@@ -76,6 +77,7 @@ public class EventPanelController : MonoBehaviour
         _resultText.text = choice.ResultText;
         _resultText.gameObject.SetActive(true);
         _closeButton.gameObject.SetActive(true);
+        _hpBarController.HpBarUpdate(GameManager.Instance.PlayerStatus.PlayerCurrentHp, GameManager.Instance.PlayerStatus.PlayerMaxHp);
     }
 
     private void ClosePanel()
