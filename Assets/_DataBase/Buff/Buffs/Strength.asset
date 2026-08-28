@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 4
   _icon: {fileID: 4413183947946236502, guid: e567db0059eea7f4daf24bf7aba44be9, type: 3}
-  _name: "\u529B"
-  _description: 
+  _name: "\u7B4B\u529B"
+  _description: "\u653B\u6483\u529B\u304C\u30AB\u30A6\u30F3\u30C8\u6570\u5206\u4E0A\u6607\u3059\u308B"
   _isDecreaseTurn: 0
   _isDisplayCount: 1
   _effect: []
