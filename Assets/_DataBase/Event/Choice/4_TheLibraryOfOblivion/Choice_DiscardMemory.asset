@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841466d708f25044e9924998fbd238fc, type: 3}
+  m_Name: Choice_DiscardMemory
+  m_EditorClassIdentifier: Assembly-CSharp::EventChoice
+  _choiceText: "\u4E0D\u8981\u306A\u8A18\u61B6\u3092\u6368\u3066\u308B"
+  _resultText: "\u4E0D\u8981\u306A\u6280\u8853\u3092\u5FD8\u308C\u3001\u3088\u308A\u6D17\u7DF4\u3055\u308C\u305F\u6226\u3044\u65B9\u3092\u8EAB\u306B\u3064\u3051\u305F"
+  _eventEffects: []
+  references:
+    version: 2
+    RefIds: []

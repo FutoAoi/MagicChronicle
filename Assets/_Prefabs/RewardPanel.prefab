@@ -2037,6 +2037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[PNL]BackView'
       objectReference: {fileID: 0}
+    - target: {fileID: 5443880246723380592, guid: 9433988e8aa5d90449f22a707d6794bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5770737586966545020, guid: 9433988e8aa5d90449f22a707d6794bd, type: 3}
       propertyPath: m_Name
       value: '[IMG]BackImage'

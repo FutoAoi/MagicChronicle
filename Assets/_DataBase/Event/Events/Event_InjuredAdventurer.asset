@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f8b1786ba97344eaad67d2c9701e71, type: 3}
+  m_Name: Event_InjuredAdventurer
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  _eventID: 11
+  _name: "\u8CA0\u50B7\u3057\u305F\u5192\u967A\u8005"
+  _description: "\u901A\u8DEF\u306E\u9685\u3067\u5192\u967A\u8005\u304C\u5012\u308C\u3066\u3044\u308B\u3002\\n\u300C\u983C\u3080\u2026\u2026\u56DE\u5FA9\u85AC\u3092\u8CB7\u3046\u91D1\u3092\u8CB8\u3057\u3066\u304F\u308C\u2026\u2026\u300D"
+  _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
+  _choices:
+  - {fileID: 11400000, guid: 976ddcf4e38ee3f4ca41c70ed99fd5e5, type: 2}
+  - {fileID: 11400000, guid: edcc314dbc32d5345b5aa880b975de43, type: 2}

@@ -36,7 +36,7 @@ public class StagePlayer : CharacterBase
     public void ChangeMaxCost()
     {
         _maxCost = _status.PlayerMaxCost + GetBuffCount(BuffType.CostPlus) - GetBuffCount(BuffType.CostMinus);
-        _gameManager.CurrentUIManager.UpdateCostUI();
+        //_gameManager.CurrentUIManager.UpdateCostUI();
     }
 
     /// <summary>
@@ -83,14 +83,14 @@ public class StagePlayer : CharacterBase
     public void StagePlayerInit(PlayerStatus nowPlayerStatus)
     {
         _status = nowPlayerStatus;
+        foreach (var buff in _status.DefaultBuffs)
+        {
+            AddBuff(buff, 1, false);
+        }
         SetStatus(_status.PlayerMaxHp, _status.PlayerCurrentHp);
         GameObject spinePlayer = Instantiate(_gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).PlayerPrefab, this.transform);
         _skeletonAnimation = spinePlayer.GetComponent<SkeletonAnimation>();
         HpBarContller.ShowUI(CurrentHP, MaxHP);
         _maxCost = _status.PlayerMaxCost;
-        foreach (var buff in _status.DefaultBuffs)
-        {
-            AddBuff(buff, 1, false);
-        }
     }
 }

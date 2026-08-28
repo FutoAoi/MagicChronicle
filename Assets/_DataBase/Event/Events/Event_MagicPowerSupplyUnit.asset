@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f8b1786ba97344eaad67d2c9701e71, type: 3}
+  m_Name: Event_MagicPowerSupplyUnit
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  _eventID: 9
+  _name: "\u9B54\u529B\u306E\u4F9B\u7D66\u88C5\u7F6E"
+  _description: "\u53E4\u4EE3\u6587\u660E\u306E\u88C5\u7F6E\u304C\u4F4E\u3044\u97F3\u3092\u7ACB\u3066\u3066\u3044\u308B\u3002"
+  _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
+  _choices:
+  - {fileID: 11400000, guid: 9e00522655643264997ae94051b2a3ae, type: 2}
+  - {fileID: 11400000, guid: 4c734e6f4b2d8bd42b8a8129cc935fbe, type: 2}

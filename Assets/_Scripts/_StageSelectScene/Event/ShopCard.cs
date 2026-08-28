@@ -6,12 +6,31 @@ using UnityEngine.UI;
 
 public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IShopSelectable 
 {
+    public bool IsSelect
+    {
+        get => _isSelect;
+        set
+        {
+            if (_isSelect == value) return;
+
+            _isSelect = value;
+
+            if(_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
+            _uiManager.DisplayDescriptionPanel(_isSelect);
+            _uiManager.UpdateDescriptionPanel(true,_rt,_cardID);
+
+            _highLight.SetActive(_isSelect);
+        }
+    }
+
     [Header("-----参照-----")]
     [SerializeField, Tooltip("名前")] private TextMeshProUGUI _name;
     [SerializeField, Tooltip("コスト")] private TextMeshProUGUI _cost;
     [SerializeField, Tooltip("耐久値")] private TextMeshProUGUI _maxTimes;
     [SerializeField, Tooltip("挿絵")] private Image _cardImage;
     [SerializeField, Tooltip("値段")] private TextMeshProUGUI _cardPriceText;
+    [SerializeField] private RectTransform _rt;
+    [SerializeField] private GameObject _highLight;
 
     [Header("矢印")]
     [SerializeField] private Image _up;
@@ -32,7 +51,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private int _cardPrice;
     private ShopManager _shopManager;
     private Transform _tf;
-
+    private UIManagerBase _uiManager;
     private static ShopCard _selectedCard;
     private bool _isSelect = false;
 
@@ -53,6 +72,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _maxTimes.text = $"{cardData.MaxTimes}";
         _cardImage.sprite = cardData.CardSprite;
         _cardPriceText.text = $"{cardPrice}";
+        _highLight.SetActive(false);
 
         _up.color = _defaultColor;
         _down.color = _defaultColor;
@@ -72,6 +92,10 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         _tf.DOKill();
         _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+
+        if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
+        _uiManager.DisplayDescriptionPanel(true);
+        _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
     }
 
     /// <summary>
@@ -84,6 +108,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+
+        _uiManager.DisplayDescriptionPanel(false);
     }
 
     /// <summary>
@@ -97,7 +123,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         if (!isConfirmed)
         {
-            _isSelect = true;
+            IsSelect = true;
 
             _tf.DOKill();
             _tf.DOScale(_defaultScale * _hoverScale, _duration)
@@ -122,7 +148,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Deselect()
     {
-        _isSelect= false;
+        IsSelect = false;
 
         _tf.DOKill();
         _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);

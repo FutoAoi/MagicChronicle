@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f8b1786ba97344eaad67d2c9701e71, type: 3}
+  m_Name: Event_TimeLog
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  _eventID: 13
+  _name: "\u6642\u9593\u306E\u8A18\u9332"
+  _description: "\u58C1\u306B\u306F\u7121\u6570\u306E\u843D\u66F8\u304D\u304C\u523B\u307E\u308C\u3066\u3044\u308B\u3002\\n\u300E\u6642\u8A08\u306F\u6B62\u307E\u3063\u305F\u307E\u307E\u3060\u300F\u300E\u4F55\u65E5\u7D4C\u3063\u305F\uFF1F\u300F\u300E\u3053\u3053\u3067\u306F\u6642\u9593\u304C\u9032\u307E\u306A\u3044\u300F"
+  _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
+  _choices:
+  - {fileID: 11400000, guid: 60099285574c4e946a29cb6e217c3ade, type: 2}
+  - {fileID: 11400000, guid: b8eb347b52c16fa47beb131deb89c330, type: 2}
