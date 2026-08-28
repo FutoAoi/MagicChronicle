@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f8b1786ba97344eaad67d2c9701e71, type: 3}
+  m_Name: Event_UnstableTransferLineup
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  _eventID: 7
+  _name: "\u4E0D\u5B89\u5B9A\u306A\u8EE2\u9001\u9663"
+  _description: "\u9B54\u6CD5\u9663\u304C\u4E0D\u898F\u5247\u306B\u660E\u6EC5\u3057\u3066\u3044\u308B\u3002"
+  _backGround: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
+  _choices:
+  - {fileID: 11400000, guid: bf4335e2fd80bc94ebfab2d7b286698b, type: 2}
+  - {fileID: 11400000, guid: 37eb464f037fc4446a7ea5f5e5c80f7b, type: 2}

@@ -31,7 +31,7 @@ public class PlayerStatus
     }
 
     public void SetCurrentHp(int value) => PlayerCurrentHp = value;
-    public void HealHp(int amount) => PlayerCurrentHp = Mathf.Clamp(PlayerCurrentHp + amount, 0, PlayerMaxHp);
+    public void HealHp(int amount) => PlayerCurrentHp = Mathf.Clamp(PlayerCurrentHp + amount, 1, PlayerMaxHp);
     public void AddMaxHp(int value) => PlayerMaxHp += value;
     public void AddMaxCost(int value) => PlayerMaxCost += value;
     public void AddDefaultBuff(BuffType addBuffType) => DefaultBuffs.Add(addBuffType);
