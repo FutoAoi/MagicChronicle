@@ -7,11 +7,12 @@ public class DeckDeletePanel : MonoBehaviour
     [SerializeField] private Transform _content;
     [SerializeField] private DeckDeleteCard _cardPrefab;
     [SerializeField] private GameObject _layPanel;
+    [SerializeField] private GameObject _text;
 
     private readonly List<DeckDeleteCard> _cardViews = new();
 
     private DeckDeleteCard _selectedCard;
-
+    private UIManagerBase _uiManager;
     private Func<int, bool> _tryDeleteCard;
 
     /// <summary>
@@ -27,6 +28,7 @@ public class DeckDeletePanel : MonoBehaviour
         gameObject.SetActive(true);
 
         Refresh();
+        _text.SetActive(true);
     }
 
     public void Close()
@@ -35,6 +37,7 @@ public class DeckDeletePanel : MonoBehaviour
         _tryDeleteCard = null;
 
         gameObject.SetActive(false);
+        _text.SetActive(false);
     }
 
     /// <summary>
@@ -61,6 +64,8 @@ public class DeckDeletePanel : MonoBehaviour
 
         // 1枚削除後、一覧を作り直してインデックスを更新
         _selectedCard = null;
+        if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
+        _uiManager.DisplayDescriptionPanel(false);
         Close();
     }
 

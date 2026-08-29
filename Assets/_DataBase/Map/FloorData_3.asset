@@ -21,5 +21,7 @@ MonoBehaviour:
     _stageID: 2
   - _roomType: 5
     _stageID: 1
+  - _roomType: 3
+    _stageID: 1
   _minNodes: 4
   _maxNodes: 4
