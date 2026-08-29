@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,10 +25,23 @@ public class RewardManager : MonoBehaviour
         _gameManager = GameManager.Instance;
         _cardData = _gameManager.CardDataBase;
         _skipButton.onClick.AddListener(RewardSkip);
+
         CriAudioManager.Instance.PlaySe("ME_Win");
-        foreach (var card in _rewardCard)
+
+        var usedCardIds = new HashSet<int>();
+        var cardType = _gameManager.GetCardTypeByPlayerType(_gameManager.PlayerType);
+
+        foreach(var card in _rewardCard)
         {
-            card.SetCard(_cardData.GetRandomCardIDByRarity(_rarity, _gameManager.GetCardTypeByPlayerType(_gameManager.PlayerType)));
+            int cardId;
+            do
+            {
+                cardId = _cardData.GetRandomCardIDByRarity(_rarity, cardType);
+            }
+            while (usedCardIds.Contains(cardId));
+
+            usedCardIds.Add(cardId);
+            card.SetCard(cardId);
         }
     }
 
