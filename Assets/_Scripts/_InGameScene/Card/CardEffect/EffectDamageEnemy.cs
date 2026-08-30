@@ -21,7 +21,7 @@ public class EffectDamageEnemy : IEffect
         else
         {
             _randomIndex = Random.Range(0, _attackTargets.Count);
-            _attackTargets[_randomIndex].Damaged(_effectDamege);
+            _attackTargets[_randomIndex].DamageFromMagicAttacks(_effectDamege,magic.CurrentSlot);
             CriAudioManager.Instance.PlaySe("SE_MagicCircleAttack");
         }
     }
