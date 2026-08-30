@@ -132,6 +132,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         _shopManager.Buy(_cardPrice, _cardID, gameObject);
+        _uiManager.DisplayDescriptionPanel(false);
     }
 
     private Image GetArrowImage(MagicVector vector)
