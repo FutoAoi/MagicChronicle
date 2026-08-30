@@ -83,8 +83,7 @@ public class AttackMagic : MonoBehaviour
         _player = _gameManager.Player;
         if (_firstParticle)
         {
-            _gameManager.EffectManager.ApplyEffect(ParticleType.Magic, transform);
-            _gameManager.EffectManager.ApplyEffect(ParticleType.FireDust, transform);
+            AddAttackEffect();
             _firstParticle = false;
         }
 
@@ -439,6 +438,17 @@ public class AttackMagic : MonoBehaviour
             case MagicVector.Right: return new Vector2Int(0, 1);
         }
         return Vector2Int.zero;
+    }
+
+    public void AddAttackEffect()
+    {
+        _gameManager.EffectManager.ApplyEffect(ParticleType.Magic, transform);
+        _gameManager.EffectManager.ApplyEffect(ParticleType.FireDust, transform);
+    }
+
+    public void BeginAttack()
+    {
+        IsAttack = true;
     }
     #endregion
     #region エフェクト

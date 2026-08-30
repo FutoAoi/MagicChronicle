@@ -18,7 +18,8 @@ public class BackgroundDeselector : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (_uiManager.CardMovement != null) return; // ƒhƒ‰ƒbƒO’†‚Ì“¯‰Ÿ‚µ‘Îô
-        _battleUI.ChangeSelectHandCard(null);
+        if(_battleUI != null)
+            _battleUI.ChangeSelectHandCard(null);
         _uiManager.DisplayDescriptionPanel(false);
     }
 }
