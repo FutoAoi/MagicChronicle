@@ -122,6 +122,38 @@ public class Enemy : CharacterBase
         CriAudioManager.Instance.PlaySe("SE_MagicHitEnemy");
     }
 
+    public void DamageFromMagicAttacks(int damage,Vector2Int attackPos,float duration = 0.6f,float height = 2.8f)
+    {
+        RectTransform startRt = _gameManager.StageManager
+            .SlotList[attackPos.x][attackPos.y].GetComponent<RectTransform>();
+        RectTransform finishRt = GetComponent<RectTransform>();
+        AttackMagic attack = MagicObjectPool.Instance.GetAttackMagic();
+        RectTransform magic = attack.GetComponent<RectTransform>();
+
+        Vector3 startPos = startRt.position;
+        Vector3 endPos = finishRt.position;
+        magic.position = startPos;
+        _gameManager.AttackManager.AttackMagicIndex++;
+        attack.gameObject.SetActive(true);
+        attack.AddAttackEffect();
+        attack.BeginAttack();
+        float direction = (endPos.y >= startPos.y) ? 1f : -1f;
+        float t = 0;
+        DOTween.To(() => t, x => t = x, 1f, duration)
+            .SetEase(Ease.InOutQuad)
+            .OnUpdate(() =>
+            {
+                Vector3 linear = Vector3.Lerp(startPos, endPos, t);
+                float arcOffset = 4f * height * t * (1f - t) * direction;
+                magic.position = linear + new Vector3(0f, arcOffset, 0f);
+            })
+            .OnComplete(() =>
+            {
+                Damaged(damage);
+                attack.DestroyMagic(_gameManager.AttackManager.IsPlayerTurn);
+            });
+    }
+
     /// <summary>
     /// UŒ‚ƒ^[ƒ“‚ğk‚ß‚é
     /// </summary>

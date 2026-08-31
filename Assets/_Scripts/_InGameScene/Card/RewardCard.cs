@@ -140,6 +140,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return;
         }
         DeckManager.Instance.AddDeck(_cardID);
+        _uiManager.DisplayDescriptionPanel(false);
         gameObject.SetActive(false);
         GameManager.Instance.SceneChange(SceneType.StageSerectScene);
     }
