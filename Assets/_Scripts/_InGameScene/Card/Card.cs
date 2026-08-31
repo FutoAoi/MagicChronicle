@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
+    public bool IsAnimation = false;
+
     [Header("カードの見た目")]
     [SerializeField, Tooltip("見た目の親")] private RectTransform _view;
     [SerializeField, Tooltip("挿絵")] private Image _cardImage;

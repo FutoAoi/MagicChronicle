@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IBattleUI
 {
+    public bool IsHandCardAnim { get; set; }
     /// <summary>
     /// ƒJ[ƒh‚ğˆø‚­
     /// </summary>
