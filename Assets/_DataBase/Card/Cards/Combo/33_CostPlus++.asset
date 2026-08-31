@@ -43,6 +43,6 @@ MonoBehaviour:
     - rid: 5748720707591209029
       type: {class: EffectAddBuff, ns: , asm: Assembly-CSharp}
       data:
-        _addBuffType: 12
+        _addBuffType: 10
         _canBuffEnemy: 0
         _isRandom: 0

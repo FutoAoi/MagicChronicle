@@ -239,7 +239,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     public override void UpdateCostUI()
     {
         _stagePlayer.ChangeMaxCost();
-        UpdateCostImage(_stagePlayer.CurrentCost);
+        UpdateMaxCostImage(_stagePlayer.MaxCost);
     }
 
     /// <summary>
