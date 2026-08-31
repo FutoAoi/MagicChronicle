@@ -3725,7 +3725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  _deckData: {fileID: 11400000, guid: a234882df860250429beba25b0794662, type: 2}
 --- !u!114 &975691465
 MonoBehaviour:
   m_ObjectHideFlags: 0

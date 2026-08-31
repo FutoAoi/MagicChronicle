@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
-  m_Name: 105_
+  m_Name: 103_Skip
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  _cardID: 105
+  _cardID: 103
   _rarity: 0
   _type: 0
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}
-  _name: 
-  _description: 
-  _colorDescription: 
+  _name: "\u30B9\u30AD\u30E5\u30E9"
+  _description: "\u9B54\u6CD5\u5F3E\u304C\u9032\u3080\u65B9\u5411\u306E\u6B21\u306E\uFF11\u30DE\u30B9\u3092\u98DB\u3070\u3059\u3002"
+  _colorDescription: "\u9B54\u6CD5\u5F3E\u304C\u9032\u3080\u65B9\u5411\u306E\u6B21\u306E\uFF11\u30DE\u30B9\u3092\u98DB\u3070\u3059\u3002"
   _cost: 0
   _maxTimes: 0
   _isGhost: 0
