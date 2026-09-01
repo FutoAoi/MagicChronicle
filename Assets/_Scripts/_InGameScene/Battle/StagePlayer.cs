@@ -1,9 +1,10 @@
 using Spine.Unity;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StagePlayer : CharacterBase
 {
-    public int MaxCost => _maxCost;
+    public int MaxCost => _maxCost = _status.PlayerMaxCost + GetBuffCount(BuffType.CostPlus) - GetBuffCount(BuffType.CostMinus);
     public int CurrentCost => _currentCost;
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
 
@@ -30,21 +31,11 @@ public class StagePlayer : CharacterBase
     }
 
     /// <summary>
-    /// コスト上限値の上昇
-    /// </summary>
-    /// <param name="plus"></param>
-    public void ChangeMaxCost()
-    {
-        _maxCost = _status.PlayerMaxCost + GetBuffCount(BuffType.CostPlus) - GetBuffCount(BuffType.CostMinus);
-        //_gameManager.CurrentUIManager.UpdateCostUI();
-    }
-
-    /// <summary>
     /// コストの初期化
     /// </summary>
     public void SetCost()
     {
-        _currentCost = _maxCost;
+        _currentCost = MaxCost;
         _gameManager.CurrentUIManager.UpdateCostUI();
     }
 

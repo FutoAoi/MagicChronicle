@@ -9,6 +9,8 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
 {
     public HpBarController BossHP => _bossHp;
 
+    public bool IsHandCardAnim { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     [Header("-----”’lİ’è-----")]
     [SerializeField, Tooltip("èD‚Ì”")] private int _handRange = 5;
     [SerializeField, Tooltip("ƒhƒ[ŠÔŠu")] private float _distance = 0.1f;
@@ -239,6 +241,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
 
     public override void UpdateCostUI()
     {
+        UpdateMaxCostImage(_stagePlayer.MaxCost);
         UpdateCostImage(_stagePlayer.CurrentCost);
     }
 
