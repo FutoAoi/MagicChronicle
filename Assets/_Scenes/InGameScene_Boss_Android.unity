@@ -2082,7 +2082,7 @@ PrefabInstance:
     - target: {fileID: 1688937759904177879, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6943147605366372219, guid: 7c74b911051bd31459cf7b614a4734a7, type: 3}
+      objectReference: {fileID: 3291740300090142442, guid: 43aae406cae40984a9d665e5eef4110d, type: 3}
     - target: {fileID: 1846106991587923313, guid: 6d2557a33a2dbbd429778df7d5d19778, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2388,8 +2388,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.7
-  m_fontSizeBase: 53.7
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
