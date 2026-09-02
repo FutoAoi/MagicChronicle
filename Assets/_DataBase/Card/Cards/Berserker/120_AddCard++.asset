@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
-  m_Name: 119_
+  m_Name: 120_AddCard++
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  _cardID: 119
+  _cardID: 120
   _rarity: 0
   _type: 0
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}
-  _name: 
-  _description: 
-  _colorDescription: 
+  _name: "\u30D6\u30FC\u30B9\u30C8++"
+  _description: "(\u970A\u9663)\u8FFD\u52A0\u30AB\u30FC\u30C9+1"
+  _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u8FFD\u52A0\u30AB\u30FC\u30C9+1"
   _cost: 0
   _maxTimes: 0
   _isGhost: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   _moveEffect:
     rid: -2
   _effect: []
-  _keywords: 
+  _keywords: 00
   references:
     version: 2
     RefIds:

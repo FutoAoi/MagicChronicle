@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7e1249da3dc7c24fbf5545de881e023, type: 3}
-  m_Name: 120_
+  m_Name: 114_AngerStockAttackRange++
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  _cardID: 120
+  _cardID: 114
   _rarity: 0
   _type: 0
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}
-  _name: 
-  _description: 
-  _colorDescription: 
+  _name: "\u30EC\u30BE\u30CA\u30F3\u30B9++"
+  _description: "\u6012\u308A\u306E\u30B9\u30C8\u30C3\u30AF\u6570\u5206\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
+  _colorDescription: "\u6012\u308A\u306E\u30B9\u30C8\u30C3\u30AF\u6570\u5206\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
   _cost: 0
   _maxTimes: 0
   _isGhost: 0

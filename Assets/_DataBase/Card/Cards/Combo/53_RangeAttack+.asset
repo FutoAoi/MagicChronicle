@@ -16,7 +16,7 @@ MonoBehaviour:
   _rarity: 1
   _type: 1
   _cardSprite: {fileID: -5831933074187562700, guid: 8667e24f9e3c2ad44aa564d0dff3fa29, type: 3}
-  _magicSprite: {fileID: 5986244224761071404, guid: 78522292b63a74c4cba915a418062388, type: 3}
+  _magicSprite: {fileID: 1294952558438690151, guid: 2b3934417ac9d094eab539132e9282d2, type: 3}
   _name: "\u30CE\u30F4\u30A1+"
   _description: "(\u970A\u9663)\u6575\u5168\u4F53\u306B25\u30C0\u30E1\u30FC\u30B8"
   _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u6575\u5168\u4F53\u306B25\u30C0\u30E1\u30FC\u30B8"
