@@ -17,11 +17,11 @@ public class EventPanelController : MonoBehaviour
     [SerializeField] private HpBarController _hpBarController;
 
     [Header("-----結果パネル-----")]
-    [SerializeField] private GameObject _cardResultPanel;
-    [SerializeField] private GameObject _buffResultPanel;
-    [SerializeField] private GameObject _goldResultPanel;
-    [SerializeField] private GameObject _healResultPanel;
-    [SerializeField] private GameObject _damageResultPanel;
+    [SerializeField] private EventResultPanelBase _cardResultPanel;
+    [SerializeField] private EventResultPanelBase _buffResultPanel;
+    [SerializeField] private EventResultPanelBase _goldResultPanel;
+    [SerializeField] private EventResultPanelBase _healResultPanel;
+    [SerializeField] private EventResultPanelBase _damageResultPanel;
 
     [Header("-----データ-----")]
     [SerializeField, Tooltip("イベントのデータベース")] private EventDataBase _eventDataBase;
@@ -115,7 +115,7 @@ public class EventPanelController : MonoBehaviour
 
     private bool ShowResultPanel(EventResult result)
     {
-        GameObject panel = result.Type switch
+        EventResultPanelBase panel = result.Type switch
         {
             EventResultType.Card => _cardResultPanel,
             EventResultType.Buff => _buffResultPanel,
@@ -126,17 +126,18 @@ public class EventPanelController : MonoBehaviour
         };
         if (panel == null) return false;
 
-        panel.SetActive(true);
+        panel.gameObject.SetActive(true);
+        panel.ResultAnimation(result);
         return true;
     }
 
     private void HideAllResultPanels()
     {
-        _cardResultPanel.SetActive(false);
-        _buffResultPanel.SetActive(false);
-        _goldResultPanel.SetActive(false);
-        _healResultPanel.SetActive(false);
-        _damageResultPanel.SetActive(false);
+        _cardResultPanel.gameObject.SetActive(false);
+        _buffResultPanel.gameObject.SetActive(false);
+        _goldResultPanel.gameObject.SetActive(false);
+        _healResultPanel.gameObject.SetActive(false);
+        _damageResultPanel.gameObject.SetActive(false);
     }
 
     public void OnResultTextFinished()
