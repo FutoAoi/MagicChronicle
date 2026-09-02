@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10_1stBoss
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   _stageID: 10
-  _background: {fileID: -2071021180586448280, guid: 8b11f2c72f6261c498466bd2d23a9d48, type: 3}
+  _background: {fileID: 7140154027537355629, guid: d5b314b5831f2ab4993951914c06eaeb, type: 3}
   _slotSprites:
   - {fileID: -6134627673231468249, guid: eaf41ae66f6a7f945a3b9b49eaa8b41c, type: 3}
   - {fileID: 7302556056183302062, guid: f166cd8191d6fb5439a6c7948e86e88e, type: 3}
