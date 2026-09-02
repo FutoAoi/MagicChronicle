@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -137,7 +136,7 @@ public class GameManager : MonoBehaviour
             _isOrganize = true;
         }
 
-        if (_isDraw && _isOrganize)
+        if (_isOrganize && !CurrentUIManager.IsHandCardAnim)
         {
             CurrentPhase = BattlePhase.Set;
         }

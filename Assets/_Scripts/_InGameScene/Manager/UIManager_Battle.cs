@@ -35,9 +35,6 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     private int _currentNumber,_deltaDrawCount = 0;
     private int _randomIndex;
 
-    public bool IsHandCardAnim { get => _isHandCardAnim; set { } }
-    private bool _isHandCardAnim = false;
-
     public override void InitUI()
     {
         _deckManager = DeckManager.Instance;
@@ -64,7 +61,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
     }
     public IEnumerator DrawCardAnimation()
     {
-        _isHandCardAnim = true;
+        IsHandCardAnim = true;
         int deckCount = DeckCard.Count;
         int discardCount = DiscardCard.Count;
         for (int i = 0; i < _handRange + _deltaDrawCount; i++)
@@ -76,7 +73,7 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
 
         UpdateDeckCount(deckCount,DeckCard.Count,InGameDeckType.Deck);
         UpdateDeckCount(discardCount, DiscardCard.Count, InGameDeckType.Discard);
-        _isHandCardAnim = false;
+        IsHandCardAnim = false;
     }
 
     public void HandOrganize()
