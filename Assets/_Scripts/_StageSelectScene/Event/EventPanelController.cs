@@ -1,26 +1,38 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EventPanelController : MonoBehaviour
 {
-    [Header("イベントパネルの設定")]
+    [Header("-----イベントパネルの設定-----")]
     [SerializeField, Tooltip("背景画像")] private Image _backgroundImage;
     [SerializeField, Tooltip("イベントの名前")] private TMP_Text __eventNameText;
     [SerializeField, Tooltip("説明のテキスト")] private TMP_Text _descriptionText;
     [SerializeField, Tooltip("結果表示テキスト")] private TMP_Text _resultText;
+    [SerializeField, Tooltip("結果表示テキスト")] private TextDisplayAnimation _resultEventText;
     [SerializeField, Tooltip("選択肢の場所")] private Transform _choiceButtonParent;
     [SerializeField, Tooltip("選択ボタンのプレハブ")] private EventChoiceButton _choiceButtonPrehab;
     [SerializeField, Tooltip("結果後にとじるボタン")] private Button _closeButton;
     [SerializeField] private HpBarController _hpBarController;
 
-    [Header("データ")]
+    [Header("-----結果パネル-----")]
+    [SerializeField] private GameObject _cardResultPanel;
+    [SerializeField] private GameObject _buffResultPanel;
+    [SerializeField] private GameObject _goldResultPanel;
+    [SerializeField] private GameObject _healResultPanel;
+    [SerializeField] private GameObject _damageResultPanel;
+
+    [Header("-----データ-----")]
     [SerializeField, Tooltip("イベントのデータベース")] private EventDataBase _eventDataBase;
 
-    [Header("コンポーネント設定")]
+    [Header("-----コンポーネント設定-----")]
     [SerializeField, Tooltip("プレイヤーに位置の更新")] private MapView _mapView;
 
     private EventData _currentEventData;
+    private List<EventResult> _pendingResults = new();
+    private int _expectedPanelFinishCount;
+    private int _finishedPanelCount;
 
     /// <summary>
     /// 初期化
@@ -65,9 +77,14 @@ public class EventPanelController : MonoBehaviour
 
     public void OnChoiceSelected(EventChoice choice)
     {
+        HideAllResultPanels();
+        _closeButton.gameObject.SetActive(false);
+        _pendingResults.Clear();
         foreach (var effect in choice.EventEffects)
         {
-            effect?.OnExcute();
+            if (effect == null) continue;
+            EventResult result = effect.OnExcute();
+            _pendingResults.Add(result);
         }
         foreach(Transform child in _choiceButtonParent)
         {
@@ -76,8 +93,9 @@ public class EventPanelController : MonoBehaviour
 
         _resultText.text = choice.ResultText;
         _resultText.gameObject.SetActive(true);
-        _closeButton.gameObject.SetActive(true);
         _hpBarController.HpBarUpdate(GameManager.Instance.PlayerStatus.PlayerCurrentHp, GameManager.Instance.PlayerStatus.PlayerMaxHp);
+        _resultText.gameObject.SetActive(true);
+        _resultEventText.PlayAnimation(choice.ResultText);
     }
 
     private void ClosePanel()
@@ -93,5 +111,58 @@ public class EventPanelController : MonoBehaviour
     public void EventTextAnimation()
     {
         _descriptionText.gameObject.SetActive(true);
+    }
+
+    private bool ShowResultPanel(EventResult result)
+    {
+        GameObject panel = result.Type switch
+        {
+            EventResultType.Card => _cardResultPanel,
+            EventResultType.Buff => _buffResultPanel,
+            EventResultType.Gold => _goldResultPanel,
+            EventResultType.Heal => _healResultPanel,
+            EventResultType.Damage => _damageResultPanel,
+            _ => null
+        };
+        if (panel == null) return false;
+
+        panel.SetActive(true);
+        return true;
+    }
+
+    private void HideAllResultPanels()
+    {
+        _cardResultPanel.SetActive(false);
+        _buffResultPanel.SetActive(false);
+        _goldResultPanel.SetActive(false);
+        _healResultPanel.SetActive(false);
+        _damageResultPanel.SetActive(false);
+    }
+
+    public void OnResultTextFinished()
+    {
+        _finishedPanelCount = 0;
+        _expectedPanelFinishCount = 0;
+        foreach (var result in _pendingResults)
+        {
+            if (ShowResultPanel(result))
+            {
+                _expectedPanelFinishCount++;
+            }
+        }
+
+        if (_expectedPanelFinishCount == 0)
+        {
+            _closeButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnResultPanelTextFinished()
+    {
+        _finishedPanelCount++;
+        if (_finishedPanelCount >= _expectedPanelFinishCount)
+        {
+            _closeButton.gameObject.SetActive(true);
+        }
     }
 }
