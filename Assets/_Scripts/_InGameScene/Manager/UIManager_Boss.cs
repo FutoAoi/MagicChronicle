@@ -9,8 +9,6 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
 {
     public HpBarController BossHP => _bossHp;
 
-    public bool IsHandCardAnim { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
     [Header("-----”’lİ’è-----")]
     [SerializeField, Tooltip("èD‚Ì”")] private int _handRange = 5;
     [SerializeField, Tooltip("ƒhƒ[ŠÔŠu")] private float _distance = 0.1f;
@@ -63,6 +61,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
     }
     public IEnumerator DrawCardAnimation()
     {
+        IsHandCardAnim = true;
         int deckCount = DeckCard.Count;
         int discardCount = DiscardCard.Count;
         for (int i = 0; i < _handRange + _deltaDrawCount; i++)
@@ -75,6 +74,7 @@ public class UIManager_Boss : UIManagerBase, IBattleUI
 
         UpdateDeckCount(deckCount, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(discardCount, DiscardCard.Count, InGameDeckType.Discard);
+        IsHandCardAnim = false;
     }
 
     public void HandOrganize()
