@@ -11,5 +11,6 @@ public class EffectGetMoney : IEffect
     public void OnExcute(AttackMagic magic)
     {
         WalletManager.Instance.ChangePlayerMoney(_amount);
+        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
     }
 }

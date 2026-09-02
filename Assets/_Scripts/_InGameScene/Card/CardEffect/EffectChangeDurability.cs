@@ -13,5 +13,13 @@ public class EffectChangeDurability : IEffect
         if(magic == null) return;
 
         magic.ChangeAroundDurability(_delta);
+        if(_delta < 0)
+        {
+            CriAudioManager.Instance.PlaySe("SE_MagicCircleCountDecrease");
+        }
+        else
+        {
+            CriAudioManager.Instance.PlaySe("SE_MagicCircleHeal");
+        }
     }
 }
