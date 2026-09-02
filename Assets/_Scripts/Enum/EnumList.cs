@@ -152,3 +152,13 @@ public enum BossType : byte
     None,
     Guardian
 }
+
+public enum EventResultType : byte
+{
+    None,
+    Card,
+    Buff,
+    Gold,
+    Heal,
+    Damage
+}

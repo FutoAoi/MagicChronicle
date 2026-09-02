@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   _type: 10
   _icon: {fileID: -353247539755244040, guid: b54d461ee7db14f48a99d153f0eb36bf, type: 3}
-  _name: CostPuls
+  _name: "\u30B3\u30B9\u30C8\u30D7\u30E9\u30B9"
   _description: "\u30B3\u30B9\u30C8\u306E\u6700\u5927\u5024\u3092\u30B9\u30BF\u30C3\u30AF\u6570\u3042\u3052\u308B"
   _isDecreaseTurn: 0
   _isDisplayCount: 1
