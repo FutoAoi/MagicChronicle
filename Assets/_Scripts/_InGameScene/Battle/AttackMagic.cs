@@ -412,7 +412,7 @@ public class AttackMagic : MonoBehaviour
             {
                 _currentVector = MagicVector.Right;
                 _player.AddBuff(BuffType.Counter, -1, false);
-                //”½ŽËSE“ü‚ê‚é‚È‚ç‚±‚±
+                CriAudioManager.Instance.PlaySe("SE_MagicReflect");
             }
         }
         else
@@ -422,7 +422,7 @@ public class AttackMagic : MonoBehaviour
             {
                 _currentVector = MagicVector.Left;
                 _stageManager.EnemyList[_currentSlot.x].AddBuff(BuffType.Counter, -1, false);
-                //”½ŽËSE“ü‚ê‚é‚È‚ç‚±‚±
+                CriAudioManager.Instance.PlaySe("SE_MagicReflect");
             }
         }
         return hasBuff;

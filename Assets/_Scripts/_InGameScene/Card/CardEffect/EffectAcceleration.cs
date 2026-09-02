@@ -10,5 +10,6 @@ public class EffectAcceleration : IEffect
     {
         if(magic != null)
             magic.Acceleration();
+        CriAudioManager.Instance.PlaySe("SE_MagicCircleSkip");
     }
 }
