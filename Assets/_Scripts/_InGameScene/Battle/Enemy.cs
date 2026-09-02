@@ -283,8 +283,9 @@ public class Enemy : CharacterBase
         }
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
+        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
 
-        if(_gameManager.CurrentUIManager.TryGetComponent<UIManagerBase>(out var manager))
+        if (_gameManager.CurrentUIManager.TryGetComponent<UIManagerBase>(out var manager))
         {
             _gameManager.EffectManager.ApplyEffect(ParticleType.Money,manager.ParticleParent,Rect);
         }

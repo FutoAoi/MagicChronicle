@@ -43,3 +43,4 @@ MonoBehaviour:
       data:
         _effectDamege: 20
         _canRangeAttack: 1
+        _isGhost: 0

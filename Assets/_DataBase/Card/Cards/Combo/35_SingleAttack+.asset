@@ -45,3 +45,4 @@ MonoBehaviour:
       data:
         _effectDamege: 4
         _canRangeAttack: 0
+        _isGhost: 0
