@@ -6,6 +6,7 @@ using CriWare;
 /// <summary>
 /// CRIミドルウェアを使用したオーディオ管理クラス（2Dゲーム用）
 /// シングルトンパターンで実装。BGM・SE の再生/停止/音量/フェードを一元管理します。
+/// 起動時にPlayerPrefsから保存済み音量を自動で読み込みます。
 /// </summary>
 public class CriAudioManager : MonoBehaviour
 {
@@ -20,9 +21,15 @@ public class CriAudioManager : MonoBehaviour
     [SerializeField] private string seAcbName = "SE";
 
     [Header("初期音量 (0.0 〜 1.0)")]
+    [Tooltip("PlayerPrefsに保存済みの値がない場合に使用されるデフォルト値です")]
     [Range(0f, 1f)][SerializeField] private float initialMasterVolume = 1.0f;
     [Range(0f, 1f)][SerializeField] private float initialBgmVolume = 1.0f;
     [Range(0f, 1f)][SerializeField] private float initialSeVolume = 1.0f;
+
+    // ─── PlayerPrefsキー（VolumeSettingsUIと共通） ───────────────────
+    public const string PREFS_KEY_MASTER_VOLUME = "Volume_Master";
+    public const string PREFS_KEY_BGM_VOLUME = "Volume_Bgm";
+    public const string PREFS_KEY_SE_VOLUME = "Volume_Se";
 
     private CriAtomExPlayer _bgmPlayer;
 
@@ -45,19 +52,33 @@ public class CriAudioManager : MonoBehaviour
     public float MasterVolume
     {
         get => _masterVolume;
-        set { _masterVolume = Mathf.Clamp01(value); ApplyBgmVolume(); }
+        set
+        {
+            _masterVolume = Mathf.Clamp01(value);
+            ApplyBgmVolume();
+            SaveVolumePrefs();
+        }
     }
 
     public float BgmVolume
     {
         get => _bgmVolume;
-        set { _bgmVolume = Mathf.Clamp01(value); ApplyBgmVolume(); }
+        set
+        {
+            _bgmVolume = Mathf.Clamp01(value);
+            ApplyBgmVolume();
+            SaveVolumePrefs();
+        }
     }
 
     public float SeVolume
     {
         get => _seVolume;
-        set { _seVolume = Mathf.Clamp01(value); }
+        set
+        {
+            _seVolume = Mathf.Clamp01(value);
+            SaveVolumePrefs();
+        }
     }
 
     // ─── ライフサイクル ─────────────────────────────────────────────
@@ -160,16 +181,17 @@ public class CriAudioManager : MonoBehaviour
             _sePlayerPool.Add(p);
         }
 
-        // 初期音量設定
-        _masterVolume = initialMasterVolume;
-        _bgmVolume = initialBgmVolume;
-        _seVolume = initialSeVolume;
+        // 初期音量設定（PlayerPrefsに保存済みの値があればそれを優先）
+        LoadVolumePrefs();
 
         // ACB内のキュー一覧をログ出力（デバッグ用）
         PrintCueList(_bgmAcb, "BGM");
         PrintCueList(_seAcb, "SE");
 
         _isInitialized = true;
+
+        // 読み込んだ音量をBGMプレーヤーへ反映
+        ApplyBgmVolume();
     }
 
     private void ReleaseCri()
@@ -184,6 +206,39 @@ public class CriAudioManager : MonoBehaviour
 
         CriAtomEx.UnregisterAcf();
 
+    }
+
+    // ─── 音量設定の保存 / 読み込み ─────────────────────────────────────
+
+    /// <summary>PlayerPrefsから音量を読み込みます。未保存の場合はInspectorの初期値を使用します。</summary>
+    private void LoadVolumePrefs()
+    {
+        _masterVolume = PlayerPrefs.GetFloat(PREFS_KEY_MASTER_VOLUME, initialMasterVolume);
+        _bgmVolume = PlayerPrefs.GetFloat(PREFS_KEY_BGM_VOLUME, initialBgmVolume);
+        _seVolume = PlayerPrefs.GetFloat(PREFS_KEY_SE_VOLUME, initialSeVolume);
+    }
+
+    /// <summary>現在の音量をPlayerPrefsに保存します。</summary>
+    private void SaveVolumePrefs()
+    {
+        PlayerPrefs.SetFloat(PREFS_KEY_MASTER_VOLUME, _masterVolume);
+        PlayerPrefs.SetFloat(PREFS_KEY_BGM_VOLUME, _bgmVolume);
+        PlayerPrefs.SetFloat(PREFS_KEY_SE_VOLUME, _seVolume);
+        PlayerPrefs.Save();
+    }
+
+    /// <summary>音量設定をInspectorのデフォルト値にリセットし、保存もクリアします。</summary>
+    public void ResetVolumeToDefault()
+    {
+        PlayerPrefs.DeleteKey(PREFS_KEY_MASTER_VOLUME);
+        PlayerPrefs.DeleteKey(PREFS_KEY_BGM_VOLUME);
+        PlayerPrefs.DeleteKey(PREFS_KEY_SE_VOLUME);
+
+        _masterVolume = initialMasterVolume;
+        _bgmVolume = initialBgmVolume;
+        _seVolume = initialSeVolume;
+
+        ApplyBgmVolume();
     }
 
     // ─── BGM ────────────────────────────────────────────────────────
