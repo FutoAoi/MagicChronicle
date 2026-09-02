@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +9,7 @@ using UnityEngine.UI;
 public abstract class UIManagerBase : MonoBehaviour
 {
     public CardMovement CardMovement { get; set; }
+    public bool IsHandCardAnim { get; protected set; } = false;
 
     public bool IsDisplayDescription { get; private set; } = false;
 
