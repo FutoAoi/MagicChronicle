@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 71_Berserker+
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 71
-  _rarity: 0
+  _rarity: 2
   _type: 0
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}

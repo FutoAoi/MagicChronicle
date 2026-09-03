@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 62_AlllowRight+
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 62
-  _rarity: 0
+  _rarity: 1
   _type: 0
   _cardSprite: {fileID: 0}
   _magicSprite: {fileID: 0}
