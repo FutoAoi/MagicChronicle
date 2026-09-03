@@ -64,7 +64,6 @@ public class VolumeSettingsUI : MonoBehaviour
         if (_seSlider != null) _seSlider.SetValueWithoutNotify(se);
 
         ApplyVolumesToAudioManager(master, bgm, se);
-
         _isInitializing = false;
     }
 
@@ -142,7 +141,7 @@ public class VolumeSettingsUI : MonoBehaviour
     {
         if (CriAudioManager.Instance == null) return;
         CriAudioManager.Instance.MasterVolume = master;
-        CriAudioManager.Instance.BgmVolume = bgm;
+        //CriAudioManager.Instance.BgmVolume = bgm;
         CriAudioManager.Instance.SeVolume = se;
     }
 

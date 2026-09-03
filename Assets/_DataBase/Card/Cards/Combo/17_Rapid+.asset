@@ -27,22 +27,20 @@ MonoBehaviour:
   _isPlayerMagic: 1
   _canEvolution: 1
   _evolutionID: 18
-  _displayArrowVector: 03
+  _displayArrowVector: 
   _moveEffect:
-    rid: 5748720707591208961
+    rid: -2
   _effect:
   - rid: 5748720707591208960
   _keywords: 000d
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 5748720707591208960
       type: {class: EffectAddBuff, ns: , asm: Assembly-CSharp}
       data:
         _addBuffType: 12
         _canBuffEnemy: 0
         _isRandom: 0
-    - rid: 5748720707591208961
-      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
-      data:
-        _vector: 3

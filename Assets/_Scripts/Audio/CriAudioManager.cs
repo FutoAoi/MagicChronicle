@@ -122,27 +122,40 @@ public class CriAudioManager : MonoBehaviour
 
         if (!_isInitialized) yield break;
 
-        if (CriAtom.GetAcb("BGM") == null)
+        bool acbWasMissing = (CriAtom.GetAcb("BGM") == null || CriAtom.GetAcb("SE") == null);
+
+        if (acbWasMissing)
+        {
+            Debug.LogWarning("[CriAudioManager] ACBが失われていました。CriAtomがInitScene以外にも配置されていないか確認してください。");
+
             CriAtom.AddCueSheet("BGM", "BGM.acb", "BGM.awb", null);
-        if (CriAtom.GetAcb("SE") == null)
             CriAtom.AddCueSheet("SE", "SE.acb", null, null);
 
-        _bgmAcb = CriAtom.GetAcb("BGM");
-        _seAcb = CriAtom.GetAcb("SE");
+            _bgmAcb = CriAtom.GetAcb("BGM");
+            _seAcb = CriAtom.GetAcb("SE");
 
-        // SEプールを再生成
-        foreach (var p in _sePlayerPool) p?.Dispose();
-        _sePlayerPool.Clear();
-        for (int i = 0; i < SE_POOL_SIZE; i++)
-        {
-            var p = new CriAtomExPlayer();
-            p.SetPanType(CriAtomEx.PanType.Pan3d);
-            p.Set3dSource(null);
-            _sePlayerPool.Add(p);
+            // SEプールを再生成
+            foreach (var p in _sePlayerPool) p?.Dispose();
+            _sePlayerPool.Clear();
+            for (int i = 0; i < SE_POOL_SIZE; i++)
+            {
+                var p = new CriAtomExPlayer();
+                p.SetPanType(CriAtomEx.PanType.Pan3d);
+                p.Set3dSource(null);
+                _sePlayerPool.Add(p);
+            }
+
+            // ACBが本当に失われていた＝BGMも巻き込まれて止まっている可能性が高いので、
+            // このケースに限り復旧のために再生し直す
+            if (!string.IsNullOrEmpty(_currentBgmCueName))
+                PlayBgm(_currentBgmCueName);
         }
+        else
+        {
+            // CriAtomが常駐化されていれば通常ここに来る。
+            // BGMは既に鳴り続けているはずなので、何もしない。
 
-        if (!string.IsNullOrEmpty(_currentBgmCueName))
-            PlayBgm(_currentBgmCueName);
+        }
     }
 
     // ─── 初期化 / 解放 ──────────────────────────────────────────────
@@ -243,7 +256,7 @@ public class CriAudioManager : MonoBehaviour
 
     // ─── BGM ────────────────────────────────────────────────────────
 
-    /// <summary>BGMを再生します（デフォルトでループ有効）。</summary>
+    /// <summary>BGMを再生します（デフォルトでループ有効）。既に再生中の場合は先に停止してから開始します。</summary>
     public void PlayBgm(string cueName, bool loop = true)
     {
         if (_bgmAcb == null)
@@ -253,12 +266,16 @@ public class CriAudioManager : MonoBehaviour
         }
 
         StopFade();
+
+        // 前の再生が残っていると二重再生になるため、Start()の前に必ず止める
+        _bgmPlayer.StopWithoutReleaseTime();
+
         _currentBgmCueName = cueName;
 
         _bgmPlayer.SetCue(_bgmAcb, cueName);
         _bgmPlayer.Loop(loop);
         _bgmPlayer.SetVolume(_bgmVolume * _masterVolume);
-        _bgmPlayback = _bgmPlayer.Start();  // Playbackを保持
+        _bgmPlayback = _bgmPlayer.Start();
 
         StartCoroutine(CheckPlaybackStatus());
     }
@@ -463,6 +480,6 @@ public class CriAudioManager : MonoBehaviour
     {
         float vol = _bgmVolume * _masterVolume;
         _bgmPlayer.SetVolume(vol);
-        _bgmPlayer.Update(_bgmPlayback);
+        _bgmPlayer.UpdateAll(); // 再生中のBGMに音量変更をリアルタイム反映させる
     }
 }
