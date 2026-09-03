@@ -483,7 +483,7 @@ public class AttackMagic : MonoBehaviour
     /// <param name="delta">•Ï‰»—Ê</param>
     public void ChangeAroundDurability(int delta)
     {
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             for(int j = 0; j < 3; j++)
             {
@@ -491,7 +491,7 @@ public class AttackMagic : MonoBehaviour
 
                 int indexX = _currentSlot.x - 1 + i;
                 int indexY = _currentSlot.y - 1 + j;
-                if (indexX < 0 || indexY < 0 || indexX > _height - 1 || indexY >= _width) return;
+                if (indexX < 0 || indexY < 0 || indexX > _height - 1 || indexY >= _width) continue;
                 if (_stageManager
                     .SlotList[_currentSlot.x - 1 + i][_currentSlot.y - 1 + j]
                     .TryGetComponent<TileSlot>(out var slot))

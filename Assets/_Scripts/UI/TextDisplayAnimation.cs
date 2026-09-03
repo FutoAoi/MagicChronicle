@@ -9,11 +9,15 @@ public class TextDisplayAnimation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private float _duration = 1f;
     [SerializeField] private UnityEvent _onFinished;
+    [SerializeField] private bool _isPlayOnEnable = true;
 
     private Tweener _tweener;
-    private bool _isPlaying = false;
+    private bool _isPlaying = false,_isClick = false;
+    private string _string;
     private void OnEnable()
     {
+        _isClick = false;
+        if(_isPlayOnEnable)
         PlayAnimation(_text.text);
     }
 
@@ -23,6 +27,12 @@ public class TextDisplayAnimation : MonoBehaviour
 
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
+            if (!_isClick)
+            {
+                _isClick = true;
+                _text.text = _string;
+                return;
+            }
             _tweener.Complete();
         }
     }
@@ -37,6 +47,7 @@ public class TextDisplayAnimation : MonoBehaviour
         _text.text = "";
         int length = 0;
         _isPlaying = true;
+        _string = text;
         _tweener = DOTween.To(() => length,
             x =>
             {
@@ -48,6 +59,7 @@ public class TextDisplayAnimation : MonoBehaviour
             .OnComplete(() =>
             {
                 _isPlaying = false;
+                _isClick = true;
                 _text.text = text;
                 _onFinished?.Invoke();
             });

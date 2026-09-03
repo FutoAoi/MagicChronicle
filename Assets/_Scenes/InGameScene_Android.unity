@@ -2348,6 +2348,7 @@ GameObject:
   - component: {fileID: 610080491}
   - component: {fileID: 610080493}
   - component: {fileID: 610080492}
+  - component: {fileID: 610080494}
   m_Layer: 5
   m_Name: '[PNL]DeckPanel'
   m_TagString: Untagged
@@ -2413,6 +2414,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610080490}
   m_CullTransparentMesh: 1
+--- !u!114 &610080494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610080490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6527803d4b1d45905508f41494ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundDeselector
 --- !u!1 &610626536
 GameObject:
   m_ObjectHideFlags: 0

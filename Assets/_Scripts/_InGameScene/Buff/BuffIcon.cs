@@ -32,7 +32,8 @@ public class BuffIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _uiManager.DisplayDescriptionPanel(false);
+        if (_coroutine == null)
+            _uiManager.DisplayDescriptionPanel(false);
     }
 
     public void SetIconData(BuffData data)
@@ -65,5 +66,6 @@ public class BuffIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         yield return new WaitForSeconds(_duration);
         _uiManager.DisplayDescriptionPanel(false);
+        _coroutine = null;
     }
 }

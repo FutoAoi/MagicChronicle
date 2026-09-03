@@ -100,6 +100,7 @@ public class EventPanelController : MonoBehaviour
 
     private void ClosePanel()
     {
+        HideAllResultPanels();
         FadeManager.Instance.FadePanel(false, () =>
         {
             gameObject.SetActive(false);
