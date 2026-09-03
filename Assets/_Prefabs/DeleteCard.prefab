@@ -613,8 +613,8 @@ MonoBehaviour:
   _cardImage: {fileID: 5403253905386894426}
   _rt: {fileID: 2220474648826030237}
   _highLight: {fileID: 6175983740538788763}
-  _arrowColor: {r: 0.6039216, g: 0.8039216, b: 0.1960784, a: 1}
-  _defaultColor: {r: 0, g: 0.3921569, b: 0, a: 1}
+  _arrowColor: {r: 0.46719742, g: 1, b: 0, a: 1}
+  _defaultColor: {r: 0.2643289, g: 0.31844786, b: 0.509434, a: 1}
   _selectedScale: 1.1
   _duration: 0.2
   _up: {fileID: 8015412233355762995}

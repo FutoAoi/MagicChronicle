@@ -4,7 +4,7 @@ using UnityEngine;
 public class EventChoice : ScriptableObject
 {
     [SerializeField, Tooltip("‘I‘ðŽˆ‚Ì•¶")] private string _choiceText;
-    [SerializeField, Tooltip("Œø‰Êà–¾")] private string _resultText;
+    [SerializeField, Tooltip("Œ‹‰Ê•¶")] private string _resultText;
     [SerializeReference, SubclassSelector] private IEventEffect[] _eventEffects;
 
     public string ChoiceText => _choiceText;

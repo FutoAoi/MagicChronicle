@@ -4,7 +4,7 @@ public class EventHeal : IEventEffect
 {
     [SerializeField,Range(1,100)] private int _healAmount;
     private PlayerStatus _status;
-    public void OnExcute()
+    public EventResult OnExcute()
     {
         _status = GameManager.Instance.PlayerStatus;
 
@@ -12,5 +12,6 @@ public class EventHeal : IEventEffect
         _status.HealHp(amount);
 
         CriAudioManager.Instance.PlaySe("SE_Heal");
+        return new EventResult { Type = EventResultType.Heal, Amount = amount, IsPositive = true };
     }
 }

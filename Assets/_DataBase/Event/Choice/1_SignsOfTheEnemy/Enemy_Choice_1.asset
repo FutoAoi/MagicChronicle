@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_Choice_1
   m_EditorClassIdentifier: Assembly-CSharp::EventChoice
   _choiceText: "\u9B54\u6CD5\u3067\u5012\u3059"
-  _resultText: "\u4E0A\u624B\u304F\u5012\u305B\u305F\u3088\u3046\u3060\u3002\u5148\u3078\u9032\u3082\u3046\u3002(150\u30B4\u30FC\u30EB\u30C9\u7372\u5F97)"
+  _resultText: "\u4E0A\u624B\u304F\u5012\u305B\u305F\u3088\u3046\u3060\u3002\u5148\u3078\u9032\u3082\u3046\u3002"
   _eventEffects:
   - rid: 5748721297630691394
   references:
