@@ -17,51 +17,53 @@ public class MagicObjectPool : MonoBehaviour
             return _instance;
         }
     }
+
     [SerializeField,Tooltip("オブジェクトプール化するオブジェクト")] private AttackMagic _attackMagicPrefab;
     [SerializeField,Tooltip("親オブジェクト")] private RectTransform _rectTransform;
-    private ObjectPool<AttackMagic> _magicPool;
+
+    private Dictionary<AttackMagic, ObjectPool<AttackMagic>> _pools = new();
     private List<AttackMagic> _activeMagics = new List<AttackMagic>();
     public IReadOnlyList<AttackMagic> ActiveMagics => _activeMagics;
     void Start()
     {
-        _magicPool = new ObjectPool<AttackMagic>(
-            createFunc: () => OnCreateObject(),
-            actionOnGet: (obj) => OnGetObject(obj),
-            actionOnRelease: (obj) => OnReleaseObject(obj),
-            actionOnDestroy: (obj) => OnDestroyObject(obj),
-            collectionCheck: true,
-            defaultCapacity: 3,
-            maxSize: 10
-        );
+
     }
     /// <summary>
     /// 魔法を取り出す
     /// </summary>
     /// <returns></returns>
-    public AttackMagic GetAttackMagic()
+    public AttackMagic GetAttackMagic(AttackMagic prefabOverride = null)
     {
-        return _magicPool.Get();
+        AttackMagic prefab = prefabOverride != null ? prefabOverride : _attackMagicPrefab;
+        return GetPool(prefab).Get();
     }
-    public void ClearMagic()
+
+    private ObjectPool<AttackMagic> GetPool(AttackMagic prefab)
     {
-        _magicPool.Clear();
+        if (!_pools.TryGetValue(prefab, out var pool))
+        {
+            pool = new ObjectPool<AttackMagic>(
+                createFunc: () => Instantiate(prefab, _rectTransform),
+                actionOnGet: (obj) => OnGetObject(obj, prefab),
+                actionOnRelease: (obj) => OnReleaseObject(obj),
+                actionOnDestroy: (obj) => Destroy(obj.gameObject),
+                collectionCheck: true,
+                defaultCapacity: 3,
+                maxSize: 10
+            );
+            _pools[prefab] = pool;
+        }
+        return pool;
     }
-    private AttackMagic OnCreateObject()
-    {
-        return Instantiate(_attackMagicPrefab, _rectTransform);
-    }
-    private void OnGetObject(AttackMagic attackMagic)
+
+    private void OnGetObject(AttackMagic attackMagic, AttackMagic prefabKey)
     {
         _activeMagics.Add(attackMagic);
-        attackMagic.Initialize(() => _magicPool.Release(attackMagic));
+        attackMagic.Initialize(() => _pools[prefabKey].Release(attackMagic));
         attackMagic.gameObject.SetActive(true);
     }
     private void OnReleaseObject(AttackMagic attackMagic)
     {
         _activeMagics.Remove(attackMagic);
-    }
-    private void OnDestroyObject(AttackMagic attackMagic)
-    {
-        Destroy(attackMagic.gameObject);
     }
 }
