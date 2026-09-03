@@ -73,6 +73,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
         }
     }
+
+    public Vector2Int BoardPos { get; private set; }
     private GameManager _gameManager;
     private GameObject _newCard;
     private CardMovement _tileMovement;
@@ -168,9 +170,16 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 foreach(IEffect effect in data.Effect)
                 {
-                    effect.OnExcute(null);
-                    CriAudioManager.Instance.PlaySe("SE_Reijin");
+                    if (effect is IGhostOriginEffect ghostEffect)
+                    {
+                        ghostEffect.OnExcute(BoardPos);
+                    }
+                    else
+                    {
+                        effect.OnExcute(null);
+                    }
                 }
+                CriAudioManager.Instance.PlaySe("SE_Reijin");
             }
             else
             {
@@ -254,4 +263,6 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             _img.DOColor(Color.white, 0.1f);
         }
     }
+
+    public void SetBoardPos(Vector2Int pos) => BoardPos = pos;
 }

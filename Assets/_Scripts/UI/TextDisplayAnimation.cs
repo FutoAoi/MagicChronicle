@@ -13,7 +13,6 @@ public class TextDisplayAnimation : MonoBehaviour
 
     private Tweener _tweener;
     private bool _isPlaying = false,_isClick = false;
-    private string _string;
     private void OnEnable()
     {
         _isClick = false;
@@ -23,17 +22,20 @@ public class TextDisplayAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (!_isPlaying) return;
+        if (!_isPlaying && !_isClick) return;
 
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
-            if (!_isClick)
+            if (_isPlaying)
             {
-                _isClick = true;
-                _text.text = _string;
+                _tweener.Complete();
                 return;
             }
-            _tweener.Complete();
+            if (_isClick)
+            {
+                _isClick = false;
+                _onFinished?.Invoke();
+            }
         }
     }
 
@@ -46,8 +48,8 @@ public class TextDisplayAnimation : MonoBehaviour
         if (_isPlaying) _tweener.Kill();
         _text.text = "";
         int length = 0;
+        _isClick = false;
         _isPlaying = true;
-        _string = text;
         _tweener = DOTween.To(() => length,
             x =>
             {
@@ -61,7 +63,6 @@ public class TextDisplayAnimation : MonoBehaviour
                 _isPlaying = false;
                 _isClick = true;
                 _text.text = text;
-                _onFinished?.Invoke();
             });
     }
 }
