@@ -44,3 +44,5 @@ MonoBehaviour:
         _effectDamege: 20
         _canRangeAttack: 1
         _isGhost: 0
+        _magicPrefab: {fileID: 0}
+        _ghostMagicPrefab: {fileID: 0}

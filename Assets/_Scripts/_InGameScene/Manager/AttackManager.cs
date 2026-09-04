@@ -204,7 +204,7 @@ public class AttackManager : MonoBehaviour
                         continue;
                     }
                 }
-                if (enemy.IsAttackTurn)
+                if (enemy.IsAttackTurn && !enemy.IsDead)
                 {
                     CriAudioManager.Instance.PlaySe("SE_MagicShot");
 
