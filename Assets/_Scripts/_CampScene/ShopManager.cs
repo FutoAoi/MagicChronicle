@@ -8,8 +8,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private MapView _mapView;
     [Header("ショップアクション")]
     [SerializeField] private ShopActionButton _restButton;
+    [SerializeField] private GameObject _rest;
     [SerializeField] private ShopActionButton _deleteCardButton;
+    [SerializeField] private GameObject _delete;
     [SerializeField] private HpBarController _hpBarController;
+    [SerializeField] private TextDisplayAnimation _chat;
 
 
     [Header("ショップカードリスト")]
@@ -49,6 +52,7 @@ public class ShopManager : MonoBehaviour
         _walletManager = WalletManager.Instance;
 
         gameObject.SetActive(true);
+        _chat.gameObject.SetActive(true);
 
         _restPriceText.text = _restPrice.ToString();
         _deletCardText.text = _deletPrice.ToString();
@@ -113,6 +117,7 @@ public class ShopManager : MonoBehaviour
         if (_walletManager.TrySpendMoney(_restPrice))
         {
             _restButton.gameObject.SetActive(false);
+            _rest.SetActive(false);
             _status = GameManager.Instance.PlayerStatus;
 
             int amount = (int)(_status.PlayerMaxHp * ((float)_healAmount / 100));
@@ -160,6 +165,7 @@ public class ShopManager : MonoBehaviour
         {
             CriAudioManager.Instance.PlaySe("SE_Buy");
             _deleteCardButton.gameObject.SetActive(false);
+            _delete.SetActive(false);
         }
 
         return isDeleted;
@@ -169,6 +175,7 @@ public class ShopManager : MonoBehaviour
     {
         FadeManager.Instance.FadePanel(false, () =>
         {
+            _chat.gameObject.SetActive(false);
             gameObject.SetActive(false);
             _mapView.UpdataPlayerPosition();
             FadeManager.Instance.FadePanel(true);

@@ -29,6 +29,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField, Tooltip("‘Ï‹v’l")] private TextMeshProUGUI _maxTimes;
     [SerializeField, Tooltip("‘}ŠG")] private Image _cardImage;
     [SerializeField, Tooltip("’l’i")] private TextMeshProUGUI _cardPriceText;
+    [SerializeField] private Transform _parent;
     [SerializeField] private RectTransform _rt;
     [SerializeField] private GameObject _highLight;
 
@@ -50,7 +51,6 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Vector3 _defaultScale;
     private int _cardPrice;
     private ShopManager _shopManager;
-    private Transform _tf;
     private UIManagerBase _uiManager;
     private static ShopCard _selectedCard;
     private bool _isSelect = false;
@@ -62,8 +62,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="cardID"></param>
     public void SetCardData(CardData cardData, int cardPrice, ShopManager shopManager)
     {
-        _tf = transform;
-        _defaultScale = _tf .localScale;
+        _defaultScale = _parent.localScale;
         _shopManager = shopManager;
         _cardID = cardData.CardID;
         _cardPrice = cardPrice;
@@ -90,8 +89,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// <param name="eventData"></param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _tf.DOKill();
-        _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+        _parent.DOKill();
+        _parent.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
 
         if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
         _uiManager.DisplayDescriptionPanel(true);
@@ -106,8 +105,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (_isSelect) return;
 
-        _tf.DOKill();
-        _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+        _parent.DOKill();
+        _parent.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
 
         _uiManager.DisplayDescriptionPanel(false);
     }
@@ -125,8 +124,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             IsSelect = true;
 
-            _tf.DOKill();
-            _tf.DOScale(_defaultScale * _hoverScale, _duration)
+            _parent.DOKill();
+            _parent.DOScale(_defaultScale * _hoverScale, _duration)
                 .SetEase(Ease.OutBack);
             return;
         }
@@ -151,8 +150,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         IsSelect = false;
 
-        _tf.DOKill();
-        _tf.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
+        _parent.DOKill();
+        _parent.DOScale(_defaultScale, _duration).SetEase(Ease.OutQuad);
     }
 
     private void OnDisable()
