@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _enemyID: 102
   _sprite: {fileID: -1070814208690267576, guid: 8f68416fe64d3754f9e02a29397dcef7, type: 3}
-  _spineEnemy: {fileID: 6783211275798280595, guid: ca8780760e7b9d940963c0fb2e951720, type: 3}
+  _spineEnemy: {fileID: 28846174748185302, guid: d859dffe0e175834c9c73f6f5a6163e2, type: 3}
   _enemyHP: 50
   _enemyAP: 1
   _enemyAttackTime: 0
@@ -23,10 +23,12 @@ MonoBehaviour:
   _isShadow: 0
   _bossType: 0
   _shadowPrefab: {fileID: 0}
+  _defaultBuffs: []
   _isSpecialAttack: 1
   _enemySAT: 1
   _canBoardInterference: 1
   _effectTime: 1
   _cardEffectID: cb000000
   _canBuff: 0
+  _buffs: 
   _rewardAmount: c8000000fa000000
