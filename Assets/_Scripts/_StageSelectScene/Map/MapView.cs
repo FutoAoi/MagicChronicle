@@ -125,7 +125,7 @@ public class MapView : MonoBehaviour
         _ySpacing = 200f;
 
         _offsetX = -(roomCount - 1) * _xSpacing * 0.5f;
-        _offsetY = -700f;
+        _offsetY = -200f;
 
         _x = _offsetX + roomIndex * _xSpacing;
         _y = _offsetY + floorIndex * _ySpacing;
