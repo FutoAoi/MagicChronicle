@@ -618,9 +618,9 @@ MonoBehaviour:
   _selectedScale: 1.1
   _duration: 0.2
   _up: {fileID: 8015412233355762995}
-  _right: {fileID: 5201928412885474413}
-  _left: {fileID: 5083916791527826640}
-  _down: {fileID: 7241049674660441580}
+  _right: {fileID: 5083916791527826640}
+  _left: {fileID: 7241049674660441580}
+  _down: {fileID: 5201928412885474413}
 --- !u!1 &6175983740538788763
 GameObject:
   m_ObjectHideFlags: 0
