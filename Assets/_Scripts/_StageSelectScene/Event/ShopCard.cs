@@ -124,6 +124,8 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             IsSelect = true;
 
+            _shopManager.PredictionMoney(_cardPrice);
+
             _parent.DOKill();
             _parent.DOScale(_defaultScale * _hoverScale, _duration)
                 .SetEase(Ease.OutBack);

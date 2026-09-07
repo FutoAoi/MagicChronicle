@@ -115,6 +115,11 @@ public class MapManager : MonoBehaviour
         MapData.CurrentRoomIndex = nextRoomIndex;
     }
 
+    public void ShopGreeding()
+    {
+        _shopManager.Greeding();
+    }
+
     public void OpenEnhancePanel(int nextRoomIndex)
     {
         if (!CanMoveTo(nextRoomIndex))

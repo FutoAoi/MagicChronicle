@@ -42,6 +42,16 @@ public class ShopActionButton : MonoBehaviour, IPointerClickHandler, IShopSelect
             transform.DOScale(_defaultScale * _selectedScale, _duration)
                 .SetEase(Ease.OutBack);
 
+            switch (_actionType)
+            {
+                case ActionType.Rest:
+                    _shopManager.PredictionMoney(_shopManager.RestPrice);
+                    break;
+
+                case ActionType.DeleteCard:
+                    _shopManager.PredictionMoney(_shopManager.DeletePrice);
+                    break;
+            }
             return;
         }
 

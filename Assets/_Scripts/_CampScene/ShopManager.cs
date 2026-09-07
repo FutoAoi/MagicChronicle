@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    public int RestPrice => _restPrice;
+    public int DeletePrice => _deletPrice;
+
     [SerializeField] private MapView _mapView;
     [Header("ショップアクション")]
     [SerializeField] private ShopActionButton _restButton;
@@ -14,6 +18,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private HpBarController _hpBarController;
     [SerializeField] private TextDisplayAnimation _chat;
 
+    [Header("所持金")]
+    [SerializeField] private TextMeshProUGUI _currentMoney;
+    [SerializeField] private GameObject _arrow;
+    [SerializeField] private TextMeshProUGUI _afterMoney;
+    [SerializeField] private Color _defaultColor = Color.yellow;
+    [SerializeField] private Color _dengerColor = Color.red;
 
     [Header("ショップカードリスト")]
     [SerializeField] private List<ShopCardData> _ShopCards = new();
@@ -44,6 +54,13 @@ public class ShopManager : MonoBehaviour
 
     private IShopSelectable _selectedItem;
     private PlayerStatus _status;
+    private Tween _moneyTween;
+    private int _money;
+
+    private void Start()
+    {
+        _money = -1;
+    }
 
     public void InitShop()
     {
@@ -52,10 +69,11 @@ public class ShopManager : MonoBehaviour
         _walletManager = WalletManager.Instance;
 
         gameObject.SetActive(true);
-        _chat.gameObject.SetActive(true);
 
         _restPriceText.text = _restPrice.ToString();
         _deletCardText.text = _deletPrice.ToString();
+
+        MoneyReset();
 
         foreach (ShopCardData card in _ShopCards)
         {
@@ -105,6 +123,8 @@ public class ShopManager : MonoBehaviour
             shopCardGameObject.SetActive(false);
 
             CriAudioManager.Instance.PlaySe("SE_Buy");
+
+            MoneyReset();
         }
         else
         {
@@ -126,6 +146,8 @@ public class ShopManager : MonoBehaviour
 
             CriAudioManager.Instance.PlaySe("SE_Heal");
             CriAudioManager.Instance.PlaySe("SE_Buy");
+
+            MoneyReset();
         }
         else
         {
@@ -166,6 +188,8 @@ public class ShopManager : MonoBehaviour
             CriAudioManager.Instance.PlaySe("SE_Buy");
             _deleteCardButton.gameObject.SetActive(false);
             _delete.SetActive(false);
+
+            MoneyReset();
         }
 
         return isDeleted;
@@ -201,6 +225,44 @@ public class ShopManager : MonoBehaviour
         if (_selectedItem == item)
         {
             _selectedItem = null;
+        }
+    }
+
+    public void Greeding()
+    {
+        _chat.gameObject.SetActive(true);
+    }
+
+    public void MoneyReset()
+    {
+        if(_moneyTween != null) _moneyTween.Kill();
+
+        if (_money < 0) _money = _walletManager.CurrentMoney;
+        int money = _money;
+        _moneyTween = DOTween.To(() => money,
+            x =>
+            {
+                money = x;
+                _currentMoney.text = $"{money}G";
+            },
+            _walletManager.CurrentMoney,
+            0.2f);
+
+        _currentMoney.color = _defaultColor;
+        _afterMoney.color = _defaultColor;
+        _money = _walletManager.CurrentMoney;
+        _arrow.SetActive(false);
+        _afterMoney.gameObject.SetActive(false);
+    }
+
+    public void PredictionMoney(int delta)
+    {
+        _arrow.SetActive(true);
+        _afterMoney.gameObject.SetActive(true);
+        _afterMoney.text = $"{_walletManager.CurrentMoney - delta}G";
+        if (_walletManager.CurrentMoney - delta < 0)
+        {
+            _afterMoney.color = _dengerColor;
         }
     }
 }

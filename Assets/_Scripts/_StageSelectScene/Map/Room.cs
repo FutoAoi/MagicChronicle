@@ -90,7 +90,7 @@ public class Room : MonoBehaviour, IPointerClickHandler
             FadeManager.Instance.FadePanel(false, () =>
             {
                 _mapManager.OpenShopPanel(_roomIndex);
-                FadeManager.Instance.FadePanel(true);
+                FadeManager.Instance.FadePanel(true, () => _mapManager.ShopGreeding());
             });
         }
         else if (_roomType == RoomType.Boss)
