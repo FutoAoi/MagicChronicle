@@ -6,7 +6,11 @@ public class EventGold : IEventEffect
     public EventResult OnExcute()
     {
         WalletManager.Instance.ChangePlayerMoney(_amount);
-        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
         return new EventResult { Type = EventResultType.Gold, Amount = _amount, IsPositive = _amount >= 0 };
+    }
+
+    public void PlaySE()
+    {
+        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
     }
 }

@@ -6,10 +6,16 @@ using UnityEngine.InputSystem;
 
 public class TextDisplayAnimation : MonoBehaviour
 {
+    [Header("-----参照-----")]
     [SerializeField] private TextMeshProUGUI _text;
+
+    [Header("-----設定-----")]
     [SerializeField] private float _duration = 1f;
-    [SerializeField] private UnityEvent _onFinished;
     [SerializeField] private bool _isPlayOnEnable = true;
+
+    [Header("-----アクション登録-----")]
+    [SerializeField] private UnityEvent _onFinished;
+    [SerializeField] private UnityEvent _nextAction;
 
     private Tweener _tweener;
     private bool _isPlaying = false,_isClick = false;
@@ -63,6 +69,7 @@ public class TextDisplayAnimation : MonoBehaviour
                 _isPlaying = false;
                 _isClick = true;
                 _text.text = text;
+                _nextAction?.Invoke();
             });
     }
 }

@@ -10,4 +10,9 @@ public class EventGetCard : IEventEffect
         DeckManager.Instance.AddDeck(cardID);
         return new EventResult { Type = EventResultType.Card, ID = cardID, IsPositive = true };
     }
+
+    public void PlaySE()
+    {
+        
+    }
 }

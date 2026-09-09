@@ -15,6 +15,7 @@ public class EventPanelController : MonoBehaviour
     [SerializeField, Tooltip("選択ボタンのプレハブ")] private EventChoiceButton _choiceButtonPrehab;
     [SerializeField, Tooltip("結果後にとじるボタン")] private Button _closeButton;
     [SerializeField] private HpBarController _hpBarController;
+    [SerializeField] private GameObject[] _falseObjs;
 
     [Header("-----結果パネル-----")]
     [SerializeField] private EventResultPanelBase _cardResultPanel;
@@ -31,6 +32,7 @@ public class EventPanelController : MonoBehaviour
 
     private EventData _currentEventData;
     private List<EventResult> _pendingResults = new();
+    private List<IEventEffect> _pendingEffects = new();
     private int _expectedPanelFinishCount;
     private int _finishedPanelCount;
 
@@ -73,6 +75,10 @@ public class EventPanelController : MonoBehaviour
             var btn = Instantiate(_choiceButtonPrehab, _choiceButtonParent);
             btn.Setup(choice,this);
         }
+        foreach(GameObject obj in _falseObjs)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void OnChoiceSelected(EventChoice choice)
@@ -80,11 +86,13 @@ public class EventPanelController : MonoBehaviour
         HideAllResultPanels();
         _closeButton.gameObject.SetActive(false);
         _pendingResults.Clear();
+        _pendingEffects.Clear();
         foreach (var effect in choice.EventEffects)
         {
             if (effect == null) continue;
             EventResult result = effect.OnExcute();
             _pendingResults.Add(result);
+            _pendingEffects.Add(effect);
         }
         foreach(Transform child in _choiceButtonParent)
         {
@@ -100,9 +108,9 @@ public class EventPanelController : MonoBehaviour
 
     private void ClosePanel()
     {
-        HideAllResultPanels();
         FadeManager.Instance.FadePanel(false, () =>
         {
+            HideAllResultPanels();
             gameObject.SetActive(false);
             _mapView.UpdataPlayerPosition();
             FadeManager.Instance.FadePanel(true);
@@ -145,10 +153,11 @@ public class EventPanelController : MonoBehaviour
     {
         _finishedPanelCount = 0;
         _expectedPanelFinishCount = 0;
-        foreach (var result in _pendingResults)
+        for (int i = 0; i < _pendingResults.Count; i++)
         {
-            if (ShowResultPanel(result))
+            if (ShowResultPanel(_pendingResults[i]))
             {
+                _pendingEffects[i].PlaySE();
                 _expectedPanelFinishCount++;
             }
         }
