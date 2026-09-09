@@ -8,4 +8,9 @@ public class EventBuff : IEventEffect
         GameManager.Instance.PlayerStatus.AddDefaultBuff(_buffType);
         return new EventResult { Type = EventResultType.Buff, ID = (int)_buffType, IsPositive = true };
     }
+
+    public void PlaySE()
+    {
+        CriAudioManager.Instance.PlaySe("SE_Buff");
+    }
 }

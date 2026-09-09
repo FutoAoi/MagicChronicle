@@ -8,4 +8,9 @@ public class EventDebug : IEventEffect
         Debug.Log(text);
         return new EventResult { Type = EventResultType.None };
     }
+
+    public void PlaySE()
+    {
+        
+    }
 }

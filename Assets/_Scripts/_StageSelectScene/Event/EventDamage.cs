@@ -13,4 +13,9 @@ public class EventDamage : IEventEffect
 
         return new EventResult { Type = EventResultType.Damage, Amount = amount, IsPositive = false };
     }
+
+    public void PlaySE()
+    {
+        CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
+    }
 }

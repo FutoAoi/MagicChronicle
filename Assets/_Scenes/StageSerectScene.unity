@@ -1307,10 +1307,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextDisplayAnimation
   _text: {fileID: 169777022}
   _duration: 0.5
+  _isPlayOnEnable: 1
   _onFinished:
     m_PersistentCalls:
       m_Calls: []
-  _isPlayOnEnable: 1
+  _nextAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &169777022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6587,11 +6590,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
---- !u!4 &850294956 stripped
+--- !u!4 &850294956
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1550791521411536703, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
   m_PrefabInstance: {fileID: 850294955}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088851782}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 700, y: -325, z: -9720}
+  m_LocalScale: {x: 37.9, y: 37.9, z: 37.9}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 199717386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874913083
 GameObject:
   m_ObjectHideFlags: 0
@@ -13198,10 +13211,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextDisplayAnimation
   _text: {fileID: 1722007020}
   _duration: 1
+  _isPlayOnEnable: 1
   _onFinished:
     m_PersistentCalls:
       m_Calls: []
-  _isPlayOnEnable: 1
+  _nextAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1722007020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14194,10 +14210,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextDisplayAnimation
   _text: {fileID: 1866561449}
   _duration: 1
+  _isPlayOnEnable: 1
   _onFinished:
     m_PersistentCalls:
       m_Calls: []
-  _isPlayOnEnable: 1
+  _nextAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1887938492
 GameObject:
   m_ObjectHideFlags: 0
@@ -16067,6 +16086,168 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2088851782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1094308748824032833, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
+  m_PrefabInstance: {fileID: 850294955}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850294956}
+  - component: {fileID: 2088851786}
+  - component: {fileID: 2088851785}
+  - component: {fileID: 2088851784}
+  - component: {fileID: 2088851783}
+  m_Layer: 0
+  m_Name: Spine GameObject (spine_azuria)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2088851783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8062929363321620994, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
+  m_PrefabInstance: {fileID: 850294955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088851782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: spine-unity::Spine.Unity.SkeletonAnimation
+  updateTiming: 1
+  threadedAnimation: 2
+  animationName: idle_motion
+  loop: 1
+  timeScale: 1
+  unscaledTime: 0
+  wasDeprecatedTransferred: 1
+  skeletonDataAssetDeprecated: {fileID: 0}
+  initialSkinNameDeprecated: 
+  editorSkipSkinSyncDeprecated: 0
+  initialFlipXDeprecated: 0
+  initialFlipYDeprecated: 0
+  updateModeDeprecated: 3
+  updateWhenInvisibleDeprecated: 3
+  separatorSlotNamesDeprecated: []
+  zSpacingDeprecated: 0
+  useClippingDeprecated: 1
+  immutableTrianglesDeprecated: 0
+  pmaVertexColorsDeprecated: 1
+  clearStateOnDisableDeprecated: 0
+  tintBlackDeprecated: 0
+  singleSubmeshDeprecated: 0
+  addNormalsDeprecated: 0
+  calculateTangentsDeprecated: 0
+  maskInteractionDeprecated: 0
+--- !u!114 &2088851784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2058137790108659846, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
+  m_PrefabInstance: {fileID: 850294955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088851782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: spine-unity::Spine.Unity.SkeletonRenderer
+  skeletonDataAsset: {fileID: 11400000, guid: 3cde19b69312b294ab9014bbff816110, type: 2}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  meshSettings:
+    useClipping: 1
+    zSpacing: 0
+    tintBlack: 0
+    canvasGroupCompatible: 0
+    pmaVertexColors: 1
+    addNormals: 0
+    calculateTangents: 0
+    immutableTriangles: 0
+  updateWhenInvisible: 3
+  clearStateOnDisable: 0
+  separatorSlotNames: []
+  enableSeparatorSlots: 0
+  disableRenderingOnOverride: 1
+  physicsPositionInheritanceFactor: {x: 1, y: 1}
+  physicsRotationInheritanceFactor: 1
+  physicsPositionInheritanceLimit: {x: Infinity, y: Infinity}
+  physicsRotationInheritanceLimit: 3.4028235e+38
+  physicsMovementRelativeTo: {fileID: 0}
+  threadedMeshGeneration: 2
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  maskInteraction: 0
+  fixPrefabOverrideViaMeshFilter: 2
+  wasDeprecatedTransferred: 1
+  zSpacingDeprecated: 0
+  useClippingDeprecated: 1
+  immutableTrianglesDeprecated: 0
+  pmaVertexColorsDeprecated: 1
+  tintBlackDeprecated: 0
+  addNormalsDeprecated: 0
+  calculateTangentsDeprecated: 0
+--- !u!23 &2088851785
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1995741855913698562, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
+  m_PrefabInstance: {fileID: 850294955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088851782}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1fae89da350dd9e48a16cf9d87252877, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2088851786
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7715457415502302393, guid: 4eda5bdf691d2b845950e3c5f70a1890, type: 3}
+  m_PrefabInstance: {fileID: 850294955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088851782}
+  m_Mesh: {fileID: 0}
 --- !u!1 &2118075128
 GameObject:
   m_ObjectHideFlags: 0
@@ -16278,6 +16459,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1449941514}
     m_Modifications:
+    - target: {fileID: 850126236418441067, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: _hp
+      value: 
+      objectReference: {fileID: 946603090}
     - target: {fileID: 3758217164423743758, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
       propertyPath: _mapView
       value: 
@@ -16366,13 +16551,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5407838688038894588, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: _hp
+      value: 
+      objectReference: {fileID: 946603090}
     - target: {fileID: 7131529595760290262, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
       propertyPath: m_Name
       value: '[PNL]EventPanel'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7131529595760290262, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
