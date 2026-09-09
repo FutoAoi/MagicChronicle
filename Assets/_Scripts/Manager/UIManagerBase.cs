@@ -32,6 +32,7 @@ public abstract class UIManagerBase : MonoBehaviour
     private DescriptionPanel _description;
     protected GameManager _gameManager;
     private RectTransform _rt;
+    private object _currentDisplayOwner;
 
     public bool _isFinishCutIn = false;
 
@@ -80,8 +81,18 @@ public abstract class UIManagerBase : MonoBehaviour
         PositionPanelWithFlip(rect);
     }
 
-    public void DisplayDescriptionPanel(bool isDisplay)
+    public void DisplayDescriptionPanel(bool isDisplay,object owner = null)
     {
+        if (isDisplay)
+        {
+            _currentDisplayOwner = owner;
+        }
+        else 
+        {
+            if (owner != null && _currentDisplayOwner != owner) return;
+            _currentDisplayOwner = null;
+        }
+
         if (_description == null)
             _description = _descriptionPanel.GetComponent<DescriptionPanel>();
 

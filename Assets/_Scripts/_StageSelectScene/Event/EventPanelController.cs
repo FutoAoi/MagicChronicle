@@ -100,9 +100,9 @@ public class EventPanelController : MonoBehaviour
 
     private void ClosePanel()
     {
-        HideAllResultPanels();
         FadeManager.Instance.FadePanel(false, () =>
         {
+            HideAllResultPanels();
             gameObject.SetActive(false);
             _mapView.UpdataPlayerPosition();
             FadeManager.Instance.FadePanel(true);
