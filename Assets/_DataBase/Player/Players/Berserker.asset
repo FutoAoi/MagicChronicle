@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a72e3a6207b706849864f5792bcc5ceb, type: 3}
-  m_Name: Combo
+  m_Name: Berserker
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  _playerID: 1
-  _playerName: "\u30A2\u30BA\u30EA\u30A2"
-  _playerType: 0
-  _playerMaxHp: 50
+  _playerID: 2
+  _playerName: "\u30EB\u30F4\u30A7\u30EA\u30AA"
+  _playerType: 1
+  _playerMaxHp: 75
   _playerMaxCost: 5
   _playerSprite: {fileID: 0}
   _isPlayable: 1
-  _playerDescription: "\u8AAC\u660E"
-  _playerPrefab: {fileID: 8145773678128715522, guid: e202b1d1cc7088e4fb4de2cf5e2fb55a, type: 3}
+  _playerDescription: 
+  _playerPrefab: {fileID: 1087780719742258384, guid: 6882714d70f59e34abab397563c9c0d2, type: 3}
