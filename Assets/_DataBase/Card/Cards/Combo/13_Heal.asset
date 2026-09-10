@@ -40,6 +40,7 @@ MonoBehaviour:
       type: {class: EffectHeal, ns: , asm: Assembly-CSharp}
       data:
         _healAmount: 2
+        _isRateHeal: 0
     - rid: 8909412632268111942
       type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
       data:
