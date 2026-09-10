@@ -14,6 +14,7 @@ public class AttackMagic : MonoBehaviour
     public bool IsAttack { get; private set; } = false;
 
     [SerializeField, Tooltip("É^ÉCÉãÇÃî≠åıêF")] private Color _glowingColor;
+    [SerializeField] private ParticleType[] _attackParticleTypes = { ParticleType.Magic, ParticleType.FireDust };
 
     [NonSerialized] public MagicVector _currentVector;
 
@@ -442,8 +443,10 @@ public class AttackMagic : MonoBehaviour
 
     public void AddAttackEffect()
     {
-        _gameManager.EffectManager.ApplyEffect(ParticleType.Magic, transform);
-        _gameManager.EffectManager.ApplyEffect(ParticleType.FireDust, transform);
+        foreach (var type in _attackParticleTypes)
+        {
+            _gameManager.EffectManager.ApplyEffect(type, transform);
+        }
     }
 
     public void BeginAttack()
