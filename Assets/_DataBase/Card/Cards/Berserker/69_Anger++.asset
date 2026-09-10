@@ -14,26 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 69
   _rarity: 2
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _type: 2
+  _cardSprite: {fileID: 6568948115207580574, guid: 827189320327e004bb9b2b0449f5d60d, type: 3}
+  _magicSprite: {fileID: -8508489711579248481, guid: dceb09ee95ae32f428a1aa439dcafe85, type: 3}
   _name: "\u30EC\u30A4\u30B8++"
   _description: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002\\n\u6012\u308A+1\u3002"
   _colorDescription: "\u9B54\u6CD5\u5F3E\u3092\u53F3\u306B\u66F2\u3052\u308B\u3002\\n\u6012\u308A+1\u3002"
-  _cost: 0
-  _maxTimes: 0
+  _cost: 1
+  _maxTimes: 4
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
   _canEvolution: 0
   _evolutionID: 0
-  _displayArrowVector: 
+  _displayArrowVector: 02
   _moveEffect:
-    rid: -2
-  _effect: []
+    rid: 6754108827768717325
+  _effect:
+  - rid: 6754108827768717326
   _keywords: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6754108827768717325
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 2
+    - rid: 6754108827768717326
+      type: {class: EffectDamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _damageAmount: 1

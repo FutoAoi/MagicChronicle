@@ -14,26 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 85
   _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _type: 2
+  _cardSprite: {fileID: -855298285791758126, guid: a9236ad5178122f43b5fb03843304887, type: 3}
+  _magicSprite: {fileID: -7204612941256024241, guid: de0986f66eb51a74baafec1212fd67e8, type: 3}
   _name: "\u30A2\u30A6\u30C8\u30EC\u30A4\u30B8"
-  _description: "\u9B54\u6CD5\u9663\u3092\u4E0A\u306B\u66F2\u3052\u308B\u3002\\n(\u89E3\u653E1)\u6575\u5168\u4F53\u306BX\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
-  _colorDescription: "\u9B54\u6CD5\u9663\u3092\u4E0A\u306B\u66F2\u3052\u308B\u3002\\n(\u89E3\u653E1)\u6575\u5168\u4F53\u306BX\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
-  _cost: 0
-  _maxTimes: 0
+  _description: "\u9B54\u6CD5\u9663\u3092\u4E0A\u306B\u66F2\u3052\u308B\u3002\\n(\u89E3\u653E1)\u6575\u5168\u4F53\u306B3\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
+  _colorDescription: "\u9B54\u6CD5\u9663\u3092\u4E0A\u306B\u66F2\u3052\u308B\u3002\\n(\u89E3\u653E1)\u6575\u5168\u4F53\u306B3\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
+  _cost: 1
+  _maxTimes: 3
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
-  _displayArrowVector: 
+  _canEvolution: 1
+  _evolutionID: 86
+  _displayArrowVector: 00
   _moveEffect:
-    rid: -2
-  _effect: []
+    rid: 6754108827768717424
+  _effect:
+  - rid: 6754108758428483656
   _keywords: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6754108758428483656
+      type: {class: EffectAngerAttack, ns: , asm: Assembly-CSharp}
+      data:
+        _useAngerAmount: 1
+        _effectDamege: 3
+    - rid: 6754108827768717424
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 0

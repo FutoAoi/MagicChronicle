@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 35389383898354f4493422c5d98a4180
+guid: aed08f9e57b93514cb0de271907aa378
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5180028488374226600
-    second: "\u81EA\u50B7_0"
+      213: -434839244473336816
+    second: Image_720x1000_UI_Card_Back_Berserker_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u81EA\u50B7_0"
+      name: Image_720x1000_UI_Card_Back_Berserker_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 511
-        height: 507
+        x: 51
+        y: 31
+        width: 603
+        height: 969
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 851fc08e887dc18b0800000000000000
-      internalID: -5180028488374226600
+      spriteID: 01c74c2d20427f9f0800000000000000
+      internalID: -434839244473336816
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u81EA\u50B7_0": -5180028488374226600
+      Image_720x1000_UI_Card_Back_Berserker_0: -434839244473336816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

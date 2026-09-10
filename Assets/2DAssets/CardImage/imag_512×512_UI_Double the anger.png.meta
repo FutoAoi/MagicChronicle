@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f5e0bbba16014104681b80b40981ca3f
+guid: 5287d03866497c54ab34da4fb4e9b32a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -279387219197323957
-    second: "\u6012\u308A\u6D88\u8CBB\u7B4B\u529B_0"
+      213: -3418228376098496539
+    second: "imag_512\xD7512_UI_Double the anger_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u6012\u308A\u6D88\u8CBB\u7B4B\u529B_0"
+      name: "imag_512\xD7512_UI_Double the anger_0"
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
-        width: 511
-        height: 507
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4595fcedca6f1cf0800000000000000
-      internalID: -279387219197323957
+      spriteID: 5ef1d7907630090d0800000000000000
+      internalID: -3418228376098496539
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u6012\u308A\u6D88\u8CBB\u7B4B\u529B_0": -279387219197323957
+      "imag_512\xD7512_UI_Double the anger_0": -3418228376098496539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

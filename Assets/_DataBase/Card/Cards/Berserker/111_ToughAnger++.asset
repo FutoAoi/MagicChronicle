@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: 111_ToughAnger++
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 111
-  _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _rarity: 2
+  _type: 2
+  _cardSprite: {fileID: 1796318652249215245, guid: 2bc7b789410f41547a444e835c097738, type: 3}
+  _magicSprite: {fileID: 1891196892459785707, guid: 2175dfd18d1e5d44bad6f9f16f952e57, type: 3}
   _name: "\u30B9\u30E9\u30A4++"
   _description: "\u6012\u308A+3"
   _colorDescription: "\u6012\u308A+3"
-  _cost: 0
-  _maxTimes: 0
+  _cost: 1
+  _maxTimes: 3
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
@@ -30,10 +30,15 @@ MonoBehaviour:
   _displayArrowVector: 
   _moveEffect:
     rid: -2
-  _effect: []
+  _effect:
+  - rid: 6754108827768717460
   _keywords: 
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 6754108827768717460
+      type: {class: EffectAddAnger, ns: , asm: Assembly-CSharp}
+      data:
+        _addAmount: 3
