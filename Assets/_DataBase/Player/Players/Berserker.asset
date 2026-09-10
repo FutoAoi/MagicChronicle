@@ -15,7 +15,7 @@ MonoBehaviour:
   _playerID: 2
   _playerName: "\u30EB\u30F4\u30A7\u30EA\u30AA"
   _playerType: 1
-  _playerMaxHp: 75
+  _playerMaxHp: 70
   _playerMaxCost: 5
   _playerSprite: {fileID: 0}
   _isPlayable: 1
