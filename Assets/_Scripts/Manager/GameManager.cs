@@ -37,16 +37,17 @@ public class GameManager : MonoBehaviour
     [NonSerialized] public AttackManager AttackManager;
     [NonSerialized] public StageManager StageManager;
     [NonSerialized] public EffectManager EffectManager;
+    [NonSerialized] public BerserkerManager BerserkerManager;
 
     private IBattleUI _uiManagerButtle;
     private AttackManager _attackManager;
     private DeckManager _deckManager;
     private FadeManager _fadeManager;
-    private PlayerType _playerType = PlayerType.Combo;
     private PlayerStatus _playerStatus = null;
     private bool _isOrganize = false, _isDraw = false, _isAction = false, _isReward = false, _isBattleUIManager, _isGameover = false;
     private bool _isChangeScene = false;
 
+    [SerializeField] private PlayerType _playerType = PlayerType.Combo;
     [SerializeField] private SceneType _currentScene;
     
 
@@ -150,7 +151,7 @@ public class GameManager : MonoBehaviour
             CurrentUIManager.DisplayDescriptionPanel(false);
             _attackManager = FindAnyObjectByType<AttackManager>();
             _attackManager.SwichTurn(true);
-            Player.SkeletonAnimation.AnimationState.SetAnimation(0, "atacck_motion", false);
+            Player.SkeletonAnimation.AnimationState.SetAnimation(0, "attack_motion", false);
             Player.SkeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
 
             StartCoroutine(AttackRoutine());
