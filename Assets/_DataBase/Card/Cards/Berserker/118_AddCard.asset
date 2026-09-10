@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 118_AddCard
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 118
-  _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _rarity: 1
+  _type: 2
+  _cardSprite: {fileID: -4228817229122164698, guid: 0cdf7e2ede78022429171226d9a9025f, type: 3}
+  _magicSprite: {fileID: 4058095818861896680, guid: d88cefa39b5136648a05f5541f3540f5, type: 3}
   _name: "\u30D6\u30FC\u30B9\u30C8"
   _description: "(\u970A\u9663)\u8FFD\u52A0\u30AB\u30FC\u30C9+1"
   _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u8FFD\u52A0\u30AB\u30FC\u30C9+1"
@@ -25,15 +25,22 @@ MonoBehaviour:
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
+  _canEvolution: 1
+  _evolutionID: 119
   _displayArrowVector: 
   _moveEffect:
     rid: -2
-  _effect: []
+  _effect:
+  - rid: 6754108827768717467
   _keywords: 00
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 6754108827768717467
+      type: {class: EffectAddBuff, ns: , asm: Assembly-CSharp}
+      data:
+        _addBuffType: 11
+        _canBuffEnemy: 0
+        _isRandom: 0

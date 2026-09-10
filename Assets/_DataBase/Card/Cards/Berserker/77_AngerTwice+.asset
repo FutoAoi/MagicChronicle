@@ -13,27 +13,31 @@ MonoBehaviour:
   m_Name: 77_AngerTwice+
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 77
-  _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _rarity: 2
+  _type: 2
+  _cardSprite: {fileID: 1796318652249215245, guid: 2bc7b789410f41547a444e835c097738, type: 3}
+  _magicSprite: {fileID: 6937817954938267909, guid: 24ab2e97f425d3c4ab516ffe44b570d0, type: 3}
   _name: "\u30C7\u30E5\u30A2\u30EB\u30EC\u30A4\u30B8+"
-  _description: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(\u970A\u9663)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
-  _colorDescription: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(<color=#FFF300>\u970A\u9663</color>)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
-  _cost: 0
-  _maxTimes: 0
+  _description: "(\u970A\u9663)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
+  _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
+  _cost: 2
+  _maxTimes: 9
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
+  _canEvolution: 1
+  _evolutionID: 78
   _displayArrowVector: 
   _moveEffect:
     rid: -2
-  _effect: []
+  _effect:
+  - rid: 6754108827768717411
   _keywords: 00
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 6754108827768717411
+      type: {class: EffectAngerDual, ns: , asm: Assembly-CSharp}
+      data: 

@@ -14,26 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 94
   _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _type: 2
+  _cardSprite: {fileID: 1796318652249215245, guid: 2bc7b789410f41547a444e835c097738, type: 3}
+  _magicSprite: {fileID: 1891196892459785707, guid: 2175dfd18d1e5d44bad6f9f16f952e57, type: 3}
   _name: "\u30A8\u30F3\u30C9\u30A5\u30E9\u30F3\u30B9"
   _description: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002\\n(\u970A\u9663)\u6012\u308A+5\u3002"
   _colorDescription: "\u9B54\u6CD5\u9663\u3092\u4E0B\u306B\u66F2\u3052\u308B\u3002\\n(<color=#FFF300>\u970A\u9663</color>)\u6012\u308A+5\u3002"
-  _cost: 0
-  _maxTimes: 0
-  _isGhost: 0
+  _cost: 1
+  _maxTimes: 6
+  _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
-  _displayArrowVector: 
+  _canEvolution: 1
+  _evolutionID: 95
+  _displayArrowVector: 01
   _moveEffect:
-    rid: -2
-  _effect: []
+    rid: 6754108827768717438
+  _effect:
+  - rid: 6754108827768717440
   _keywords: 00
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6754108827768717438
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 1
+    - rid: 6754108827768717440
+      type: {class: EffectAddAnger, ns: , asm: Assembly-CSharp}
+      data:
+        _addAmount: 5

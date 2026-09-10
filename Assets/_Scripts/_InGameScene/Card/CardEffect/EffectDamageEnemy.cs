@@ -27,10 +27,10 @@ public class EffectDamageEnemy : IEffect,IGhostOriginEffect
         if (_attackTargets.Count == 0) return;
         if (_canRangeAttack)
         {
+            cri.PlaySe("SE_MagicCircleAttackAll");
             for (int i = 0; i < _attackTargets.Count; i++)
             {
                 _attackTargets[i].Damaged(_effectDamege);
-                cri.PlaySe("SE_MagicCircleAttackAll");
             }
         }
         else

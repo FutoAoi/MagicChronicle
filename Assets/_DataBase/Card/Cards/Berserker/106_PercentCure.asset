@@ -14,26 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 106
   _rarity: 0
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _type: 2
+  _cardSprite: {fileID: 7599850021101267554, guid: 4330256f04168784f803b23c2eb94225, type: 3}
+  _magicSprite: {fileID: -6726548772867495485, guid: 863b07805f562824e8436456b3e029f8, type: 3}
   _name: "\u30F4\u30A1\u30A4\u30BF\u30EB"
   _description: "(\u970A\u9663)\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u4F53\u529B\u3092(10%)\u56DE\u5FA9\u3059\u308B"
   _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u4F53\u529B\u3092(10%)\u56DE\u5FA9\u3059\u308B"
-  _cost: 0
-  _maxTimes: 0
-  _isGhost: 0
+  _cost: 2
+  _maxTimes: 8
+  _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
+  _canEvolution: 1
+  _evolutionID: 107
   _displayArrowVector: 
   _moveEffect:
     rid: -2
-  _effect: []
+  _effect:
+  - rid: 6754108827768717455
   _keywords: 00
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 6754108827768717455
+      type: {class: EffectHeal, ns: , asm: Assembly-CSharp}
+      data:
+        _healAmount: 10
+        _isRateHeal: 1

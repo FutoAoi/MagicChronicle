@@ -14,26 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   _cardID: 70
   _rarity: 1
-  _type: 0
-  _cardSprite: {fileID: 0}
-  _magicSprite: {fileID: 0}
+  _type: 2
+  _cardSprite: {fileID: -1446109157406885367, guid: 02c46119ef507384e816d2d10202bc3c, type: 3}
+  _magicSprite: {fileID: 3818252028338902597, guid: 1f8f8e69ec6d30642b5fd074f7adb28d, type: 3}
   _name: "\u30DE\u30C3\u30C9\u30FB\u30EB\u30FC\u30F3"
   _description: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(\u970A\u9663)\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC+1"
   _colorDescription: "\u9B54\u6CD5\u5F3E\u3092\u5DE6\u306B\u66F2\u3052\u308B\u3002\\n(<color=#FFF300>\u970A\u9663</color>)<color=#000000>\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC</color>+1"
-  _cost: 0
-  _maxTimes: 0
+  _cost: 2
+  _maxTimes: 8
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
-  _canEvolution: 0
-  _evolutionID: 0
-  _displayArrowVector: 
+  _canEvolution: 1
+  _evolutionID: 71
+  _displayArrowVector: 03
   _moveEffect:
-    rid: -2
-  _effect: []
+    rid: 6754108827768717327
+  _effect:
+  - rid: 6754108827768717328
   _keywords: 0002
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6754108827768717327
+      type: {class: EffectChangeToAnyAllow, ns: , asm: Assembly-CSharp}
+      data:
+        _vector: 3
+    - rid: 6754108827768717328
+      type: {class: EffectAddBuff, ns: , asm: Assembly-CSharp}
+      data:
+        _addBuffType: 1
+        _canBuffEnemy: 0
+        _isRandom: 0
