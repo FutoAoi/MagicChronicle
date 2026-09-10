@@ -28,6 +28,10 @@ public class StagePlayer : CharacterBase
         CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
         _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
         _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+        if(GameManager.Instance.PlayerType == PlayerType.Berserker)
+        {
+            GameManager.Instance.BerserkerManager.AddAnger(GetBuffCount(BuffType.Berserker));
+        }
     }
 
     /// <summary>
