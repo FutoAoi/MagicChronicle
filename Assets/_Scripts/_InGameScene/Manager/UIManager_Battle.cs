@@ -53,6 +53,10 @@ public class UIManager_Battle : UIManagerBase, IBattleUI
         UpdateDeckCount(0, DeckCard.Count, InGameDeckType.Deck);
         UpdateDeckCount(0, DiscardCard.Count, InGameDeckType.Discard);
         _costText.text = GameManager.Instance.PlayerStatus.PlayerMaxCost.ToString();
+        for (int i = 0; i < _costImages.Count; i++)
+        {
+            _costImages[i].sprite = _gameManager.PlayerDataBase.GetPlayerData(_gameManager.PlayerType).CardCostImage;
+        }
     }
     protected override void Start()
     {

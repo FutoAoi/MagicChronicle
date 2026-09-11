@@ -870,6 +870,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313869788}
   m_CullTransparentMesh: 1
+--- !u!1 &331897391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331897392}
+  - component: {fileID: 331897394}
+  - component: {fileID: 331897393}
+  m_Layer: 5
+  m_Name: '[IMG]BerserkerwPlayerImage (1)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &331897392
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331897391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 730946482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 94, y: -333}
+  m_SizeDelta: {x: 2402.2144, y: 3277}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &331897393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331897391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5819688027958023255, guid: 757d19202c63853428c0364165561dc7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &331897394
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331897391}
+  m_CullTransparentMesh: 1
 --- !u!1 &337045102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3195,7 @@ GameObject:
   - component: {fileID: 730946485}
   - component: {fileID: 730946484}
   - component: {fileID: 730946483}
+  - component: {fileID: 730946486}
   m_Layer: 5
   m_Name: '[IMG]HpBarChar'
   m_TagString: Untagged
@@ -3140,6 +3216,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 996937590}
+  - {fileID: 331897392}
   m_Father: {fileID: 1591294752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3198,6 +3275,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730946481}
   m_CullTransparentMesh: 1
+--- !u!114 &730946486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730946481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e04ed7472334148b7264ab97b03c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconChangerByPlayerType
+  ConboIcon: {fileID: 996937589}
+  BerserkerIcon: {fileID: 331897391}
+  TechnicalIcon: {fileID: 0}
 --- !u!1 &741050971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3878,7 +3970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  _deckData: {fileID: 0}
 --- !u!114 &975691465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,13 +3994,13 @@ MonoBehaviour:
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
   _keywordDataBase: {fileID: 11400000, guid: 19c8b3ebc53a79a499a7744b38065641, type: 2}
-  StageID: 0
+  StageID: 1
   CurrentPhase: 6
   Reset: 0
   IsEnemyAction: 0
   DecreaseBuff: 0
   Player: {fileID: 460636253}
-  _playerType: 1
+  _playerType: 0
   _currentScene: 1
 --- !u!4 &975691466
 Transform:
@@ -3953,12 +4045,12 @@ GameObject:
   - component: {fileID: 996937592}
   - component: {fileID: 996937591}
   m_Layer: 5
-  m_Name: '[IMG]PlayerImage'
+  m_Name: '[IMG]ConboPlayerImage'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &996937590
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7065,8 +7157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 651.0001, y: -56.730103}
-  m_SizeDelta: {x: 399.99988, y: 27.760254}
+  m_AnchoredPosition: {x: 722.42035, y: -56.730103}
+  m_SizeDelta: {x: 542.83, y: 27.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741719825
 MonoBehaviour:

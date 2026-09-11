@@ -25,7 +25,7 @@ using UnityEngine.SceneManagement;
 public static class EditorAutoBootstrap
 {
     // InitSceneの実際のアセットパスに合わせて変更してください
-    private const string INIT_SCENE_PATH = "Assets/_scenes/InitScene.unity";
+    private const string INIT_SCENE_PATH = "Assets/_Scenes/InitScene.unity";
 
     // SessionStateはドメインリロードを跨いでも値が保持されるキー・バリューストア
     private const string SESSION_KEY_ORIGINAL_SCENE = "EditorAutoBootstrap_OriginalScenePath";
