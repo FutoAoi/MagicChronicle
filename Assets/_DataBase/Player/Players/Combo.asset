@@ -28,3 +28,5 @@ MonoBehaviour:
   _cardCostImage: {fileID: 1447903738651757210, guid: b13f9bc229b1ba24f9f69e2e613c98fd, type: 3}
   _stageSerectIconImage: {fileID: 1815386372945309090, guid: 679bea919d9c4cf4eb8c0d516e95860b, type: 3}
   _eventImage: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
+  _cardData: {fileID: 11400000, guid: 32cb160a793339341a1ce7e2a7d379be, type: 2}
+  _defaultDeck: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}

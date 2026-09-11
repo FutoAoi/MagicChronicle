@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SceneChangeButton : MonoBehaviour
 {
     [SerializeField] private SceneType _sceneName;
+    [SerializeField] private PanelSwitcher _panelSwitcher;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +19,15 @@ public class SceneChangeButton : MonoBehaviour
             GameManager.Instance.SceneChange(SceneType.InGameScene_Android);
             return;
         }
+        if (_panelSwitcher.CurrentIndex == 0)
+        {
+            GameManager.Instance.ChangePlayerType(PlayerType.Combo);
+        }
+        else if (_panelSwitcher.CurrentIndex == 1)
+        {
+            GameManager.Instance.ChangePlayerType(PlayerType.Berserker);
+        }
         GameManager.Instance.SceneChange(_sceneName);
+        DeckManager.Instance.InitDeck();
     }
 }

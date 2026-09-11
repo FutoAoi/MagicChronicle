@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 5000710869051630650}
   - component: {fileID: 9192681075305678314}
   - component: {fileID: 7675563524825504982}
+  - component: {fileID: 8075854906609253787}
   m_Layer: 5
   m_Name: DeckPanelCard
   m_TagString: Untagged
@@ -1254,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8e10aeed8030f4bacfcd1de4b2a5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Card
+  IsAnimation: 0
   _view: {fileID: 6313628205817849348}
   _cardImage: {fileID: 6886194840060175576}
   _nameText: {fileID: 8063439644723287514}
@@ -1271,6 +1273,21 @@ MonoBehaviour:
   _leftArrow: {fileID: 4913618465808013246}
   _downArrow: {fileID: 6591716137447260606}
   CardID: 0
+--- !u!114 &8075854906609253787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233745660893882452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb8d8302312f243b92147595c22dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewByPlayerType
+  _cardView: {fileID: 8838831796202499441}
+  _cardMaskView: {fileID: 4770601683476680816}
+  _cardBackgroundView: {fileID: 0}
 --- !u!1 &8872703383273877135
 GameObject:
   m_ObjectHideFlags: 0

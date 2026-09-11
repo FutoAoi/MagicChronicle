@@ -20,6 +20,7 @@ public class MapView : MonoBehaviour
     public void Start()
     {
         CreateMap(GameManager.Instance.GenerateMapData);
+        _circle.sprite = GameManager.Instance.PlayerDataBase.GetPlayerData(GameManager.Instance.PlayerType).StageSerectIconImage;
     }
 
     /// <summary>

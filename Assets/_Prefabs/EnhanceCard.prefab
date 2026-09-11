@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 3903571562865931594}
   - component: {fileID: 4918225470039488478}
   - component: {fileID: 481341294945680929}
+  - component: {fileID: 8722584820540166514}
   m_Layer: 5
   m_Name: EnhanceCard
   m_TagString: Untagged
@@ -880,6 +881,21 @@ MonoBehaviour:
   _down: {fileID: 7729302967227550622}
   _hoverScale: 1.1
   _duration: 0.2
+--- !u!114 &8722584820540166514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8187030449595351987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb8d8302312f243b92147595c22dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewByPlayerType
+  _cardView: {fileID: 4918225470039488478}
+  _cardMaskView: {fileID: 235677776426131179}
+  _cardBackgroundView: {fileID: 0}
 --- !u!1 &8187420208110496838
 GameObject:
   m_ObjectHideFlags: 0
