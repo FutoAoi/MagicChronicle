@@ -281,7 +281,11 @@ public class GameManager : MonoBehaviour
     /// <param name="useType"></param>
     public void ChangePlayerType(PlayerType useType)
     {
+        TrySetPlayerStatus(false);
         _playerType = useType;
+        _cardDataBase = PlayerDataBase.GetPlayerData(useType).CardData;
+        DeckManager.Instance.DeckData = PlayerDataBase.GetPlayerData(useType).DeckData;
+        TrySetPlayerStatus(true);
     }
     /// <summary>
     /// プレイヤーのキャラによって特定バフを付与する

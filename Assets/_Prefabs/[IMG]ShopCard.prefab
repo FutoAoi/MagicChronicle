@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 1725897482596561348}
   - component: {fileID: 4743424893796293571}
   - component: {fileID: 3347703426998246428}
+  - component: {fileID: 7995430892454585418}
   m_Layer: 5
   m_Name: '[IMG]ShopCard'
   m_TagString: Untagged
@@ -724,6 +725,21 @@ MonoBehaviour:
   _duration: 0.2
   _arrowColor: {r: 0.34823585, g: 1, b: 0, a: 1}
   _defaultColor: {r: 0.2728728, g: 0.3104854, b: 0.45911938, a: 1}
+--- !u!114 &7995430892454585418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291802528967999958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb8d8302312f243b92147595c22dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewByPlayerType
+  _cardView: {fileID: 6837143046326090160}
+  _cardMaskView: {fileID: 2714199867564591119}
+  _cardBackgroundView: {fileID: 0}
 --- !u!1 &4651709724355518899
 GameObject:
   m_ObjectHideFlags: 0

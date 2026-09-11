@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 3514258951854421159}
   - component: {fileID: 7261017875956061543}
   - component: {fileID: 4430614108336873162}
+  - component: {fileID: 2028423228337214996}
   m_Layer: 5
   m_Name: DeleteCard
   m_TagString: Untagged
@@ -621,6 +622,21 @@ MonoBehaviour:
   _right: {fileID: 5083916791527826640}
   _left: {fileID: 7241049674660441580}
   _down: {fileID: 5201928412885474413}
+--- !u!114 &2028423228337214996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117753103400414804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb8d8302312f243b92147595c22dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewByPlayerType
+  _cardView: {fileID: 4662258619227195239}
+  _cardMaskView: {fileID: 818673318446136819}
+  _cardBackgroundView: {fileID: 0}
 --- !u!1 &6175983740538788763
 GameObject:
   m_ObjectHideFlags: 0

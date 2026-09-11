@@ -12,6 +12,6 @@ public class EventData : ScriptableObject
     public int EventID => _eventID;
     public string Name => _name;
     public string Description => _description;
-    public Sprite BackGround => _backGround;
+    public Sprite BackGround => GameManager.Instance.PlayerDataBase.GetPlayerData(GameManager.Instance.PlayerType).EventImage;
     public EventChoice[] Choices => _choices;
 }

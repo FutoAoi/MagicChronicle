@@ -6,7 +6,7 @@ public class DeckManager : MonoBehaviour
     public static DeckManager Instance { get; private set; }
 
     [Header("メインデッキ(初期データ・テンプレート)")]
-    [SerializeField] private DeckData _deckData;
+    public DeckData DeckData;
 
     // ランタイムで実際に書き換える用のコピー
     private DeckData _runtimeDeckData;
@@ -26,8 +26,13 @@ public class DeckManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         _gameManager = GameManager.Instance;
 
-        // アセット本体を書き換えないよう、ランタイム用のコピーを作成
-        _runtimeDeckData = Instantiate(_deckData);
+        InitDeck();
+    }
+
+    public void InitDeck()
+    {
+        if(DeckData != null)
+        _runtimeDeckData = Instantiate(DeckData);
     }
 
     /// <summary>
@@ -82,7 +87,7 @@ public class DeckManager : MonoBehaviour
         {
             Destroy(_runtimeDeckData);
         }
-        _runtimeDeckData = Instantiate(_deckData);
+        _runtimeDeckData = Instantiate(DeckData);
     }
 
     /// <summary>
