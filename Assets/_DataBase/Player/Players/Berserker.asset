@@ -21,3 +21,10 @@ MonoBehaviour:
   _isPlayable: 1
   _playerDescription: 
   _playerPrefab: {fileID: 1087780719742258384, guid: 6882714d70f59e34abab397563c9c0d2, type: 3}
+  _cardImage: {fileID: 7948670965209423665, guid: e631a0eb9dbea8e4dba387981e8263d7, type: 3}
+  _cardMaskImage: {fileID: 3186448874541359976, guid: ae44457f08cbdde44b82f09dfb314634, type: 3}
+  _cardBackImage: {fileID: -434839244473336816, guid: aed08f9e57b93514cb0de271907aa378, type: 3}
+  _cardBackgroundImage: {fileID: -8286454221034216391, guid: ccb1954dcb7d4be41a61349fa079b1ee, type: 3}
+  _cardCostImage: {fileID: 6053412896341873874, guid: 93bc3b0ce77bf6f46a4149428772a3ab, type: 3}
+  _stageSerectIconImage: {fileID: 5577441560310998873, guid: 197dabbcb6ebf1d4381c635361273c13, type: 3}
+  _eventImage: {fileID: 82707211892565130, guid: ec862dd98a447344c9dead29ab514435, type: 3}

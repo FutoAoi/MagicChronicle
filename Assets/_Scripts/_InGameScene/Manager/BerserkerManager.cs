@@ -42,6 +42,7 @@ public class BerserkerManager : MonoBehaviour
         if (amount <= 0) return;
         int old = angerCount;
         angerCount += amount;
+        CriAudioManager.Instance.PlaySe("SE_MagicCircleAngerIncrease");
         OnAngerChanged?.Invoke(old, angerCount);
     }
 
@@ -52,6 +53,7 @@ public class BerserkerManager : MonoBehaviour
         if (!CanConsume(amount)) return false;
         int old = angerCount;
         angerCount -= amount;
+        CriAudioManager.Instance.PlaySe("SE_MagicCircleAngerDecrease");
         OnAngerChanged?.Invoke(old, angerCount);
         return true;
     }
@@ -60,6 +62,7 @@ public class BerserkerManager : MonoBehaviour
     {
         int old = angerCount;
         angerCount *= 2;
+        CriAudioManager.Instance.PlaySe("SE_MagicCircleAngerDouble");
         OnAngerChanged?.Invoke(old, angerCount);
     }
 
