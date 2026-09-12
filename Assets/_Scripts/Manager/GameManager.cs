@@ -104,7 +104,12 @@ public class GameManager : MonoBehaviour
         TrySetPlayerStatus(true);
         Player.StagePlayerInit(_playerStatus);
         StageManager.CreateStage(StageID);
-        _deckManager = DeckManager.Instance;
+        if (CurrentUIManager.TryGetComponent<TutorialManager>(out var tutorial))
+        {
+            tutorial.Initialize();
+        }
+
+            _deckManager = DeckManager.Instance;
         _isReward = false;
         _isGameover = false;
 
