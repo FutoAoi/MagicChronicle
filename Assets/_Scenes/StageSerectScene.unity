@@ -2721,6 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChangeButton
   _sceneName: 0
+  _panelSwitcher: {fileID: 0}
 --- !u!114 &368951364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6622,6 +6623,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 199717386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &873735945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873735946}
+  - component: {fileID: 873735948}
+  - component: {fileID: 873735947}
+  m_Layer: 5
+  m_Name: '[IMG]BerserkerwPlayerImage (1)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &873735946
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873735945}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3494445566121965273}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 90, y: -333}
+  m_SizeDelta: {x: 2402.2144, y: 3277}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &873735947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873735945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5819688027958023255, guid: 757d19202c63853428c0364165561dc7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &873735948
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873735945}
+  m_CullTransparentMesh: 1
 --- !u!1 &874913083
 GameObject:
   m_ObjectHideFlags: 0
@@ -12642,7 +12718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  DeckData: {fileID: 0}
 --- !u!114 &1667290979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16564,6 +16640,14 @@ PrefabInstance:
       propertyPath: _hpBarController
       value: 
       objectReference: {fileID: 946603092}
+    - target: {fileID: 4016123252594091134, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619485703523230453, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4818669015894254277, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16648,15 +16732,59 @@ PrefabInstance:
       propertyPath: _hp
       value: 
       objectReference: {fileID: 946603090}
+    - target: {fileID: 5999201821179316937, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7131529595760290262, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
       propertyPath: m_Name
       value: '[PNL]EventPanel'
       objectReference: {fileID: 0}
+    - target: {fileID: 7131529595760290262, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6160504718119128900, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 873735946}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 362090306015039210, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3494445566121965276}
   m_SourcePrefab: {fileID: 100100000, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+--- !u!224 &3494445566121965273 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6160504718119128900, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+  m_PrefabInstance: {fileID: 3494445566121965272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3494445566121965274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4016123252594091134, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+  m_PrefabInstance: {fileID: 3494445566121965272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3494445566121965275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 362090306015039210, guid: 3f76e0674276e344cbee0610f8e6b059, type: 3}
+  m_PrefabInstance: {fileID: 3494445566121965272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3494445566121965276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494445566121965275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e04ed7472334148b7264ab97b03c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconChangerByPlayerType
+  ConboIcon: {fileID: 3494445566121965274}
+  BerserkerIcon: {fileID: 873735945}
+  TechnicalIcon: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
