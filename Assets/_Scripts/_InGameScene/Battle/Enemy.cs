@@ -209,6 +209,13 @@ public class Enemy : CharacterBase
     {
         if (_enemy.CanBoardInterference && !IsDead)
         {
+            if (_skeletonAnimation != null)
+            {
+                var track = _skeletonAnimation.AnimationState.SetAnimation(0, "magic_motion", false);
+                _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+                yield return new WaitForSeconds(track.Animation.Duration);
+            }
+
             StageData stageData = _gameManager.StageManager.Stage;
 
             //ãÛÇÃSlotÇÃÉäÉXÉgçÏê¨
@@ -239,6 +246,7 @@ public class Enemy : CharacterBase
                 emptyTiles[index].PlaceCard(cardID);
                 emptyTiles[index].IsLastTimeCard = true;
                 emptyTiles.RemoveAt(index);
+                CriAudioManager.Instance.PlaySe("SE_MagicCirclePut");
 
                 yield return null;
             }
