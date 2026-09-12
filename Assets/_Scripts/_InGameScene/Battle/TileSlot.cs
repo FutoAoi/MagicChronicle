@@ -13,6 +13,8 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private RectTransform _windowRt;
     [SerializeField] private GameObject _attackMark;
     [SerializeField] private Image _slotAnimImg;
+    [SerializeField] private float _magicFadeDuration = 0.3f;
+    [SerializeField] private float _occupiedDelay = 0.1f;
     public bool IsLastTimeCard
     {
         get => _isLastTimeCard;
@@ -99,7 +101,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     /// カードを置く
     /// </summary>
     /// <param name="cardSprite"></param>
-    public void PlaceCard(int id)
+    public void PlaceCard(int id, bool isLastTimeCard = false)
     {
         if(IsOccupied)return;
 
@@ -113,6 +115,14 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _gauge = _tileMovement.Gauge;
         _currentnumber = _gameManager.CardDataBase.GetCardData(id).MaxTimes;
         _max = _currentnumber;
+        _tileMovement.MagicFadeAnimation(_occupiedDelay, () =>
+        {
+            DOVirtual.DelayedCall(_occupiedDelay, () =>
+            {
+                IsOccupied = true;
+                if (isLastTimeCard) IsLastTimeCard = true;
+            });
+        });
         IsOccupied = true;
     }
     /// <summary>

@@ -37,22 +37,26 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private TileSlot _tileSlot;
     private Card _card;
     private UIManagerBase _uiManager;
+    private Tween _magicFadeTween;
     private IBattleUI _battleUIManager;
     private bool _isBoardCard = false, _refundedCostOnDrag = false, _canMove = true;
     private int _cost;
 
+    private void Awake()
+    {
+        _rt = GetComponent<RectTransform>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+        {
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
+    }
     private void Start()
     {
         _gameManager = GameManager.Instance;
         _player = _gameManager.Player;
         _uiManager = FindAnyObjectByType<UIManagerBase>();
-        _rt = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
-        _canvasGroup = GetComponent<CanvasGroup>();
-        if(_canvasGroup == null)
-        {
-            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
         _trHandArea = _uiManager.HandArea;
         _cardPrefab = _uiManager.CardPrefab;
         if(_uiManager.TryGetComponent<IBattleUI>(out var manager))
@@ -73,6 +77,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
 
+        _magicFadeTween?.Kill(true);
         CriAudioManager.Instance.PlaySe("SE_CardDraw");
         _trOriginalParent = transform.parent;
 
@@ -285,6 +290,14 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         _magicCircleImage.DOFade(0f, 0.3f)
             .OnComplete(() => Destroy(gameObject));
+    }
+
+    public void MagicFadeAnimation(float duration, System.Action onComplete = null)
+    {
+        _canvasGroup.alpha = 0f;
+        _magicFadeTween?.Kill(true);
+        _magicFadeTween = _canvasGroup.DOFade(1f, duration)
+            .OnComplete(() => onComplete?.Invoke());
     }
 
     private Image GetArrowImage(MagicVector vector)

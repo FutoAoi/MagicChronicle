@@ -264,6 +264,10 @@ public class ShopManager : MonoBehaviour
         {
             _afterMoney.color = _dengerColor;
         }
+        else
+        {
+            _afterMoney.color = _defaultColor;
+        }
     }
 }
 
