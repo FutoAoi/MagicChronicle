@@ -1844,6 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChangeButton
   _sceneName: 0
+  _panelSwitcher: {fileID: 0}
 --- !u!114 &497140179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3963,7 +3964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  DeckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
 --- !u!114 &975691465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4774,6 +4775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChangeButton
   _sceneName: 3
+  _panelSwitcher: {fileID: 0}
 --- !u!114 &1102094987
 MonoBehaviour:
   m_ObjectHideFlags: 0
