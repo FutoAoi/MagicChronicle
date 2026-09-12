@@ -243,8 +243,7 @@ public class Enemy : CharacterBase
                 }
 
                 int index = Random.Range(0, emptyTiles.Count);
-                emptyTiles[index].PlaceCard(cardID);
-                emptyTiles[index].IsLastTimeCard = true;
+                emptyTiles[index].PlaceCard(cardID,true);
                 emptyTiles.RemoveAt(index);
                 CriAudioManager.Instance.PlaySe("SE_MagicCirclePut");
 
