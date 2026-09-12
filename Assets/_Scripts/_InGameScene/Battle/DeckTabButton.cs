@@ -30,7 +30,7 @@ public class DeckTabButton : MonoBehaviour
     public void ChangeColor(bool isBraight)
     {
         _tween?.Kill();
-        float finish = isBraight ? 1f : 0f;
+        float finish = isBraight ? 1f : 0.5f;
         Color finishColor = new Color(finish, finish, finish);
         _tween = _backImage.DOColor(finishColor, _duration);
     }
