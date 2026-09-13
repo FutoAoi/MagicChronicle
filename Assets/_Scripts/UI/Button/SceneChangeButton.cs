@@ -14,11 +14,6 @@ public class SceneChangeButton : MonoBehaviour
     private void SceneChange()
     {
         CriAudioManager.Instance.PlaySe("SE_ButtonCharaOK");
-        if ( _sceneName == SceneType.InGameScene && Platform.IsAndroid)
-        {
-            GameManager.Instance.SceneChange(SceneType.InGameScene_Android);
-            return;
-        }
         if (_panelSwitcher.CurrentIndex == 0)
         {
             GameManager.Instance.ChangePlayerType(PlayerType.Combo);
@@ -27,7 +22,12 @@ public class SceneChangeButton : MonoBehaviour
         {
             GameManager.Instance.ChangePlayerType(PlayerType.Berserker);
         }
-        GameManager.Instance.SceneChange(_sceneName);
         DeckManager.Instance.InitDeck();
+        if ( _sceneName == SceneType.InGameScene && Platform.IsAndroid)
+        {
+            GameManager.Instance.SceneChange(SceneType.InGameScene_Android);
+            return;
+        }
+        GameManager.Instance.SceneChange(_sceneName);
     }
 }
