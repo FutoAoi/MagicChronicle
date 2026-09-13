@@ -14,11 +14,11 @@ public class SceneChangeButton : MonoBehaviour
     private void SceneChange()
     {
         CriAudioManager.Instance.PlaySe("SE_ButtonCharaOK");
-        if (_panelSwitcher.CurrentIndex == 0)
+        if (_panelSwitcher != null && _panelSwitcher.CurrentIndex == 0 )
         {
             GameManager.Instance.ChangePlayerType(PlayerType.Combo);
         }
-        else if (_panelSwitcher.CurrentIndex == 1)
+        else if (_panelSwitcher != null && _panelSwitcher.CurrentIndex == 1)
         {
             GameManager.Instance.ChangePlayerType(PlayerType.Berserker);
         }
