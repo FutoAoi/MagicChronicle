@@ -4748,6 +4748,7 @@ MonoBehaviour:
   - {fileID: 783355372}
   - {fileID: 1523823188}
   - {fileID: 519529015}
+  - {fileID: 1870150695}
   _nextButton: {fileID: 1600307948}
   _beforeButton: {fileID: 2038085447}
 --- !u!1 &1163386060
@@ -7797,6 +7798,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864157326}
   m_CullTransparentMesh: 1
+--- !u!114 &1870150695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4928068113323041440, guid: def34d24495c3a142ac1801280693155, type: 3}
+  m_PrefabInstance: {fileID: 6744336853835329305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860bc309146a6744a81a4a3afdc50ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialPanel
 --- !u!1 &1906802088
 GameObject:
   m_ObjectHideFlags: 0
@@ -9595,6 +9607,10 @@ PrefabInstance:
       value: '[PNL]Tutorial'
       objectReference: {fileID: 0}
     - target: {fileID: 3533180235524227222, guid: def34d24495c3a142ac1801280693155, type: 3}
+      propertyPath: _canvasGroup
+      value: 
+      objectReference: {fileID: 1958081729}
+    - target: {fileID: 4928068113323041440, guid: def34d24495c3a142ac1801280693155, type: 3}
       propertyPath: _canvasGroup
       value: 
       objectReference: {fileID: 1958081729}

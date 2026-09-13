@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,8 @@ public class TutorialManager : MonoBehaviour
                 {
                     _parent.SetActive(false);
                 });
+                _nextButton.GetComponent<Image>().DOFade(0f,0.2f);
+                _beforeButton.GetComponent<Image>().DOFade(0f,0.2f);
                 return;
             }
 
