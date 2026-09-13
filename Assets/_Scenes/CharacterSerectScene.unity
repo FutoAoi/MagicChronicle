@@ -2097,6 +2097,8 @@ MonoBehaviour:
   prevButton: {fileID: 428060770}
   nextButton: {fileID: 1036572889}
   startIndex: 0
+  _duration: 0.3
+  _slideOffsetX: 2200
   CurrentIndex: 0
 --- !u!1 &1036572887
 GameObject:
