@@ -138,7 +138,8 @@ public enum DescriptionKeyWord : byte
     CardPlus,
     Rapid,
     NormalAttack,
-    SpecialAttack
+    SpecialAttack,
+    Liberation
 }
 
 public enum DescriptionWindowType : byte

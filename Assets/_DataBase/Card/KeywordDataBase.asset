@@ -24,7 +24,7 @@ MonoBehaviour:
   - Type: 2
     KeyName: "\u30D0\u30FC\u30B5\u30FC\u30AB\u30FC"
     Description: "\u653B\u6483\u3092\u53D7\u3051\u308B\u5EA6\u306B\u6012\u308A\u3092\uFF11\u5F97\u308B"
-    KeywordColor: {r: 0, g: 0, b: 0, a: 0}
+    KeywordColor: {r: 1, g: 0.71996564, b: 0.27358478, a: 1}
   - Type: 3
     KeyName: "\u30C6\u30AF\u30CB\u30AB\u30EB"
     Description: "\u6BD2\u4ED8\u4E0E"
