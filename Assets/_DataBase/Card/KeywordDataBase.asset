@@ -77,3 +77,7 @@ MonoBehaviour:
     KeyName: "\u7279\u6B8A\u653B\u6483"
     Description: "\u9B54\u6CD5\u9663\u3092\u8A2D\u7F6E\u3059\u308B"
     KeywordColor: {r: 1, g: 1, b: 1, a: 1}
+  - Type: 16
+    KeyName: "\u89E3\u653E"
+    Description: "\u6012\u308A\u3092\u6D88\u8CBB\u3057\u3066\u767A\u52D5\u3059\u308B"
+    KeywordColor: {r: 0.9992509, g: 1, b: 0.38679236, a: 1}
