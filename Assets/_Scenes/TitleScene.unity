@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  _deckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  DeckData: {fileID: 0}
 --- !u!114 &217468533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ver.1.1.9
+  m_text: ver.1.2.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
   m_sharedMaterial: {fileID: 6909926914990174243, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
