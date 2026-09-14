@@ -13,6 +13,6 @@ public class EventGetCard : IEventEffect
 
     public void PlaySE()
     {
-        
+        CriAudioManager.Instance.PlaySe("SE_Get");
     }
 }
