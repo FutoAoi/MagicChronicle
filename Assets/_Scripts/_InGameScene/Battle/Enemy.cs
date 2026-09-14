@@ -12,6 +12,7 @@ public class Enemy : CharacterBase
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemyID => _enemyID;
     public bool IsBoss => _isBoss;
+    public bool IsPhantom => _isPhantom;
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
 
     [Header("エネミー詳細")]
@@ -28,6 +29,7 @@ public class Enemy : CharacterBase
     private bool _isAttackTurn = false;
     private bool _isSpecialAttack = false;
     private bool _isBoss = false;
+    private bool _isPhantom = false;
     private int _currentSAT;
     private int _heightPos;
     private SkeletonAnimation _skeletonAnimation;
@@ -95,6 +97,11 @@ public class Enemy : CharacterBase
 
             HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
+    }
+
+    public void SetPhantom()
+    {
+        _isPhantom = true;
     }
 
     public void InvisibleAttackTurn()

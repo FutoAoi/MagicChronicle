@@ -11,8 +11,18 @@ public class EffectAngerAmountAttack : IEffect
         _attackTargets = GameManager.Instance.StageManager.EnemyList.FindAll(enemy => enemy.IsDead != true);
         if (_attackTargets.Count == 0) return;
         cri.PlaySe("SE_MagicCircleAttackAll");
+        bool bossAttack = false;
         for (int i = 0; i < _attackTargets.Count; i++)
         {
+            if (_attackTargets[i].IsBoss)
+            {
+                if (!bossAttack)
+                {
+                    _attackTargets[i].Damaged(GameManager.Instance.BerserkerManager.AngerCount);
+                    bossAttack = true;
+                }
+                continue;
+            }
             _attackTargets[i].Damaged(GameManager.Instance.BerserkerManager.AngerCount);
         }
     }
