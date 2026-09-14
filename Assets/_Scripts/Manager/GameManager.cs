@@ -183,8 +183,21 @@ public class GameManager : MonoBehaviour
         if (!DecreaseBuff)
         {
             Player.DecreaseAll();
+            bool isboss = false;
             foreach (var enemy in StageManager.EnemyList)
+            {
+                if (enemy.IsBoss)
+                {
+                    if (!isboss)
+                    {
+                        enemy.DecreaseAll();
+                        isboss = true;
+                    }
+                    continue;
+                }
                 enemy.DecreaseAll();
+            }
+
             DecreaseBuff = true;
         }
 
