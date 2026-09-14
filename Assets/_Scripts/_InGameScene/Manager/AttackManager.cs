@@ -121,6 +121,7 @@ public class AttackManager : MonoBehaviour
 
         if (isPlayer)
         {
+            if (_gameManager.Player.IsDead) return;
             _gameManager.IsEnemyAction = true;
         }
         else
@@ -222,7 +223,10 @@ public class AttackManager : MonoBehaviour
                     StartCoroutine(AttackTurn(false));
                     yield return new WaitUntil(() => _isFinishEnemyAttack);
                     _isFinishEnemyAttack = false;
-                    if(!enemy.IsSpecialAttack)
+
+                    if (_gameManager.Player.IsDead) yield break;
+
+                    if (!enemy.IsSpecialAttack)
                         enemy.FinishAttack();
                 }
                 count++;

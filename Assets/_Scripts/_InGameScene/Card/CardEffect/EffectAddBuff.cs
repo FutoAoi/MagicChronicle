@@ -20,8 +20,18 @@ public class EffectAddBuff : IEffect
             }
             else
             {
+                bool bossEffect = false;
                 foreach(Enemy enemy in _attackTargets)
                 {
+                    if (enemy.IsBoss)
+                    {
+                        if (!bossEffect)
+                        {
+                            enemy.AddBuff(_addBuffType);
+                            bossEffect = true;
+                        }
+                        continue;
+                    }
                     enemy.AddBuff(_addBuffType);
                 }
             }
