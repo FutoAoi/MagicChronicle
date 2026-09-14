@@ -22,7 +22,7 @@ MonoBehaviour:
   _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u8FFD\u52A0\u30AB\u30FC\u30C9+1"
   _cost: 1
   _maxTimes: 7
-  _isGhost: 0
+  _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
   _canEvolution: 1

@@ -11,6 +11,7 @@ public class AttackManager : MonoBehaviour
     [SerializeField] private UIManagerBase _uiManager;
     [SerializeField] private RectTransform _playerPos;
     [SerializeField] private AttackPointManager _attackPointManager;
+    [SerializeField] private AttackMagic _enemyMagic;
 
     [Header("”’lİ’è")]
     [SerializeField, Tooltip("ƒ^ƒCƒ‹ŠÔ‚ÌˆÚ“®ŠÔ")] private float _interval = 2.0f;
@@ -46,6 +47,7 @@ public class AttackManager : MonoBehaviour
     private bool _isFinishEnemyBuff = false, _isFinishSpecialAttack = false,_isAttack = false;
     private Vector2Int _enemyPos;
     private RectTransform _enemyRectTr;
+    private AttackMagic _crrentAttackMagic;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +57,7 @@ public class AttackManager : MonoBehaviour
         _magicPool = MagicObjectPool.Instance;
         _height = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Height;
         _width = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Width;
+        _crrentAttackMagic = GameManager.Instance.PlayerDataBase.GetPlayerData(GameManager.Instance.PlayerType).AttackMagic;
         AttackStartPos = _height / 2;
         if(_uiManager.TryGetComponent<IBattleUI>(out var manager))
         {
@@ -83,7 +86,7 @@ public class AttackManager : MonoBehaviour
             int time = AttackMagicIndex;
             for (int i = 0; i < time; i++)
             {
-                _magic = _magicPool.GetAttackMagic();
+                _magic = _magicPool.GetAttackMagic(_crrentAttackMagic);
                 _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
                     MagicVector.Right, _playerPos));
@@ -97,7 +100,7 @@ public class AttackManager : MonoBehaviour
             int time = AttackMagicIndex;
             for (int i = 0; i < time; i++)
             {
-                _magic = _magicPool.GetAttackMagic();
+                _magic = _magicPool.GetAttackMagic(_enemyMagic);
                 _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(_enemyPos,
                     MagicVector.Left, _enemyRectTr));
@@ -247,6 +250,7 @@ public class AttackManager : MonoBehaviour
 
             if (CheckEnemy())
             {
+                yield return new WaitForSeconds(1.2f);
                 _gameManager.CurrentPhase = BattlePhase.Reward;
                 _isVictory = true;
             }

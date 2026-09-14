@@ -17,7 +17,7 @@ public class EffectSplitAttack : IEffect
         {
             if (i != 0)
             {
-                attack = pool.GetAttackMagic();
+                attack = pool.GetAttackMagic(magic);
             }
 
             attack.AttackPower = magic.AttackPower;
