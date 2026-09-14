@@ -200,14 +200,6 @@ public class AttackManager : MonoBehaviour
             //í èÌçUåÇ
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
-                if (_stageManager.EnemyList[count].IsBoss)
-                {
-                    if (_stageManager.BossPos != count)
-                    {
-                        count++;
-                        continue;
-                    }
-                }
                 if (enemy.IsAttackTurn && !enemy.IsDead)
                 {
                     CriAudioManager.Instance.PlaySe("SE_MagicShot");
@@ -226,8 +218,10 @@ public class AttackManager : MonoBehaviour
 
                     if (_gameManager.Player.IsDead) yield break;
 
-                    if (!enemy.IsSpecialAttack)
+                    bool isLastBossSlot = !enemy.IsBoss || count == _stageManager.BossPos + 1;
+                    if (!enemy.IsSpecialAttack && isLastBossSlot)
                         enemy.FinishAttack();
+
                 }
                 count++;
             }
