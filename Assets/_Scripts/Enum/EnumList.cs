@@ -118,7 +118,8 @@ public enum ParticleType : byte
     Magic,
     DestroyFire,
     DestroyFireRed,
-    SingleAttackMagic
+    SingleAttackMagic,
+    DeadSmoke
 }
 
 public enum DescriptionKeyWord : byte

@@ -274,8 +274,6 @@ public class Enemy : CharacterBase
         _specialImage.gameObject.SetActive(false);
         _attackTurnTMP.text = null;
         _specialTMP.text = null;
-        if(_spineEnemy != null)
-            _spineEnemy.SetActive(false);
 
         //ƒoƒtA”»’èíœ
         RemoveAllBuff();
@@ -293,12 +291,34 @@ public class Enemy : CharacterBase
             }
         }
 
-        WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
-        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
+        StartCoroutine(DeadAnimation());
+    }
+
+    private IEnumerator DeadAnimation()
+    {
+        if (_skeletonAnimation != null)
+        {
+            yield return DOTween.To(
+               () => _skeletonAnimation.Skeleton.GetColor().a,
+               a =>
+               {
+                   var c = _skeletonAnimation.Skeleton.GetColor();
+                   _skeletonAnimation.Skeleton.SetColor(c.r, c.g, c.b, a);
+               },
+               0f,
+               0.4f
+            ).WaitForCompletion();
+
+            _spineEnemy.SetActive(false);
+        }
 
         if (_gameManager.CurrentUIManager.TryGetComponent<UIManagerBase>(out var manager))
         {
-            _gameManager.EffectManager.ApplyEffect(ParticleType.Money,manager.ParticleParent,Rect);
+            _gameManager.EffectManager.ApplyEffect(ParticleType.Money, manager.ParticleParent, Rect);
+            _gameManager.EffectManager.ApplyEffect(ParticleType.DeadSmoke, manager.ParticleParent, Rect);
         }
+
+        WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
+        CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
     }
 }
