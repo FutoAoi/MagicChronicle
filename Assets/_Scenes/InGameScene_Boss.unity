@@ -4652,6 +4652,7 @@ MonoBehaviour:
   _uiManager: {fileID: 1154090793}
   _playerPos: {fileID: 460636252}
   _attackPointManager: {fileID: 349422008}
+  _enemyMagic: {fileID: 556352063450104007, guid: c279599280d0b1e46a681f5d2489789a, type: 3}
   _interval: 0.2
   _duration: 3
   _rapidInterval: 0.5
@@ -4697,6 +4698,12 @@ MonoBehaviour:
     _particlePrefab: {fileID: 6452176739721105503, guid: 27e173ff08a5df54ab20f42ee81216dc, type: 3}
   - _particleType: 8
     _particlePrefab: {fileID: 6452176739721105503, guid: 30b04af993c234c4fa86c4cf62ab29d2, type: 3}
+  - _particleType: 9
+    _particlePrefab: {fileID: 3837065054071848264, guid: f02c9988332c698499e4ac4ef2e99f8c, type: 3}
+  - _particleType: 10
+    _particlePrefab: {fileID: 2117051869309673058, guid: dd9b48b76f7aa4d4fbd26bf359896936, type: 3}
+  - _particleType: 11
+    _particlePrefab: {fileID: 3837065054071848264, guid: b136ae3d3d80dde4286a7f711195eca4, type: 3}
 --- !u!114 &1154090793
 MonoBehaviour:
   m_ObjectHideFlags: 0

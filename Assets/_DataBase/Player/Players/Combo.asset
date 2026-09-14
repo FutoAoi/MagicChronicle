@@ -20,7 +20,7 @@ MonoBehaviour:
   _playerSprite: {fileID: 0}
   _isPlayable: 1
   _playerDescription: "\u8AAC\u660E"
-  _playerPrefab: {fileID: 8145773678128715522, guid: e202b1d1cc7088e4fb4de2cf5e2fb55a, type: 3}
+  _playerPrefab: {fileID: 9108229096318833011, guid: 88e5fd38ab6a8ed499dee599d84fc081, type: 3}
   _cardImage: {fileID: -2411550607168409038, guid: b0c6ebffb231b244a9b752054cf2dac1, type: 3}
   _cardMaskImage: {fileID: -362608488966108197, guid: 3e045c68c30cd7b4ba8a2b68af15beb0, type: 3}
   _cardBackImage: {fileID: 3204546249330594266, guid: 18c8e1632ce47624abcc2f0e50b3a213, type: 3}
@@ -30,3 +30,4 @@ MonoBehaviour:
   _eventImage: {fileID: -359853923358188409, guid: 9be028c99c75f7c4f9df0e5d317ee671, type: 3}
   _cardData: {fileID: 11400000, guid: 32cb160a793339341a1ce7e2a7d379be, type: 2}
   _defaultDeck: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
+  _attackMagic: {fileID: 556352063450104007, guid: a07cb267220800247aa77eb95f2159f0, type: 3}

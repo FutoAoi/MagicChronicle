@@ -30,3 +30,4 @@ MonoBehaviour:
   _eventImage: {fileID: 82707211892565130, guid: ec862dd98a447344c9dead29ab514435, type: 3}
   _cardData: {fileID: 11400000, guid: c72f7686b969d7149a5a97e99ad86e68, type: 2}
   _defaultDeck: {fileID: 11400000, guid: a234882df860250429beba25b0794662, type: 2}
+  _attackMagic: {fileID: 556352063450104007, guid: a056cb0968319ca4d887793e03943f8f, type: 3}

@@ -45,4 +45,4 @@ MonoBehaviour:
         _canRangeAttack: 1
         _isGhost: 0
         _magicPrefab: {fileID: 0}
-        _ghostMagicPrefab: {fileID: 0}
+        _ghostMagicPrefab: {fileID: 556352063450104007, guid: 099d836b291980f44ba219ba87dc073a, type: 3}

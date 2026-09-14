@@ -22,6 +22,7 @@ public class PlayerData : ScriptableObject
     [SerializeField] private Sprite _eventImage;
     [SerializeField] private CardDataBase _cardData;
     [SerializeField] private DeckData _defaultDeck;
+    [SerializeField] private AttackMagic _attackMagic;
 
     public int PlayerID => _playerID;
     public string PlayerName => _playerName;
@@ -41,4 +42,5 @@ public class PlayerData : ScriptableObject
     public Sprite EventImage => _eventImage;
     public CardDataBase CardData => _cardData;
     public DeckData DeckData => _defaultDeck;
+    public AttackMagic AttackMagic => _attackMagic;
 }

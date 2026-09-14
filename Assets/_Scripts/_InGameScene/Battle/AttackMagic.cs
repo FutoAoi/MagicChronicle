@@ -14,7 +14,7 @@ public class AttackMagic : MonoBehaviour
     public bool IsAttack { get; private set; } = false;
 
     [SerializeField, Tooltip("ƒ^ƒCƒ‹‚Ì”­ŒõF")] private Color _glowingColor;
-    [SerializeField] private ParticleType[] _attackParticleTypes = { ParticleType.Magic, ParticleType.FireDust };
+    [SerializeField] private ParticleType[] _attackParticleTypes;
 
     [NonSerialized] public MagicVector _currentVector;
 

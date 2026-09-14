@@ -114,12 +114,15 @@ public enum ParticleType : byte
     Money,
     PowerUp,
     Firefly,
-    FireDust,
-    Magic,
+    Combo_Magic,
+    Combo_kirakira,
     DestroyFire,
     DestroyFireRed,
     SingleAttackMagic,
-    DeadSmoke
+    DeadSmoke,
+    Berserker_Magic,
+    Berserker_kirakira,
+    Enemy_Magic
 }
 
 public enum DescriptionKeyWord : byte

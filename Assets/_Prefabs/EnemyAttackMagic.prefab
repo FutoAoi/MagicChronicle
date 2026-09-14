@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7102584947540814645}
   - component: {fileID: 556352063450104007}
   m_Layer: 5
-  m_Name: Magic 1
+  m_Name: EnemyAttackMagic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1524599442852385717, guid: 1e4ee16a94bd9254e95b434c360eac10, type: 3}
+  m_Sprite: {fileID: 914982300155716374, guid: cd139f8dfe2219143a9c3fbfbf94cf7f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackMagic
   AttackPower: 1
   _glowingColor: {r: 1, g: 0.5954141, b: 0, a: 1}
-  _attackParticleTypes: 07
+  _attackParticleTypes: 0b

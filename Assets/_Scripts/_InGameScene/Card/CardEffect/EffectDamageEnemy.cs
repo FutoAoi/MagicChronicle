@@ -25,6 +25,7 @@ public class EffectDamageEnemy : IEffect,IGhostOriginEffect
         CriAudioManager cri = CriAudioManager.Instance;
         _attackTargets = GameManager.Instance.StageManager.EnemyList.FindAll(enemy => enemy.IsDead != true);
         if (_attackTargets.Count == 0) return;
+        AttackMagic prefab = _ghostMagicPrefab != null ? _ghostMagicPrefab : _magicPrefab;
         if (_canRangeAttack)
         {
             cri.PlaySe("SE_MagicCircleAttackAll");
@@ -35,17 +36,16 @@ public class EffectDamageEnemy : IEffect,IGhostOriginEffect
                 {
                     if (!bossAttack)
                     {
-                        _attackTargets[i].Damaged(_effectDamege);
+                        _attackTargets[i].DamageFromMagicAttacks(_effectDamege, origin, prefab);
                         bossAttack = true;
                     }
                     continue;
                 }
-                _attackTargets[i].Damaged(_effectDamege);
+                _attackTargets[i].DamageFromMagicAttacks(_effectDamege, origin, prefab);
             }
         }
         else
         {
-            AttackMagic prefab = _isGhost && _ghostMagicPrefab != null ? _ghostMagicPrefab : _magicPrefab;
             _randomIndex = Random.Range(0, _attackTargets.Count);
             _attackTargets[_randomIndex].DamageFromMagicAttacks(_effectDamege,origin,prefab);
             cri.PlaySe("SE_MagicCircleAttack");
