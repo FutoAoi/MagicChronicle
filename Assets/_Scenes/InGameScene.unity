@@ -5113,6 +5113,8 @@ MonoBehaviour:
     _particlePrefab: {fileID: 6452176739721105503, guid: 47a07ed91da943649ae9fc2cff98ee4a, type: 3}
   - _particleType: 6
     _particlePrefab: {fileID: 6452176739721105503, guid: 27e173ff08a5df54ab20f42ee81216dc, type: 3}
+  - _particleType: 8
+    _particlePrefab: {fileID: 6452176739721105503, guid: 30b04af993c234c4fa86c4cf62ab29d2, type: 3}
 --- !u!114 &1154090793
 MonoBehaviour:
   m_ObjectHideFlags: 0
