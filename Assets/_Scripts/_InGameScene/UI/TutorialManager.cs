@@ -55,5 +55,6 @@ public class TutorialManager : MonoBehaviour
             _currentIndex--;
             _panels[_currentIndex].Show(false);
         }
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
     }
 }

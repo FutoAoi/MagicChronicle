@@ -28,8 +28,18 @@ public class EffectDamageEnemy : IEffect,IGhostOriginEffect
         if (_canRangeAttack)
         {
             cri.PlaySe("SE_MagicCircleAttackAll");
+            bool bossAttack = false;
             for (int i = 0; i < _attackTargets.Count; i++)
             {
+                if (_attackTargets[i].IsBoss)
+                {
+                    if (!bossAttack)
+                    {
+                        _attackTargets[i].Damaged(_effectDamege);
+                        bossAttack = true;
+                    }
+                    continue;
+                }
                 _attackTargets[i].Damaged(_effectDamege);
             }
         }
