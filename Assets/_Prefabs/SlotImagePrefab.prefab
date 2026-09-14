@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 6440659201573587294}
   - component: {fileID: 8180460212842778613}
   - component: {fileID: 3826490921493448582}
+  - component: {fileID: 4235804817254478341}
   m_Layer: 5
   m_Name: HandCard
   m_TagString: Untagged
@@ -745,6 +746,22 @@ MonoBehaviour:
   _downArrowImage: {fileID: 0}
   Gauge: {fileID: 0}
   _offset: {x: 0, y: 250}
+--- !u!114 &4235804817254478341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090449935821325211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eb8d8302312f243b92147595c22dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardViewByPlayerType
+  _cardView: {fileID: 5129339635678019685}
+  _cardMaskView: {fileID: 1845535455071568923}
+  _cardBackgroundView: {fileID: 0}
+  _cardBackImage: {fileID: 0}
 --- !u!1 &5513240025334511777
 GameObject:
   m_ObjectHideFlags: 0
