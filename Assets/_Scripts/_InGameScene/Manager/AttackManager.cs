@@ -177,7 +177,7 @@ public class AttackManager : MonoBehaviour
             _uiManager._isFinishCutIn = false;
             int count = 0;
 
-            //バフ
+            //攻撃ターンカウント
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
                 if (enemy.IsBoss && _stageManager.BossPos != count)
@@ -186,13 +186,6 @@ public class AttackManager : MonoBehaviour
                     continue;
                 }
                 enemy.ContractionAttackTurn(1);
-                if (enemy.IsSpecialAttack)
-                {
-                    StartCoroutine(enemy.BuffCast());
-
-                    yield return new WaitUntil(() => _isFinishEnemyBuff);
-                    _isFinishEnemyBuff = false;
-                }
                 count++;
             }
             count = 0;
@@ -200,14 +193,6 @@ public class AttackManager : MonoBehaviour
             //通常攻撃
             foreach (Enemy enemy in _stageManager.EnemyList)
             {
-                if (_stageManager.EnemyList[count].IsBoss)
-                {
-                    if (_stageManager.BossPos != count)
-                    {
-                        count++;
-                        continue;
-                    }
-                }
                 if (enemy.IsAttackTurn && !enemy.IsDead)
                 {
                     CriAudioManager.Instance.PlaySe("SE_MagicShot");
@@ -226,12 +211,33 @@ public class AttackManager : MonoBehaviour
 
                     if (_gameManager.Player.IsDead) yield break;
 
-                    if (!enemy.IsSpecialAttack)
+                    bool isLastBossSlot = !enemy.IsBoss || count == _stageManager.BossPos + 1;
+                    if (!enemy.IsSpecialAttack && isLastBossSlot)
                         enemy.FinishAttack();
                 }
                 count++;
             }
             count = 0;
+
+            //バフ
+            foreach (Enemy enemy in _stageManager.EnemyList)
+            {
+                if (enemy.IsBoss && _stageManager.BossPos != count)
+                {
+                    count++;
+                    continue;
+                }
+                if (enemy.IsSpecialAttack)
+                {
+                    StartCoroutine(enemy.BuffCast());
+
+                    yield return new WaitUntil(() => _isFinishEnemyBuff);
+                    _isFinishEnemyBuff = false;
+                }
+                count++;
+            }
+            count = 0;
+
 
             //盤面干渉
             foreach (Enemy enemy in _stageManager.EnemyList)

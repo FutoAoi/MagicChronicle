@@ -24,6 +24,10 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField, Header("下印")] private Image _downArrowImage;
     [SerializeField, Header("耐久ゲージ")] public Image Gauge;
 
+    [Header("マテリアル設定")]
+    [SerializeField] private Material _normalMat;
+    [SerializeField] private Material _rockMat;
+
     [Header("-----数値調整-----")]
     [SerializeField, Header("ホールド時のローカル座標")] private Vector2 _offset = new Vector2(0,250);
 
@@ -253,7 +257,10 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private void UpdateCardObject(bool isViewCard)
     {
-        if (_magicCircleView != null) _magicCircleView.SetActive(!isViewCard);
+        if (_magicCircleView != null)
+        {
+            _magicCircleView.SetActive(!isViewCard);
+        }
         if (_moveCardView != null)
         {
             _moveCardView.SetActive(isViewCard);
@@ -271,6 +278,8 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void SetSlotMagicImage(CardData data)
     {
+        _magicCircleImage.material = data.IsObstacle ? _rockMat: _normalMat;
+        Gauge.color = new Color(1f, 1f, 1f, data.IsObstacle ? 0f : 1f);
         _magicCircleImage.sprite = data.MagicSprite;
         _magicTimeText.text = data.MaxTimes.ToString();
 

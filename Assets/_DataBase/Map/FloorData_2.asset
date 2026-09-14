@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FloorData_2
   m_EditorClassIdentifier: Assembly-CSharp::FloorData
   _roomDatas:
-  - _roomType: 1
-    _stageID: 2
+  - _roomType: 3
+    _stageID: 0
   _minNodes: 1
   _maxNodes: 1

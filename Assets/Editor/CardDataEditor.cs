@@ -22,6 +22,7 @@ public class CardDataEditor : Editor
     private SerializedProperty _isGhost;
     private SerializedProperty _isDestruction;
     private SerializedProperty _isPlayerMagic;
+    private SerializedProperty _isObstacle;
     private SerializedProperty _canEvolution;
     private SerializedProperty _evolutionID;
     private SerializedProperty _displayArrowVector;
@@ -49,6 +50,7 @@ public class CardDataEditor : Editor
         _isGhost = serializedObject.FindProperty("_isGhost");
         _isDestruction = serializedObject.FindProperty("_isDestruction");
         _isPlayerMagic = serializedObject.FindProperty("_isPlayerMagic");
+        _isObstacle = serializedObject.FindProperty("_isObstacle");
         _canEvolution = serializedObject.FindProperty("_canEvolution");
         _evolutionID = serializedObject.FindProperty("_evolutionID");
         _displayArrowVector = serializedObject.FindProperty("_displayArrowVector");
@@ -100,6 +102,7 @@ public class CardDataEditor : Editor
         EditorGUILayout.PropertyField(_isGhost);
         EditorGUILayout.PropertyField(_isDestruction);
         EditorGUILayout.PropertyField(_isPlayerMagic);
+        EditorGUILayout.PropertyField(_isObstacle);
         EditorGUILayout.PropertyField(_keywords);
         EditorGUILayout.PropertyField(_canEvolution);
 
