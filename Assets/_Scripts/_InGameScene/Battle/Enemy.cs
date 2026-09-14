@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
@@ -216,9 +217,17 @@ public class Enemy : CharacterBase
     {
         if (_enemy.CanBoardInterference && !IsDead)
         {
+            TrackEntry track = new();
             if (_skeletonAnimation != null)
             {
-                var track = _skeletonAnimation.AnimationState.SetAnimation(0, "magic_motion", false);
+                if (IsBoss)
+                {
+                    track = _skeletonAnimation.AnimationState.SetAnimation(0, "ground_motion", false);
+                }
+                else
+                {
+                    track = _skeletonAnimation.AnimationState.SetAnimation(0, "magic_motion", false);
+                }
                 _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
                 yield return new WaitForSeconds(track.Animation.Duration);
             }

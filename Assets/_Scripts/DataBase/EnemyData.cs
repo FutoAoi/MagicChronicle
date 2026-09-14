@@ -47,7 +47,7 @@ public class EnemyData : ScriptableObject
     [SerializeField, ShowIf("_isSpecialAttack"), Tooltip("特殊攻撃ターン")] private int _enemySAT = 3;
     
     [Header("-----盤面干渉-----"),ShowIf("_isSpecialAttack")]
-    [SerializeField, Tooltip("エネミーの盤面鑑賞攻撃フラグ")] private bool _canBoardInterference;
+    [SerializeField, Tooltip("エネミーの盤面干渉攻撃フラグ")] private bool _canBoardInterference;
     [SerializeField, ShowIf("_canBoardInterference"), Tooltip("盤面干渉の数")] private int _effectTime;
     [SerializeField, ShowIf("_canBoardInterference"), Tooltip("設置魔法陣")] private int[] _cardEffectID;
 

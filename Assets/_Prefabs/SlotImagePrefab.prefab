@@ -745,6 +745,8 @@ MonoBehaviour:
   _leftArrowImage: {fileID: 0}
   _downArrowImage: {fileID: 0}
   Gauge: {fileID: 0}
+  _normalMat: {fileID: 0}
+  _rockMat: {fileID: 0}
   _offset: {x: 0, y: 250}
 --- !u!114 &4235804817254478341
 MonoBehaviour:
@@ -1286,6 +1288,8 @@ MonoBehaviour:
   _leftArrowImage: {fileID: 8379906149718328069}
   _downArrowImage: {fileID: 7524762675157103433}
   Gauge: {fileID: 8734592425036880686}
+  _normalMat: {fileID: 2100000, guid: ce3264994da0c544bab3f060c534fa95, type: 2}
+  _rockMat: {fileID: 2100000, guid: 8609f10b94c5f354ab550078708c9055, type: 2}
   _offset: {x: 0, y: 150}
 --- !u!222 &1316960868216614661
 CanvasRenderer:

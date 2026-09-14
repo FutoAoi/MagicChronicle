@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 /// <summary>
 /// 攻撃する時に出てくる魔法
 /// </summary>
@@ -43,6 +44,7 @@ public class AttackMagic : MonoBehaviour
         _gameManager = GameManager.Instance;
         _attackManager = _gameManager.AttackManager;
         _stageManager = FindAnyObjectByType<StageManager>();
+        _slotImg = GetComponent<Image>();
         _width = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Width;
         _height = _gameManager.StageDataBase.GetStageData(_gameManager.StageID).Height;
         _finish = false;
@@ -61,6 +63,7 @@ public class AttackMagic : MonoBehaviour
         AttackPower = 1;
         _combo = false;
         _isBreak = false;
+        _slotImg.enabled = true;
     }
     #endregion
     #region 基本挙動
@@ -332,10 +335,11 @@ public class AttackMagic : MonoBehaviour
             }
             else
             {
-                //壊れる演出いれるならここかも
+                FinishMagic(isPlayer);
+                yield break;
             }
-                _attackRectTr.DOMove(_goalPos, currentInterval)
-                        .SetEase(Ease.Linear);
+            _attackRectTr.DOMove(_goalPos, currentInterval)
+                    .SetEase(Ease.Linear);
         }
         if (_isSelfHarm)
         {
@@ -352,7 +356,11 @@ public class AttackMagic : MonoBehaviour
 
         yield return new WaitForSeconds(currentInterval);
 
-        //スロットに接地フラグいれる
+        FinishMagic(isPlayer);
+    }
+    private void FinishMagic(bool isPlayer)
+    {
+        //スロットに接地フラグを格納
         foreach (List<GameObject> Hslot in _stageManager.SlotList)
         {
             foreach (GameObject slot in Hslot)
@@ -418,12 +426,19 @@ public class AttackMagic : MonoBehaviour
         }
         else
         {
+            Enemy enemy = _stageManager.EnemyList[_currentSlot.x];
             hasBuff = _stageManager.EnemyList[_currentSlot.x].HasBuff(BuffType.Counter);
             if(hasBuff)
             {
                 _currentVector = MagicVector.Left;
                 _stageManager.EnemyList[_currentSlot.x].AddBuff(BuffType.Counter, -1, false);
                 CriAudioManager.Instance.PlaySe("SE_MagicReflect");
+
+                if (enemy.SkeletonAnimation != null && enemy.IsBoss)
+                {
+                    enemy.SkeletonAnimation.AnimationState.SetAnimation(0, "reflection_motion", false);
+                    enemy.SkeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+                }
             }
         }
         return hasBuff;
