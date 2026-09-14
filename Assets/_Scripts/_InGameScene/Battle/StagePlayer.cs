@@ -1,4 +1,5 @@
 using Spine.Unity;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -72,6 +73,12 @@ public class StagePlayer : CharacterBase
 
     public override void Dead()
     {
+        StartCoroutine(DeadAnimation());
+    }
+    private IEnumerator DeadAnimation()
+    {
+        var track = _skeletonAnimation.AnimationState.SetAnimation(0, "deth_motion", false);
+        yield return new WaitForSeconds(track.Animation.Duration);
         _gameManager.CurrentPhase = BattlePhase.Gameover;
     }
 
