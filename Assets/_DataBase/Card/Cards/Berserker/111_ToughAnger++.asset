@@ -19,7 +19,7 @@ MonoBehaviour:
   _magicSprite: {fileID: 1891196892459785707, guid: 2175dfd18d1e5d44bad6f9f16f952e57, type: 3}
   _name: "\u30B9\u30E9\u30A4++"
   _description: "\u6012\u308A+3"
-  _colorDescription: "\u6012\u308A+3"
+  _colorDescription: "<color=#FFFF63>\u6012\u308A</color>+3"
   _cost: 1
   _maxTimes: 3
   _isGhost: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     rid: -2
   _effect:
   - rid: 6754108827768717460
-  _keywords: 
+  _keywords: 11
   references:
     version: 2
     RefIds:
