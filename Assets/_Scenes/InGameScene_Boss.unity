@@ -7572,7 +7572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30BF\u30A4\u30C8\u30EB\u3078"
+  m_text: "\u30EA\u30C8\u30E9\u30A4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
   m_sharedMaterial: {fileID: 6909926914990174243, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
@@ -9480,7 +9480,7 @@ GameObject:
   - component: {fileID: 1959302487}
   - component: {fileID: 1959302486}
   - component: {fileID: 1959302485}
-  - component: {fileID: 1959302484}
+  - component: {fileID: 1959302488}
   m_Layer: 5
   m_Name: '[BTN]BackToCamp'
   m_TagString: Untagged
@@ -9508,20 +9508,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.05999756, y: -2.777778}
   m_SizeDelta: {x: 1534.2, y: 475.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1959302484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959302482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466b57b5e196b354eb6aa9c36f26a7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneChangeButton
-  _sceneName: 0
-  _panelSwitcher: {fileID: 0}
 --- !u!114 &1959302485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9566,13 +9552,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1959302488}
+        m_TargetAssemblyTypeName: ReStartButton, Assembly-CSharp
+        m_MethodName: ReStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9616,6 +9602,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959302482}
   m_CullTransparentMesh: 1
+--- !u!114 &1959302488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959302482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cece8e84ea988419a1938422d0f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReStartButton
 --- !u!1 &1995691328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7648739167626878927, guid: cc3df947360001446bcc0d79c7c31124, type: 3}

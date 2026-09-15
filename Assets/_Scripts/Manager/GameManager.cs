@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public KeywordDataBase KeywordDataBase => _keywordDataBase;
     public PlayerType PlayerType => _playerType;
     public PlayerStatus PlayerStatus => _playerStatus;
+    public SceneType CurrentScene => _currentScene;
 
     [Header("データベース")]
     [SerializeField, Tooltip("カード")] private CardDataBase _cardDataBase;
@@ -266,7 +267,7 @@ public class GameManager : MonoBehaviour
         });
     }
 
-    private void InitializeBool()
+    public void InitializeBool()
     {
         Reset = false;
         _isDraw = false;
