@@ -483,7 +483,7 @@ public class AttackMagic : MonoBehaviour
     /// <param name="rect">¶¬êŠ</param>
     public void Split(MagicVector vector,Vector2Int start,RectTransform rect)
     {
-        StartCoroutine(Attack(start,vector,rect));
+        _attackManager.StartCoroutine(Attack(start,vector,rect));
     }
     /// <summary>
     /// Ÿ‚Ìƒ}ƒX‚ğ”ò‚Î‚·
