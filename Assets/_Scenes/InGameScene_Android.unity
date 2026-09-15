@@ -4706,6 +4706,12 @@ MonoBehaviour:
     _particlePrefab: {fileID: 2117051869309673058, guid: dd9b48b76f7aa4d4fbd26bf359896936, type: 3}
   - _particleType: 11
     _particlePrefab: {fileID: 3837065054071848264, guid: b136ae3d3d80dde4286a7f711195eca4, type: 3}
+  - _particleType: 7
+    _particlePrefab: {fileID: 3837065054071848264, guid: 4a879b948416b524997ec09904e633b2, type: 3}
+  - _particleType: 12
+    _particlePrefab: {fileID: 3837065054071848264, guid: b56e737a2c788c240af7fc946e59aa0c, type: 3}
+  - _particleType: 13
+    _particlePrefab: {fileID: 6452176739721105503, guid: 30b04af993c234c4fa86c4cf62ab29d2, type: 3}
 --- !u!114 &1154090793
 MonoBehaviour:
   m_ObjectHideFlags: 0

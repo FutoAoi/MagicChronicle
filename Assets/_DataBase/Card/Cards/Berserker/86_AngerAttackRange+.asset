@@ -45,3 +45,4 @@ MonoBehaviour:
       data:
         _useAngerAmount: 1
         _effectDamege: 5
+        _magicPrefab: {fileID: 7594274036529306295, guid: 60043334fd14cd242af28410f913fd93, type: 3}

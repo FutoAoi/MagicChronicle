@@ -25,6 +25,7 @@ MonoBehaviour:
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
+  _isObstacle: 0
   _canEvolution: 1
   _evolutionID: 113
   _displayArrowVector: 
@@ -40,4 +41,5 @@ MonoBehaviour:
       type: {class: , ns: , asm: }
     - rid: 6754108827768717461
       type: {class: EffectAngerAmountAttack, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        _attackMagic: {fileID: 7594274036529306295, guid: 60043334fd14cd242af28410f913fd93, type: 3}

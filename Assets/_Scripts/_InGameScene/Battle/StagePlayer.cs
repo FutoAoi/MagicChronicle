@@ -1,5 +1,6 @@
-using Spine.Unity;
 using System.Collections;
+using DG.Tweening;
+using Spine.Unity;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -104,5 +105,41 @@ public class StagePlayer : CharacterBase
         _skeletonAnimation = spinePlayer.GetComponent<SkeletonAnimation>();
         HpBarContller.ShowUI(CurrentHP, MaxHP);
         _maxCost = _status.PlayerMaxCost;
+    }
+
+    public void DamageFromMagicAttacks(int damage, Vector2Int attackPos, AttackMagic magicPrefab = null, float duration = 0.6f, float height = 2.8f)
+    {
+        RectTransform startRt = _gameManager.StageManager
+            .SlotList[attackPos.x][attackPos.y].GetComponent<RectTransform>();
+        RectTransform finishRt = GetComponent<RectTransform>();
+        AttackMagic attack = MagicObjectPool.Instance.GetAttackMagic(magicPrefab);
+        RectTransform magic = attack.GetComponent<RectTransform>();
+
+        Vector3 startPos = startRt.position;
+        Vector3 endPos = finishRt.position;
+        int width = _gameManager.StageManager.Stage.Width;
+        RectTransform farthestRt = _gameManager.StageManager.SlotList[attackPos.x][0].GetComponent<RectTransform>();
+        float referenceDistance = Vector3.Distance(farthestRt.position, endPos);
+        float distance = Vector3.Distance(startPos, endPos);
+        height = height * Mathf.Clamp01(distance / referenceDistance);
+        _gameManager.AttackManager.AttackMagicIndex++;
+        attack.gameObject.SetActive(true);
+        attack.AddAttackEffect();
+        attack.BeginAttack();
+        float direction = (endPos.y >= startPos.y) ? 1f : -1f;
+        float t = 0;
+        DOTween.To(() => t, x => t = x, 1f, duration)
+            .SetEase(Ease.InOutQuad)
+            .OnUpdate(() =>
+            {
+                Vector3 linear = Vector3.Lerp(startPos, endPos, t);
+                float arcOffset = 4f * height * t * (1f - t) * direction;
+                magic.position = linear + new Vector3(0f, arcOffset, 0f);
+            })
+            .OnComplete(() =>
+            {
+                Damaged(damage);
+                attack.DestroyMagic(_gameManager.AttackManager.IsPlayerTurn);
+            });
     }
 }

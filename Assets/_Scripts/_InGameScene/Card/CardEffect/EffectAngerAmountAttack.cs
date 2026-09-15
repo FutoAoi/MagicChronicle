@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class EffectAngerAmountAttack : IEffect
 {
     private List<Enemy> _attackTargets = new();
+    [SerializeField] private AttackMagic _attackMagic;
 
     public void OnExcute(AttackMagic magic)
     {
@@ -18,12 +20,12 @@ public class EffectAngerAmountAttack : IEffect
             {
                 if (!bossAttack)
                 {
-                    _attackTargets[i].Damaged(GameManager.Instance.BerserkerManager.AngerCount);
+                    _attackTargets[i].DamageFromMagicAttacks(GameManager.Instance.BerserkerManager.AngerCount, magic.CurrentSlot, _attackMagic);
                     bossAttack = true;
                 }
                 continue;
             }
-            _attackTargets[i].Damaged(GameManager.Instance.BerserkerManager.AngerCount);
+            _attackTargets[i].DamageFromMagicAttacks(GameManager.Instance.BerserkerManager.AngerCount, magic.CurrentSlot, _attackMagic);
         }
     }
 }

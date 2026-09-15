@@ -25,6 +25,7 @@ MonoBehaviour:
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
+  _isObstacle: 0
   _canEvolution: 0
   _evolutionID: 0
   _displayArrowVector: 00
@@ -44,3 +45,4 @@ MonoBehaviour:
       type: {class: EffectDamageAll, ns: , asm: Assembly-CSharp}
       data:
         _damageAmount: 1
+        _attackMagic: {fileID: 7594274036529306295, guid: 60043334fd14cd242af28410f913fd93, type: 3}
