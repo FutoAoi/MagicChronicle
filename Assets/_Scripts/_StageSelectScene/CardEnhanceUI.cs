@@ -149,6 +149,7 @@ public class CardEnhanceUI : MonoBehaviour
 
         CardData enhancedResult = _cardDataBase.GetCardData(_deckManager.DeckMain[deckIndex]);
         OnCardEnhanced?.Invoke(deckIndex, enhancedResult);
+        CriAudioManager.Instance.PlaySe("SE_Get");
 
         FadeManager.Instance.FadePanel(false, () =>
         {
