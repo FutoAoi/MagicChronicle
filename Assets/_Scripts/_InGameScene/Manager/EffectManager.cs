@@ -19,13 +19,13 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void ApplyEffect(ParticleType type,Transform parent,RectTransform pos = null)
+    public GameObject ApplyEffect(ParticleType type,Transform parent,RectTransform pos = null)
     {
 
         if (!_dictionary.TryGetValue(type, out var effectData))
         {
             Debug.LogError("エフェクトが設定されてない！");
-            return;
+            return null;
         }
 
         Vector3 startPos = pos != null? pos.position : Vector3.zero;
@@ -35,6 +35,7 @@ public class EffectManager : MonoBehaviour
         {
             rt.position = pos.position;
         }
+        return effect;
     }
 }
 

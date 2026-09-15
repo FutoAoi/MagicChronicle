@@ -36,6 +36,7 @@ public class AttackMagic : MonoBehaviour
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
         _combo = false,_isBreak = false;
     private int _width, _height,_comboStack, _attackIndex = 0;
+    private readonly List<GameObject> _activeEffects = new();
 
     #endregion
     #region ライフサイクル
@@ -457,9 +458,16 @@ public class AttackMagic : MonoBehaviour
 
     public void AddAttackEffect()
     {
+        foreach (var effect in _activeEffects)
+        {
+            if (effect != null) Destroy(effect);
+        }
+        _activeEffects.Clear();
+
         foreach (var type in _attackParticleTypes)
         {
-            _gameManager.EffectManager.ApplyEffect(type, transform);
+            GameObject effect = _gameManager.EffectManager.ApplyEffect(type, transform);
+            if (effect != null) _activeEffects.Add(effect);
         }
     }
 
