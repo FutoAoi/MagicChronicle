@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _enemyID: 104
   _sprite: {fileID: -1070814208690267576, guid: 8f68416fe64d3754f9e02a29397dcef7, type: 3}
-  _spineEnemy: {fileID: 3563481931660274304, guid: 5805951feb4cb22439c2429c7e178604, type: 3}
+  _spineEnemy: {fileID: 1904256086257460748, guid: 2940dd1b91dd2e9439e653eff3a8c103, type: 3}
   _enemyHP: 30
   _enemyAP: 3
   _enemyAttackTime: 1

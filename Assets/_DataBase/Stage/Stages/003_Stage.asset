@@ -23,8 +23,7 @@ MonoBehaviour:
   _width: 5
   _height: 5
   _obstacleID: 280
-  _obstaclePos:
-  - {x: 1, y: 2}
+  _obstaclePos: []
   _enemies:
   - _enemyID: 105
     _enemyPosition: 0
