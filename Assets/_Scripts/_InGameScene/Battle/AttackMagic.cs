@@ -206,6 +206,8 @@ public class AttackMagic : MonoBehaviour
                 ActivateMagic(_tileSlot);
             }
 
+            if (_finish) break;
+
             //スロット内部の現在地移動
             _speedInt = GetSpeed(_currentVector);
             _currentSlot += _speedInt;
