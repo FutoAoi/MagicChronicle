@@ -85,10 +85,13 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private int _currentnumber,_max;
     private bool _isDestroy = false,_isColorChange = false,_isOccupied = false,_isLastTimeCard = false;
 
-    private void Start()
+    private void Awake()
     {
         _img = GetComponent<Image>();
         _rt = GetComponent<RectTransform>();
+    }
+    private void Start()
+    {
         IsLastTimeCard = false;
         _gameManager = GameManager.Instance;
         _uiManager = _gameManager.CurrentUIManager;
