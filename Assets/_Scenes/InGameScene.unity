@@ -1746,6 +1746,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374469912}
   m_CullTransparentMesh: 1
+--- !u!114 &426971085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3065410318119222755, guid: def34d24495c3a142ac1801280693155, type: 3}
+  m_PrefabInstance: {fileID: 273167832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &435901922
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,7 +4513,7 @@ MonoBehaviour:
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
   _keywordDataBase: {fileID: 11400000, guid: 19c8b3ebc53a79a499a7744b38065641, type: 2}
-  StageID: 1
+  StageID: 3
   CurrentPhase: 6
   Reset: 0
   IsEnemyAction: 0
@@ -5111,17 +5122,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1881879177929657237, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
   m_PrefabInstance: {fileID: 1461190556}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1130352845 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3065410318119222755, guid: def34d24495c3a142ac1801280693155, type: 3}
-  m_PrefabInstance: {fileID: 273167832}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1154090787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,7 +5346,7 @@ MonoBehaviour:
   - {fileID: 1002751234}
   _nextButton: {fileID: 273167835}
   _beforeButton: {fileID: 273167834}
-  _background: {fileID: 1130352845}
+  _background: {fileID: 426971085}
 --- !u!1 &1160558871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8889,7 +8889,7 @@ GameObject:
   - component: {fileID: 2118905240}
   - component: {fileID: 2118905239}
   - component: {fileID: 2118905238}
-  - component: {fileID: 2118905237}
+  - component: {fileID: 2118905241}
   m_Layer: 5
   m_Name: '[TEXT]BackToCamp'
   m_TagString: Untagged
@@ -8916,20 +8916,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2118905237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118905235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466b57b5e196b354eb6aa9c36f26a7f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneChangeButton
-  _sceneName: 0
-  _panelSwitcher: {fileID: 0}
 --- !u!114 &2118905238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8973,7 +8959,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2118905239}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2118905241}
+        m_TargetAssemblyTypeName: ReStartButton, Assembly-CSharp
+        m_MethodName: ReStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2118905239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8994,7 +8992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30BF\u30A4\u30C8\u30EB\u3078"
+  m_text: "\u30EA\u30C8\u30E9\u30A4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
   m_sharedMaterial: {fileID: 6909926914990174243, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
@@ -9074,6 +9072,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118905235}
   m_CullTransparentMesh: 1
+--- !u!114 &2118905241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118905235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cece8e84ea988419a1938422d0f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReStartButton
 --- !u!1 &2129955350
 GameObject:
   m_ObjectHideFlags: 0
