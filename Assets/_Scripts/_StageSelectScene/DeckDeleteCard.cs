@@ -19,7 +19,7 @@ public class DeckDeleteCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
             _uiManager.DisplayDescriptionPanel(_isSelect);
-            _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+            _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _rt, _cardID);
 
             _highLight.SetActive(_isSelect);
         }
@@ -120,7 +120,7 @@ public class DeckDeleteCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
 
         _uiManager.DisplayDescriptionPanel(true);
-        _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+        _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _rt, _cardID);
     }
 
     public void OnPointerExit(PointerEventData eventData)

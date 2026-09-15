@@ -145,7 +145,8 @@ public enum DescriptionKeyWord : byte
     Rapid,
     NormalAttack,
     SpecialAttack,
-    Liberation
+    Liberation,
+    Angry
 }
 
 public enum DescriptionWindowType : byte
@@ -169,4 +170,11 @@ public enum EventResultType : byte
     Gold,
     Heal,
     Damage
+}
+
+public enum DescriptionTargetType
+{
+    Card,
+    Buff,
+    Other 
 }

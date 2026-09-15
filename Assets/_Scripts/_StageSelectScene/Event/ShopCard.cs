@@ -17,7 +17,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if(_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
             _uiManager.DisplayDescriptionPanel(_isSelect);
-            _uiManager.UpdateDescriptionPanel(true,_rt,_cardID);
+            _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card,_rt,_cardID);
 
             _highLight.SetActive(_isSelect);
         }
@@ -94,7 +94,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
         _uiManager.DisplayDescriptionPanel(true);
-        _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+        _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _rt, _cardID);
     }
 
     /// <summary>

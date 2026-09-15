@@ -49,7 +49,8 @@ public abstract class UIManagerBase : MonoBehaviour
     public abstract void UpdateCostUI();
 
 
-    public void UpdateDescriptionPanel(bool isCard,RectTransform rect,int id = 0,BuffType buff = BuffType.Combo)
+    public void UpdateDescriptionPanel(DescriptionTargetType type, RectTransform rect,int id = 0,
+        BuffType buff = BuffType.Combo, DescriptionKeyWord keyword = default)
     {
         if (!_descriptionPanel.activeSelf) return;
 
@@ -58,22 +59,26 @@ public abstract class UIManagerBase : MonoBehaviour
 
         _rt.position = rect.position;
 
-        if (isCard)
+        switch (type)
         {
-            CardData cardData = _gameManager.CardDataBase.GetCardData(id);
-            _description.UpdateCardWindow(cardData);
-            foreach (DescriptionKeyWord key in cardData.KeyWords)
-            {
-                _description.DisplayKeyWordWindow(key);
-            }
-        }
-        else
-        {
-            BuffData buffData = _gameManager.BuffDataBase.GetBuffData(buff);
-            foreach(DescriptionKeyWord key in buffData.KeyWords)
-            {
-                _description.DisplayKeyWordWindow(key);
-            }
+            case DescriptionTargetType.Card:
+                CardData cardData = _gameManager.CardDataBase.GetCardData(id);
+                _description.UpdateCardWindow(cardData);
+                foreach (DescriptionKeyWord key in cardData.KeyWords)
+                {
+                    _description.DisplayKeyWordWindow(key);
+                }
+                break;
+            case DescriptionTargetType.Buff:
+                BuffData buffData = _gameManager.BuffDataBase.GetBuffData(buff);
+                foreach (DescriptionKeyWord key in buffData.KeyWords)
+                {
+                    _description.DisplayKeyWordWindow(key);
+                }
+                break;
+            case DescriptionTargetType.Other:
+                _description.DisplayKeyWordWindow(keyword);
+                break;
         }
 
         Canvas.ForceUpdateCanvases();

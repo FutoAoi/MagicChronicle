@@ -87,7 +87,7 @@ public class Card : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         _uiManager.DisplayDescriptionPanel(true);
-        _uiManager.UpdateDescriptionPanel(true,_rt,CardID);
+        _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card,_rt,CardID);
     }
 
     public void OnPointerExit(PointerEventData eventData)
