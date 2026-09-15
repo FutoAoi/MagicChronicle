@@ -122,7 +122,9 @@ public enum ParticleType : byte
     DeadSmoke,
     Berserker_Magic,
     Berserker_kirakira,
-    Enemy_Magic
+    Enemy_Magic,
+    Berserker_SplitAttack,
+    BossDeadSmoke
 }
 
 public enum DescriptionKeyWord : byte
