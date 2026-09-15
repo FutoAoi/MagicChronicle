@@ -34,7 +34,7 @@ public class AttackMagic : MonoBehaviour
     private Vector2Int _currentSlot, _speedInt;
     private Vector2 _outPos, _goalPos;
     private bool _finish, _firstAttack, _isAttack, _isSelfHarm, _isAccelerate = false,
-        _combo = false,_firstParticle = true,_isBreak = false;
+        _combo = false,_isBreak = false;
     private int _width, _height,_comboStack, _attackIndex = 0;
 
     #endregion
@@ -85,11 +85,6 @@ public class AttackMagic : MonoBehaviour
         _currentSlot = startPos;//èâä˙É|ÉW
         bool isPlayer = _attackManager.IsPlayerTurn;
         _player = _gameManager.Player;
-        if (_firstParticle)
-        {
-            AddAttackEffect();
-            _firstParticle = false;
-        }
 
         if (isPlayer)
         {
@@ -137,6 +132,7 @@ public class AttackMagic : MonoBehaviour
                 _attackRectTr = GetComponent<RectTransform>();
                 _attackRectTr.position = startRectTr.position;
                 gameObject.SetActive(true);
+                AddAttackEffect();
             }
             if (isPlayer)
             {
