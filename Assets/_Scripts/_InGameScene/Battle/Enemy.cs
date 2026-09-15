@@ -146,6 +146,7 @@ public class Enemy : CharacterBase
         float distance = Vector3.Distance(startPos, endPos);
         height = height * Mathf.Clamp01(distance / referenceDistance);
         _gameManager.AttackManager.AttackMagicIndex++;
+        magic.position = startPos;
         attack.gameObject.SetActive(true);
         attack.AddAttackEffect();
         attack.BeginAttack();
