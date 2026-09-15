@@ -10,7 +10,8 @@ public class EffectHeal : IEffect
         _player = GameManager.Instance.Player;
         if(_isRateHeal)
         {
-            int healamount = _player.MaxHP / 100 * _healAmount; 
+            int healamount = (int)(((float)_player.MaxHP / 100) * _healAmount);
+            _player.Healed(healamount);
         }
         else
         {
