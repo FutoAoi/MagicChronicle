@@ -37,6 +37,7 @@ public class TutorialManager : MonoBehaviour
                 _panels[_currentIndex].Hide(true,() =>
                 {
                     _parent.SetActive(false);
+                    TGSTimer.Instance.RestartTimer();
                 });
                 _nextButton.GetComponent<Image>().DOFade(0f,0.2f);
                 _beforeButton.GetComponent<Image>().DOFade(0f,0.2f);
