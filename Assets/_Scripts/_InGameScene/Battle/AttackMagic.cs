@@ -136,6 +136,7 @@ public class AttackMagic : MonoBehaviour
                 _currentVector = startVector;
                 _attackRectTr = GetComponent<RectTransform>();
                 _attackRectTr.position = startRectTr.position;
+                gameObject.SetActive(true);
             }
             if (isPlayer)
             {

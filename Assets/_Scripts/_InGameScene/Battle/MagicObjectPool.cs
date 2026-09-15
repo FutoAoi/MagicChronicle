@@ -60,7 +60,6 @@ public class MagicObjectPool : MonoBehaviour
     {
         _activeMagics.Add(attackMagic);
         attackMagic.Initialize(() => _pools[prefabKey].Release(attackMagic));
-        attackMagic.gameObject.SetActive(true);
     }
     private void OnReleaseObject(AttackMagic attackMagic)
     {

@@ -87,7 +87,6 @@ public class AttackManager : MonoBehaviour
             for (int i = 0; i < time; i++)
             {
                 _magic = _magicPool.GetAttackMagic(_crrentAttackMagic);
-                _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(new Vector2Int(AttackStartPos, 0),
                     MagicVector.Right, _playerPos));
 
@@ -101,7 +100,6 @@ public class AttackManager : MonoBehaviour
             for (int i = 0; i < time; i++)
             {
                 _magic = _magicPool.GetAttackMagic(_enemyMagic);
-                _magic.gameObject.SetActive(true);
                 StartCoroutine(_magic.Attack(_enemyPos,
                     MagicVector.Left, _enemyRectTr));
 
