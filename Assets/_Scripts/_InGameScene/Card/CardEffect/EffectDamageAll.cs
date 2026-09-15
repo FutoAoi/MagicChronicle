@@ -4,10 +4,11 @@ using UnityEngine;
 public class EffectDamageAll : IEffect
 {
     [SerializeField] private int _damageAmount = 1;
+    [SerializeField] private AttackMagic _attackMagic;
     private List<Enemy> _attackTargets = new();
     public void OnExcute(AttackMagic magic)
     {
-        GameManager.Instance.Player.Damaged(_damageAmount);
+        GameManager.Instance.Player.DamageFromMagicAttacks(_damageAmount, magic.CurrentSlot, _attackMagic);
         CriAudioManager cri = CriAudioManager.Instance;
         _attackTargets = GameManager.Instance.StageManager.EnemyList.FindAll(enemy => enemy.IsDead != true);
         if (_attackTargets.Count == 0) return;
@@ -18,12 +19,12 @@ public class EffectDamageAll : IEffect
             {
                 if(!bossAttack)
                 {
-                    _attackTargets[i].Damaged(_damageAmount);
+                    _attackTargets[i].DamageFromMagicAttacks(_damageAmount, magic.CurrentSlot, _attackMagic);
                     bossAttack = true;
                 }
                 continue;
             }
-            _attackTargets[i].Damaged(_damageAmount);
+            _attackTargets[i].DamageFromMagicAttacks(_damageAmount, magic.CurrentSlot, _attackMagic);
         }
     }
 }

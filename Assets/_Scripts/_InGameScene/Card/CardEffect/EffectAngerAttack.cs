@@ -1,19 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class EffectAngerAttack : EffectUseAnger
 {
     [SerializeField] private int _effectDamege;
+    [SerializeField] private AttackMagic _magicPrefab;
 
     private List<Enemy> _attackTargets = new();
     private int _randomIndex;
 
     protected override void Effect(AttackMagic magic)
     {
-        DamageEffect(magic);
+        DamageEffect(magic.CurrentSlot);
     }
 
-    private void DamageEffect(AttackMagic magic)
+    private void DamageEffect(Vector2Int origin)
     {
         CriAudioManager cri = CriAudioManager.Instance;
         _attackTargets = GameManager.Instance.StageManager.EnemyList.FindAll(enemy => enemy.IsDead != true);
@@ -26,12 +28,12 @@ public class EffectAngerAttack : EffectUseAnger
             {
                 if (!bossAttack)
                 {
-                    _attackTargets[i].Damaged(_effectDamege);
+                    _attackTargets[i].DamageFromMagicAttacks(_effectDamege, origin, _magicPrefab);
                     bossAttack = true;
                 }
                 continue;
             }
-            _attackTargets[i].Damaged(_effectDamege);
+            _attackTargets[i].DamageFromMagicAttacks(_effectDamege, origin, _magicPrefab);
         }
     }
 }

@@ -25,6 +25,7 @@ MonoBehaviour:
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 1
+  _isObstacle: 0
   _canEvolution: 1
   _evolutionID: 51
   _displayArrowVector: 
