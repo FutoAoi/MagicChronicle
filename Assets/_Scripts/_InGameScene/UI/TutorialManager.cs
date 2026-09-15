@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TutorialPanel[] _panels;
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _beforeButton;
+    [SerializeField] private Image _background;
 
     private int _currentIndex = 0;
 
@@ -36,11 +37,15 @@ public class TutorialManager : MonoBehaviour
             {
                 _panels[_currentIndex].Hide(true,() =>
                 {
-                    _parent.SetActive(false);
-                    TGSTimer.Instance.RestartTimer();
+                    _nextButton.GetComponent<Image>().DOFade(0f, 0.2f);
+                    _beforeButton.GetComponent<Image>().DOFade(0f, 0.2f);
+                    _background.DOFade(0f, 0.2f)
+                    .OnComplete(() =>
+                    {
+                        _parent.SetActive(false);
+                        TGSTimer.Instance.RestartTimer();
+                    });
                 });
-                _nextButton.GetComponent<Image>().DOFade(0f,0.2f);
-                _beforeButton.GetComponent<Image>().DOFade(0f,0.2f);
                 return;
             }
 
