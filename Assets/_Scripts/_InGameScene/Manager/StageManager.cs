@@ -78,6 +78,7 @@ public class StageManager : MonoBehaviour
             if(_slotList[pos.x][pos.y].TryGetComponent<TileSlot>(out var slot))
             {
                 slot.PlaceCard(_stage.ObstacleID);
+                slot.IsOccupied = true;
                 slot.IsLastTimeCard = true;
             }
         }
