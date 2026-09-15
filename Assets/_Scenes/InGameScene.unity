@@ -5111,6 +5111,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1881879177929657237, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
   m_PrefabInstance: {fileID: 1461190556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1130352845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3065410318119222755, guid: def34d24495c3a142ac1801280693155, type: 3}
+  m_PrefabInstance: {fileID: 273167832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1154090787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5335,6 +5346,7 @@ MonoBehaviour:
   - {fileID: 1002751234}
   _nextButton: {fileID: 273167835}
   _beforeButton: {fileID: 273167834}
+  _background: {fileID: 1130352845}
 --- !u!1 &1160558871
 GameObject:
   m_ObjectHideFlags: 0
