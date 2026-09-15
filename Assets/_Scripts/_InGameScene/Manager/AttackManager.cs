@@ -166,6 +166,7 @@ public class AttackManager : MonoBehaviour
     {
         if (CheckEnemy())
         {
+            yield return new WaitForSeconds(1.2f);
             _gameManager.CurrentPhase = BattlePhase.Reward;
             _isVictory = true;
         }
