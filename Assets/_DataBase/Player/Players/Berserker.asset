@@ -20,7 +20,7 @@ MonoBehaviour:
   _playerSprite: {fileID: 0}
   _isPlayable: 1
   _playerDescription: 
-  _playerPrefab: {fileID: 1027709146765053871, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
+  _playerPrefab: {fileID: 4980228368508881248, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
   _cardImage: {fileID: 7948670965209423665, guid: e631a0eb9dbea8e4dba387981e8263d7, type: 3}
   _cardMaskImage: {fileID: 3186448874541359976, guid: ae44457f08cbdde44b82f09dfb314634, type: 3}
   _cardBackImage: {fileID: -434839244473336816, guid: aed08f9e57b93514cb0de271907aa378, type: 3}

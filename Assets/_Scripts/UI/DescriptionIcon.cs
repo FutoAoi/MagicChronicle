@@ -15,6 +15,10 @@ public class DescriptionIcon : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(_manager == null)
+        {
+            _manager = GameManager.Instance.CurrentUIManager;
+        }
         _manager.DisplayDescriptionPanel(true, this);
         _manager.UpdateDescriptionPanel(DescriptionTargetType.Other, _rt, keyword: _keyword);
     }

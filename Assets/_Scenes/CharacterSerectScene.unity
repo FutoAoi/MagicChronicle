@@ -3151,6 +3151,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spine GameObject (Berserker)
       objectReference: {fileID: 0}
+    - target: {fileID: 4257346597161727716, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257346597161727716, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 268
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206713824031747707, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8019067946561367358, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -3162,7 +3174,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
 --- !u!4 &1799868503 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 678344585539053530, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4257346597161727716, guid: b0714429c1d0ae84aa8fbc452b7a4e98, type: 3}
   m_PrefabInstance: {fileID: 1799868502}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924615906
