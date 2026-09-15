@@ -80,9 +80,16 @@ public class StagePlayer : CharacterBase
     }
     private IEnumerator DeadAnimation()
     {
+        CriAudioManager.Instance.StopBgm();
+        CriAudioManager.Instance.PlaySe("SE_HP0");
         var track = _skeletonAnimation.AnimationState.SetAnimation(0, "deth_motion", false);
-        yield return new WaitForSeconds(track.Animation.Duration);
+        yield return new WaitForSeconds(track.Animation.Duration * 5f / 16f);
+        CriAudioManager.Instance.PlaySe("SE_PlayerFallDown1");
+        yield return new WaitForSeconds(track.Animation.Duration * 5f / 16f);
+        CriAudioManager.Instance.PlaySe("SE_PlayerFallDown2");
+        yield return new WaitForSeconds(track.Animation.Duration * 6f / 16f);
         _gameManager.CurrentPhase = BattlePhase.Gameover;
+        CriAudioManager.Instance.PlaySe("ME_Lose");
     }
 
     public void StagePlayerInit(PlayerStatus nowPlayerStatus)
