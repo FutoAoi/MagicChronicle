@@ -276,8 +276,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 761826947}
   m_HandleRect: {fileID: 761826946}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.5790693
+  m_Value: -0.00000078989467
+  m_Size: 0.5790692
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -655,6 +655,9 @@ MonoBehaviour:
   _deletCardText: {fileID: 826106257}
   _deletPrice: 200
   _deckDeletePanel: {fileID: 1216734171}
+  _greeding: "\u30A4\u30E9\u30C3\u30B7\u30E3\u30A4!!\n\u6B32\u3057\u3044\u30E2\u30CE\u3092\u9078\u3093\u30C7!!"
+  _caution: "\u304A\u91D1\u304C\u8DB3\u308A\u306A\u3044\u30E8!!\n\u307E\u305F\u6765\u3066\u30CD!!"
+  _thank: "\u30A2\u30EA\u30AC\u30C8\u30A6!!\n\u4ED6\u306B\u3082\u8272\u3005\u3042\u308B\u30E8!!"
 --- !u!1 &124604051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,8 +1293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 48}
-  m_SizeDelta: {x: 458.67, y: 106.6}
+  m_AnchoredPosition: {x: 7.42, y: 52.34}
+  m_SizeDelta: {x: 461.82, y: 115.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169777021
 MonoBehaviour:
@@ -1307,7 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextDisplayAnimation
   _text: {fileID: 169777022}
   _duration: 0.5
-  _isPlayOnEnable: 1
+  _isPlayOnEnable: 0
   _onFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -1334,7 +1337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30A4\u30E9\u30C3\u30B7\u30E3\u30A4!!\\n\u6B32\u3057\u3044\u30E2\u30CE\u3092\u9078\u3093\u30C7!!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
   m_sharedMaterial: {fileID: 6909926914990174243, guid: 19c8b6bda3bea3342b2931d5d7cd5972, type: 2}
@@ -1369,7 +1372,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -10699,8 +10702,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1110753830}
   m_HandleRect: {fileID: 1110753829}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12752,7 +12755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727e779f02e9cda4ab2e5cb2a38b45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckManager
-  DeckData: {fileID: 0}
+  DeckData: {fileID: 11400000, guid: a00ec754788d02b4c95595d9daf204fb, type: 2}
 --- !u!114 &1667290979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14588,7 +14591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 772.6999}
+  m_AnchoredPosition: {x: 0, y: 772.70056}
   m_SizeDelta: {x: 0, y: 1835.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1900524909
