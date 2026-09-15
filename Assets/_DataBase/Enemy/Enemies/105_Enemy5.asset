@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _enemyID: 105
   _sprite: {fileID: -1070814208690267576, guid: 8f68416fe64d3754f9e02a29397dcef7, type: 3}
-  _spineEnemy: {fileID: 1904256086257460748, guid: 2940dd1b91dd2e9439e653eff3a8c103, type: 3}
-  _enemyHP: 15
-  _enemyAP: 2
-  _enemyAttackTime: 0
+  _spineEnemy: {fileID: 6300621608113204611, guid: 7b493934e916b9646986503105f25a5b, type: 3}
+  _enemyHP: 20
+  _enemyAP: 4
+  _enemyAttackTime: 1
   _enemyAT: 1
   _isBoss: 0
   _isShadow: 0
@@ -31,4 +31,4 @@ MonoBehaviour:
   _cardEffectID: cb000000
   _canBuff: 0
   _buffs: 
-  _rewardAmount: c8000000fa000000
+  _rewardAmount: f4010000bc020000

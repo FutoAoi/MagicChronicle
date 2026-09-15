@@ -48,6 +48,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int _deletPrice;
     [SerializeField] private DeckDeletePanel _deckDeletePanel;
 
+    [Header("“XŽå‚ÌŒ¾—t")]
+    [SerializeField,TextArea(2,10)] private string _greeding;
+    [SerializeField,TextArea(2,10)] private string _caution;
+    [SerializeField,TextArea(2,10)] private string _thank;
+
     private CardDataBase _cardDatabase;
     private WalletManager _walletManager;
     private GameManager _gameManager;
@@ -123,12 +128,12 @@ public class ShopManager : MonoBehaviour
             shopCardGameObject.SetActive(false);
 
             CriAudioManager.Instance.PlaySe("SE_Buy");
-
+            _chat.PlayAnimation(_thank);
             MoneyReset();
         }
         else
         {
-            Debug.Log("‚¨‹à‚ª‘«‚è‚È‚¢");
+            _chat.PlayAnimation(_caution);
         }
     }
 
@@ -146,12 +151,12 @@ public class ShopManager : MonoBehaviour
 
             CriAudioManager.Instance.PlaySe("SE_Heal");
             CriAudioManager.Instance.PlaySe("SE_Buy");
-
+            _chat.PlayAnimation(_thank);
             MoneyReset();
         }
         else
         {
-            Debug.Log("‚¨‹à‚ª‘«‚è‚È‚¢");
+            _chat.PlayAnimation(_caution);
         }
     }
 
@@ -177,7 +182,7 @@ public class ShopManager : MonoBehaviour
 
         if (!_walletManager.TrySpendMoney(_deletPrice))
         {
-            Debug.Log("‚¨‹à‚ª‘«‚è‚È‚¢");
+            _chat.PlayAnimation(_caution);
             return false;
         }
 
@@ -188,7 +193,7 @@ public class ShopManager : MonoBehaviour
             CriAudioManager.Instance.PlaySe("SE_Buy");
             _deleteCardButton.gameObject.SetActive(false);
             _delete.SetActive(false);
-
+            _chat.PlayAnimation(_thank);
             MoneyReset();
         }
 
@@ -230,7 +235,7 @@ public class ShopManager : MonoBehaviour
 
     public void Greeding()
     {
-        _chat.gameObject.SetActive(true);
+        _chat.PlayAnimation(_greeding);
     }
 
     public void MoneyReset()
