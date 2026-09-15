@@ -122,7 +122,7 @@ public class Enemy : CharacterBase
         if (IsDead) return;
         base.Damaged(damage);
 
-        if (_skeletonAnimation != null)
+        if (_skeletonAnimation != null && !(IsDead && IsBoss))
         {
             _skeletonAnimation.AnimationState.SetAnimation(0, "damage_motion", false);
             _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
@@ -314,6 +314,11 @@ public class Enemy : CharacterBase
     {
         if (_skeletonAnimation != null)
         {
+            if (IsBoss)
+            {
+                var track = _skeletonAnimation.AnimationState.SetAnimation(0, "death_motion", false);
+                yield return new WaitForSeconds(track.Animation.Duration);
+            }
             yield return DOTween.To(
                () => _skeletonAnimation.Skeleton.GetColor().a,
                a =>
@@ -331,7 +336,11 @@ public class Enemy : CharacterBase
         if (_gameManager.CurrentUIManager.TryGetComponent<UIManagerBase>(out var manager))
         {
             _gameManager.EffectManager.ApplyEffect(ParticleType.Money, manager.ParticleParent, Rect);
-            _gameManager.EffectManager.ApplyEffect(ParticleType.DeadSmoke, manager.ParticleParent, Rect);
+
+            if(IsBoss)
+                _gameManager.EffectManager.ApplyEffect(ParticleType.BossDeadSmoke, manager.ParticleParent, Rect);
+            else
+                _gameManager.EffectManager.ApplyEffect(ParticleType.DeadSmoke, manager.ParticleParent, Rect);
         }
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());

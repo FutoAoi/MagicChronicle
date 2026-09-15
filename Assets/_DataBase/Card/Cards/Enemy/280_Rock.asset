@@ -21,7 +21,7 @@ MonoBehaviour:
   _description: "\u9B54\u6CD5\u653B\u6483\u3092\u6253\u3061\u6D88\u3059"
   _colorDescription: "\u9B54\u6CD5\u653B\u6483\u3092\u6253\u3061\u6D88\u3059"
   _cost: 0
-  _maxTimes: 99
+  _maxTimes: 3
   _isGhost: 0
   _isDestruction: 0
   _isPlayerMagic: 0
