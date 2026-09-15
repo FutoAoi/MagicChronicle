@@ -69,7 +69,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _uiManager.DisplayDescriptionPanel(_isOccupied);
 
                 if(_isOccupied)
-                    _uiManager.UpdateDescriptionPanel(true, _windowRt, ID);
+                    _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _windowRt, ID);
             }
         }
     }
@@ -247,7 +247,7 @@ public class TileSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (IsOccupied)
         {
             _uiManager.DisplayDescriptionPanel(true);
-            _uiManager.UpdateDescriptionPanel(true,_windowRt,ID);
+            _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card,_windowRt,ID);
         }
         else
         {

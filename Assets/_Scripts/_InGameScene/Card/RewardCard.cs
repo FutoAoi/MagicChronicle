@@ -134,7 +134,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if (_uiManager != null)
             {
                 _uiManager.DisplayDescriptionPanel(true);
-                _uiManager.UpdateDescriptionPanel(true, _rt, _cardID);
+                _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _rt, _cardID);
             }
 
             return;
