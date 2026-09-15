@@ -80,6 +80,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
+        if (_isBoardCard && _gameManager.CardDataBase.GetCardData(ID).IsObstacle) return;
 
         _magicFadeTween?.Kill(true);
         CriAudioManager.Instance.PlaySe("SE_CardDraw");
@@ -124,6 +125,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnDrag(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
+        if (_isBoardCard && _gameManager.CardDataBase.GetCardData(ID).IsObstacle) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
         if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
@@ -147,6 +149,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
         if (eventData.button != PointerEventData.InputButton.Left) return;
+        if (_isBoardCard && _gameManager.CardDataBase.GetCardData(ID).IsObstacle) return;
         if (!_player.ConsumeCost(_cost) && !_isBoardCard) return;
 
         TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
@@ -216,6 +219,7 @@ public class CardMovement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnPointerClick(PointerEventData eventData)
     {
         if (_gameManager.CurrentPhase != BattlePhase.Set) return;
+        if (_isBoardCard && _gameManager.CardDataBase.GetCardData(ID).IsObstacle) return;
         if (eventData.button == PointerEventData.InputButton.Right && _isBoardCard)
         {
             TileSlot tileSlot = _trOriginalParent.GetComponent<TileSlot>();
