@@ -74,7 +74,7 @@ public class AttackMagic : MonoBehaviour
     public void DestroyMagic(bool isPlayer)
     {
         IsAttack = false;
-        _attackRectTr?.DOKill();
+        _attackRectTr?.DOKill(true);
         _attackManager.AttackFinish(isPlayer);
         _onDisable?.Invoke();
         gameObject.SetActive(false);
