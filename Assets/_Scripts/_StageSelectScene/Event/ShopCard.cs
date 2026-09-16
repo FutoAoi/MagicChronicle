@@ -91,6 +91,7 @@ public class ShopCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         _parent.DOKill();
         _parent.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
 
         if (_uiManager == null) _uiManager = GameManager.Instance.CurrentUIManager;
         _uiManager.DisplayDescriptionPanel(true);

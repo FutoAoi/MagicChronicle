@@ -65,6 +65,7 @@ public class EnhanceCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         _tf.DOKill();
         _tf.DOScale(_defaultScale * _hoverScale, _duration).SetEase(Ease.OutBack);
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
     }
 
     /// <summary>

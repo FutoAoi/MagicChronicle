@@ -118,6 +118,7 @@ public class RewardCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
         if(!_isSelect)
         {
             // 以前選んでいた別カードを解除

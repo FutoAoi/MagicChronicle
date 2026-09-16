@@ -68,6 +68,7 @@ public class Room : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        CriAudioManager.Instance.PlaySe("SE_ButtonClick");
         if (!_isSelectable)
         {
             Debug.Log("¡‚Í‘I‘ğ‚Å‚«‚È‚¢•”‰®");

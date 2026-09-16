@@ -121,6 +121,7 @@ public class DeckDeleteCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         _uiManager.DisplayDescriptionPanel(true);
         _uiManager.UpdateDescriptionPanel(DescriptionTargetType.Card, _rt, _cardID);
+        CriAudioManager.Instance.PlaySe("SE_CardDraw");
     }
 
     public void OnPointerExit(PointerEventData eventData)
