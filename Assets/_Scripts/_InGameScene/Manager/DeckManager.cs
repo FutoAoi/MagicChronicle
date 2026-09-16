@@ -87,6 +87,7 @@ public class DeckManager : MonoBehaviour
         {
             Destroy(_runtimeDeckData);
         }
+        if (_runtimeDeckData == null) return;
         _runtimeDeckData = Instantiate(DeckData);
     }
 
