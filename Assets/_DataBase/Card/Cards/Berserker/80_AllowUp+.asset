@@ -27,7 +27,7 @@ MonoBehaviour:
   _isPlayerMagic: 1
   _isObstacle: 0
   _canEvolution: 1
-  _evolutionID: 90
+  _evolutionID: 81
   _displayArrowVector: 00
   _moveEffect:
     rid: 6754108827768717415
