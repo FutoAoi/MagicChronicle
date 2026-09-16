@@ -146,7 +146,9 @@ public enum DescriptionKeyWord : byte
     NormalAttack,
     SpecialAttack,
     Liberation,
-    Angry
+    Angry,
+    EnemyAttack,
+    EnemySpecialAttack
 }
 
 public enum DescriptionWindowType : byte
