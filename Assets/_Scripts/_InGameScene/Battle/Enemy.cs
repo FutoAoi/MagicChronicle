@@ -147,8 +147,8 @@ public class Enemy : CharacterBase
         height = height * Mathf.Clamp01(distance / referenceDistance);
         _gameManager.AttackManager.AttackMagicIndex++;
         magic.position = startPos;
-        attack.gameObject.SetActive(true);
         attack.AddAttackEffect();
+        attack.gameObject.SetActive(true);
         attack.BeginAttack();
         float direction = (endPos.y >= startPos.y) ? 1f : -1f;
         float t = 0;
