@@ -74,6 +74,7 @@ public class AttackMagic : MonoBehaviour
     public void DestroyMagic(bool isPlayer)
     {
         IsAttack = false;
+        _attackRectTr?.DOKill();
         _attackManager.AttackFinish(isPlayer);
         _onDisable?.Invoke();
         gameObject.SetActive(false);
@@ -132,8 +133,8 @@ public class AttackMagic : MonoBehaviour
                 _currentVector = startVector;
                 _attackRectTr = GetComponent<RectTransform>();
                 _attackRectTr.position = startRectTr.position;
-                gameObject.SetActive(true);
                 AddAttackEffect();
+                gameObject.SetActive(true);
             }
             if (isPlayer)
             {
@@ -460,7 +461,11 @@ public class AttackMagic : MonoBehaviour
     {
         foreach (var effect in _activeEffects)
         {
-            if (effect != null) Destroy(effect);
+            if (effect != null)
+            {
+                effect.SetActive(false);
+                Destroy(effect);
+            }
         }
         _activeEffects.Clear();
 
