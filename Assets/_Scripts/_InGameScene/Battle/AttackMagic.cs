@@ -84,6 +84,7 @@ public class AttackMagic : MonoBehaviour
         if (_gameManager.CurrentPhase == BattlePhase.Gameover) yield break;
 
         IsAttack = true;
+        _isAttack = false;
         _currentSlot = startPos;//‰Šúƒ|ƒW
         bool isPlayer = _attackManager.IsPlayerTurn;
         _player = _gameManager.Player;
