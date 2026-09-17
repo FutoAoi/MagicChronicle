@@ -4,6 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class AttackPointSelectButton : MonoBehaviour
 {
+    public bool IsTrandparent => _isTrandparent;
     [Header("-----QÆ-----")]
     [SerializeField] private Sprite _dark;
     [SerializeField] private Sprite _light;
