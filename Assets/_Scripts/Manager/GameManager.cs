@@ -263,6 +263,7 @@ public class GameManager : MonoBehaviour
                 TrySetPlayerStatus(false);
                 InitializeData();
                 DeckManager.Instance.ResetDeck();
+                TGSTimer.Instance.StopTimer();
             }
         });
     }
