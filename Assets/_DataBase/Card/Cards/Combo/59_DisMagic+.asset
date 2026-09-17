@@ -20,7 +20,7 @@ MonoBehaviour:
   _name: "\u30AF\u30E9\u30C3\u30B7\u30E5+"
   _description: "\u5468\u308A3\xD73\u306E\u9B54\u6CD5\u9663\u306E\u8010\u4E45\u30921\u6E1B\u3089\u3059\u3002"
   _colorDescription: "\u5468\u308A3\xD73\u306E\u9B54\u6CD5\u9663\u306E\u8010\u4E45\u30921\u6E1B\u3089\u3059\u3002"
-  _cost: 2
+  _cost: 1
   _maxTimes: 5
   _isGhost: 0
   _isDestruction: 0

@@ -21,7 +21,7 @@ MonoBehaviour:
   _description: "(\u970A\u9663)\u73FE\u5728\u306E\u6012\u308A\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
   _colorDescription: "(<color=#FFF300>\u970A\u9663</color>)\u73FE\u5728\u306E<color=#FFFF63>\u6012\u308A</color>\u30B9\u30BF\u30C3\u30AF\u30922\u500D\u306B\u3059\u308B\u3002"
   _cost: 2
-  _maxTimes: 10
+  _maxTimes: 9
   _isGhost: 1
   _isDestruction: 0
   _isPlayerMagic: 1
