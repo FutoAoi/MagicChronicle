@@ -9652,6 +9652,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.131
       objectReference: {fileID: 0}
+    - target: {fileID: 990055870230534992, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_text
+      value: MASTER
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158706677218800987, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375910937259855829, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -477.5292
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375910937259855829, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.9999895
+      objectReference: {fileID: 0}
     - target: {fileID: 1881879177929657237, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9771,6 +9787,14 @@ PrefabInstance:
     - target: {fileID: 4662776841236709351, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710606252125754388, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -354.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710606252125754388, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.9999895
       objectReference: {fileID: 0}
     - target: {fileID: 5437252497138928571, guid: 11cea0cc8fbf5f745aa4d08cbecada39, type: 3}
       propertyPath: m_AnchorMax.x
