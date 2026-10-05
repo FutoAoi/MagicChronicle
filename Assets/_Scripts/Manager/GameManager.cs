@@ -125,7 +125,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void UpdateDraw()
     {
-        TGSTimer.Instance.CheckFinTimeTransition();
         if (!_isDraw)
         {
             //ドローバフの確認
@@ -214,7 +213,6 @@ public class GameManager : MonoBehaviour
             if(!_isChangeScene)
             {
                 SceneChange(SceneType.ClearScene);
-                TGSTimer.Instance.StopTimer();
                 InitializeData();
                 _isChangeScene = true;
             }
@@ -248,10 +246,6 @@ public class GameManager : MonoBehaviour
     public void SceneChange(SceneType sceneType)
     {
         if (_fadeManager == null) _fadeManager = FadeManager.Instance;
-        if(sceneType != SceneType.ClearScene && TGSTimer.Instance.CheckTimeAndTransition())
-        {
-            return;
-        }
         _fadeManager.FadePanel(false, async () =>
         {
             await SceneManager.LoadSceneAsync($"{sceneType}");
@@ -263,7 +257,6 @@ public class GameManager : MonoBehaviour
                 TrySetPlayerStatus(false);
                 InitializeData();
                 DeckManager.Instance.ResetDeck();
-                TGSTimer.Instance.StopTimer();
             }
         });
     }
