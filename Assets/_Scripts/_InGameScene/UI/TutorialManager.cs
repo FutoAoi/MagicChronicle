@@ -43,7 +43,6 @@ public class TutorialManager : MonoBehaviour
                     .OnComplete(() =>
                     {
                         _parent.SetActive(false);
-                        TGSTimer.Instance.RestartTimer();
                     });
                 });
                 return;
