@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-Shared
   m_GUID: c54c3169375d67e4f9750ebfe2802b44
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: ff8e7715449af7d4983374e15a874ffe
+    m_Address: Assets/Localization/MagicChronicle Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 53d7b4cfa30b83348a492bcf6c492912, type: 2}
   m_SchemaSet:
