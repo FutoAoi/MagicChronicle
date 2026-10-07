@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: ff8e7715449af7d4983374e15a874ffe, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7100000000000000001
   m_TableData:
   - m_Id: 1000001
     m_Localized: "Gain 1 Anger each time you are attacked."
@@ -2334,6 +2335,35 @@ MonoBehaviour:
     m_Localized: "Full Terms of Use"
     m_Metadata:
       m_Items: []
+  - m_Id: 1000580
+    m_Localized: "Took {0} damage"
+    m_Metadata:
+      m_Items:
+      - rid: 7100000000000000001
+  - m_Id: 1000581
+    m_Localized: "Gained the power of {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 7100000000000000001
+  - m_Id: 1000582
+    m_Localized: "Obtained {0}G"
+    m_Metadata:
+      m_Items:
+      - rid: 7100000000000000001
+  - m_Id: 1000583
+    m_Localized: "Recovered {0} HP"
+    m_Metadata:
+      m_Items:
+      - rid: 7100000000000000001
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7100000000000000001
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: []
+        m_SharedEntries:
+        - id: 1000580
+        - id: 1000581
+        - id: 1000582
+        - id: 1000583

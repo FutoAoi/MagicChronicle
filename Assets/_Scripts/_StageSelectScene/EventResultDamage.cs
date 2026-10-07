@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class EventResultDamage : EventResultPanelBase
 {
@@ -19,7 +20,7 @@ public class EventResultDamage : EventResultPanelBase
         _status = GameManager.Instance.PlayerStatus;
         _gauge.ShowUI(_status.PlayerCurrentHp - result.Amount, _status.PlayerMaxHp);
         _gauge.HpBarUpdate(_status.PlayerCurrentHp, _status.PlayerMaxHp);
-        _text.PlayAnimation($"{result.Amount}É_ÉÅÅ[ÉWéÛÇØÇΩ");
+        _text.PlayAnimation(LocalizationSettings.StringDatabase.GetLocalizedString("MagicChronicle", "EVENTRESULT_DAMAGE", new object[] { result.Amount }));
         CriAudioManager.Instance.PlaySe("SE_MagicHitPlayer");
     }
 }

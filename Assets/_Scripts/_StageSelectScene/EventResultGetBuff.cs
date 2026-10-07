@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class EventResultGetBuff : EventResultPanelBase
@@ -12,6 +13,6 @@ public class EventResultGetBuff : EventResultPanelBase
         BuffData data = GameManager.Instance.BuffDataBase.GetBuffData((BuffType)result.ID);
         _img.sprite = data.Icon;
         _description.text = data.Description;
-        _text.PlayAnimation($"{data.Name}‚Ì—Í‚ðŽè‚É“ü‚ê‚½");
+        _text.PlayAnimation(LocalizationSettings.StringDatabase.GetLocalizedString("MagicChronicle", "EVENTRESULT_GET_BUFF", new object[] { data.Name }));
     }
 }

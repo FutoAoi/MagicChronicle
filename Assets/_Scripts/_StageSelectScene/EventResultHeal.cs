@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class EventResultHeal : EventResultPanelBase
@@ -19,7 +20,7 @@ public class EventResultHeal : EventResultPanelBase
     public override void ResultAnimation(EventResult result)
     {
         _status = GameManager.Instance.PlayerStatus;
-        _text.PlayAnimation($"HP‚ª{result.Amount}‰ñ•œ‚µ‚½");
+        _text.PlayAnimation(LocalizationSettings.StringDatabase.GetLocalizedString("MagicChronicle", "EVENTRESULT_HEAL", new object[] { result.Amount }));
         _gauge.ShowUI(_status.PlayerCurrentHp - result.Amount, _status.PlayerMaxHp);
         _gauge.HpBarUpdate(_status.PlayerCurrentHp,_status.PlayerMaxHp);
     }
