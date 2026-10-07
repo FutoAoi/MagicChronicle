@@ -32,5 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/InGameScene_Boss_Android.unity
     guid: 0783b7f1923ac3b4ab28d7464c057443
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 291c33ae3329c1948b153d327971a972, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 3e25b180dec5dff4cbeaee87c0521604, type: 2}
   m_UseUCBPForAssetBundles: 0

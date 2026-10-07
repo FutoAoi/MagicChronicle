@@ -17,7 +17,2323 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: ff8e7715449af7d4983374e15a874ffe, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1000001
+    m_Localized: "Gain 1 Anger each time you are attacked."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000002
+    m_Localized: "Berserker"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000003
+    m_Localized: "Draw additional cards equal to the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000004
+    m_Localized: "Card Plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000005
+    m_Localized: "Attack power increases by the stack count each time it moves."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000006
+    m_Localized: "Combo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000007
+    m_Localized: "Maximum cost is reduced by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000008
+    m_Localized: "Cost Minus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000009
+    m_Localized: "Maximum cost is increased by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000010
+    m_Localized: "Cost Plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000011
+    m_Localized: "Reflects attacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000012
+    m_Localized: "Reflect"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000013
+    m_Localized: "Poison"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000014
+    m_Localized: "Number of attacks increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000015
+    m_Localized: "Rapid Fire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000016
+    m_Localized: "Regen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000017
+    m_Localized: "Attack power increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000018
+    m_Localized: "Strength"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000019
+    m_Localized: "Technical"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000020
+    m_Localized: "Attack power is reduced by 50%."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000021
+    m_Localized: "Fatigue"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000022
+    m_Localized: "Defense is reduced by 50%."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000023
+    m_Localized: "Weaken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000024
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000025
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000026
+    m_Localized: "Arrow R"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000027
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000028
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000029
+    m_Localized: "Arrow R+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000030
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000031
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000032
+    m_Localized: "Arrow R++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000033
+    m_Localized: "Bends the magic bullet to the right.\\n(Spirit Sigil) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000034
+    m_Localized: "Bends the magic bullet to the right.\\n(<color=#FFF300>Spirit Sigil</color>) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000035
+    m_Localized: "Card Draw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000036
+    m_Localized: "Bends the magic bullet to the right.\\n(Spirit Sigil) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000037
+    m_Localized: "Bends the magic bullet to the right.\\n(<color=#FFF300>Spirit Sigil</color>) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000038
+    m_Localized: "Card Draw+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000039
+    m_Localized: "Bends the magic bullet to the right.\\n(Spirit Sigil) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000040
+    m_Localized: "Bends the magic bullet to the right.\\n(<color=#FFF300>Spirit Sigil</color>) Draw 1 more card next turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000041
+    m_Localized: "Card Draw++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000042
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000043
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000044
+    m_Localized: "Luna Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000045
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000046
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000047
+    m_Localized: "Luna Circle+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000048
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000049
+    m_Localized: "Bends the magic bullet to the right.\\nIncrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000050
+    m_Localized: "Luna Circle++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000051
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Combo +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000052
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#00E5FF>Combo</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000053
+    m_Localized: "Glyph Link"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000054
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Combo +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000055
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#00E5FF>Combo</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000056
+    m_Localized: "Glyph Link+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000057
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Combo +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000058
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#00E5FF>Combo</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000059
+    m_Localized: "Glyph Link++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000060
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Restore 8 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000061
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) Restore 8 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000062
+    m_Localized: "Soul Cure"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000063
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Restore 10 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000064
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) Restore 10 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000065
+    m_Localized: "Soul Cure+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000066
+    m_Localized: "Bends the magic bullet to the left.\\n(Spirit Sigil) Restore 15 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000067
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFF300>Spirit Sigil</color>) Restore 15 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000068
+    m_Localized: "Soul Cure++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000069
+    m_Localized: "(Spirit Sigil) Rapid Fire +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000070
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Rapid Fire</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000071
+    m_Localized: "Rapid"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000072
+    m_Localized: "(Spirit Sigil) Rapid Fire +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000073
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Rapid Fire</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000074
+    m_Localized: "Rapid+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000075
+    m_Localized: "(Spirit Sigil) Rapid Fire +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000076
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Rapid Fire</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000077
+    m_Localized: "Rapid++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000078
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000079
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000080
+    m_Localized: "Arrow U"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000081
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000082
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000083
+    m_Localized: "Arrow U+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000084
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000085
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000086
+    m_Localized: "Arrow U++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000087
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Gain 50 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000088
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Gain 50 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000089
+    m_Localized: "Pay Boost"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000090
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Gain 100 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000091
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Gain 100 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000092
+    m_Localized: "Pay Boost+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000093
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Gain 200 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000094
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Gain 200 Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000095
+    m_Localized: "Pay Boost++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000096
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Apply Weaken +3 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000097
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Apply <color=#54E8FF>Weaken</color> +3 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000098
+    m_Localized: "Weak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000099
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Apply Weaken +4 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000100
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Apply <color=#54E8FF>Weaken</color> +4 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000101
+    m_Localized: "Weak+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000102
+    m_Localized: "Bends the magic bullet upward.\\n(Spirit Sigil) Apply Weaken +1 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000103
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFF300>Spirit Sigil</color>) Apply <color=#54E8FF>Weaken</color> +1 to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000104
+    m_Localized: "Weak++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000105
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000106
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000107
+    m_Localized: "Arrow D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000108
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000109
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000110
+    m_Localized: "Arrow D+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000111
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000112
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000113
+    m_Localized: "Arrow D++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000114
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Cost Plus +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000115
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Cost Plus</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000116
+    m_Localized: "Forge Mana"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000117
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Cost Plus +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000118
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Cost Plus</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000119
+    m_Localized: "Forge Mana+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000120
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Cost Plus +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000121
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFFFF>Cost Plus</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000122
+    m_Localized: "Forge Mana++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000123
+    m_Localized: "Bends the magic bullet downward.\\nDeal 3 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000124
+    m_Localized: "Bends the magic bullet downward.\\nDeal 3 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000125
+    m_Localized: "Fire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000126
+    m_Localized: "Bends the magic bullet downward.\\nDeal 4 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000127
+    m_Localized: "Bends the magic bullet downward.\\nDeal 4 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000128
+    m_Localized: "Fire+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000129
+    m_Localized: "Bends the magic bullet downward.\\nDeal 5 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000130
+    m_Localized: "Bends the magic bullet downward.\\nDeal 5 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000131
+    m_Localized: "Fire++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000132
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000133
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000134
+    m_Localized: "Divide UD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000135
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000136
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000137
+    m_Localized: "Divide UD+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000138
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000139
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000140
+    m_Localized: "Divide UD++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000141
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000142
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000143
+    m_Localized: "Divide RL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000144
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000145
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000146
+    m_Localized: "Divide RL+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000147
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000148
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000149
+    m_Localized: "Divide RL++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000150
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000151
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000152
+    m_Localized: "Divide UDR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000153
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000154
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000155
+    m_Localized: "Divide UDR+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000156
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000157
+    m_Localized: "Splits the magic bullet in 3 directions: right, up, and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000158
+    m_Localized: "Divide UDR++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000159
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000160
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000161
+    m_Localized: "Divide UDRL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000162
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000163
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000164
+    m_Localized: "Divide UDRL+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000165
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000166
+    m_Localized: "Splits the magic bullet in 4 directions: up, down, left, and right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000167
+    m_Localized: "Divide UDRL++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000168
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000169
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000170
+    m_Localized: "Passer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000171
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000172
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000173
+    m_Localized: "Passer+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000174
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000175
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000176
+    m_Localized: "Passer++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000177
+    m_Localized: "(Spirit Sigil) Deal 20 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000178
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 20 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000179
+    m_Localized: "Nova"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000180
+    m_Localized: "(Spirit Sigil) Deal 25 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000181
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 25 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000182
+    m_Localized: "Nova+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000183
+    m_Localized: "(Spirit Sigil) Deal 25 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000184
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 25 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000185
+    m_Localized: "Nova++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000186
+    m_Localized: "(Spirit Sigil) Deal 20 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000187
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 20 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000188
+    m_Localized: "Azura Ray"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000189
+    m_Localized: "(Spirit Sigil) Deal 30 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000190
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 30 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000191
+    m_Localized: "Azura Ray+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000192
+    m_Localized: "(Spirit Sigil) Deal 40 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000193
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Deal 40 damage to a random enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000194
+    m_Localized: "Azura Ray++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000195
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000196
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000197
+    m_Localized: "Crush"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000198
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000199
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000200
+    m_Localized: "Crush+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000201
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000202
+    m_Localized: "Decrease the durability of magic circles in the surrounding 3x3 area by 1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000203
+    m_Localized: "Crush++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000204
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000205
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000206
+    m_Localized: "Bind R"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000207
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000208
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000209
+    m_Localized: "Bind R+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000210
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000211
+    m_Localized: "Bends the magic bullet to the right."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000212
+    m_Localized: "Bind R++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000213
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000214
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000215
+    m_Localized: "Bleed"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000216
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000217
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000218
+    m_Localized: "Bleed+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000219
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000220
+    m_Localized: "Bends the magic bullet to the right.\\nDeal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000221
+    m_Localized: "Bleed++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000222
+    m_Localized: "Bends the magic bullet to the right.\\nAnger +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000223
+    m_Localized: "Bends the magic bullet to the right.\\n<color=#FFFF63>Anger</color> +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000224
+    m_Localized: "Rage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000225
+    m_Localized: "Bends the magic bullet to the right.\\nAnger +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000226
+    m_Localized: "Bends the magic bullet to the right.\\n<color=#FFFF63>Anger</color> +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000227
+    m_Localized: "Rage+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000228
+    m_Localized: "Bends the magic bullet to the right.\\nAnger +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000229
+    m_Localized: "Bends the magic bullet to the right.\\n<color=#FFFF63>Anger</color> +1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000230
+    m_Localized: "Rage++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000231
+    m_Localized: "Bends the magic bullet to the left.\\n(Release 15) Berserker +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000232
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFFF63>Release</color> 15) <color=#FFB846>Berserker</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000233
+    m_Localized: "Mad Rune"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000234
+    m_Localized: "Bends the magic bullet to the left.\\n(Release 13) Berserker +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000235
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFFF63>Release</color> 13) <color=#FFB846>Berserker</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000236
+    m_Localized: "Mad Rune+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000237
+    m_Localized: "Bends the magic bullet to the left.\\n(Release 10) Berserker +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000238
+    m_Localized: "Bends the magic bullet to the left.\\n(<color=#FFFF63>Release</color> 10) <color=#FFB846>Berserker</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000239
+    m_Localized: "Mad Rune++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000240
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 2 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000241
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 2 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000242
+    m_Localized: "Regenesis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000243
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 4 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000244
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 4 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000245
+    m_Localized: "Regenesis+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000246
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 6 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000247
+    m_Localized: "Bends the magic bullet to the left.\\nRestore 6 HP to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000248
+    m_Localized: "Regenesis++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000249
+    m_Localized: "(Spirit Sigil) Double your current Anger stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000250
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Double your current <color=#FFFF63>Anger</color> stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000251
+    m_Localized: "Dual Rage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000252
+    m_Localized: "(Spirit Sigil) Double your current Anger stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000253
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Double your current <color=#FFFF63>Anger</color> stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000254
+    m_Localized: "Dual Rage+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000255
+    m_Localized: "(Spirit Sigil) Double your current Anger stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000256
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Double your current <color=#FFFF63>Anger</color> stacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000257
+    m_Localized: "Dual Rage++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000258
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000259
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000260
+    m_Localized: "Bind U"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000261
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000262
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000263
+    m_Localized: "Bind U+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000264
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000265
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000266
+    m_Localized: "Bind U++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000267
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000268
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000269
+    m_Localized: "Chaos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000270
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000271
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000272
+    m_Localized: "Chaos+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000273
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000274
+    m_Localized: "Bends the magic bullet upward.\\nDeal 1 damage to everyone, including yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000275
+    m_Localized: "Chaos++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000276
+    m_Localized: "Bends the magic bullet upward.\\n(Release 1) Deal 3 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000277
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFFF63>Release</color> 1) Deal 3 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000278
+    m_Localized: "Outrage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000279
+    m_Localized: "Bends the magic bullet upward.\\n(Release 1) Deal 5 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000280
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFFF63>Release</color> 1) Deal 5 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000281
+    m_Localized: "Outrage+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000282
+    m_Localized: "Bends the magic bullet upward.\\n(Release 1) Deal 7 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000283
+    m_Localized: "Bends the magic bullet upward.\\n(<color=#FFFF63>Release</color> 1) Deal 7 damage to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000284
+    m_Localized: "Outrage++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000285
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000286
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000287
+    m_Localized: "Bind D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000288
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000289
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000290
+    m_Localized: "Bind D+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000291
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000292
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000293
+    m_Localized: "Bind D++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000294
+    m_Localized: "Bends the magic bullet downward.\\n(Release 1) Strength +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000295
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFFF63>Release</color> 1) <color=#FFC0C0>Strength</color> +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000296
+    m_Localized: "Convert"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000297
+    m_Localized: "Bends the magic bullet downward.\\n(Release 1) Strength +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000298
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFFF63>Release</color> 1) <color=#FFC0C0>Strength</color> +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000299
+    m_Localized: "Convert+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000300
+    m_Localized: "Bends the magic bullet downward.\\n(Release 1) Strength +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000301
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFFF63>Release</color> 1) <color=#FFC0C0>Strength</color> +2."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000302
+    m_Localized: "Convert++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000303
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Anger +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000304
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFF63>Anger</color> +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000305
+    m_Localized: "Endurance"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000306
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Anger +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000307
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFF63>Anger</color> +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000308
+    m_Localized: "Endurance+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000309
+    m_Localized: "Bends the magic bullet downward.\\n(Spirit Sigil) Anger +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000310
+    m_Localized: "Bends the magic bullet downward.\\n(<color=#FFF300>Spirit Sigil</color>) <color=#FFFF63>Anger</color> +5."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000311
+    m_Localized: "Endurance++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000312
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000313
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000314
+    m_Localized: "Tear UD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000315
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000316
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000317
+    m_Localized: "Tear UD+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000318
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000319
+    m_Localized: "Splits the magic bullet up and down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000320
+    m_Localized: "Tear UD++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000321
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000322
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000323
+    m_Localized: "Tear RL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000324
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000325
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000326
+    m_Localized: "Tear RL+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000327
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000328
+    m_Localized: "Splits the magic bullet right and left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000329
+    m_Localized: "Tear RL++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000330
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000331
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000332
+    m_Localized: "Scylla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000333
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000334
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000335
+    m_Localized: "Scylla+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000336
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000337
+    m_Localized: "The magic bullet skips the next tile in its path."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000338
+    m_Localized: "Scylla++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000339
+    m_Localized: "(Spirit Sigil) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000340
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000341
+    m_Localized: "Vital"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000342
+    m_Localized: "(Spirit Sigil) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000343
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000344
+    m_Localized: "Vital+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000345
+    m_Localized: "(Spirit Sigil) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000346
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Restore 10% of the player's HP."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000347
+    m_Localized: "Vital++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000348
+    m_Localized: "Anger +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000349
+    m_Localized: "<color=#FFFF63>Anger</color> +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000350
+    m_Localized: "Sly"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000351
+    m_Localized: "Anger +2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000352
+    m_Localized: "<color=#FFFF63>Anger</color> +2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000353
+    m_Localized: "Sly+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000354
+    m_Localized: "Anger +3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000355
+    m_Localized: "<color=#FFFF63>Anger</color> +3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000356
+    m_Localized: "Sly++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000357
+    m_Localized: "Deal damage equal to your Anger stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000358
+    m_Localized: "Deal damage equal to your <color=#FFFF63>Anger</color> stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000359
+    m_Localized: "Resonance"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000360
+    m_Localized: "Deal damage equal to your Anger stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000361
+    m_Localized: "Deal damage equal to your <color=#FFFF63>Anger</color> stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000362
+    m_Localized: "Resonance+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000363
+    m_Localized: "Deal damage equal to your Anger stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000364
+    m_Localized: "Deal damage equal to your <color=#FFFF63>Anger</color> stacks to all enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000365
+    m_Localized: "Resonance++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000366
+    m_Localized: "Add power equal to your Anger stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000367
+    m_Localized: "Add power equal to your <color=#FFFF63>Anger</color> stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000368
+    m_Localized: "Fury"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000369
+    m_Localized: "Add power equal to your Anger stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000370
+    m_Localized: "Add power equal to your <color=#FFFF63>Anger</color> stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000371
+    m_Localized: "Fury+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000372
+    m_Localized: "Add power equal to your Anger stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000373
+    m_Localized: "Add power equal to your <color=#FFFF63>Anger</color> stacks to the magic bullet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000374
+    m_Localized: "Fury++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000375
+    m_Localized: "(Spirit Sigil) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000376
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000377
+    m_Localized: "Boost"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000378
+    m_Localized: "(Spirit Sigil) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000379
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000380
+    m_Localized: "Boost+"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000381
+    m_Localized: "(Spirit Sigil) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000382
+    m_Localized: "(<color=#FFF300>Spirit Sigil</color>) Extra card +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000383
+    m_Localized: "Boost++"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000384
+    m_Localized: "Bends the magic bullet to the left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000385
+    m_Localized: "Bends the magic bullet to the left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000386
+    m_Localized: "Enemy Magic Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000387
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000388
+    m_Localized: "Bends the magic bullet upward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000389
+    m_Localized: "Enemy Magic Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000390
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000391
+    m_Localized: "Bends the magic bullet downward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000392
+    m_Localized: "Enemy Magic Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000393
+    m_Localized: "Deal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000394
+    m_Localized: "Deal 1 damage to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000395
+    m_Localized: "Enemy Magic Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000396
+    m_Localized: "Nullifies magic attacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000397
+    m_Localized: "Nullifies magic attacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000398
+    m_Localized: "Boulder"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000399
+    m_Localized: "An altar stands here, laden with offerings."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000400
+    m_Localized: "Ancient Altar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000401
+    m_Localized: "A sturdy vault sits before you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000402
+    m_Localized: "Ancient Vault"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000403
+    m_Localized: "You hear the groans of a monster. It seems to be heading this way."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000404
+    m_Localized: "Signs of the Enemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000405
+    m_Localized: "An adventurer lies collapsed in a corner of the passage.\\n\"Please... lend me some money for a potion...\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000406
+    m_Localized: "Injured Adventurer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000407
+    m_Localized: "A device from an ancient civilization hums quietly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000408
+    m_Localized: "Mana Supply Device"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000409
+    m_Localized: "You meet a peddler wandering the tower."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000410
+    m_Localized: "Peddler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000411
+    m_Localized: "An old pocket watch lies on the floor. Its hands are still, yet when you hold it to your ear, you think you hear a faint ticking."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000412
+    m_Localized: "Stopped Pocket Watch"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000413
+    m_Localized: "A whisper echoes from somewhere. \"Do you seek power, or knowledge?\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000414
+    m_Localized: "Mysterious Voice"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000415
+    m_Localized: "A destroyed guardian leans against the wall."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000416
+    m_Localized: "Guardian's Wreckage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000417
+    m_Localized: "The shelves hold countless grimoires."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000418
+    m_Localized: "Library of Oblivion"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000419
+    m_Localized: "Debris is scattered everywhere. Some books still look usable."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000420
+    m_Localized: "Hall of Lost Knowledge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000421
+    m_Localized: "Countless scribbles are carved into the wall.\\n'The clock is still stopped.' 'How many days has it been?' 'Time doesn't move here.'"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000422
+    m_Localized: "Record of Time"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000423
+    m_Localized: "An old recording device is embedded in the wall."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000424
+    m_Localized: "Someone's Memory"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000425
+    m_Localized: "A magic circle flickers erratically."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000426
+    m_Localized: "Unstable Teleport Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000427
+    m_Localized: "In a corner of the old laboratory, an unfinished magic circle remains."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000428
+    m_Localized: "Old Laboratory"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000429
+    m_Localized: "Your whole body burns with heat, and your power grows."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000430
+    m_Localized: "Seek power"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000431
+    m_Localized: "Knowledge of a new magic circle floods into your mind."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000432
+    m_Localized: "Seek knowledge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000433
+    m_Localized: "You thought it had spotted you, but it vanished somewhere."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000434
+    m_Localized: "Hide and wait for it to pass"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000435
+    m_Localized: "You defeated it. Time to move on."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000436
+    m_Localized: "Defeat it with magic"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000437
+    m_Localized: "You grasped the circle's structure and turned that knowledge into your own power."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000438
+    m_Localized: "Complete the magic circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000439
+    m_Localized: "You found a useful spell formula among the notes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000440
+    m_Localized: "Take the research notes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000441
+    m_Localized: "The adventurer gave you a grimoire as thanks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000442
+    m_Localized: "Give 100 Gold"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000443
+    m_Localized: "You picked up a small pouch lying near the adventurer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000444
+    m_Localized: "Don't give"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000445
+    m_Localized: "You learned of a safe place to rest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000446
+    m_Localized: "Buy information (100 Gold)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000447
+    m_Localized: "You kept your purse strings tight."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000448
+    m_Localized: "Don't buy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000449
+    m_Localized: "You bought a rare enhancement material."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000450
+    m_Localized: "Buy goods (200 Gold)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000451
+    m_Localized: "The stopped watch gives off a strange power. You feel shielded from the flow of time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000452
+    m_Localized: "Carry the watch"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000453
+    m_Localized: "Opening the lid reveals a magic circle engraved inside. Fragments of knowledge flow into you, and a card is upgraded."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000454
+    m_Localized: "Examine the watch"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000455
+    m_Localized: "Solving one of the tower's mysteries clears your mind."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000456
+    m_Localized: "Keep reading"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000457
+    m_Localized: "Feeling uneasy, you leave the spot."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000458
+    m_Localized: "Stop reading"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000459
+    m_Localized: "As you turn away from the device, a soft light spills out of it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000460
+    m_Localized: "Don't listen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000461
+    m_Localized: "'Seeker of power, never forget its price.' Strangely, your mind calms and strength wells up within you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000462
+    m_Localized: "Play the recording"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000463
+    m_Localized: "The altar glows, and the power of your magic circles grows."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000464
+    m_Localized: "Offer gold"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000465
+    m_Localized: "The moment you took the offerings, a trap was triggered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000466
+    m_Localized: "Steal the offerings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000467
+    m_Localized: "You forgot unnecessary techniques and learned a more refined way to fight."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000468
+    m_Localized: "Discard unneeded memories"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000469
+    m_Localized: "You acquired knowledge of new magic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000470
+    m_Localized: "Gain knowledge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000471
+    m_Localized: "You learned new magic from ancient research."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000472
+    m_Localized: "Read the books"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000473
+    m_Localized: "You found some items that could be sold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000474
+    m_Localized: "Search for valuables"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000475
+    m_Localized: "By analyzing its parts, you learned a new tactic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000476
+    m_Localized: "Analyze the wreckage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000477
+    m_Localized: "You salvaged some rare parts."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000478
+    m_Localized: "Salvage the wreckage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000479
+    m_Localized: "You passed through an unknown space and returned with new power."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000480
+    m_Localized: "Jump in"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000481
+    m_Localized: "You understood how the teleport circle works and applied the technique."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000482
+    m_Localized: "Analyze it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000483
+    m_Localized: "You learned ancient techniques from the vault's mechanism."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000484
+    m_Localized: "Try to unlock it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000485
+    m_Localized: "You were hurt by a trap, but treasure lay inside."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000486
+    m_Localized: "Force it open"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000487
+    m_Localized: "You salvaged some valuable parts."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000488
+    m_Localized: "Dismantle it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000489
+    m_Localized: "The device started up and deployed a protective spell."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000490
+    m_Localized: "Activate it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000491
+    m_Localized: "Release it to unleash great power."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000492
+    m_Localized: "Anger"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000493
+    m_Localized: "Gain 1 Anger each time you are attacked."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000494
+    m_Localized: "Berserker"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000495
+    m_Localized: "Number of cards drawn increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000496
+    m_Localized: "Card Plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000497
+    m_Localized: "Each time the magic bullet moves 1 tile, its attack increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000498
+    m_Localized: "Combo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000499
+    m_Localized: "Maximum cost is reduced by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000500
+    m_Localized: "Cost Minus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000501
+    m_Localized: "Maximum cost is increased by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000502
+    m_Localized: "Cost Plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000503
+    m_Localized: "Reflects attacks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000504
+    m_Localized: "Reflect"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000505
+    m_Localized: "Fires magic when it reaches 0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000506
+    m_Localized: "Attack"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000507
+    m_Localized: "Performs a special attack when it reaches 0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000508
+    m_Localized: "Special Attack"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000509
+    m_Localized: "Activates by consuming Anger."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000510
+    m_Localized: "Release"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000511
+    m_Localized: "Fires magic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000512
+    m_Localized: "Normal Attack"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000513
+    m_Localized: "Take damage equal to the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000514
+    m_Localized: "Poison"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000515
+    m_Localized: "Number of attacks increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000516
+    m_Localized: "Rapid Fire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000517
+    m_Localized: "Recover HP every turn."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000518
+    m_Localized: "Regen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000519
+    m_Localized: "An ability that activates when its count reaches 0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000520
+    m_Localized: "Spirit Sigil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000521
+    m_Localized: "Places a magic circle."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000522
+    m_Localized: "Special Attack"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000523
+    m_Localized: "Initial attack power increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000524
+    m_Localized: "Strength"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000525
+    m_Localized: "Applies Poison."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000526
+    m_Localized: "Technical"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000527
+    m_Localized: "Attack power is reduced by 50%."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000528
+    m_Localized: "Fatigue"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000529
+    m_Localized: "Damage taken increases by 50%."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000530
+    m_Localized: "Weaken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000531
+    m_Localized: "Luverio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000532
+    m_Localized: "Azuria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000533
+    m_Localized: "Gacha"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000534
+    m_Localized: "Unlock Character"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000535
+    m_Localized: "Gain 1 <color=#00ffffff>Berserker</color>\\nwhen entering a stage."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000536
+    m_Localized: "<color=#00ffffff>Berserker</color>\\nGain +1 Anger each time you take damage."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000537
+    m_Localized: "Gain 1 <sprite=0><color=#00ffffff>Combo</color>\\nwhen entering a stage."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000538
+    m_Localized: "<sprite=0><color=#00ffffff>Combo</color>\\nEach time the magic bullet moves, its power increases by the stack count."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000539
+    m_Localized: "Trait"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000540
+    m_Localized: "Back to Title"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000541
+    m_Localized: "Close"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000542
+    m_Localized: "Close"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000543
+    m_Localized: "Cost"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000544
+    m_Localized: "Durability"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000545
+    m_Localized: "Retry"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000546
+    m_Localized: "Tap to continue"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000547
+    m_Localized: "Title"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000548
+    m_Localized: "To Title"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000549
+    m_Localized: "You obtained a new card!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000550
+    m_Localized: "Gained the power of Cost Plus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000551
+    m_Localized: "Took 5 damage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000552
+    m_Localized: "Obtained 100G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000553
+    m_Localized: "Recovered 7 HP"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000554
+    m_Localized: "Runegadiel, Guardian of the Ancient Age"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000555
+    m_Localized: "Boss"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000556
+    m_Localized: "Battle this floor's boss"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000557
+    m_Localized: "Elite Enemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000558
+    m_Localized: "Battle a powerful enemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000559
+    m_Localized: "Magic Circle Upgrade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000560
+    m_Localized: "Upgrade a card"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000561
+    m_Localized: "Event"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000562
+    m_Localized: "Anything could happen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000563
+    m_Localized: "Gold\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000564
+    m_Localized: "Normal Enemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000565
+    m_Localized: "Battle an enemy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000566
+    m_Localized: "Shop"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000567
+    m_Localized: "Buy or remove cards, and recover"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000568
+    m_Localized: "Remove Card"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000569
+    m_Localized: "It seems you can remove a card here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000570
+    m_Localized: "Upgrade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000571
+    m_Localized: "It seems you can upgrade a card here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000572
+    m_Localized: "Rest"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000573
+    m_Localized: "Tap a card twice to obtain it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000574
+    m_Localized: "Skip"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000575
+    m_Localized: "Learn a New Magic Circle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000576
+    m_Localized: "Volume Settings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000577
+    m_Localized: "Agree"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000578
+    m_Localized: "Terms of Use (Trial Version)\r\n\r\nThis is a trial version of an original game currently in development.\r\nPlease agree to the following before playing.\r\n\r\n- Reverse engineering, including decompiling, analyzing, or modifying, is prohibited.\r\n- Extracting, copying, or redistributing in-game data or assets (images, audio, scenarios, etc.) is prohibited.\r\n- Creating or distributing modified or unofficial versions of this app is prohibited.\r\n- As this is a trial version, bugs may occur."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000579
+    m_Localized: "Full Terms of Use"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

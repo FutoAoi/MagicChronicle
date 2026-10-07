@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Japanese (ja)
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-String-Tables-Japanese (ja)
-  m_GUID: 97c409cc98e9c2644a8d2ecba45999e8
-  m_SerializeEntries: []
+  m_GUID: 7e634cb61521160409a128669c3f2ca8
+  m_SerializeEntries:
+  - m_GUID: 1ba05534cbe7c4a49a7dd6a96b8e1475
+    m_Address: MagicChronicle_ja
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 53d7b4cfa30b83348a492bcf6c492912, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: ab6b9bb71d5198949a57a1f3b5de5715, type: 2}
+    - {fileID: 11400000, guid: fd7ba201275c08d42a1cff8d3da01910, type: 2}
+    - {fileID: 11400000, guid: 3bbee44670497d04090af356309cbaf9, type: 2}
