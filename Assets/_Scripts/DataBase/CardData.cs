@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 [CreateAssetMenu(menuName = "Datas/Card")]
 public class CardData : ScriptableObject
@@ -34,9 +35,9 @@ public class CardData : ScriptableObject
     public int CardID => _cardID;
     public Sprite CardSprite => _cardSprite;
     public Sprite MagicSprite => _magicSprite;
-    public string Name => _name;
-    public string Description => _description;
-    public string ColorDescription => _colorDescription;
+    public string Name => GetLocalizedText("NAME", _name);
+    public string Description => GetLocalizedText("DESC", _description);
+    public string ColorDescription => GetLocalizedText("DESC_COLOR", _colorDescription);
     public int Cost => _cost;
     public MagicVector[] DisplayArrowVector => _displayArrowVector;
     public IEffect MoveEffect => _moveEffect;
@@ -51,6 +52,24 @@ public class CardData : ScriptableObject
     public bool CanEvolution => _canEvolution;
     public int EvolutionID => _evolutionID;
     public List<DescriptionKeyWord> KeyWords => _keywords;
+
+    private const string LOCALIZE_TABLE = "MagicChronicle";
+
+    /// <summary>
+    /// 現在の言語のテキストをローカライズテーブルから取得する
+    /// Keyは CARD_{カードID3桁}_{suffix}（例：CARD_001_NAME）
+    /// テーブルにKeyが無い・エディタ非再生時はアセットに入っている文字列を返す
+    /// </summary>
+    private string GetLocalizedText(string suffix, string fallback)
+    {
+        if (!Application.isPlaying) return fallback;
+
+        var table = LocalizationSettings.StringDatabase.GetTable(LOCALIZE_TABLE);
+        var entry = table != null ? table.GetEntry($"CARD_{_cardID:D3}_{suffix}") : null;
+        if (entry == null || string.IsNullOrEmpty(entry.Value)) return fallback;
+        return entry.GetLocalizedString();
+    }
+
 #if UNITY_EDITOR
     private void OnValidate()
     {

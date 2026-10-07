@@ -1728,251 +1728,251 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1000429
-    m_Key: EVENTCHOICE_0_StrangerVoice_Choice_Power_RESULT
+    m_Key: EVENTCHOICE_Choice_Power_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000430
-    m_Key: EVENTCHOICE_0_StrangerVoice_Choice_Power_TEXT
+    m_Key: EVENTCHOICE_Choice_Power_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000431
-    m_Key: EVENTCHOICE_0_StrangerVoice_Choice_Wisdom_RESULT
+    m_Key: EVENTCHOICE_Choice_Wisdom_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000432
-    m_Key: EVENTCHOICE_0_StrangerVoice_Choice_Wisdom_TEXT
+    m_Key: EVENTCHOICE_Choice_Wisdom_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000433
-    m_Key: EVENTCHOICE_1_SignsOfTheEnemy_Enemy__RESULT
+    m_Key: EVENTCHOICE_Enemy__RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000434
-    m_Key: EVENTCHOICE_1_SignsOfTheEnemy_Enemy__TEXT
+    m_Key: EVENTCHOICE_Enemy__TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000435
-    m_Key: EVENTCHOICE_1_SignsOfTheEnemy_Enemy_Choice_1_RESULT
+    m_Key: EVENTCHOICE_Enemy_Choice_1_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000436
-    m_Key: EVENTCHOICE_1_SignsOfTheEnemy_Enemy_Choice_1_TEXT
+    m_Key: EVENTCHOICE_Enemy_Choice_1_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000437
-    m_Key: EVENTCHOICE_10_WeatheredLab_Choice_CompleteTheMagicCircle_RESULT
+    m_Key: EVENTCHOICE_Choice_CompleteTheMagicCircle_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000438
-    m_Key: EVENTCHOICE_10_WeatheredLab_Choice_CompleteTheMagicCircle_TEXT
+    m_Key: EVENTCHOICE_Choice_CompleteTheMagicCircle_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000439
-    m_Key: EVENTCHOICE_10_WeatheredLab_Choice_TakingResearchMaterialsHome_RESULT
+    m_Key: EVENTCHOICE_Choice_TakingResearchMaterialsHome_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000440
-    m_Key: EVENTCHOICE_10_WeatheredLab_Choice_TakingResearchMaterialsHome_TEXT
+    m_Key: EVENTCHOICE_Choice_TakingResearchMaterialsHome_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000441
-    m_Key: EVENTCHOICE_11_InjuredAdventurer_Choice_GiveMoney_RESULT
+    m_Key: EVENTCHOICE_Choice_GiveMoney_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000442
-    m_Key: EVENTCHOICE_11_InjuredAdventurer_Choice_GiveMoney_TEXT
+    m_Key: EVENTCHOICE_Choice_GiveMoney_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000443
-    m_Key: EVENTCHOICE_11_InjuredAdventurer_Choice_Ignore_RESULT
+    m_Key: EVENTCHOICE_Choice_Ignore_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000444
-    m_Key: EVENTCHOICE_11_InjuredAdventurer_Choice_Ignore_TEXT
+    m_Key: EVENTCHOICE_Choice_Ignore_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000445
-    m_Key: EVENTCHOICE_11_Peddler_Choice_Information_RESULT
+    m_Key: EVENTCHOICE_Choice_Information_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000446
-    m_Key: EVENTCHOICE_11_Peddler_Choice_Information_TEXT
+    m_Key: EVENTCHOICE_Choice_Information_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000447
-    m_Key: EVENTCHOICE_11_Peddler_Choice_No_RESULT
+    m_Key: EVENTCHOICE_Choice_No_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000448
-    m_Key: EVENTCHOICE_11_Peddler_Choice_No_TEXT
+    m_Key: EVENTCHOICE_Choice_No_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000449
-    m_Key: EVENTCHOICE_11_Peddler_Choice_Products_RESULT
+    m_Key: EVENTCHOICE_Choice_Products_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000450
-    m_Key: EVENTCHOICE_11_Peddler_Choice_Products_TEXT
+    m_Key: EVENTCHOICE_Choice_Products_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000451
-    m_Key: EVENTCHOICE_12_StoppedPocketWatch_Choice_CarryingAWatch_RESULT
+    m_Key: EVENTCHOICE_Choice_CarryingAWatch_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000452
-    m_Key: EVENTCHOICE_12_StoppedPocketWatch_Choice_CarryingAWatch_TEXT
+    m_Key: EVENTCHOICE_Choice_CarryingAWatch_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000453
-    m_Key: EVENTCHOICE_12_StoppedPocketWatch_Choice_CheckTheClock_RESULT
+    m_Key: EVENTCHOICE_Choice_CheckTheClock_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000454
-    m_Key: EVENTCHOICE_12_StoppedPocketWatch_Choice_CheckTheClock_TEXT
+    m_Key: EVENTCHOICE_Choice_CheckTheClock_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000455
-    m_Key: EVENTCHOICE_13_TimeLog_Choice_ReadMore_RESULT
+    m_Key: EVENTCHOICE_Choice_ReadMore_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000456
-    m_Key: EVENTCHOICE_13_TimeLog_Choice_ReadMore_TEXT
+    m_Key: EVENTCHOICE_Choice_ReadMore_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000457
-    m_Key: EVENTCHOICE_13_TimeLog_Choice_StopReading_RESULT
+    m_Key: EVENTCHOICE_Choice_StopReading_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000458
-    m_Key: EVENTCHOICE_13_TimeLog_Choice_StopReading_TEXT
+    m_Key: EVENTCHOICE_Choice_StopReading_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000459
-    m_Key: EVENTCHOICE_2_UnknownMemory_Choice_DontPlay_RESULT
+    m_Key: EVENTCHOICE_Choice_DontPlay_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000460
-    m_Key: EVENTCHOICE_2_UnknownMemory_Choice_DontPlay_TEXT
+    m_Key: EVENTCHOICE_Choice_DontPlay_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000461
-    m_Key: EVENTCHOICE_2_UnknownMemory_Choice_PlayDevice_RESULT
+    m_Key: EVENTCHOICE_Choice_PlayDevice_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000462
-    m_Key: EVENTCHOICE_2_UnknownMemory_Choice_PlayDevice_TEXT
+    m_Key: EVENTCHOICE_Choice_PlayDevice_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000463
-    m_Key: EVENTCHOICE_3_AncientAltar_Choice_Gold_RESULT
+    m_Key: EVENTCHOICE_Choice_Gold_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000464
-    m_Key: EVENTCHOICE_3_AncientAltar_Choice_Gold_TEXT
+    m_Key: EVENTCHOICE_Choice_Gold_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000465
-    m_Key: EVENTCHOICE_3_AncientAltar_Choice_Take_RESULT
+    m_Key: EVENTCHOICE_Choice_Take_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000466
-    m_Key: EVENTCHOICE_3_AncientAltar_Choice_Take_TEXT
+    m_Key: EVENTCHOICE_Choice_Take_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000467
-    m_Key: EVENTCHOICE_4_TheLibraryOfOblivion_Choice_DiscardMemory_RESULT
+    m_Key: EVENTCHOICE_Choice_DiscardMemory_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000468
-    m_Key: EVENTCHOICE_4_TheLibraryOfOblivion_Choice_DiscardMemory_TEXT
+    m_Key: EVENTCHOICE_Choice_DiscardMemory_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000469
-    m_Key: EVENTCHOICE_4_TheLibraryOfOblivion_Choice_GetIntelligence_RESULT
+    m_Key: EVENTCHOICE_Choice_GetIntelligence_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000470
-    m_Key: EVENTCHOICE_4_TheLibraryOfOblivion_Choice_GetIntelligence_TEXT
+    m_Key: EVENTCHOICE_Choice_GetIntelligence_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000471
-    m_Key: EVENTCHOICE_5_TheRealmOfLostKnowledge_Choice_ReadingBooks_RESULT
+    m_Key: EVENTCHOICE_Choice_ReadingBooks_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000472
-    m_Key: EVENTCHOICE_5_TheRealmOfLostKnowledge_Choice_ReadingBooks_TEXT
+    m_Key: EVENTCHOICE_Choice_ReadingBooks_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000473
-    m_Key: EVENTCHOICE_5_TheRealmOfLostKnowledge_Choice_ToScavengeForValuables_RESULT
+    m_Key: EVENTCHOICE_Choice_ToScavengeForValuables_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000474
-    m_Key: EVENTCHOICE_5_TheRealmOfLostKnowledge_Choice_ToScavengeForValuables_TEXT
+    m_Key: EVENTCHOICE_Choice_ToScavengeForValuables_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000475
-    m_Key: EVENTCHOICE_6_TheGuardiansWreckage_Choice_AnalyzingTheWreckage_RESULT
+    m_Key: EVENTCHOICE_Choice_AnalyzingTheWreckage_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000476
-    m_Key: EVENTCHOICE_6_TheGuardiansWreckage_Choice_AnalyzingTheWreckage_TEXT
+    m_Key: EVENTCHOICE_Choice_AnalyzingTheWreckage_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000477
-    m_Key: EVENTCHOICE_6_TheGuardiansWreckage_Choice_CollectTheParts_RESULT
+    m_Key: EVENTCHOICE_Choice_CollectTheParts_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000478
-    m_Key: EVENTCHOICE_6_TheGuardiansWreckage_Choice_CollectTheParts_TEXT
+    m_Key: EVENTCHOICE_Choice_CollectTheParts_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000479
-    m_Key: EVENTCHOICE_7_AnUnstableTransferLineup_Chice_DiveIn_RESULT
+    m_Key: EVENTCHOICE_Chice_DiveIn_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000480
-    m_Key: EVENTCHOICE_7_AnUnstableTransferLineup_Chice_DiveIn_TEXT
+    m_Key: EVENTCHOICE_Chice_DiveIn_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000481
-    m_Key: EVENTCHOICE_7_AnUnstableTransferLineup_Choice_Analyze_RESULT
+    m_Key: EVENTCHOICE_Choice_Analyze_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000482
-    m_Key: EVENTCHOICE_7_AnUnstableTransferLineup_Choice_Analyze_TEXT
+    m_Key: EVENTCHOICE_Choice_Analyze_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000483
-    m_Key: EVENTCHOICE_8_AncientVault_Choice_AttemptToUnlock_RESULT
+    m_Key: EVENTCHOICE_Choice_AttemptToUnlock_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000484
-    m_Key: EVENTCHOICE_8_AncientVault_Choice_AttemptToUnlock_TEXT
+    m_Key: EVENTCHOICE_Choice_AttemptToUnlock_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000485
-    m_Key: EVENTCHOICE_8_AncientVault_Choice_ForceOpen_RESULT
+    m_Key: EVENTCHOICE_Choice_ForceOpen_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000486
-    m_Key: EVENTCHOICE_8_AncientVault_Choice_ForceOpen_TEXT
+    m_Key: EVENTCHOICE_Choice_ForceOpen_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000487
-    m_Key: EVENTCHOICE_9_MagicPowerSupplyUnit_Choice_Demolish_RESULT
+    m_Key: EVENTCHOICE_Choice_Demolish_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000488
-    m_Key: EVENTCHOICE_9_MagicPowerSupplyUnit_Choice_Demolish_TEXT
+    m_Key: EVENTCHOICE_Choice_Demolish_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000489
-    m_Key: EVENTCHOICE_9_MagicPowerSupplyUnit_Choice_Start_RESULT
+    m_Key: EVENTCHOICE_Choice_Start_RESULT
     m_Metadata:
       m_Items: []
   - m_Id: 1000490
-    m_Key: EVENTCHOICE_9_MagicPowerSupplyUnit_Choice_Start_TEXT
+    m_Key: EVENTCHOICE_Choice_Start_TEXT
     m_Metadata:
       m_Items: []
   - m_Id: 1000491
@@ -2329,6 +2329,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1000579
     m_Key: UI_TITLE_TERMS_LINK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000580
+    m_Key: EVENTRESULT_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000581
+    m_Key: EVENTRESULT_GET_BUFF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000582
+    m_Key: EVENTRESULT_GET_MONEY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000583
+    m_Key: EVENTRESULT_HEAL
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -19,8 +19,8 @@ public class DescriptionWindow : MonoBehaviour
 
     public void SetKeyWordWindow(KeywordData data)
     {
-        _name.text = data.KeyName;
+        _name.text = data.LocalizedName;
         _name.color = data.KeywordColor;
-        _description.text = data.Description;
+        _description.text = data.LocalizedDescription;
     }
 }
