@@ -2347,6 +2347,18 @@ MonoBehaviour:
     m_Key: EVENTRESULT_HEAL
     m_Metadata:
       m_Items: []
+  - m_Id: 1075360713736192
+    m_Key: UI_TITLE_ASSETS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080250324287488
+    m_Key: UI_TITLE_GAMEEND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1843856838033408
+    m_Key: UI_SERECT_NAME
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
