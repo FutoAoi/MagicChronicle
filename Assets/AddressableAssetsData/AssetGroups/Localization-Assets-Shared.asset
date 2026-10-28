@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: c54c3169375d67e4f9750ebfe2802b44
   m_SerializeEntries:
+  - m_GUID: 9ff808ec9551f2a428133cc323e63a4e
+    m_Address: Assets/Localization/imageTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff8e7715449af7d4983374e15a874ffe
     m_Address: Assets/Localization/MagicChronicle Shared Data.asset
     m_ReadOnly: 1
