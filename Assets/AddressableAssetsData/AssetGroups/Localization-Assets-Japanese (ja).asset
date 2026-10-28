@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Japanese (ja)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Japanese (ja)
+  m_GUID: e843667752e283b438f7fc96dc5c345a
+  m_SerializeEntries:
+  - m_GUID: 0729ec7139aabe24ea2af815dabd8e9f
+    m_Address: Image_1872x1054_Tutorial_Page1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4417a1c855e887646bce1a86e5cb17a3
+    m_Address: Image_1872x1054_Tutorial_Page5
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 565938149db783d48a10e2c66081f40a
+    m_Address: Image_1872x1054_Tutorial_Page6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8423ba938c8dd0b4e892eae5014344f4
+    m_Address: Image_1872x1054_Tutorial_Page2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cc2ea229a3aa344ebf13a2b1f886c7e
+    m_Address: Image_1872x1054_Tutorial_Page4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 905d649c65abb1b4997eee856ac32ada
+    m_Address: Image_1872x1054_Tutorial_Page3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 53d7b4cfa30b83348a492bcf6c492912, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 197107cddd3adf145802ab9f931f0e34, type: 2}
+    - {fileID: 11400000, guid: afef70fbdf9f36a4fad7c0f2741c7ef0, type: 2}
+    - {fileID: 11400000, guid: 83260117433154c47b203644070cbe00, type: 2}
