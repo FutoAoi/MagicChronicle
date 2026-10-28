@@ -24,6 +24,8 @@ public class EnemyData : ScriptableObject
     public int[] CardEffectID => _cardEffectID;
     public bool CanBuff => _canBuff;
     public BuffType[] Buffs => _buffs;
+    public bool IsSpecialAttackMagic => _isSpecialAttackMagic;
+    public AttackMagic SpecialAttackMagic => _specialAttackMagic;
     public int[] RewardAmount => _rewardAmount;
 
 
@@ -54,6 +56,10 @@ public class EnemyData : ScriptableObject
     [Header("-----バフ-----"), ShowIf("_isSpecialAttack")]
     [SerializeField, Tooltip("エネミーのバフ攻撃フラグ")] private bool _canBuff;
     [SerializeField, ShowIf("_canBuff"), Tooltip("エネミーのバフ攻撃のターン")] private BuffType[] _buffs;
+
+    [Header("-----特別攻撃魔法-----"), ShowIf("_isSpecialAttack")]
+    [SerializeField,Tooltip("特殊攻撃魔法フラグ")] private bool _isSpecialAttackMagic;
+    [SerializeField, Tooltip("特殊攻撃魔法")] private AttackMagic _specialAttackMagic;
 
     [Header("-----報酬-----")]
     [SerializeField, Tooltip("報酬量")] private int[] _rewardAmount = new int[2];
