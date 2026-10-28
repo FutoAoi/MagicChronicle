@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0cc7a83c410e4b8303eba8316be0a, type: 3}
+  m_Name: 11_Minoataurus
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  _stageID: 11
+  _background: {fileID: 7140154027537355629, guid: d5b314b5831f2ab4993951914c06eaeb, type: 3}
+  _slotSprites:
+  - {fileID: -6134627673231468249, guid: eaf41ae66f6a7f945a3b9b49eaa8b41c, type: 3}
+  - {fileID: 7302556056183302062, guid: f166cd8191d6fb5439a6c7948e86e88e, type: 3}
+  - {fileID: -4933487921599028924, guid: 00e9260bb80d7144fbcdd0ad247d54a7, type: 3}
+  - {fileID: 3374548275958145595, guid: 17f554e18f7e3a842b5e6b3fcae6cfd0, type: 3}
+  - {fileID: -9076172043808879977, guid: ddbe3c72bafb13a4b9fe5e413bdc1791, type: 3}
+  _width: 5
+  _height: 5
+  _obstacleID: 0
+  _obstaclePos: []
+  _enemies:
+  - _enemyID: 300
+    _enemyPosition: 2
+  _isBossStage: 1

@@ -1,0 +1,9 @@
+﻿<Solution>
+  <Project Path="CriMw.CriWare.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="spine-unity.csproj" />
+  <Project Path="spine-csharp.csproj" />
+  <Project Path="spine-unity-editor.csproj" />
+  <Project Path="CriMw.CriWare.Runtime.csproj" />
+</Solution>
