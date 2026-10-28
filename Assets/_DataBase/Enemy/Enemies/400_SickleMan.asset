@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e2a5f21979bbf47aa58b65548b088c, type: 3}
+  m_Name: 400_SickleMan
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  _enemyID: 400
+  _sprite: {fileID: 21300000, guid: d7fd1366f858fd848a895b461706de31, type: 3}
+  _spineEnemy: {fileID: 957196444655489780, guid: 7d6524c57eb4afb47bc9bb6a38ddc0f6, type: 3}
+  _enemyHP: 60
+  _enemyAP: 3
+  _enemyAttackTime: 0
+  _enemyAT: 2
+  _isBoss: 1
+  _isShadow: 0
+  _bossType: 0
+  _shadowPrefab: {fileID: 0}
+  _defaultBuffs: []
+  _isSpecialAttack: 1
+  _enemySAT: 3
+  _canBoardInterference: 0
+  _effectTime: 0
+  _cardEffectID: 
+  _canBuff: 0
+  _buffs: 
+  _isSpecialAttackMagic: 1
+  _specialAttackMagic: {fileID: 556352063450104007, guid: 6b15fe70995c9684a8a2942007739e90, type: 3}
+  _rewardAmount: c800000090010000

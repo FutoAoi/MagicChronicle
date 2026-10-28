@@ -12,6 +12,7 @@ public class Enemy : CharacterBase
     public bool IsAttackTurn => _isAttackTurn;
     public bool IsSpecialAttack => _isSpecialAttack;
     public int EnemyID => _enemyID;
+    public EnemyData Data => _enemy;
     public bool IsBoss => _isBoss;
     public bool IsPhantom => _isPhantom;
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation;
@@ -214,7 +215,7 @@ public class Enemy : CharacterBase
     /// î’ñ ä±è¬çUåÇ
     /// </summary>
     /// <returns></returns>
-    public IEnumerator SpecialAttack()
+    public IEnumerator SetMagicCircle()
     {
         if (_enemy.CanBoardInterference && !IsDead)
         {
@@ -269,6 +270,14 @@ public class Enemy : CharacterBase
         }
         
         _gameManager.AttackManager.FinishEnemySpecialAttack(false);
+    }
+
+    public void SpecialAttack()
+    {
+        if(_enemy.IsSpecialAttackMagic && !IsDead)
+        {
+            StartCoroutine(_gameManager.AttackManager.AttackTurn(false, _enemy.SpecialAttackMagic));
+        }
     }
 
     /// <summary>

@@ -76,7 +76,7 @@ public class AttackManager : MonoBehaviour
     /// çUåÇéwé¶
     /// </summary>
     /// <param name="isPlayer"></param>
-    public IEnumerator AttackTurn(bool isPlayer)
+    public IEnumerator AttackTurn(bool isPlayer,AttackMagic magicOverride = null)
     {
         IsAttack = true;
         AttackMagicIndex = 0;
@@ -99,7 +99,7 @@ public class AttackManager : MonoBehaviour
             int time = AttackMagicIndex;
             for (int i = 0; i < time; i++)
             {
-                _magic = _magicPool.GetAttackMagic(_enemyMagic);
+                _magic = _magicPool.GetAttackMagic(magicOverride != null ? magicOverride : _enemyMagic);
                 StartCoroutine(_magic.Attack(_enemyPos,
                     MagicVector.Left, _enemyRectTr));
 
@@ -248,7 +248,7 @@ public class AttackManager : MonoBehaviour
                         count++;
                         continue;
                     }
-                    StartCoroutine(enemy.SpecialAttack());
+                    StartCoroutine(enemy.SetMagicCircle());
 
                     yield return new WaitUntil(() => _isFinishSpecialAttack);
                     _isFinishSpecialAttack = false;
