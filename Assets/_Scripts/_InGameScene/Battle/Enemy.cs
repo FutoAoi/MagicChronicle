@@ -272,12 +272,15 @@ public class Enemy : CharacterBase
         _gameManager.AttackManager.FinishEnemySpecialAttack(false);
     }
 
-    public void SpecialAttack()
+    /// <summary>
+    /// 特殊攻撃魔法のモーションを再生し、待ち時間を返す
+    /// </summary>
+    public float PlaySpecialAttackMotion()
     {
-        if(_enemy.IsSpecialAttackMagic && !IsDead)
-        {
-            StartCoroutine(_gameManager.AttackManager.AttackTurn(false, _enemy.SpecialAttackMagic));
-        }
+        if (_skeletonAnimation == null) return 0f;
+        TrackEntry track = _skeletonAnimation.AnimationState.SetAnimation(0, "ground_motion", false);//後で差し替え
+        _skeletonAnimation.AnimationState.AddAnimation(0, "idle_motion", true, 0);
+        return track.Animation.Duration;
     }
 
     /// <summary>

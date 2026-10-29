@@ -91,3 +91,4 @@ MonoBehaviour:
   AttackPower: 1
   _glowingColor: {r: 0, g: 1, b: 0.09340906, a: 1}
   _attackParticleTypes: 0b
+  _isSickleMagic: 1

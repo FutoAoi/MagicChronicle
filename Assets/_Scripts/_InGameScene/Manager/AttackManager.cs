@@ -76,7 +76,7 @@ public class AttackManager : MonoBehaviour
     /// 攻撃指示
     /// </summary>
     /// <param name="isPlayer"></param>
-    public IEnumerator AttackTurn(bool isPlayer,AttackMagic magicOverride = null)
+    public IEnumerator AttackTurn(bool isPlayer,AttackMagic magicOverride = null,bool isSingleShot = false)
     {
         IsAttack = true;
         AttackMagicIndex = 0;
@@ -95,7 +95,7 @@ public class AttackManager : MonoBehaviour
         }
         else
         {
-            AttackMagicIndex = 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid);
+            AttackMagicIndex = isSingleShot ? 1 : 1 + _stageManager.EnemyList[_enemyPos.x].GetBuffCount(BuffType.Rapid);
             int time = AttackMagicIndex;
             for (int i = 0; i < time; i++)
             {
@@ -232,6 +232,31 @@ public class AttackManager : MonoBehaviour
 
                     yield return new WaitUntil(() => _isFinishEnemyBuff);
                     _isFinishEnemyBuff = false;
+                }
+                count++;
+            }
+            count = 0;
+
+            //特殊攻撃魔法
+            foreach (Enemy enemy in _stageManager.EnemyList)
+            {
+                if (enemy.IsBoss && _stageManager.BossPos != count)   // ボスは1回だけ
+                {
+                    count++;
+                    continue;
+                }
+                if (enemy.IsSpecialAttack && enemy.Data.IsSpecialAttackMagic && !enemy.IsDead)
+                {
+                    yield return new WaitForSeconds(enemy.PlaySpecialAttackMotion());
+
+                    CriAudioManager.Instance.PlaySe("SE_MagicShot");
+                    _enemyPos = new Vector2Int(count, _width - 1);
+                    _enemyRectTr = enemy.GetComponent<RectTransform>();
+                    StartCoroutine(AttackTurn(false, enemy.Data.SpecialAttackMagic, true));
+                    yield return new WaitUntil(() => _isFinishEnemyAttack);
+                    _isFinishEnemyAttack = false;
+
+                    if (_gameManager.Player.IsDead) yield break;
                 }
                 count++;
             }

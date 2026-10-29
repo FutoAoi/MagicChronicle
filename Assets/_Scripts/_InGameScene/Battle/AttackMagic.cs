@@ -16,6 +16,7 @@ public class AttackMagic : MonoBehaviour
 
     [SerializeField, Tooltip("É^ÉCÉãÇÃî≠åıêF")] private Color _glowingColor;
     [SerializeField] private ParticleType[] _attackParticleTypes;
+    [SerializeField] private bool _isSickleMagic = false;
 
     [NonSerialized] public MagicVector _currentVector;
 
@@ -203,6 +204,10 @@ public class AttackMagic : MonoBehaviour
             if (!_tileSlot.IsOccupied)
             {
                 //SlotÇ…âΩÇ‡ñ≥Ç¢Ç∆Ç´
+                if(_isSickleMagic)
+                {
+                    _tileSlot.PlaceCard(203,true);
+                }
             }
             else
             {
