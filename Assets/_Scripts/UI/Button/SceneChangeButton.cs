@@ -11,7 +11,7 @@ public class SceneChangeButton : MonoBehaviour
     {
         this.GetComponent<Button>().onClick.AddListener(SceneChange);
     }
-    private void SceneChange()
+    public void SceneChange()
     {
         CriAudioManager.Instance.PlaySe("SE_ButtonCharaOK");
         if (_panelSwitcher != null && _panelSwitcher.CurrentIndex == 0 )

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-English (en)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-English (en)
+  m_GUID: 5c5c39ad9181c07409ef8b37b4d893d1
+  m_SerializeEntries:
+  - m_GUID: 1550050ff96058c4389ef0514aa84195
+    m_Address: Image_1874x1054_Tutorial_English_Page6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29e43d2bc118244448bf27766f114354
+    m_Address: Image_1874x1054_Tutorial_English_Page3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 334fa4126e8d7564e9904f6078d9f28e
+    m_Address: Image_1874x1054_Tutorial_English_Page5
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7acf17597d8bad044a0a3e6aad6e4ced
+    m_Address: Image_1874x1054_Tutorial_English_Page2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 895f43f2641d3e544a8c147063b4d1b5
+    m_Address: Image_1874x1054_Tutorial_English_Page4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c42a283ddadf8f249a55ad030591a081
+    m_Address: Image_1874x1054_Tutorial_English_Page1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 53d7b4cfa30b83348a492bcf6c492912, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a21d1d96b7a3ce74895cbaf585929cec, type: 2}
+    - {fileID: 11400000, guid: e2b3f881eca4ffa4a96ee7faf0f046ed, type: 2}
+    - {fileID: 11400000, guid: 3488e91f4db97c049861faca62f636db, type: 2}
