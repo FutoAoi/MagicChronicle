@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public int EnemyID => _enemyID;
+    public string EnemyName => _enemyName;
     public Sprite Sprite => _sprite;
     public GameObject SpineEnemy => _spineEnemy;
     public int EnemyHP => _enemyHP;
@@ -26,10 +27,14 @@ public class EnemyData : ScriptableObject
     public BuffType[] Buffs => _buffs;
     public bool IsSpecialAttackMagic => _isSpecialAttackMagic;
     public AttackMagic SpecialAttackMagic => _specialAttackMagic;
+    public bool IsCallFriend => _isCallFriend;
+    public int CallFriendCount => _callFriendCount;
+    public int[] CallFriendIDs => _callFriendIDs;
     public int[] RewardAmount => _rewardAmount;
 
 
     [SerializeField, Tooltip("ID")] private int _enemyID;
+    [SerializeField, Tooltip("名前")] private string _enemyName;
     [SerializeField, Tooltip("見た目")] private Sprite _sprite;
     [SerializeField, Tooltip("スパイン")] private GameObject _spineEnemy;
     [SerializeField, Tooltip("体力")] private int _enemyHP;
@@ -60,6 +65,11 @@ public class EnemyData : ScriptableObject
     [Header("-----特別攻撃魔法-----"), ShowIf("_isSpecialAttack")]
     [SerializeField,Tooltip("特殊攻撃魔法フラグ")] private bool _isSpecialAttackMagic;
     [SerializeField, Tooltip("特殊攻撃魔法")] private AttackMagic _specialAttackMagic;
+
+    [Header("-----仲間呼ぶ-----")]
+    [SerializeField, Tooltip("仲間を呼ぶフラグ")] private bool _isCallFriend;
+    [SerializeField, ShowIf("_isCallFriend"), Tooltip("呼ぶ仲間の数")] private int _callFriendCount = 2;
+    [SerializeField, ShowIf("_isCallFriend"), Tooltip("呼ぶ仲間のID")] private int[] _callFriendIDs;
 
     [Header("-----報酬-----")]
     [SerializeField, Tooltip("報酬量")] private int[] _rewardAmount = new int[2];

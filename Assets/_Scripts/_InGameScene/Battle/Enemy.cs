@@ -83,15 +83,14 @@ public class Enemy : CharacterBase
         if (enemyID == 0)
         {
             _enemyImage.color = new Color(1f,1f,1f,0f);
-            _attackImage.gameObject.SetActive(false);
-            _specialImage.gameObject.SetActive(false);
             _attackTurnTMP.text = null;
             _specialTMP.text = null;
             IsDead = true;
         }
         else
         {
-            if(_enemy.SpineEnemy != null)
+            
+            if (_enemy.SpineEnemy != null)
             {
                 _spineEnemy = Instantiate(_enemy.SpineEnemy, this.transform);
                 _skeletonAnimation = _spineEnemy.GetComponent<SkeletonAnimation>();
@@ -99,6 +98,8 @@ public class Enemy : CharacterBase
 
             HpBarContller.ShowUI(CurrentHP, MaxHP);
         }
+        _attackImage.gameObject.SetActive(!(enemyID == 0));
+        _specialImage.gameObject.SetActive(!(enemyID == 0));
     }
 
     public void SetPhantom()
@@ -358,5 +359,15 @@ public class Enemy : CharacterBase
 
         WalletManager.Instance.ChangePlayerMoney(_enemy.RandomReword());
         CriAudioManager.Instance.PlaySe("SE_MoneyDrop");
+    }
+
+    public void Replace(int id)
+    {
+        IsDead = false;
+        SetEnemyStatus(id, _heightPos);
+        if (_gameManager.StageManager.SlotList[_heightPos][_gameManager.StageManager.Stage.Width - 1].TryGetComponent<TileSlot>(out var tile))
+        {
+            tile.DisplayMark();
+        }
     }
 }

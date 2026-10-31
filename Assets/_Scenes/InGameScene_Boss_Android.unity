@@ -3553,6 +3553,7 @@ MonoBehaviour:
   _enemyPanel: {fileID: 551759323}
   _serectPanel: {fileID: 349422005}
   _attackPointButton: {fileID: 1760919499865584810, guid: fd6738a40f17c854fb069900153190ab, type: 3}
+  _bossNameText: {fileID: 532087516}
   _widthSize: 0.5
   _heightSize: 0.6
 --- !u!1 &658268975
@@ -4698,7 +4699,7 @@ MonoBehaviour:
     CurrentFloorIndex: 0
     CurrentRoomIndex: 0
   _keywordDataBase: {fileID: 11400000, guid: 19c8b3ebc53a79a499a7744b38065641, type: 2}
-  StageID: 12
+  StageID: 50
   CurrentPhase: 6
   Reset: 0
   IsEnemyAction: 0

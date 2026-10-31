@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -262,6 +263,31 @@ public class AttackManager : MonoBehaviour
             }
             count = 0;
 
+            //仲間呼ぶ
+            if (_stageManager.Stage.IsBossStage)
+            {
+                Enemy boss = _stageManager.EnemyList[_stageManager.BossPos.GetValueOrDefault()];
+                Debug.Log("ボスの特殊攻撃フラグ: " + boss.IsSpecialAttack);
+                if (boss.Data.IsCallFriend && boss.IsSpecialAttack)
+                {
+                    List<Enemy> deadEnemies = new List<Enemy>();
+                    foreach (Enemy enemy in _stageManager.EnemyList)
+                    {
+                        if (enemy.IsDead)
+                        {
+                            deadEnemies.Add(enemy);
+                        }
+                    }
+
+                    Debug.Log("呼び出し可能な敵の数: " + deadEnemies.Count);
+                    if (deadEnemies.Count <= boss.Data.CallFriendCount && deadEnemies.Count > 0)
+                    {
+                        deadEnemies[UnityEngine.Random.Range(0, deadEnemies.Count)]
+                            .Replace(boss.Data.CallFriendIDs[UnityEngine.Random.Range(0, boss.Data.CallFriendIDs.Length)]);
+                        yield return new WaitForSeconds(boss.PlaySpecialAttackMotion());
+                    }
+                }
+            }
 
             //盤面干渉
             foreach (Enemy enemy in _stageManager.EnemyList)
@@ -281,6 +307,7 @@ public class AttackManager : MonoBehaviour
                 }
                 count++;
             }
+
 
             if (CheckEnemy())
             {

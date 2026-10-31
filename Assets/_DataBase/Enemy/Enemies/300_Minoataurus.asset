@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 300_Minoataurus
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _enemyID: 300
+  _enemyName: "\u30DF\u30CE\u30BF\u30A6\u30ED\u30B9"
   _sprite: {fileID: 21300000, guid: d7fd1366f858fd848a895b461706de31, type: 3}
   _spineEnemy: {fileID: 6134241865453284310, guid: e58927386a362f64487d7be7768e93ad, type: 3}
   _enemyHP: 60
@@ -33,4 +34,9 @@ MonoBehaviour:
   _cardEffectID: 
   _canBuff: 0
   _buffs: 
+  _isSpecialAttackMagic: 0
+  _specialAttackMagic: {fileID: 0}
+  _isCallFriend: 0
+  _callFriendCount: 2
+  _callFriendIDs: 
   _rewardAmount: 0000000000000000

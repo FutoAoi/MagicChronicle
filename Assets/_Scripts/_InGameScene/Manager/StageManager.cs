@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class StageManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class StageManager : MonoBehaviour
     [SerializeField, Tooltip("エネミーのパネル")] private GameObject _enemyPanel;
     [SerializeField, Tooltip("攻撃場所選択パネル")] private GameObject _serectPanel;
     [SerializeField, Tooltip("攻撃場所選択ボタン")] private GameObject _attackPointButton;
+    [SerializeField, Tooltip("ボスの名前")] private TextMeshProUGUI _bossNameText;
 
     [Header("タイルの幅")]
     [SerializeField, Tooltip("横幅")] private float _widthSize = 0.8f;
@@ -106,6 +108,7 @@ public class StageManager : MonoBehaviour
             if (GameManager.Instance.EnemyDataBase.GetEnemyData(enemy.EnemyID).IsBoss)
             {
                 _bossPos = enemy.EnemyPosition;
+                _bossNameText.text = GameManager.Instance.EnemyDataBase.GetEnemyData(enemy.EnemyID).EnemyName;
             }
         }
 

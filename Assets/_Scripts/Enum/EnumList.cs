@@ -161,7 +161,8 @@ public enum DescriptionWindowType : byte
 public enum BossType : byte
 {
     None,
-    Guardian
+    Guardian,
+    Chronicle
 }
 
 public enum EventResultType : byte
